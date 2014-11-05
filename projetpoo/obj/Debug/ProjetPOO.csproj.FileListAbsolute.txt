@@ -1,0 +1,7 @@
+H:\4info\TP C++\ProjetPOO\ProjetPOO\bin\Debug\ProjetPOO.dll
+H:\4info\TP C++\ProjetPOO\ProjetPOO\bin\Debug\ProjetPOO.pdb
+H:\4info\TP C++\ProjetPOO\ProjetPOO\obj\Debug\ProjetPOO.dll
+H:\4info\TP C++\ProjetPOO\ProjetPOO\obj\Debug\ProjetPOO.pdb
+C:\Users\aaudinot\Downloads\export2\export\projetpoo\ProjetPOO\obj\Debug\ProjetPOO.csprojResolveAssemblyReference.cache
+C:\Users\aaudinot\Downloads\export2\export\projetpoo\ProjetPOO\obj\Debug\ProjetPOO.dll
+C:\Users\aaudinot\Downloads\export2\export\projetpoo\ProjetPOO\obj\Debug\ProjetPOO.pdb
