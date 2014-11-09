@@ -17,5 +17,10 @@ namespace ProjetPOO
             {
             }
         }
+
+        public void initBoard()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -51,5 +51,10 @@ namespace ProjetPOO
         {
             throw new System.NotImplementedException();
         }
+
+        public void init()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
