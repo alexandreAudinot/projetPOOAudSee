@@ -56,6 +56,7 @@
     <Compile Include="IBuilder.cs" />
     <Compile Include="Ifactory.cs" />
     <Compile Include="IUnit.cs" />
+    <Compile Include="LoadGame.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Mountain.cs" />
     <Compile Include="MyDisplay.cs" />

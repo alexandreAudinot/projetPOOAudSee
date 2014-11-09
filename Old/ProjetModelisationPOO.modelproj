@@ -29,12 +29,12 @@
       <SubType>Content</SubType>
       <DependentUpon>Actions.sequencediagram</DependentUpon>
     </Content>
-    <Content Include="Diagramme De sequence init.sequencediagram">
+    <Content Include="DiagrammeEnsemble.sequencediagram">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Diagramme De sequence init.sequencediagram.layout">
+    <Content Include="DiagrammeEnsemble.sequencediagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>Diagramme De sequence init.sequencediagram</DependentUpon>
+      <DependentUpon>DiagrammeEnsemble.sequencediagram</DependentUpon>
     </Content>
     <Content Include="InitBoard.sequencediagram">
       <SubType>Content</SubType>

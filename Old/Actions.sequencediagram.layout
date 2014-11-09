@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sequenceDesignerDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Actions">
+  <SequenceDesignerModelMoniker Id="da57d860-d90d-4ed1-933b-065fac5f3750" />
+  <nestedChildShapes>
+    <lifelineShape Id="5c28f0b7-2b2b-4aaa-b4fe-088e34d40fd4" absoluteBounds="1.7875000397364298, 1, 0.15, 7" visible="true" visualStyleMode="Modified">
+      <lifelineMoniker Id="3b478f53-e700-4483-81ce-e82ea16cee0f" LastKnownName="Joueur" />
+      <relativeChildShapes>
+        <umlLifelineHeadShape Id="22b21102-b7af-46d9-985d-3b7029feb45f" absoluteBounds="1.3625000397364298, 0.6, 1, 0.4" customColor="White" visualStyleMode="Modified">
+          <lifelineMoniker Id="3b478f53-e700-4483-81ce-e82ea16cee0f" LastKnownName="Joueur" />
+          <relativeChildShapes />
+        </umlLifelineHeadShape>
+        <lifelineHoverShape Id="802b62f7-0485-4490-8352-7cca0fa04e57" absoluteBounds="1.7875000397364298, 1, 0, 7">
+          <lifelineMoniker Id="3b478f53-e700-4483-81ce-e82ea16cee0f" LastKnownName="Joueur" />
+        </lifelineHoverShape>
+      </relativeChildShapes>
+    </lifelineShape>
+  </nestedChildShapes>
+</sequenceDesignerDiagram>

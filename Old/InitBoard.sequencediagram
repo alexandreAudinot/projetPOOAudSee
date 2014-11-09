@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="fa842c7e-095a-4117-a2eb-c8eb332f32c8" name="InitBoard" linkedPackageId="7c6293cd-2213-4584-859e-ac7e55655fe6" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="fa842c7e-095a-4117-a2eb-c8eb332f32c8" name="InitBoard" linkedPackageId="7c6293cd-2213-4584-859e-ac7e55655fe6" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
   <appliedStereotypesInternal>
     <stereotypeInstance Id="48e49565-116b-4410-b694-43deada6410a" name="namespace" profile="CSharpProfile">
       <elementDefinition Id="a1ec986a-615a-4114-a809-aa5a3e0f3e0b" />
@@ -72,6 +72,20 @@
       </propertyInstances>
     </stereotypeInstance>
   </appliedStereotypesInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="af3a9f62-6e54-474f-bdfc-eb6fa91a7119">
+      <profileInstance Id="9db51ee1-0b27-4be0-b2fa-cd38ab6fe280" name="CSharpProfile">
+        <elementDefinition Id="fc73da4c-5909-403f-ab19-bfea4fc944c7" />
+      </profileInstance>
+      <elementDefinition Id="14e68f09-4dd0-406c-bccd-779d59d81536" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="bb69a421-283e-442a-85cf-2f3343144489">
+      <profileInstance Id="63274bcd-ada8-4211-9e9d-1014787bf331" name="TextTemplateBindings">
+        <elementDefinition Id="2e3473df-0421-4d63-b2b2-db95954446a2" />
+      </profileInstance>
+      <elementDefinition Id="f2e1b4dd-8197-41ff-a9e2-dafbd9c457a6" />
+    </packageHasProfileInstances>
+  </profileInstances>
   <packagedElements>
     <packageHasNamedElement>
       <interaction Id="0b0d4aff-ced0-48fe-a920-e89623f99abe" name="InitBoard" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
@@ -367,16 +381,16 @@
               <lifelineMoniker Id="cb71a1eb-1007-4561-b0a2-f1d9a8c1608e" LastKnownName="Tile" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="c0110f1d-9d36-41ee-a060-956b063cfbde" name="MessageOccurrenceSpecification85">
-            <elementDefinition Id="cd7d84f1-cd6a-4a87-b058-faeb80985029" />
-            <covered>
-              <lifelineMoniker Id="dda6960f-b459-4e6c-b803-4f05b7ffef6b" LastKnownName="AbstractBoard" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="1829dc3f-baf4-43af-a2dd-a7c3b0c5573d" name="MessageOccurrenceSpecification86">
             <elementDefinition Id="87164d10-1602-42bb-a1c8-c3d66b53d0fd" />
             <covered>
               <lifelineMoniker Id="4125a16f-9283-4d64-94e4-3ed0178bcfce" LastKnownName="Monteur" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="c0110f1d-9d36-41ee-a060-956b063cfbde" name="MessageOccurrenceSpecification85">
+            <elementDefinition Id="cd7d84f1-cd6a-4a87-b058-faeb80985029" />
+            <covered>
+              <lifelineMoniker Id="dda6960f-b459-4e6c-b803-4f05b7ffef6b" LastKnownName="AbstractBoard" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="1d269daf-bdc9-48b0-b6f8-46a3ceae3026" name="ExecutionOccurrenceSpecification48">
@@ -436,16 +450,16 @@
               <lifelineMoniker Id="7cd71a23-622f-4d9c-bbd5-ad0144b12683" LastKnownName="IBuilder" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="ecb71716-9f31-4796-a0e2-62cd8c997f18" name="MessageOccurrenceSpecification7">
-            <elementDefinition Id="6a69c7c1-bc95-4cc6-9b8c-4bf89f9f7380" />
-            <covered>
-              <lifelineMoniker Id="152ed016-193c-49cc-8c71-e3575921df55" LastKnownName="CreateGame" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="92f83b44-86c7-4816-9618-f2bc390c3335" name="MessageOccurrenceSpecification8">
             <elementDefinition Id="26d22408-b602-4600-a19f-f64b05bb0c4d" />
             <covered>
               <lifelineMoniker Id="2595e129-797e-4ec4-ab6c-2312b2adfd30" LastKnownName="Joueur" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="ecb71716-9f31-4796-a0e2-62cd8c997f18" name="MessageOccurrenceSpecification7">
+            <elementDefinition Id="6a69c7c1-bc95-4cc6-9b8c-4bf89f9f7380" />
+            <covered>
+              <lifelineMoniker Id="152ed016-193c-49cc-8c71-e3575921df55" LastKnownName="CreateGame" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="41693421-8c77-4348-84e2-cfac967d1d76" name="ExecutionOccurrenceSpecification6">
@@ -714,18 +728,6 @@
           <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
         </profileInstance>
         <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-      </packageHasProfileInstances>
-      <packageHasProfileInstances Id="af3a9f62-6e54-474f-bdfc-eb6fa91a7119">
-        <profileInstance Id="9db51ee1-0b27-4be0-b2fa-cd38ab6fe280" name="CSharpProfile">
-          <elementDefinition Id="fc73da4c-5909-403f-ab19-bfea4fc944c7" />
-        </profileInstance>
-        <elementDefinition Id="14e68f09-4dd0-406c-bccd-779d59d81536" />
-      </packageHasProfileInstances>
-      <packageHasProfileInstances Id="bb69a421-283e-442a-85cf-2f3343144489">
-        <profileInstance Id="63274bcd-ada8-4211-9e9d-1014787bf331" name="TextTemplateBindings">
-          <elementDefinition Id="2e3473df-0421-4d63-b2b2-db95954446a2" />
-        </profileInstance>
-        <elementDefinition Id="f2e1b4dd-8197-41ff-a9e2-dafbd9c457a6" />
       </packageHasProfileInstances>
     </profileInstances>
   </package>
