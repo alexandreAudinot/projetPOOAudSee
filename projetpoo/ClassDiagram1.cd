@@ -198,6 +198,13 @@
       <FileName>SaveGame.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="ProjetPOO.LoadGame">
+    <Position X="18.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>LoadGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="ProjetPOO.Board">
     <Position X="11.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
