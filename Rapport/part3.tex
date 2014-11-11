@@ -1,0 +1,32 @@
+Nous allons maintenant faire une ébauche de la structure de notre code, avec les différents patrons de conception utilisés.
+
+\subsection{Patrons de conception}
+
+Pour répondre aux impératifs du projet, nous utiliserons cinq patrons de conception dans le but d'obtenir un code clair, optimisé et facile à entretenir. 
+
+\begin{itemize}
+  \item Fabrique : La création des unités de chaque joueur lors de leur placement en début de partie sera gérée par le patron "Fabrique"
+  \item Poids-mouche : Afin d'éviter de dupliquer des objets identiques dans la mémoire tout en gardant un code simple, les tuiles de la carte ne seront instantiées qu'une seule fois par type (plaine, forêt et montagne), la carte ne contiendra que des liens vers ces instances grace au patron "Poids-mouche".
+  \item Stratégie : Les différentes difficultés du jeu (taille de la carte, nombre de tours, nombre d'unités par joueur) seront implémentés via le patron "Stratégie"
+  \item Monteur : La fabrication d'une carte lors d'une nouvelle partie ou d'un chargement sera mis en oeuvre par le patron "Monteur"
+  \item Modèle-Vue-Contrôleur : Le code adoptera le patron "Modèle-Vue-Contrôleur", ce qui permet
+\end{itemize}
+
+\begin{figure}[!h]
+\centering
+%\includegraphics[width=1\textwidth]{img/???.png}
+\caption{Diagramme de classe : patrons de conception}
+\end{figure}
+
+\subsection{Structure du code}
+
+La structure de la partie "modèle" du code source est modelisée par ce \textsc{diagramme~\ref{structure}}. Il ne représente que la partie "Modèle" de l'architecture, les parties "Vue" et "Contrôleur" ne sont pas affichées.
+
+\begin{figure}[!h]
+\centering
+\label{structure}
+%\includegraphics[width=1\textwidth]{img/???.png}
+\caption{Diagramme de classe : structure globale}
+\end{figure}
+
+

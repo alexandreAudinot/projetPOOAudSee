@@ -1,0 +1,38 @@
+Le but du jeu est d'avoir plus de points que l'adversaire au bout de 5/20/30 tours (selon la difficulté). Chaque joueur commence avec un certain nombre d'unités (également selon la difficulté) qu'il pourra déplacer à chaque tour afin d'occuper plus de cases ou de détruire des unités adverses. Le placement de chaque unité rapporte plus ou moins de points.
+
+\subsection{Carte du monde}
+
+Les unités se déplaceront sur une carte de taille variable selon la difficulté. Les cases seront hexagonnales \ref{cases}, les unités auront donc au maximum 6 déplacements/attaques possibles. IL existe trois type de tuile possible : plaine, forêt et montagne. Les différentes races aront des interactions spéciales avec ces tuiles.
+
+\begin{figure}[!h]
+\centering
+\label{cases}
+%\includegraphics[width=1\textwidth]{img/???.png}
+\caption{Cases de la carte}
+\end{figure}
+
+\subsection{Lancement du jeu}
+
+Au lancement du jeu, le joueur peut soit créer une nouvelle partie, soit en charger une comme l'explique le \textsc{diagramme~\ref{lancement}}. Lors de la création d'une nouvelle partie, le joueur peut personnaliser sa partie de différentes façons, lui permettant d'avoir des éxpériences différentes à chaque partie. Il peut tout d'abord choisir la difficulté, ce qui influence plusieurs paramètres :
+
+\begin{itemize}
+  \item Démo    :   6x6 cases ;  5 tours ; 4 unités par peuple
+  \item Petite  : 10x10 cases ; 20 tours ; 6 unités par peuple
+  \item Normale : 14x14 cases ; 30 tours ; 8 unités par peuple
+\end{itemize}
+
+Chaque joueur peut ensuite choisir sa race parmi les 3 races disponibles : Elfe, orc et nain. Chaque race confère des bonus détaillés en partie 2 de ce rapport.
+
+>include graphic cas d'utilisation nouvelle partie/charger
+\begin{figure}[!h]
+\centering
+\label{lancement}
+%\includegraphics[width=1\textwidth]{img/???.png}
+\caption{Lancement du jeu}
+\end{figure}
+
+\subsection{déroulement d'un tour}
+
+Nous allons maintenant expliciter le déroulement d'un tour. A chaque tour, le joueur peut déplacer chaque unité qu'il contrôle si celle-ci a des points de déplacement. Si une unité adverse est sur une case adjacente, il peut à la place attaquer cette unité pour tenter de prendre le contrôle de cette case. Le déroulement des combat est expliqué dans la partie 2 de ce rapport.
+
+
