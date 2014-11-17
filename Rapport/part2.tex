@@ -18,25 +18,25 @@ Le diagramme d'état transition du combat d'une pièce en Annexe C permet de rep
 Premièrement, on calcule le nombre de tours de combats nécessaires maximum \smallbreak 
 nbCombat = Max(3,X+2), X étant le nombre de points de vie maximum des unités au combat. Ensuite, on calcule les probabilités de combat. On tire ensuite un nombre au hasard entre 1 et 100. Si le nombre appartient à la tranche du joueur ciblé (35 \% = [0,35[), il peut infliger des blessures à son adversaire, et inversement. Ainsi, le perdant du tour de combat perd Y vies, Y étant la valeur d'attaque de l'unité pondéré par le pourcentage de vie de l'unité. Si l'unité compte 2 points de vie, sachant qu'elle a démarré avec 5 points de vie, alors l'attaque sera multipliée par 40\%. Le compteur de nombre de combats est décrémenté et on regarde ensuite s'il reste encore des tours de combat. Si oui, on refait le calcul de probabilité, et ainsi de suite. Sinon, on stoppe le combat par un match nul. L'attaquant ne bouge pas. Son tour est terminé. Si durant le combat, une unité n'a plus de point de vie, elle est détruite.
 
-subsubsection{Calcul de probabilités de combat}
-La première chose réalisée est le calcul de 2 rapports de force entre les pièces. Ils concernent respectivement l'attaque de la première pièce et la défense de la deuxième pièce, et inversement. Par exemple, si l'attaque et la défense analysée sont égales, alors le rapport de force vaudra 50%. Ensuite, on soustrait les deux rapports de force distinctement à 100. On multiplie ensuite les rapports de force, et on ajoute le résultat au rapport de force de l'attaquant, et on le soustrait le résultat au rapport de force du défenseur. On obtient donc la probabilité finale.
+\subsubsection{Calcul de probabilités de combat}
+La première chose réalisée est le calcul de 2 rapports de force entre les pièces. Ils concernent respectivement l'attaque de la première pièce et la défense de la deuxième pièce, et inversement. Par exemple, si l'attaque et la défense analysée sont égales, alors le rapport de force vaudra 50\%. Ensuite, on soustrait les deux rapports de force distinctement à 100. On multiplie ensuite les rapports de force, et on ajoute le résultat au rapport de force de l'attaquant, et on le soustrait le résultat au rapport de force du défenseur. On obtient donc la probabilité finale.
 Par exemple, Si l’attaquant a 4 en attaque et l’attaqué a 4 en défense
 (en tenant compte des bonus de terrain et du nombre de points de vie restant), l’attaquant à 50\%
 de malchance de prendre des dégats. S’il a 3 att. contre 4 déf., le rapport de force est de 75\% : 3/4
-= 25\%, 25\% de 50\% = 12.5\%, 50\%+12.5% = 62.5\% chances pour l'attaquant et 50-12.5 = 37.5\% chances pour le défenseur.
+= 25\%, 25\% de 50\% = 12.5\%, 50\%+12.5\% = 62.5\% chances pour l'attaquant et 50-12.5 = 37.5\% chances pour le défenseur.
 
 \subsubsection{Fin de combat}
 
 Le diagramme d'état transition Fin de Combat en Annexe D représente les possibilités de jeu en fin de combat. 
 
-En cas de destruction d'unité à la suite d'un combat, qu'il soit défensif ou attaquant, l'unité peut avoir droit à des bonus/malus, selon son type et la case sur laquelle il a gagné le combat. Par exemple, une unité nain ne peut faire gagner de points de victoire sur le terrain Plaine. Dans tous les autres cas, toutes les unités gagnent un point de victoire. Il leur est ensuite possible de gagner un autre point de victoire, si l'unité est un est un orc placé sur une case Foret, un point de victoire lui est attaché. Ces points sont cumulables et seront ajoutés au total de points de victoire en fin de partie. Attention, si l'unité orc meurt, les points de victoire bonus disparaissent avec lui. 
+En cas de destruction d'unité à la suite d'un combat, qu'elle soit défensive ou attaquante, l'unité peut avoir droit à des bonus/malus, selon son type et la case sur laquelle elle a gagné le combat. Par exemple, une unité nain ne peut faire gagner de points de victoire sur le terrain Plaine. Dans tous les autres cas, toutes les unités gagnent un point de victoire. Il leur est ensuite possible de gagner un autre point de victoire, si l'unité est un orc placé sur une case Forêt, un point de victoire lui est attaché. Ces points sont cumulables et seront ajoutés au total de points de victoire en fin de partie. Attention, si l'unité orc meurt, les points de victoire bonus disparaissent avec elle.
 
 \subsection{Interactions entre les différentes composantes du jeu}
 
-Dans cette partie, nous allons présenter avec des diagrammes d"interaction comment fonctionne plus profondément le jeu. Nous commencerons par la procédure d'initialisation du jeu.
+Dans cette partie, nous allons présenter avec des diagrammes d'interaction comment fonctionne plus profondément le jeu. Nous commencerons par la procédure d'initialisation du jeu.
 \subsubsection{Initialisation}
 
-Le diagramme de séquence du chargement du jeu en Annexe E nous permet de différencier la charge d'une partie de la création d'une partie. On voit qu'on ne peut pas charger et créer en même temps. Le Groupe de classes pour init est décrit dans les prochains diagrammes.
+Le diagramme de séquence du chargement du jeu en Annexe E nous permet de différencier le chargement d'une partie de la création d'une partie. On voit qu'on ne peut pas charger et créer en même temps. Le Groupe de classes pour init est décrit dans les prochains diagrammes.
 
 Dans le diagramme de communication de la création du jeu en Annexe F, on peut visualiser les appels effectuant cette initialisation.
 
@@ -46,6 +46,6 @@ Avec le diagramme de création du plateau Board en Annexe G, on peut comprendre 
 
 \subsubsection{Combats et déplacements}
 Les diagrammes de séquence et de communication respectivement en Annexes I et J présentent les actions possibles. 
-Une unité peut soit gagner le combat, ou le perdre ou faire match nul. Dans le cas de la défaite, on tue l'unité si ses hp sont plus petits que 0. Sinon, comme dans le cas du match nul, on ne fait rien. Dans le cas de la victoire, on bouge sur la case de combat si elle est libre, et on fait les traitements de victoire. Une unité peut aussi bouger. Un joueur perd la partie s'il n'a plus aucune unité.
+Une unité peut soit gagner le combat, soit le perdre, soit faire match nul. Dans le cas de la défaite, on tue l'unité si ses hp sont plus petits que 0. Sinon, comme dans le cas du match nul, on ne fait rien. Dans le cas de la victoire, on bouge sur la case de combat si elle est libre, et on fait les traitements de victoire. Une unité peut aussi bouger. Un joueur perd la partie s'il n'a plus aucune unité.
 
 
