@@ -5,14 +5,18 @@ using System.Text;
 
 namespace ProjetPOO
 {
-    public interface IBuilder
+    public interface IWorld
     {
-        Board Board
+        IPlayer IPlayer
         {
             get;
             set;
         }
-    
-        void make();
+
+        IUnit IUnit
+        {
+            get;
+            set;
+        }
     }
 }

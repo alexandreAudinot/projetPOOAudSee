@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="302c7d7f-0069-4bdd-8fbd-8d5b51c6ac08" name="LancementDuJeu" linkedPackageId="c6df418d-971a-4d65-9bf9-1ab0ff5b5883" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <appliedStereotypesInternal>
+    <stereotypeInstance Id="fef042bd-d80e-4033-b126-815cdb2fa92b" name="namespace" profile="CSharpProfile">
+      <elementDefinition Id="a1ec986a-615a-4114-a809-aa5a3e0f3e0b" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="8a5ab6f7-c051-4a51-acd6-8b701d647892">
+          <propertyInstance Id="3118e0ef-a588-4671-8fec-5bf378752307" name="BaseName">
+            <elementDefinition Id="884b8df9-91f9-4735-bae9-a37b26ef03c9" />
+          </propertyInstance>
+          <elementDefinition Id="0efe2f4c-2a84-43d2-b27e-44cb41b4d691" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="490ca182-6152-4004-aba6-bc3ce72704ab">
+          <propertyInstance Id="5730408a-fcff-491c-8a8f-f5b0895ca45d" name="ClrAttributes">
+            <elementDefinition Id="f1e71de5-ccc0-47c4-9ba4-a41cc35def05" />
+          </propertyInstance>
+          <elementDefinition Id="055b39d8-97e3-45dd-86ba-e38b76bb93da" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="5d8958a7-39ee-4451-9e7a-9a02dfcff1f2">
+          <propertyInstance Id="11906045-8868-4c9c-8a91-f9ee2a6c3444" name="Usings">
+            <elementDefinition Id="df52223e-9dc1-441f-b4f7-5acc5db955a3" />
+          </propertyInstance>
+          <elementDefinition Id="8efe363e-55dc-463e-86f4-f0792ec39f70" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+    <stereotypeInstance Id="d742f506-a7eb-4030-947e-1f3da474d115" name="TextTemplateBindings" profile="TextTemplateBindings">
+      <elementDefinition Id="a4bd1f37-fad9-4e77-9be8-8ea5060b549a" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="160e6e09-3e2e-49d8-b084-8092cfe274ec">
+          <propertyInstance Id="d587236e-e12d-41c3-abe6-fde05cd7233d" name="Alias" value="ClassTemplate|EnumTemplate|InterfaceTemplate|StructTemplate">
+            <elementDefinition Id="713ebe2d-029b-4250-b486-ae42f260ad75" />
+          </propertyInstance>
+          <elementDefinition Id="d433d317-99b6-47e1-af00-a2834036d57b" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="cf8e4a6c-9280-4705-806b-ab651d34a358">
+          <propertyInstance Id="e27cb682-3490-4b4b-8010-f5eab053c754" name="TemplateFilePath" value="ClassTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4|EnumTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4|InterfaceTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4|StructTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 12.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4">
+            <elementDefinition Id="19b2306b-23d1-4ff1-8a16-a30caa42981f" />
+          </propertyInstance>
+          <elementDefinition Id="26bbe9d5-6bc6-4cae-92ae-304ee00055a1" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="9ecc6cf7-ec9f-40b7-bc2d-ff2c0645a885">
+          <propertyInstance Id="50f9869c-2d45-40d0-b656-87640eec1353" name="ProjectPath" value="ClassTemplate=..\ProjetModelisationPOOLib\ProjetModelisationPOOLib.csproj|EnumTemplate=..\ProjetModelisationPOOLib\ProjetModelisationPOOLib.csproj|InterfaceTemplate=..\ProjetModelisationPOOLib\ProjetModelisationPOOLib.csproj|StructTemplate=..\ProjetModelisationPOOLib\ProjetModelisationPOOLib.csproj">
+            <elementDefinition Id="3d7b3b66-d19c-41d3-963c-babfa8f144d4" />
+          </propertyInstance>
+          <elementDefinition Id="505243f5-a3b6-4703-99d3-488137f86a34" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="f1960d3b-e537-491d-8441-21d05680fe57">
+          <propertyInstance Id="1d032bb9-a2bd-4957-98ef-3dfea3aee4dd" name="TargetDirectory" value="ClassTemplate=GeneratedCode\{PackageStructure}|EnumTemplate=GeneratedCode\{PackageStructure}|InterfaceTemplate=GeneratedCode\{PackageStructure}|StructTemplate=GeneratedCode\{PackageStructure}">
+            <elementDefinition Id="54036d44-1ac5-42bb-abc9-7cc6a156f02b" />
+          </propertyInstance>
+          <elementDefinition Id="141cedfc-3f59-4fd3-bee9-1572f55680fd" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="ae065f87-33be-4b43-bb83-696bef76df1a">
+          <propertyInstance Id="50013f76-efd5-4a74-bc00-3ac1df4dbf65" name="TargetName" value="ClassTemplate={Name}|EnumTemplate={Name}|InterfaceTemplate={Name}|StructTemplate={Name}">
+            <elementDefinition Id="59bc1eaf-e49e-4ef1-a9df-df860dbbf949" />
+          </propertyInstance>
+          <elementDefinition Id="48107117-2ef5-4588-965c-33089c55d7a0" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="7012be17-911f-48f1-a9cf-143a94af97e4">
+          <propertyInstance Id="346c9eb1-3da1-4c20-86f7-fa83adbf7ad7" name="Overwrite" value="ClassTemplate=True|EnumTemplate=True|InterfaceTemplate=True|StructTemplate=True">
+            <elementDefinition Id="76511079-8c79-4292-a5e8-879f66035c89" />
+          </propertyInstance>
+          <elementDefinition Id="bcfddb73-a5a4-46a6-a55f-d31685128b91" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="76bb54ce-4204-40e5-9781-f3689edfb7f0">
+          <propertyInstance Id="d168909c-55cd-46b4-8e55-717355b8b436" name="Parameters">
+            <elementDefinition Id="2a437495-5d98-4bdd-854c-cb306e0ddd11" />
+          </propertyInstance>
+          <elementDefinition Id="4055656e-a7cc-48ce-ab63-6842320be994" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="bf96b3b0-727f-4638-98cf-3bd20f956c80">
+      <profileInstance Id="d11d182c-3fd7-4818-b462-af305b99a1f9" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="af86947c-85a5-401f-b981-35320c55c82c">
+      <profileInstance Id="6cc60869-726f-43ab-b2ef-443fa725692c" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="25ad1649-2c6c-4c2c-9d6d-f25bbade7e04">
+      <profileInstance Id="914fe3d5-6a90-4772-865d-b2052e2b0e64" name="CSharpProfile">
+        <elementDefinition Id="fc73da4c-5909-403f-ab19-bfea4fc944c7" />
+      </profileInstance>
+      <elementDefinition Id="14e68f09-4dd0-406c-bccd-779d59d81536" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="752592b1-a0d2-4d16-8d73-20e8a6988661">
+      <profileInstance Id="7bf65ee1-0204-4fd3-8176-cb69419d5e66" name="TextTemplateBindings">
+        <elementDefinition Id="2e3473df-0421-4d63-b2b2-db95954446a2" />
+      </profileInstance>
+      <elementDefinition Id="f2e1b4dd-8197-41ff-a9e2-dafbd9c457a6" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="d9723f70-0a8a-4a26-937d-ebfacb31cdf0" name="Joueur" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="788b4465-f78f-4fa3-974e-69d484b76393" />
+        <targetEnds>
+          <association Id="282c8023-9ff8-42f0-9017-a50df8139a71" isDerived="false" sourceEndRoleName="Actor1" targetEndRoleName="Init" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="981d48fb-bde5-4c47-b3fe-0b795851cbb3" LastKnownName="Init" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8f150eeb-e826-4e54-b2bf-f45e38a33171" name="Actor1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="0f7fe680-7abe-4909-9898-2b73704d790e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e4b93900-3758-45a7-9f61-a1194b8525c7" name="Init" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="596ac16f-9f34-445d-b0e8-b33646af00b5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="427f40dd-546b-4baa-93a9-c41e36ae0e68" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="4ad89fc1-c544-4048-ba29-ae521e5e812b" name="Lancement du jeu" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="368dde65-e563-4ea4-be86-75f67557c034" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="981d48fb-bde5-4c47-b3fe-0b795851cbb3" name="Init" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c2297ff6-a836-44cd-bd7c-2db15d9081c1" />
+        <subjects>
+          <subsystemMoniker Id="4ad89fc1-c544-4048-ba29-ae521e5e812b" LastKnownName="Lancement du jeu" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="0720c688-2a88-48cd-aa74-b79036edb58e" name="Choisir difficulté" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="06a6e7bf-baf2-45c4-9a0b-90ffc1495f0a" />
+        <subjects>
+          <subsystemMoniker Id="4ad89fc1-c544-4048-ba29-ae521e5e812b" LastKnownName="Lancement du jeu" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="8dc91933-d9a2-4af7-ae7b-b19bfccf136f" name="Charger partie" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2cb4a6dd-d5f8-45e0-a9d8-53ca4d610c64" />
+        <generalsInternal>
+          <generalization Id="4e70159d-3c53-453a-9f4b-e4e7fdfb1a45" isSubstitutable="false">
+            <useCaseMoniker Id="981d48fb-bde5-4c47-b3fe-0b795851cbb3" LastKnownName="Init" />
+            <elementDefinition Id="8ddaf93c-7505-4a7f-b0e4-dc69738469fe" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker Id="4ad89fc1-c544-4048-ba29-ae521e5e812b" LastKnownName="Lancement du jeu" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="1b32bba2-8818-4321-a637-1a88c010345d" name="Commencer nouvelle partie" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="795b5b33-dd77-4de5-8dfa-44bfcf6d720c" />
+        <generalsInternal>
+          <generalization Id="0e052148-cb33-4aa6-991a-cac34c725a98" isSubstitutable="false">
+            <useCaseMoniker Id="981d48fb-bde5-4c47-b3fe-0b795851cbb3" LastKnownName="Init" />
+            <elementDefinition Id="d1c4b245-ba15-4906-99f0-501b0074aa44" />
+          </generalization>
+        </generalsInternal>
+        <additions>
+          <include Id="5824ab9f-9828-4a9f-b9f8-98fd523e56cf">
+            <useCaseMoniker Id="0720c688-2a88-48cd-aa74-b79036edb58e" LastKnownName="Choisir difficulté" />
+            <elementDefinition Id="ace54e98-fb8b-48bb-bc36-0fb16d3724bd" />
+          </include>
+          <include Id="138307ca-3322-4cbd-94a9-6273675c3c7a">
+            <useCaseMoniker Id="c80d695a-2b94-490d-8f73-f90ebe7ca4e8" LastKnownName="Choisir race" />
+            <elementDefinition Id="d137abd1-e020-41f0-8ed8-0ee9d67c817e" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="4ad89fc1-c544-4048-ba29-ae521e5e812b" LastKnownName="Lancement du jeu" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="c80d695a-2b94-490d-8f73-f90ebe7ca4e8" name="Choisir race" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="94418859-8533-4620-8895-a3932d437116" />
+        <subjects>
+          <subsystemMoniker Id="4ad89fc1-c544-4048-ba29-ae521e5e812b" LastKnownName="Lancement du jeu" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="77c7ae61-f171-4350-aaec-1c70fca5c66c" name="Demo" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="3904e657-32ad-4988-85dc-765184c8314f" />
+        <generalsInternal>
+          <generalization Id="a6d0ab62-26d5-40d5-b8e7-213b1fc928a7" isSubstitutable="false">
+            <useCaseMoniker Id="0720c688-2a88-48cd-aa74-b79036edb58e" LastKnownName="Choisir difficulté" />
+            <elementDefinition Id="52cd22f2-3ab6-49d1-a0aa-274582ded18b" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker Id="4ad89fc1-c544-4048-ba29-ae521e5e812b" LastKnownName="Lancement du jeu" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="72624118-e12b-4625-b35a-c96b7f8efde4" name="Petit" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d61e4780-aac6-46db-b7d2-73c25ba4ef8b" />
+        <generalsInternal>
+          <generalization Id="8755fe44-f5e5-4a68-b591-16420928d213" isSubstitutable="false">
+            <useCaseMoniker Id="0720c688-2a88-48cd-aa74-b79036edb58e" LastKnownName="Choisir difficulté" />
+            <elementDefinition Id="3118b370-e00d-44c5-9338-01bcb9804562" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker Id="4ad89fc1-c544-4048-ba29-ae521e5e812b" LastKnownName="Lancement du jeu" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="81b5b86e-7ebe-4266-997c-31b035c62c26" name="Moyen" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8e80c0b0-fa0f-46b4-9933-1bb82d1ccbaa" />
+        <generalsInternal>
+          <generalization Id="25b01f34-534a-400b-a0ee-c033cb060265" isSubstitutable="false">
+            <useCaseMoniker Id="0720c688-2a88-48cd-aa74-b79036edb58e" LastKnownName="Choisir difficulté" />
+            <elementDefinition Id="3ef75e78-37ea-4adb-8f7d-417079362126" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker Id="4ad89fc1-c544-4048-ba29-ae521e5e812b" LastKnownName="Lancement du jeu" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="c6df418d-971a-4d65-9bf9-1ab0ff5b5883" name="ProjetModelisationPOO">
+    <elementDefinition Id="e3179f7f-3bbf-40a0-9807-5a6bc6e3bb97" />
+  </package>
+</useCaseModelRoot>

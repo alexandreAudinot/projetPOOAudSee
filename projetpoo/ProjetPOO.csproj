@@ -55,7 +55,10 @@
     <Compile Include="Forest.cs" />
     <Compile Include="IBuilder.cs" />
     <Compile Include="Ifactory.cs" />
+    <Compile Include="IPlayer.cs" />
+    <Compile Include="ITile.cs" />
     <Compile Include="IUnit.cs" />
+    <Compile Include="IWorld.cs" />
     <Compile Include="LoadGame.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Mountain.cs" />
@@ -77,6 +80,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="Interfaces.cd" />
+    <None Include="PoidsMouche.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

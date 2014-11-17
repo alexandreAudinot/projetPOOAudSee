@@ -43,6 +43,13 @@
       <SubType>Content</SubType>
       <DependentUpon>InitBoard.sequencediagram</DependentUpon>
     </Content>
+    <Content Include="LancementDuJeu.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LancementDuJeu.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>LancementDuJeu.usecasediagram</DependentUpon>
+    </Content>
     <Content Include="LoadDiagram.sequencediagram">
       <SubType>Content</SubType>
     </Content>

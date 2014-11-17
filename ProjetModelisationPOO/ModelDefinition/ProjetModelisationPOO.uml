@@ -15863,6 +15863,541 @@ et approfondir
         Id="f32b9813-651d-47ce-9a94-fc56ae216262"
         name="ExecutionEvent" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="788b4465-f78f-4fa3-974e-69d484b76393"
+        name="Joueur"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="427f40dd-546b-4baa-93a9-c41e36ae0e68"
+            isDerived="false"
+            sourceEndRoleName="Actor1"
+            targetEndRoleName="Init"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c2297ff6-a836-44cd-bd7c-2db15d9081c1"
+              LastKnownName="Init"
+              LastKnownLocation="ProjetModelisationPOO.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0f7fe680-7abe-4909-9898-2b73704d790e"
+                  name="Actor1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="596ac16f-9f34-445d-b0e8-b33646af00b5"
+                  name="Init"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f7c5b26f-4982-4f95-ae47-7b9ecc9db2eb"
+            isDerived="false"
+            sourceEndRoleName="Actor1"
+            targetEndRoleName="Jouer"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="8e47cbec-7c7f-497f-9ae0-c671580b6565"
+              LastKnownName="Jouer une unité1"
+              LastKnownLocation="ProjetModelisationPOO.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e4229315-ecec-45e1-a71e-88b19199f9c4"
+                  name="Actor1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d5739d88-2cc4-43fb-87f5-825bc468fdd4"
+                  name="Jouer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="e9bc3f05-ae87-4b70-9ba5-12638f736d36"
+            isDerived="false"
+            sourceEndRoleName="Actor1"
+            targetEndRoleName="Abandonner"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="1a1950cf-b83b-4cf1-a7c7-72319d20486e"
+              LastKnownName="Abandonner1"
+              LastKnownLocation="ProjetModelisationPOO.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2383f91a-b89b-4715-a4b0-28a06e2c856f"
+                  name="Actor1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c8367ac1-8c9f-41cc-a8a8-d6a544a25901"
+                  name="Abandonner"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="a11da3a5-9257-4dc4-804c-3fa6aaa2be59"
+            isDerived="false"
+            sourceEndRoleName="Joueur"
+            targetEndRoleName="Enregistrer la partie"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="4f1bf48a-3ee4-4546-9b83-c622ce1a9502"
+              LastKnownName="Enregistrer la partie1"
+              LastKnownLocation="ProjetModelisationPOO.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f4a04048-0c21-4320-b860-3cb3a3b8bbd6"
+                  name="Joueur"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d7c684f7-4347-48e1-a60f-537dfae86da4"
+                  name="Enregistrer la partie"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="368dde65-e563-4ea4-be86-75f67557c034"
+        name="Lancement du jeu"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8e47cbec-7c7f-497f-9ae0-c671580b6565"
+        name="Jouer une unité1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c2297ff6-a836-44cd-bd7c-2db15d9081c1"
+        name="Init"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="368dde65-e563-4ea4-be86-75f67557c034"
+            LastKnownName="Lancement du jeu"
+            LastKnownLocation="ProjetModelisationPOO.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1a1950cf-b83b-4cf1-a7c7-72319d20486e"
+        name="Abandonner1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="06a6e7bf-baf2-45c4-9a0b-90ffc1495f0a"
+        name="Choisir difficulté"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="368dde65-e563-4ea4-be86-75f67557c034"
+            LastKnownName="Lancement du jeu"
+            LastKnownLocation="ProjetModelisationPOO.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9ae63e4e-889b-40c7-b54a-c33428f9925c"
+        name="Déplacer unité1"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="9d19c71c-9a47-4208-a85b-8878eecbfa23"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="8e47cbec-7c7f-497f-9ae0-c671580b6565"
+              LastKnownName="Jouer une unité1"
+              LastKnownLocation="ProjetModelisationPOO.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ffc3ba24-7f72-410d-ba36-15bd449286a4"
+        name="Attaquer unité1"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="e957861b-e61c-463d-b028-fd0e28e2b9a4"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="8e47cbec-7c7f-497f-9ae0-c671580b6565"
+              LastKnownName="Jouer une unité1"
+              LastKnownLocation="ProjetModelisationPOO.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="2cb4a6dd-d5f8-45e0-a9d8-53ca4d610c64"
+        name="Charger partie"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="8ddaf93c-7505-4a7f-b0e4-dc69738469fe"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="c2297ff6-a836-44cd-bd7c-2db15d9081c1"
+              LastKnownName="Init"
+              LastKnownLocation="ProjetModelisationPOO.uml" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="368dde65-e563-4ea4-be86-75f67557c034"
+            LastKnownName="Lancement du jeu"
+            LastKnownLocation="ProjetModelisationPOO.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="795b5b33-dd77-4de5-8dfa-44bfcf6d720c"
+        name="Commencer nouvelle partie"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="d1c4b245-ba15-4906-99f0-501b0074aa44"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="c2297ff6-a836-44cd-bd7c-2db15d9081c1"
+              LastKnownName="Init"
+              LastKnownLocation="ProjetModelisationPOO.uml" />
+          </generalization>
+        </generalsInternal>
+        <additions>
+          <include
+            Id="ace54e98-fb8b-48bb-bc36-0fb16d3724bd">
+            <useCaseMoniker
+              Id="06a6e7bf-baf2-45c4-9a0b-90ffc1495f0a"
+              LastKnownName="Choisir difficulté"
+              LastKnownLocation="ProjetModelisationPOO.uml" />
+          </include>
+          <include
+            Id="d137abd1-e020-41f0-8ed8-0ee9d67c817e">
+            <useCaseMoniker
+              Id="94418859-8533-4620-8895-a3932d437116"
+              LastKnownName="Choisir race"
+              LastKnownLocation="ProjetModelisationPOO.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="368dde65-e563-4ea4-be86-75f67557c034"
+            LastKnownName="Lancement du jeu"
+            LastKnownLocation="ProjetModelisationPOO.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b5570e88-a4d3-4bbe-b2de-b4ec633e403f"
+        name="Avancer1"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="ba02daf6-72b6-4b61-9252-5bd7ea2cb86d"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="bee59db4-b9e7-4aba-a0be-eee24fa74c49"
+              LastKnownName="Attaque possible1"
+              LastKnownLocation="ProjetModelisationPOO.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f73063ea-813e-42f2-8f87-3937e3258331"
+        name="Rester1"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="c4c46a2c-17c0-483b-b49d-6cbe1524fa7e"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="bee59db4-b9e7-4aba-a0be-eee24fa74c49"
+              LastKnownName="Attaque possible1"
+              LastKnownLocation="ProjetModelisationPOO.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="664865e0-844a-475a-92c6-119a42d2147e"
+        name="Passer tour1"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="144a11e1-94da-411b-8aa4-471c9a752bd4"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="8e47cbec-7c7f-497f-9ae0-c671580b6565"
+              LastKnownName="Jouer une unité1"
+              LastKnownLocation="ProjetModelisationPOO.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="74e7084a-7b0f-4ced-8a9c-c46de0f7a0a0"
+        name="Déplacement impossible1"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="cfb11945-1c8f-41f9-a1c1-be84bad68ec1"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="9ae63e4e-889b-40c7-b54a-c33428f9925c"
+              LastKnownName="Déplacer unité1"
+              LastKnownLocation="ProjetModelisationPOO.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="26055741-f379-42d4-963b-c9bedc4803ae"
+        name="Déplacement possible1"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="d0e60a32-cee7-433f-b06d-575b4211a174"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="9ae63e4e-889b-40c7-b54a-c33428f9925c"
+              LastKnownName="Déplacer unité1"
+              LastKnownLocation="ProjetModelisationPOO.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="0008e548-f0fc-48fe-b5a9-ba9e30d8a59f"
+        name="Attaque impossible1"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="768f318a-7bb8-4555-94b4-818b05ab02e4"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="ffc3ba24-7f72-410d-ba36-15bd449286a4"
+              LastKnownName="Attaquer unité1"
+              LastKnownLocation="ProjetModelisationPOO.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="bee59db4-b9e7-4aba-a0be-eee24fa74c49"
+        name="Attaque possible1"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="ce5d787d-6f0e-4833-8eb5-bb02ba14e496"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="ffc3ba24-7f72-410d-ba36-15bd449286a4"
+              LastKnownName="Attaquer unité1"
+              LastKnownLocation="ProjetModelisationPOO.uml" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4f1bf48a-3ee4-4546-9b83-c622ce1a9502"
+        name="Enregistrer la partie1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="94418859-8533-4620-8895-a3932d437116"
+        name="Choisir race"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="368dde65-e563-4ea4-be86-75f67557c034"
+            LastKnownName="Lancement du jeu"
+            LastKnownLocation="ProjetModelisationPOO.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="3904e657-32ad-4988-85dc-765184c8314f"
+        name="Demo"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="52cd22f2-3ab6-49d1-a0aa-274582ded18b"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="06a6e7bf-baf2-45c4-9a0b-90ffc1495f0a"
+              LastKnownName="Choisir difficulté"
+              LastKnownLocation="ProjetModelisationPOO.uml" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="368dde65-e563-4ea4-be86-75f67557c034"
+            LastKnownName="Lancement du jeu"
+            LastKnownLocation="ProjetModelisationPOO.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d61e4780-aac6-46db-b7d2-73c25ba4ef8b"
+        name="Petit"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="3118b370-e00d-44c5-9338-01bcb9804562"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="06a6e7bf-baf2-45c4-9a0b-90ffc1495f0a"
+              LastKnownName="Choisir difficulté"
+              LastKnownLocation="ProjetModelisationPOO.uml" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="368dde65-e563-4ea4-be86-75f67557c034"
+            LastKnownName="Lancement du jeu"
+            LastKnownLocation="ProjetModelisationPOO.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8e80c0b0-fa0f-46b4-9933-1bb82d1ccbaa"
+        name="Moyen"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="3ef75e78-37ea-4adb-8f7d-417079362126"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="06a6e7bf-baf2-45c4-9a0b-90ffc1495f0a"
+              LastKnownName="Choisir difficulté"
+              LastKnownLocation="ProjetModelisationPOO.uml" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="368dde65-e563-4ea4-be86-75f67557c034"
+            LastKnownName="Lancement du jeu"
+            LastKnownLocation="ProjetModelisationPOO.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"

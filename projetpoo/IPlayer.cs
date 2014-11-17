@@ -5,12 +5,7 @@ using System.Text;
 
 namespace ProjetPOO
 {
-    public interface Board
+    public interface IPlayer
     {
-        ITile ITile
-        {
-            get;
-            set;
-        }
     }
 }

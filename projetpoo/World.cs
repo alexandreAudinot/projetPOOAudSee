@@ -10,7 +10,6 @@ namespace ProjetPOO
         private int nbTours;
         private int nbUnity;
         private int sizeBoard;
-        private Board board;
         private List<Player> players;
 
         private System.Collections.Generic.List<ProjetPOO.IUnit> unitList
