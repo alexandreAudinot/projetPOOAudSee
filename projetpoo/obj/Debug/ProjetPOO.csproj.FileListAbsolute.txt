@@ -5,3 +5,8 @@ H:\4info\TP C++\ProjetPOO\ProjetPOO\obj\Debug\ProjetPOO.pdb
 C:\Users\aaudinot\Downloads\export2\export\projetpoo\ProjetPOO\obj\Debug\ProjetPOO.csprojResolveAssemblyReference.cache
 C:\Users\aaudinot\Downloads\export2\export\projetpoo\ProjetPOO\obj\Debug\ProjetPOO.dll
 C:\Users\aaudinot\Downloads\export2\export\projetpoo\ProjetPOO\obj\Debug\ProjetPOO.pdb
+C:\Users\aaudinot\Desktop\projetPooAudSee_local\ProjetPOO\obj\Debug\ProjetPOO.csprojResolveAssemblyReference.cache
+C:\Users\aaudinot\Desktop\projetPooAudSee_local\ProjetPOO\obj\Debug\ProjetPOO.dll
+C:\Users\aaudinot\Desktop\projetPooAudSee_local\ProjetPOO\obj\Debug\ProjetPOO.pdb
+C:\Users\aaudinot\Desktop\projetPooAudSee_local\ProjetPOO\bin\Debug\ProjetPOO.dll
+C:\Users\aaudinot\Desktop\projetPooAudSee_local\ProjetPOO\bin\Debug\ProjetPOO.pdb

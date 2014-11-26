@@ -9,7 +9,7 @@ namespace ProjetPOO
     {
         private int score;
 
-        public ProjetPOO.List<ProjetPOO.IUnit> Unit
+        public List<ProjetPOO.IUnit> Unit
         {
             get
             {

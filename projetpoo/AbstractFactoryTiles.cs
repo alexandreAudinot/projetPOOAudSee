@@ -50,7 +50,19 @@ namespace ProjetPOO
             {
             }
         }
+
+        public ProjetPOO.Board Board
+        {
+            get;
+            set;
+        }
+    
         public abstract void createTiles();
+
+        public void make()
+        {
+
+        }
     }
 
     public abstract class AbstractFactoryUnit : AbstractFactory

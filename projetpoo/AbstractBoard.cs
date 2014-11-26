@@ -7,15 +7,11 @@ namespace ProjetPOO
 {
     public abstract class AbstractBoard : Board
     {
-        public ProjetPOO.Tile[][] Tile
+
+        public ProjetPOO.ITile ITile
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+            set;
         }
 
         public void initBoard()

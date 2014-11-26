@@ -1,4 +1,6 @@
 *.pdf
+*.dll
+Debug/
 
 # Windows image file caches
 Thumbs.db

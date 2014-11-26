@@ -7,18 +7,34 @@ namespace ProjetPOO
 {
     public class MonteurDemo : Monteur
     {
+        override public void createTiles()
+        {
+
+        }
     }
 
     public class MonteurNormal : Monteur
     {
+        override public void createTiles()
+        {
+
+        }
     }
 
     public class MonteurLoadGame : Monteur
     {
+        override public void createTiles()
+        {
+
+        }
     }
 
     public class MonteurSmall : Monteur
     {
+        override public void createTiles()
+        {
+
+        }
     }
 
     public class FactoryUnit : AbstractFactory
