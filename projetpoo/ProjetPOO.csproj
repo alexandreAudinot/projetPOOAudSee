@@ -83,6 +83,18 @@
     <None Include="Interfaces.cd" />
     <None Include="PoidsMouche.cd" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wrapping\Wrapping.vcxproj">
+      <Project>{c4ab33e0-e70e-462a-ab0d-36b499a01d8b}</Project>
+      <Name>Wrapping</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Debug\GenerationMap.dll">
+      <Link>GenerationMap.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

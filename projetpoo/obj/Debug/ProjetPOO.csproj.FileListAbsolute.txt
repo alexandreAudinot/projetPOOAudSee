@@ -15,3 +15,6 @@ C:\Users\aaudinot\Desktop\projetPooAudSee\ProjetPOO\bin\Debug\ProjetPOO.pdb
 C:\Users\aaudinot\Desktop\projetPooAudSee\ProjetPOO\obj\Debug\ProjetPOO.csprojResolveAssemblyReference.cache
 C:\Users\aaudinot\Desktop\projetPooAudSee\ProjetPOO\obj\Debug\ProjetPOO.dll
 C:\Users\aaudinot\Desktop\projetPooAudSee\ProjetPOO\obj\Debug\ProjetPOO.pdb
+C:\Users\aaudinot\Desktop\projetPooAudSee\ProjetPOO\bin\Debug\GenerationMap.dll
+C:\Users\aaudinot\Desktop\projetPooAudSee\ProjetPOO\bin\Debug\Wrapping.dll
+C:\Users\aaudinot\Desktop\projetPooAudSee\ProjetPOO\bin\Debug\Wrapping.pdb

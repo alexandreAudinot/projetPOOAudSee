@@ -10,7 +10,6 @@ namespace ProjetPOO
         ITile[,] ITile
         {
             get;
-            set;
         }
     }
 }

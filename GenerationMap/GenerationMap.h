@@ -13,16 +13,15 @@
 	#endif
 #endif
 
-
 class GenerationMap
 {
 public:
 	GenerationMap();
 	~GenerationMap();
-	void generer() const;
+	int* generer(int w, int h) const;
 };
 
 EXTERNC DLL GenerationMap* GenerationMap_new();
 EXTERNC DLL void GenerationMap_delete(GenerationMap* gm);
-EXTERNC DLL void GenerationMap_compute(GenerationMap* gm);
+EXTERNC DLL int* GenerationMap_compute(GenerationMap* gm, int w, int h);
 
