@@ -2,6 +2,8 @@
 *.dll
 *.pdb
 Debug/
+projetpoo/bin/
+projetpoo/obj/
 
 # Windows image file caches
 Thumbs.db
