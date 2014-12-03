@@ -8,7 +8,7 @@ namespace ProjetPOO
     public abstract class AbstractBoard : Board
     {
 
-        public ProjetPOO.ITile ITile
+        public ProjetPOO.ITile[,] ITile
         {
             get;
             set;

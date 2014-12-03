@@ -7,7 +7,7 @@ namespace ProjetPOO
 {
     public interface Board
     {
-        ITile ITile
+        ITile[,] ITile
         {
             get;
             set;
