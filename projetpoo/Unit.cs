@@ -18,7 +18,10 @@ namespace ProjetPOO
         public abstract void move();
         public abstract void attack(Position position);
 
-        public abstract void die();
+        public void die()
+        {
+            this.controler.killUnit(this);
+        }
 
         public abstract void winFight();
 

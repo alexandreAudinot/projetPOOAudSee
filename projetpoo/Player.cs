@@ -17,6 +17,10 @@ namespace ProjetPOO
             score++;
         }
 
+        public void killUnit(Unit unit)
+        {
+            //recherche de l'unité
+        }
         protected void lose()
         {
             //call remove player of world

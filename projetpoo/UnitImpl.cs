@@ -10,31 +10,25 @@ namespace ProjetPOO
         override
         public void move()
         {
-
+            //coder tout
         }
 
         override
         public void attack(Position position)
         {
-
-        }
-
-        override
-        public void die()
-        {
-
+            //coder tout
         }
 
         override
         public void winFight()
         {
-
+            //coder tout
         }
 
         override
         public void init()
         {
-
+            //coder tout
         }
 
     }
@@ -44,31 +38,25 @@ namespace ProjetPOO
         override
         public void move()
         {
-
+            //coder tout
         }
 
         override
         public void attack(Position position)
         {
-
-        }
-
-        override
-        public void die()
-        {
-
+            //coder tout
         }
 
         override
         public void winFight()
         {
-
+            //coder tout
         }
 
         override
         public void init()
         {
-
+            //coder tout
         }
     }
 
@@ -77,31 +65,25 @@ namespace ProjetPOO
         override
         public void move()
         {
-
+            //coder tout
         }
 
         override
         public void attack(Position position)
         {
-
-        }
-
-        override
-        public void die()
-        {
-
+            //coder tout
         }
 
         override
         public void winFight()
         {
-
+            //coder tout
         }
 
         override
         public void init()
         {
-
+            //coder tout
         }
     }
 }
