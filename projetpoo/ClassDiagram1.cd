@@ -40,7 +40,7 @@
       <FileName>Orc.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ProjetPOO.Unit">
+  <Class Name="ProjetPOO.Unit" Collapsed="true">
     <Position X="2.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAiAAAACAAAAAoAAAAgAAAAKAgABAAAAAAAA=</HashCode>

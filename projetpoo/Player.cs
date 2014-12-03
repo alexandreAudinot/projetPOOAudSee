@@ -12,12 +12,12 @@ namespace ProjetPOO
 
         protected List<ProjetPOO.IUnit> Unit { get; set; }
 
-        public void incScore()
+        protected void incScore()
         {
             score++;
         }
 
-        public void lose()
+        protected void lose()
         {
             //call remove player of world
             throw new System.NotImplementedException();
