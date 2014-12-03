@@ -65,7 +65,7 @@
     <Compile Include="MyDisplay.cs" />
     <Compile Include="MyEvent.cs" />
     <Compile Include="NormalBoard.cs" />
-    <Compile Include="Orc.cs" />
+    <Compile Include="UnitImpl.cs" />
     <Compile Include="Plain.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PoidsMouche.cs" />

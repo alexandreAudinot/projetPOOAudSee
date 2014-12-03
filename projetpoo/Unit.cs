@@ -15,13 +15,13 @@ namespace ProjetPOO
 
         private Position position{get;set;}
 
-        public void move();
-        public void attack(Position position);
+        public abstract void move();
+        public abstract void attack(Position position);
 
-        public void die();
+        public abstract void die();
 
-        public void winFight();
+        public abstract void winFight();
 
-        public void init();
+        public abstract void init();
     }
 }
