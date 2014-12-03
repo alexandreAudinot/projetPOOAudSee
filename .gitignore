@@ -1,5 +1,6 @@
 *.pdf
 *.dll
+*.pdb
 Debug/
 
 # Windows image file caches
@@ -34,12 +35,9 @@ $RECYCLE.BIN/
 *.sai
 
 # Visual Studio files
-*.vcproj
 *.sdf
 *.opensdf
 *.v12.suo
-*.vcxproj
-*.vcxproj.*
 
 # =========================
 # Operating System Files
