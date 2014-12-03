@@ -7,26 +7,24 @@ namespace ProjetPOO
 {
     public class Player
     {
-        private int score;
 
-        public List<ProjetPOO.IUnit> Unit
+        private int score { get; set; }
+
+        protected List<ProjetPOO.IUnit> listUnit { get; set; }
+
+        protected void incScore()
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            score++;
         }
 
-        public void incScore()
+        public void killUnit(Unit myUnit)
         {
-            throw new System.NotImplementedException();
+            listUnit.Remove(myUnit);
         }
-
-        public void lose()
+        protected void lose()
         {
+            //World.myWorld.removeplayer(this);
+            //call remove player of world
             throw new System.NotImplementedException();
         }
     }

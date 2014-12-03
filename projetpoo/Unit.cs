@@ -11,50 +11,20 @@ namespace ProjetPOO
         private int def;
         private int hp;
 
-        private Player controler
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        private Player controler{get;set;}
 
-        private Position position
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        private Position position{get;set;}
 
-        public void move()
-        {
-            throw new System.NotImplementedException();
-        }
-        public void attack(Position position)
-        {
-            throw new System.NotImplementedException();
-        }
+        public abstract void move();
+        public abstract void attack(Position position);
 
         public void die()
         {
-            throw new System.NotImplementedException();
+            this.controler.killUnit(this);
         }
 
-        public void winFight()
-        {
-            throw new System.NotImplementedException();
-        }
+        public abstract void winFight();
 
-        public void init()
-        {
-            throw new System.NotImplementedException();
-        }
+        public abstract void init();
     }
 }

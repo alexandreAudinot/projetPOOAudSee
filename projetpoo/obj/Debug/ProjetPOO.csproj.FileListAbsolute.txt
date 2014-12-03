@@ -15,6 +15,22 @@ C:\Users\aaudinot\Desktop\projetPooAudSee\ProjetPOO\bin\Debug\ProjetPOO.pdb
 C:\Users\aaudinot\Desktop\projetPooAudSee\ProjetPOO\obj\Debug\ProjetPOO.csprojResolveAssemblyReference.cache
 C:\Users\aaudinot\Desktop\projetPooAudSee\ProjetPOO\obj\Debug\ProjetPOO.dll
 C:\Users\aaudinot\Desktop\projetPooAudSee\ProjetPOO\obj\Debug\ProjetPOO.pdb
+<<<<<<< HEAD
 C:\Users\aaudinot\Desktop\projetPooAudSee\ProjetPOO\bin\Debug\GenerationMap.dll
 C:\Users\aaudinot\Desktop\projetPooAudSee\ProjetPOO\bin\Debug\Wrapping.dll
 C:\Users\aaudinot\Desktop\projetPooAudSee\ProjetPOO\bin\Debug\Wrapping.pdb
+=======
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\ProjetPOO\bin\Debug\ProjetPOO.dll
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\ProjetPOO\bin\Debug\ProjetPOO.pdb
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\ProjetPOO\obj\Debug\ProjetPOO.csprojResolveAssemblyReference.cache
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\ProjetPOO\obj\Debug\ProjetPOO.dll
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\ProjetPOO\obj\Debug\ProjetPOO.pdb
+>>>>>>> 9a58e27a730f6d3c398d10bb2c5d8f4187548b9d
+H:\4INFO\projets\projetPooAudSee_a_merge\ProjetPOO\bin\Debug\GenerationMap.dll
+H:\4INFO\projets\projetPooAudSee_a_merge\ProjetPOO\bin\Debug\ProjetPOO.dll
+H:\4INFO\projets\projetPooAudSee_a_merge\ProjetPOO\bin\Debug\ProjetPOO.pdb
+H:\4INFO\projets\projetPooAudSee_a_merge\ProjetPOO\bin\Debug\Wrapping.dll
+H:\4INFO\projets\projetPooAudSee_a_merge\ProjetPOO\bin\Debug\Wrapping.pdb
+H:\4INFO\projets\projetPooAudSee_a_merge\ProjetPOO\obj\Debug\ProjetPOO.csprojResolveAssemblyReference.cache
+H:\4INFO\projets\projetPooAudSee_a_merge\ProjetPOO\obj\Debug\ProjetPOO.dll
+H:\4INFO\projets\projetPooAudSee_a_merge\ProjetPOO\obj\Debug\ProjetPOO.pdb
