@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetPOO", "ProjetPOO\ProjetPOO.csproj", "{024FD6CD-668C-4927-9A48-EB0966EBC2A5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C4AB33E0-E70E-462A-AB0D-36B499A01D8B} = {C4AB33E0-E70E-462A-AB0D-36B499A01D8B}
+	EndProjectSection
 EndProject
 Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "ProjetModelisationPOO", "ProjetModelisationPOO\ProjetModelisationPOO.modelproj", "{00FC40DD-DD55-4F6A-BF46-57236BAC430F}"
 EndProject
@@ -12,6 +15,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GenerationMap", "GenerationMap\GenerationMap.vcxproj", "{8A68A13A-894A-4D1E-B782-82C420F42F8D}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Wrapping", "Wrapping\Wrapping.vcxproj", "{C4AB33E0-E70E-462A-AB0D-36B499A01D8B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8A68A13A-894A-4D1E-B782-82C420F42F8D} = {8A68A13A-894A-4D1E-B782-82C420F42F8D}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
