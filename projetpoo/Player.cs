@@ -10,19 +10,20 @@ namespace ProjetPOO
 
         private int score { get; set; }
 
-        protected List<ProjetPOO.IUnit> Unit { get; set; }
+        protected List<ProjetPOO.IUnit> listUnit { get; set; }
 
         protected void incScore()
         {
             score++;
         }
 
-        public void killUnit(Unit unit)
+        public void killUnit(Unit myUnit)
         {
-            //recherche de l'unité
+            listUnit.Remove(myUnit);
         }
         protected void lose()
         {
+            //World.myWorld.removeplayer(this);
             //call remove player of world
             throw new System.NotImplementedException();
         }
