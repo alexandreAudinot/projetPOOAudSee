@@ -48,14 +48,14 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ProjetPOO.Position">
+  <Class Name="ProjetPOO.Position" Collapsed="true">
     <Position X="0.5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAABgAAAAAAA=</HashCode>
       <FileName>Position.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ProjetPOO.Player">
+  <Class Name="ProjetPOO.Player" Collapsed="true">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEAAAAAAIAAIAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
@@ -212,10 +212,10 @@
       <FileName>Board.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="ProjetPOO.IUnit">
+  <Interface Name="ProjetPOO.IUnit" Collapsed="true">
     <Position X="3.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAACAAAAAAAAAAgAAAAKAAAAAAAAAAAA=</HashCode>
       <FileName>IUnit.cs</FileName>
     </TypeIdentifier>
   </Interface>

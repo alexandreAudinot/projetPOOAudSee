@@ -7,12 +7,13 @@ namespace ProjetPOO
 {
     public class Position
     {
-        private int x;
-        private int y;
+        private int x { get; set; }
+        private int y { get; set; }
 
-        public void setPosition(Position pos)
+        protected void setPosition(Position pos)
         {
-            throw new System.NotImplementedException();
+            x = pos.x;
+            y = pos.y;
         }
     }
 }
