@@ -11,6 +11,13 @@ namespace ProjetPOO
         private int nbUnity;
         private int sizeBoard;
         private List<Player> players;
+        private static World world;
+
+        public static World myWorld
+        {
+            get { return World.world; }
+            set { World.world = value; }
+        }
 
         private System.Collections.Generic.List<ProjetPOO.IUnit> unitList
         {
