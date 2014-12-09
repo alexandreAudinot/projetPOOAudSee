@@ -7,8 +7,8 @@ namespace ProjetPOO
 {
     public interface IUnit
     {
-        void move(Tile t);
-        void fight(Tile tile);
+        bool move(Tile t);
+        bool fight(Tile tile);
         void die();
 
         void winFight();

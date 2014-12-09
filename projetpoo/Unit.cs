@@ -10,9 +10,8 @@ namespace ProjetPOO
         private int att;
         private int def;
         private int hp;
-        private int nbDeplacement;
+        protected double nbDeplacement;
 
-        protected Unit() { } //constructeur non voulu obligatoire pour la compilation ?
         
         protected Unit(Player p, Tile t)
         {
@@ -31,10 +30,10 @@ namespace ProjetPOO
         
         private Player controler{get;set;}
 
-        private Position position{get;set;}
+        protected Position position{get;set;}
 
-        public abstract void move(Tile t);
-        public abstract void fight(Tile tile);
+        public abstract bool move(Tile t);
+        public abstract bool fight(Tile tile);
 
         public void die()
         {
