@@ -13,17 +13,11 @@ namespace ProjetPOO
         }
 
         override
-        public bool move(Tile t)
-        {
-            return false;
-        }
-
-        override
-        public bool makeAMove(Tile t)
+        public bool makeAMove(Position p)
         {
             double deplacementDuTour = 0;
             //On considère qu'il y a personne sur la case (vérifier avant)
-            switch (t.GetType().ToString())
+            switch (p.GetType().ToString())
             {
                 case "Mountain":
                     deplacementDuTour = 1;
@@ -49,12 +43,12 @@ namespace ProjetPOO
             else
             {
                 nbDeplacement -= deplacementDuTour;
-                position.setPosition(t.getPosition());
+                position.setPosition(p);
                 return true;
             }
         }
         override
-        public bool fight(Tile t)
+        public bool fight(Position p)
         {
             //On considère qu'il y a du monde sur la case (vérifier avant)
             return false;
@@ -77,17 +71,11 @@ namespace ProjetPOO
         }
 
         override
-        public bool move(Tile t)
-        {
-            return false;
-        }
-
-        override
-        public bool makeAMove(Tile t)
+        public bool makeAMove(Position p)
         {
             double deplacementDuTour = 0;
             //On considère qu'il y a personne sur la case (vérifier avant)
-            switch (t.GetType().ToString())
+            switch (p.GetType().ToString())
             {
                 case "Mountain":
                     deplacementDuTour = 0;
@@ -113,13 +101,13 @@ namespace ProjetPOO
             else
             {
                 nbDeplacement -= deplacementDuTour;
-                position.setPosition(t.getPosition());
+                position.setPosition(p);
                 return true;
             }
         }
 
         override
-        public bool fight(Tile t)
+        public bool fight(Position p)
         {
             //On considère qu'il y a du monde sur la case (vérifier avant)
             return false;
@@ -141,17 +129,11 @@ namespace ProjetPOO
         }
 
         override
-        public bool move(Tile t)
-        {
-            return false;
-        }
-
-        override
-        public bool makeAMove(Tile t)
+        public bool makeAMove(Position p)
         {
             double deplacementDuTour = 0;
             //On considère qu'il y a personne sur la case (vérifier avant)
-            switch(t.GetType().ToString())
+            switch(p.GetType().ToString())
             {
                 case "Mountain" :
                     deplacementDuTour = 1;
@@ -177,13 +159,13 @@ namespace ProjetPOO
             else
             {
                 nbDeplacement -= deplacementDuTour;
-                position.setPosition(t.getPosition());
+                position.setPosition(p);
                 return true;
             }
         }
 
         override
-        public bool fight(Tile t)
+        public bool fight(Position p)
         {
             //On considère qu'il y a du monde sur la case (vérifier avant)
             return false;

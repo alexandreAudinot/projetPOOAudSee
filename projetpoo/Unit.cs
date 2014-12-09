@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,13 +31,29 @@ namespace ProjetPOO
         
         private Player controler{get;set;}
         protected Position position{get;set;}
-        public abstract bool move(Tile t);
-        public abstract bool makeAMove(Tile t);
-        public abstract bool fight(Tile tile);
+        public abstract bool makeAMove(Position p);
+        public abstract bool fight(Position p);
 
         public void die()
         {
             this.controler.killUnit(this);
+        }
+
+        public bool move(Position p)
+        {
+            List<Unit> elem = World.getUnit(p); //fouille le world pour savoir s'il y a quelqu'un
+            if (elem.Any())
+            {
+                return makeAMove(p);
+            }
+            else
+            {
+                if (elem.Count == 1)
+                {
+                    //fight(p,get) changer fight pour qu'il prenne un unit
+                }
+            }
+            return false;
         }
 
         public abstract void winFight();

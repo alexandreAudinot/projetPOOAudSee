@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 
@@ -63,8 +64,13 @@ namespace ProjetPOO
             }
         }
 
-        public List<Unit> getUnit(Position position)
+        public static List<Unit> getUnit(Position position)
         {
+            //TODO : comment a t-on accès aux positions des unités ? Accès direct avec tile ou parcourir toutes les unités avec un if
+            /*foreach (Unit element in unitList)
+            {
+            System.Console.WriteLine(element);
+            }*/
             throw new System.NotImplementedException();
         }
 
