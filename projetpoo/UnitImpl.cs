@@ -30,12 +30,6 @@ namespace ProjetPOO
             //coder tout
         }
 
-        override
-        public void init()
-        {
-            //coder tout
-        }
-
     }
 
     public class Dwarf : Unit
@@ -62,12 +56,6 @@ namespace ProjetPOO
         {
             //coder tout
         }
-
-        override
-        public void init()
-        {
-            //coder tout
-        }
     }
 
     public class Elf : Unit
@@ -91,12 +79,6 @@ namespace ProjetPOO
 
         override
         public void winFight()
-        {
-            //coder tout
-        }
-
-        override
-        public void init()
         {
             //coder tout
         }

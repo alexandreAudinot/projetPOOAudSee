@@ -13,8 +13,6 @@ namespace ProjetPOO
         void die();
 
         void winFight();
-
-        void init();
     }
 
 }

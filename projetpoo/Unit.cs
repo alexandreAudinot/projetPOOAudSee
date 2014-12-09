@@ -35,7 +35,5 @@ namespace ProjetPOO
         }
 
         public abstract void winFight();
-
-        public abstract void init();
     }
 }
