@@ -10,6 +10,7 @@ namespace ProjetPOO
         private int att;
         private int def;
         private int hp;
+        private int nbDeplacement;
 
         protected Unit() { } //constructeur non voulu obligatoire pour la compilation ?
         
@@ -20,6 +21,12 @@ namespace ProjetPOO
             hp = 5;
             controler = p;
             position = t.getPosition();
+            nbDeplacement = 0;
+        }
+
+        protected void initDeplacement()
+        {
+            nbDeplacement = 2 ; //TOCHECK
         }
         
         private Player controler{get;set;}

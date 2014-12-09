@@ -8,12 +8,13 @@ namespace ProjetPOO
     public class Actions
     {
 
-        public void fight(Position position)
+        public static void fight(Position position)
         {
+            //cherche l'unité à combattre
             throw new System.NotImplementedException();
         }
 
-        public void move(Position position)
+        public static int move(Unit u, Position position)
         {
             throw new System.NotImplementedException();
         }

@@ -16,6 +16,7 @@ namespace ProjetPOO
         public void move(Tile t)
         {
             //On considère qu'il y a personne sur la case (vérifier avant)
+            //Actions.move(this, t);
         }
 
         override
