@@ -10,7 +10,7 @@ namespace ProjetPOO
         bool move(Tile t);
         bool fight(Tile tile);
         void die();
-
+        bool makeAMove(Tile t);
         void winFight();
     }
 

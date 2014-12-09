@@ -29,10 +29,9 @@ namespace ProjetPOO
         }
         
         private Player controler{get;set;}
-
         protected Position position{get;set;}
-
         public abstract bool move(Tile t);
+        public abstract bool makeAMove(Tile t);
         public abstract bool fight(Tile tile);
 
         public void die()

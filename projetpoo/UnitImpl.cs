@@ -15,6 +15,12 @@ namespace ProjetPOO
         override
         public bool move(Tile t)
         {
+            return false;
+        }
+
+        override
+        public bool makeAMove(Tile t)
+        {
             double deplacementDuTour = 0;
             //On considère qu'il y a personne sur la case (vérifier avant)
             switch (t.GetType().ToString())
@@ -32,18 +38,20 @@ namespace ProjetPOO
                     deplacementDuTour = 1;
                     break;
                 default:
-                    throw new Exception("Le type de terrain n'est pas matché");
+                    return false;
+                    //Type de terrain non matché
             }
             if (deplacementDuTour > nbDeplacement)
             {
-                throw new Exception("Plus assez de mouvements disponible"); //la méthode pourrait aussi rendre false
+                return false;
+                //plus assez de mouvements disponibles
             }
             else
             {
                 nbDeplacement -= deplacementDuTour;
                 position.setPosition(t.getPosition());
+                return true;
             }
-            return false;
         }
         override
         public bool fight(Tile t)
@@ -71,6 +79,12 @@ namespace ProjetPOO
         override
         public bool move(Tile t)
         {
+            return false;
+        }
+
+        override
+        public bool makeAMove(Tile t)
+        {
             double deplacementDuTour = 0;
             //On considère qu'il y a personne sur la case (vérifier avant)
             switch (t.GetType().ToString())
@@ -88,18 +102,20 @@ namespace ProjetPOO
                     deplacementDuTour = 1;
                     break;
                 default:
-                    throw new Exception("Le type de terrain n'est pas matché");
+                    return false;
+                //Type de terrain non matché
             }
             if (deplacementDuTour > nbDeplacement)
             {
-                throw new Exception("Plus assez de mouvements disponible"); //la méthode pourrait aussi rendre false
+                return false;
+                //plus assez de mouvements disponibles
             }
             else
             {
                 nbDeplacement -= deplacementDuTour;
                 position.setPosition(t.getPosition());
+                return true;
             }
-            return false;
         }
 
         override
@@ -127,6 +143,12 @@ namespace ProjetPOO
         override
         public bool move(Tile t)
         {
+            return false;
+        }
+
+        override
+        public bool makeAMove(Tile t)
+        {
             double deplacementDuTour = 0;
             //On considère qu'il y a personne sur la case (vérifier avant)
             switch(t.GetType().ToString())
@@ -143,19 +165,21 @@ namespace ProjetPOO
                 case "Desert":
                     deplacementDuTour = 2;
                     break;
-                default:
-                throw new Exception("Le type de terrain n'est pas matché");
+                default :
+                    return false;
+                //Type de terrain non matché
             }
             if (deplacementDuTour > nbDeplacement)
             {
-                throw new Exception("Plus assez de mouvements disponible"); //la méthode pourrait aussi rendre false
+                return false;
+                //plus assez de mouvements disponibles
             }
             else
             {
                 nbDeplacement -= deplacementDuTour;
                 position.setPosition(t.getPosition());
+                return true;
             }
-            return false;
         }
 
         override
