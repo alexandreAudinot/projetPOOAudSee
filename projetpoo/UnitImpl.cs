@@ -16,13 +16,14 @@ namespace ProjetPOO
         public void move(Tile t)
         {
             //On considère qu'il y a personne sur la case (vérifier avant)
-            //Actions.move(this, t);
+            
         }
 
         override
-        public void attack(Position position)
+        public void fight(Tile t)
         {
-            //coder tout
+            //On considère qu'il y a du monde sur la case (vérifier avant)
+
         }
 
         override
@@ -44,12 +45,14 @@ namespace ProjetPOO
         public void move(Tile t)
         {
             //On considère qu'il y a personne sur la case (vérifier avant)
+
         }
 
         override
-        public void attack(Position position)
+        public void fight(Tile t)
         {
-            //coder tout
+            //On considère qu'il y a du monde sur la case (vérifier avant)
+
         }
 
         override
@@ -70,12 +73,14 @@ namespace ProjetPOO
         public void move(Tile t)
         {
             //On considère qu'il y a personne sur la case (vérifier avant)
+
         }
 
         override
-        public void attack(Position position)
+        public void fight(Tile t)
         {
-            //coder tout
+            //On considère qu'il y a du monde sur la case (vérifier avant)
+
         }
 
         override

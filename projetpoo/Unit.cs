@@ -34,7 +34,7 @@ namespace ProjetPOO
         private Position position{get;set;}
 
         public abstract void move(Tile t);
-        public abstract void attack(Position position);
+        public abstract void fight(Tile tile);
 
         public void die()
         {

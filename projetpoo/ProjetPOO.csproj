@@ -51,7 +51,6 @@
     <Compile Include="Display.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Factory.cs" />
-    <Compile Include="Actions.cs" />
     <Compile Include="Forest.cs" />
     <Compile Include="IBuilder.cs" />
     <Compile Include="Ifactory.cs" />
