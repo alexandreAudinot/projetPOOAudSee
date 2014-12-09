@@ -7,15 +7,15 @@ namespace ProjetPOO
 {
     public class Orc : Unit
     {
-        public Orc()
+        protected Orc(Player p, Tile t)
         {
-
+            //référence image
         }
 
         override
-        public void move()
+        public void move(Tile t)
         {
-            //coder tout
+            //On considère qu'il y a personne sur la case (vérifier avant)
         }
 
         override
@@ -40,10 +40,15 @@ namespace ProjetPOO
 
     public class Dwarf : Unit
     {
-        override
-        public void move()
+        protected Dwarf(Player p, Tile t)
         {
-            //coder tout
+            //référence image
+        }
+
+        override
+        public void move(Tile t)
+        {
+            //On considère qu'il y a personne sur la case (vérifier avant)
         }
 
         override
@@ -67,10 +72,15 @@ namespace ProjetPOO
 
     public class Elf : Unit
     {
-        override
-        public void move()
+        protected Elf(Player p, Tile t)
         {
-            //coder tout
+            //référence image
+        }
+
+        override
+        public void move(Tile t)
+        {
+            //On considère qu'il y a personne sur la case (vérifier avant)
         }
 
         override

@@ -7,6 +7,11 @@ namespace ProjetPOO
 {
     public class Tile
     {
-        private int Position;
+        private Position p;
+
+        public Position getPosition()
+        {
+            return p;
+        }
     }
 }

@@ -11,11 +11,22 @@ namespace ProjetPOO
         private int def;
         private int hp;
 
+        protected Unit() { } //constructeur non voulu obligatoire pour la compilation ?
+        
+        protected Unit(Player p, Tile t)
+        {
+            att = 2;
+            def = 1;
+            hp = 5;
+            controler = p;
+            position = t.getPosition();
+        }
+        
         private Player controler{get;set;}
 
         private Position position{get;set;}
 
-        public abstract void move();
+        public abstract void move(Tile t);
         public abstract void attack(Position position);
 
         public void die()

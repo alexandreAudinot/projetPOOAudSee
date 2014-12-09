@@ -40,7 +40,7 @@
       <FileName>UnitImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ProjetPOO.Unit" Collapsed="true">
+  <Class Name="ProjetPOO.Unit">
     <Position X="2.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAiAAAACAAAAAoAAAAgAAAAKAgABAAAAAAAA=</HashCode>
@@ -121,7 +121,7 @@
   <Class Name="ProjetPOO.AbstractFactory">
     <Position X="7.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>AbstractFactory.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -179,7 +179,7 @@
   <Class Name="ProjetPOO.AbstractBoard">
     <Position X="9.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAABAAAAABAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>AbstractBoard.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />

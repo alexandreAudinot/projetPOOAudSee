@@ -7,7 +7,7 @@ namespace ProjetPOO
 {
     public interface IUnit
     {
-        void move();
+        void move(Tile t);
         void attack(Position position);
 
         void die();
