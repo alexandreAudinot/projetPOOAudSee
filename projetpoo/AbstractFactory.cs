@@ -8,9 +8,6 @@ namespace ProjetPOO
     public abstract class AbstractFactory : IFactory
     {
 
-        void IFactory.createUnit()
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void createUnit();
     }
 }

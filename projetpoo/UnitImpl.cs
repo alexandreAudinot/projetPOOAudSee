@@ -7,6 +7,11 @@ namespace ProjetPOO
 {
     public class Orc : Unit
     {
+        public Orc()
+        {
+
+        }
+
         override
         public void move()
         {

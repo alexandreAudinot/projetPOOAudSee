@@ -73,7 +73,8 @@ namespace ProjetPOO
             }
         }
 
-        protected void createUnit()
+        override
+        public void createUnit()
         {
             throw new System.NotImplementedException();
         }

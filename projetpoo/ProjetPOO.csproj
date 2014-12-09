@@ -62,8 +62,6 @@
     <Compile Include="LoadGame.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Mountain.cs" />
-    <Compile Include="MyDisplay.cs" />
-    <Compile Include="MyEvent.cs" />
     <Compile Include="NormalBoard.cs" />
     <Compile Include="UnitImpl.cs" />
     <Compile Include="Plain.cs" />
