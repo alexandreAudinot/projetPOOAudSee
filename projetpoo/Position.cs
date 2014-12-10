@@ -15,5 +15,10 @@ namespace ProjetPOO
             x = pos.x;
             y = pos.y;
         }
+
+        public Boolean equals(Position p)
+        {
+            return ((p.x == this.x) && (p.y == this.y));
+        }
     }
 }

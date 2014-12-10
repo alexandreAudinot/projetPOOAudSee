@@ -14,10 +14,21 @@ namespace ProjetPOO
         private List<Player> players;
         private static World world;
 
-        public static World myWorld
+        public static World Instance
         {
-            get { return World.world; }
-            set { World.world = value; }
+            get
+            {
+                if (world == null)
+                {
+                    world = new World(); 
+                }
+                return World.world;
+            }
+        }
+
+        protected World()
+        {
+            //coder constructeur de world
         }
 
         private System.Collections.Generic.List<ProjetPOO.IUnit> unitList
@@ -64,15 +75,57 @@ namespace ProjetPOO
             }
         }
 
-        public static List<Unit> getUnit(Position position)
+        public Unit getUnit(Position position)
         {
-            //TODO : comment a t-on accès aux positions des unités ? Accès direct avec tile ou parcourir toutes les unités avec un if
-            /*foreach (Unit element in unitList)
+            List<Unit> l = new List<Unit>();
+            foreach (Unit unit in unitList)
             {
-            System.Console.WriteLine(element);
-            }*/
-            throw new System.NotImplementedException();
+                if (unit.position.equals(position))
+                {
+                    if (!l.Any())
+                    {
+                        l.Add(unit);
+                    }
+                    else
+                    {
+                        if (unit.def > l.First().def)
+                        {
+                            l.Clear();
+                            l.Add(unit);
+                        }
+                        else
+                        {
+                            if (unit.def == l.First().def)
+                            {
+                                l.Add(unit);
+                            } 
+                            else
+                            {
+                            }
+                        }
+                    }
+                }
+            }
+            if (!l.Any())
+            {
+                return null;
+            }
+            else
+            {
+                if (l.Count() == 1)
+                {
+                    return l.First();
+                } 
+                else
+                {
+                    //tester que le nombre est bien dans les cordes
+                    Random rnd = new Random();
+                    return l.ElementAt(rnd.Next(0,l.Count() + 1));
+                }
+            }
         }
+
+        //fonction qui prend une position et renvoie un tile
 
         public void removePlayer()
         {

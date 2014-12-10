@@ -9,7 +9,7 @@ namespace ProjetPOO
     public abstract class Unit : ProjetPOO.IUnit
     {
         private int att;
-        private int def;
+        public int def { get; private set; }
         private int hp;
         protected double nbDeplacement;
 
@@ -30,32 +30,29 @@ namespace ProjetPOO
         }
         
         private Player controler{get;set;}
-        protected Position position{get;set;}
-        public abstract bool makeAMove(Tile p);
-        public abstract bool fight(Position p);
+        public Position position{get;set;}
+        public abstract void makeAMove(Position p);
+        public abstract bool fight(Position p, Unit u);
 
         public void die()
         {
             this.controler.killUnit(this);
         }
 
-        public bool move(Tile p)
+        public void move(Position p)
         {
-            List<Unit> elem = World.getUnit(p.getPosition()); //fouille le world pour savoir s'il y a quelqu'un
-            if (elem.Any())
+            Unit elem = World.Instance.getUnit(p); //fouille le world pour savoir s'il y a quelqu'un
+            if (elem == null)
             {
-                return makeAMove(p);
+                this.makeAMove(p);
             }
             else
             {
-                if (elem.Count == 1)
-                {
-                    //fight(p,get) changer fight pour qu'il prenne un unit
-                }
+                    this.fight(p, elem);
             }
-            return false;
         }
 
         public abstract void winFight();
+        //public abstract double tileDep(Tile t);
     }
 }

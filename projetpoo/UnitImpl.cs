@@ -13,7 +13,7 @@ namespace ProjetPOO
         }
 
         override
-        public bool makeAMove(Tile p)
+        public void makeAMove(Position p)
         {
             double deplacementDuTour = 0;
             //On considère qu'il y a personne sur la case (vérifier avant)
@@ -32,23 +32,20 @@ namespace ProjetPOO
                     deplacementDuTour = 1;
                     break;
                 default:
-                    return false;
-                    //Type de terrain non matché
+                    throw new Exception("Type de terrain non matché");
             }
             if (deplacementDuTour > nbDeplacement)
             {
-                return false;
-                //plus assez de mouvements disponibles
+                throw new Exception("plus assez de mouvements disponibles");
             }
             else
             {
                 nbDeplacement -= deplacementDuTour;
-                position.setPosition(p.getPosition());
-                return true;
+                position.setPosition(p);
             }
         }
         override
-        public bool fight(Position p)
+        public bool fight(Position p, Unit u)
         {
             //On considère qu'il y a du monde sur la case (vérifier avant)
             return false;
@@ -71,7 +68,7 @@ namespace ProjetPOO
         }
 
         override
-        public bool makeAMove(Tile p)
+        public void makeAMove(Position p)
         {
             double deplacementDuTour = 0;
             //On considère qu'il y a personne sur la case (vérifier avant)
@@ -90,24 +87,21 @@ namespace ProjetPOO
                     deplacementDuTour = 1;
                     break;
                 default:
-                    return false;
-                //Type de terrain non matché
+                    throw new Exception("Type de terrain non matché");
             }
             if (deplacementDuTour > nbDeplacement)
             {
-                return false;
-                //plus assez de mouvements disponibles
+                throw new Exception("plus assez de mouvements disponibles");
             }
             else
             {
                 nbDeplacement -= deplacementDuTour;
-                position.setPosition(p.getPosition());
-                return true;
+                position.setPosition(p);
             }
         }
 
         override
-        public bool fight(Position p)
+        public bool fight(Position p, Unit u)
         {
             //On considère qu'il y a du monde sur la case (vérifier avant)
             return false;
@@ -129,7 +123,7 @@ namespace ProjetPOO
         }
 
         override
-        public bool makeAMove(Tile p)
+        public void makeAMove(Position p)
         {
             double deplacementDuTour = 0;
             //On considère qu'il y a personne sur la case (vérifier avant)
@@ -147,25 +141,22 @@ namespace ProjetPOO
                 case "Desert":
                     deplacementDuTour = 2;
                     break;
-                default :
-                    return false;
-                //Type de terrain non matché
+                default:
+                    throw new Exception("Type de terrain non matché");
             }
             if (deplacementDuTour > nbDeplacement)
             {
-                return false;
-                //plus assez de mouvements disponibles
+                throw new Exception("plus assez de mouvements disponibles");
             }
             else
             {
                 nbDeplacement -= deplacementDuTour;
-                position.setPosition(p.getPosition());
-                return true;
+                position.setPosition(p);
             }
         }
 
         override
-        public bool fight(Position p)
+        public bool fight(Position p, Unit u)
         {
             //On considère qu'il y a du monde sur la case (vérifier avant)
             return false;
