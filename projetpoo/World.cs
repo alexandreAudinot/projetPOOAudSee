@@ -13,6 +13,7 @@ namespace ProjetPOO
         private int sizeBoard;
         private List<Player> players;
         private static World world;
+        private static Board board;
 
         public static World Instance
         {
@@ -75,6 +76,8 @@ namespace ProjetPOO
             }
         }
 
+        //getUnit rend une unité nulle s'il n'y a pas de pièce sur la position
+        //ou sinon rend l'unité de plus grande défense de la case (l'unité au hasard en cas d'égalité)
         public Unit getUnit(Position position)
         {
             List<Unit> l = new List<Unit>();
@@ -106,6 +109,7 @@ namespace ProjetPOO
                     }
                 }
             }
+            //renvoie null si rien n'a été trouvé sur la case
             if (!l.Any())
             {
                 return null;
@@ -118,6 +122,7 @@ namespace ProjetPOO
                 } 
                 else
                 {
+                    //renvoie une unité au hasard
                     //tester que le nombre est bien dans les cordes
                     Random rnd = new Random();
                     return l.ElementAt(rnd.Next(0,l.Count() + 1));
@@ -125,6 +130,11 @@ namespace ProjetPOO
             }
         }
 
+        public Tile getTile(Position p)
+        {
+            return board.getTile(p);
+        }
+        
         //fonction qui prend une position et renvoie un tile
 
         public void removePlayer()

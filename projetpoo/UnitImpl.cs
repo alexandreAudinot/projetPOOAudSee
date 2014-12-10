@@ -12,11 +12,13 @@ namespace ProjetPOO
             //référence image
         }
 
+        //makeAMove effectue le mouvement de la pièce vers la position
         override
         public void makeAMove(Position p)
         {
             double deplacementDuTour = 0;
-            //On considère qu'il y a personne sur la case (vérifier avant)
+            //Les coûts de déplacement sont différents selon le type de terrain
+            //gettyle TODO
             switch (p.GetType().ToString())
             {
                 case "Mountain":
@@ -40,16 +42,10 @@ namespace ProjetPOO
             }
             else
             {
+                //mise à jour de nbDeplacement
                 nbDeplacement -= deplacementDuTour;
                 position.setPosition(p);
             }
-        }
-        override
-        public bool fight(Position p, Unit u)
-        {
-            //On considère qu'il y a du monde sur la case (vérifier avant)
-            return false;
-
         }
 
         override
@@ -71,7 +67,7 @@ namespace ProjetPOO
         public void makeAMove(Position p)
         {
             double deplacementDuTour = 0;
-            //On considère qu'il y a personne sur la case (vérifier avant)
+            //Les coûts de déplacement sont différents selon le type de terrain
             switch (p.GetType().ToString())
             {
                 case "Mountain":
@@ -95,17 +91,10 @@ namespace ProjetPOO
             }
             else
             {
+                //mise à jour de nbDeplacement
                 nbDeplacement -= deplacementDuTour;
                 position.setPosition(p);
             }
-        }
-
-        override
-        public bool fight(Position p, Unit u)
-        {
-            //On considère qu'il y a du monde sur la case (vérifier avant)
-            return false;
-
         }
 
         override
@@ -126,7 +115,7 @@ namespace ProjetPOO
         public void makeAMove(Position p)
         {
             double deplacementDuTour = 0;
-            //On considère qu'il y a personne sur la case (vérifier avant)
+            //Les coûts de déplacement sont différents selon le type de terrain
             switch(p.GetType().ToString())
             {
                 case "Mountain" :
@@ -150,17 +139,10 @@ namespace ProjetPOO
             }
             else
             {
+                //mise à jour de nbDeplacement
                 nbDeplacement -= deplacementDuTour;
                 position.setPosition(p);
             }
-        }
-
-        override
-        public bool fight(Position p, Unit u)
-        {
-            //On considère qu'il y a du monde sur la case (vérifier avant)
-            return false;
-
         }
 
         override

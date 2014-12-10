@@ -24,5 +24,7 @@ namespace ProjetPOO
             List<int> generatedList;
             generatedList = wrapper.compute(12, 12);
         }
+
+        public abstract Tile getTile(Position p);
     }
 }

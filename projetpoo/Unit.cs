@@ -8,12 +8,11 @@ namespace ProjetPOO
 {
     public abstract class Unit : ProjetPOO.IUnit
     {
-        private int att;
+        public int att { get; private set; }
         public int def { get; private set; }
-        private int hp;
-        protected double nbDeplacement;
+        public int hp { get; private set; }
+        protected double nbDeplacement { get; set; }
 
-        
         protected Unit(Player p, Tile t)
         {
             att = 2;
@@ -32,27 +31,31 @@ namespace ProjetPOO
         private Player controler{get;set;}
         public Position position{get;set;}
         public abstract void makeAMove(Position p);
-        public abstract bool fight(Position p, Unit u);
+
+        public void fight(Position p, Unit u)
+        {
+
+        }
 
         public void die()
         {
             this.controler.killUnit(this);
         }
 
+        //La méthode move détermine si l'évènement est un déplacement ou un combat et fait l'appel le cas échéant
         public void move(Position p)
         {
-            Unit elem = World.Instance.getUnit(p); //fouille le world pour savoir s'il y a quelqu'un
+            Unit elem = World.Instance.getUnit(p); 
             if (elem == null)
             {
                 this.makeAMove(p);
             }
             else
             {
-                    this.fight(p, elem);
+                this.fight(p, elem);
             }
         }
 
         public abstract void winFight();
-        //public abstract double tileDep(Tile t);
     }
 }

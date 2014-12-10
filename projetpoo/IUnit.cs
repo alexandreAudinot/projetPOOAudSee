@@ -8,7 +8,7 @@ namespace ProjetPOO
     public interface IUnit
     {
         void move(Position p);
-        bool fight(Position p, Unit u);
+        void fight(Position p, Unit u);
         void die();
         void makeAMove(Position p);
         void winFight();
