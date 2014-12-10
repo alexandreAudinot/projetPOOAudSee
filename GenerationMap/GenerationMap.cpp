@@ -1,4 +1,5 @@
 #include "GenerationMap.h"
+#include <stdlib.h>
 #include <time.h>
 
 GenerationMap::GenerationMap()
@@ -16,7 +17,7 @@ int* GenerationMap::generer(int w, int h) const
 
 	int* out = new int[w*h]();
 	
-	initialiser(out);
+	initialiser(out, w, h);
 
 	for (int i = 0; i < w; i++)
 	{

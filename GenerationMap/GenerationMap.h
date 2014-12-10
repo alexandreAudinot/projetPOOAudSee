@@ -19,6 +19,8 @@ public:
 	GenerationMap();
 	~GenerationMap();
 	int* generer(int w, int h) const;
+	void initialiser(int* map, int w, int h) const;
+	void genererBiome(int* map, int w, int h, int biome, int length) const;
 };
 
 EXTERNC DLL GenerationMap* GenerationMap_new();
