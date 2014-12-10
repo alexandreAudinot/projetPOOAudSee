@@ -31,7 +31,7 @@ namespace ProjetPOO
         
         private Player controler{get;set;}
         protected Position position{get;set;}
-        public abstract bool makeAMove(Position p);
+        public abstract bool makeAMove(Tile p);
         public abstract bool fight(Position p);
 
         public void die()
@@ -39,9 +39,9 @@ namespace ProjetPOO
             this.controler.killUnit(this);
         }
 
-        public bool move(Position p)
+        public bool move(Tile p)
         {
-            List<Unit> elem = World.getUnit(p); //fouille le world pour savoir s'il y a quelqu'un
+            List<Unit> elem = World.getUnit(p.getPosition()); //fouille le world pour savoir s'il y a quelqu'un
             if (elem.Any())
             {
                 return makeAMove(p);

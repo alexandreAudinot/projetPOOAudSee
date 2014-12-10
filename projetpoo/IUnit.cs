@@ -7,10 +7,10 @@ namespace ProjetPOO
 {
     public interface IUnit
     {
-        bool move(Position p);
+        bool move(Tile p);
         bool fight(Position p);
         void die();
-        bool makeAMove(Position p);
+        bool makeAMove(Tile p);
         void winFight();
     }
 

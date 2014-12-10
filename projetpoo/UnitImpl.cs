@@ -13,7 +13,7 @@ namespace ProjetPOO
         }
 
         override
-        public bool makeAMove(Position p)
+        public bool makeAMove(Tile p)
         {
             double deplacementDuTour = 0;
             //On considère qu'il y a personne sur la case (vérifier avant)
@@ -43,7 +43,7 @@ namespace ProjetPOO
             else
             {
                 nbDeplacement -= deplacementDuTour;
-                position.setPosition(p);
+                position.setPosition(p.getPosition());
                 return true;
             }
         }
@@ -71,7 +71,7 @@ namespace ProjetPOO
         }
 
         override
-        public bool makeAMove(Position p)
+        public bool makeAMove(Tile p)
         {
             double deplacementDuTour = 0;
             //On considère qu'il y a personne sur la case (vérifier avant)
@@ -101,7 +101,7 @@ namespace ProjetPOO
             else
             {
                 nbDeplacement -= deplacementDuTour;
-                position.setPosition(p);
+                position.setPosition(p.getPosition());
                 return true;
             }
         }
@@ -129,7 +129,7 @@ namespace ProjetPOO
         }
 
         override
-        public bool makeAMove(Position p)
+        public bool makeAMove(Tile p)
         {
             double deplacementDuTour = 0;
             //On considère qu'il y a personne sur la case (vérifier avant)
@@ -159,7 +159,7 @@ namespace ProjetPOO
             else
             {
                 nbDeplacement -= deplacementDuTour;
-                position.setPosition(p);
+                position.setPosition(p.getPosition());
                 return true;
             }
         }
