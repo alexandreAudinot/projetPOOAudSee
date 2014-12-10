@@ -27,14 +27,51 @@ namespace ProjetPOO
         {
             nbDeplacement = 2 ; //TOCHECK
         }
+
+        protected bool isAlive()
+        {
+            return hp > 0;
+        }
         
         private Player controler{get;set;}
         public Position position{get;set;}
         public abstract void makeAMove(Position p);
 
+        //méthode fight traite le combat de deux unités
         public void fight(Position p, Unit u)
         {
-
+            //le nombre de combats est compris entre 3 et le nombre de points de vie maximum des 2 unités ajouté de 2
+            Random rdm = new Random();
+            int nbCombats = rdm.Next(3,2 + Math.Max(this.hp,u.hp));
+            //calcul des probabilités de combat
+            double probAtt = 0;//TODO
+            //Sélection de l'attaquant et attaque
+            while(this.isAlive() && u.isAlive() && nbCombats > 0)
+            {
+                if (rdm.Next(0, 100) < probAtt)
+                {
+                    //l'attaque est pondérée par les points de vie de l'attaquant
+                    u.hp -= this.hp * this.att;
+                }
+                else
+                {
+                    this.hp -= u.hp * u.att;
+                }
+            }
+            if (nbCombats != 0)
+            {
+                //cas de mort d'une unité
+                if (this.isAlive())
+                {
+                    u.die();
+                    this.winFight();
+                } 
+                else
+                {
+                    this.die();
+                    u.winFight();
+                }
+            }
         }
 
         public void die()
