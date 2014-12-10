@@ -12,11 +12,13 @@ namespace ProjetPOO
             //référence image
         }
 
+        //makeAMove effectue le mouvement de la pièce vers la position
         override
-        public bool makeAMove(Position p)
+        public void makeAMove(Position p)
         {
             double deplacementDuTour = 0;
-            //On considère qu'il y a personne sur la case (vérifier avant)
+            //Les coûts de déplacement sont différents selon le type de terrain
+            //gettyle TODO
             switch (p.GetType().ToString())
             {
                 case "Mountain":
@@ -32,27 +34,18 @@ namespace ProjetPOO
                     deplacementDuTour = 1;
                     break;
                 default:
-                    return false;
-                    //Type de terrain non matché
+                    throw new Exception("Type de terrain non matché");
             }
             if (deplacementDuTour > nbDeplacement)
             {
-                return false;
-                //plus assez de mouvements disponibles
+                throw new Exception("plus assez de mouvements disponibles");
             }
             else
             {
+                //mise à jour de nbDeplacement
                 nbDeplacement -= deplacementDuTour;
                 position.setPosition(p);
-                return true;
             }
-        }
-        override
-        public bool fight(Position p)
-        {
-            //On considère qu'il y a du monde sur la case (vérifier avant)
-            return false;
-
         }
 
         override
@@ -71,10 +64,10 @@ namespace ProjetPOO
         }
 
         override
-        public bool makeAMove(Position p)
+        public void makeAMove(Position p)
         {
             double deplacementDuTour = 0;
-            //On considère qu'il y a personne sur la case (vérifier avant)
+            //Les coûts de déplacement sont différents selon le type de terrain
             switch (p.GetType().ToString())
             {
                 case "Mountain":
@@ -90,28 +83,18 @@ namespace ProjetPOO
                     deplacementDuTour = 1;
                     break;
                 default:
-                    return false;
-                //Type de terrain non matché
+                    throw new Exception("Type de terrain non matché");
             }
             if (deplacementDuTour > nbDeplacement)
             {
-                return false;
-                //plus assez de mouvements disponibles
+                throw new Exception("plus assez de mouvements disponibles");
             }
             else
             {
+                //mise à jour de nbDeplacement
                 nbDeplacement -= deplacementDuTour;
                 position.setPosition(p);
-                return true;
             }
-        }
-
-        override
-        public bool fight(Position p)
-        {
-            //On considère qu'il y a du monde sur la case (vérifier avant)
-            return false;
-
         }
 
         override
@@ -129,10 +112,10 @@ namespace ProjetPOO
         }
 
         override
-        public bool makeAMove(Position p)
+        public void makeAMove(Position p)
         {
             double deplacementDuTour = 0;
-            //On considère qu'il y a personne sur la case (vérifier avant)
+            //Les coûts de déplacement sont différents selon le type de terrain
             switch(p.GetType().ToString())
             {
                 case "Mountain" :
@@ -147,29 +130,19 @@ namespace ProjetPOO
                 case "Desert":
                     deplacementDuTour = 2;
                     break;
-                default :
-                    return false;
-                //Type de terrain non matché
+                default:
+                    throw new Exception("Type de terrain non matché");
             }
             if (deplacementDuTour > nbDeplacement)
             {
-                return false;
-                //plus assez de mouvements disponibles
+                throw new Exception("plus assez de mouvements disponibles");
             }
             else
             {
+                //mise à jour de nbDeplacement
                 nbDeplacement -= deplacementDuTour;
                 position.setPosition(p);
-                return true;
             }
-        }
-
-        override
-        public bool fight(Position p)
-        {
-            //On considère qu'il y a du monde sur la case (vérifier avant)
-            return false;
-
         }
 
         override

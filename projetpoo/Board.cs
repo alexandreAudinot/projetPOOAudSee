@@ -11,5 +11,7 @@ namespace ProjetPOO
         {
             get;
         }
+
+        Tile getTile(Position p);
     }
 }

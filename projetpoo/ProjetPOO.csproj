@@ -45,8 +45,7 @@
     <Compile Include="Board.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="CreateGame.cs" />
-    <Compile Include="Demo.cs" />
-    <Compile Include="DemoBoard.cs" />
+    <Compile Include="BoardImpl.cs" />
     <Compile Include="Desert.cs" />
     <Compile Include="Display.cs" />
     <Compile Include="Event.cs" />
@@ -61,7 +60,6 @@
     <Compile Include="LoadGame.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Mountain.cs" />
-    <Compile Include="NormalBoard.cs" />
     <Compile Include="UnitImpl.cs" />
     <Compile Include="Plain.cs" />
     <Compile Include="Player.cs" />
@@ -69,7 +67,6 @@
     <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SaveGame.cs" />
-    <Compile Include="SmallBoard.cs" />
     <Compile Include="Tile.cs" />
     <Compile Include="TileType.cs" />
     <Compile Include="Unit.cs" />

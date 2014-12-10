@@ -13,11 +13,23 @@ namespace ProjetPOO
         private int sizeBoard;
         private List<Player> players;
         private static World world;
+        private static Board board;
 
-        public static World myWorld
+        public static World Instance
         {
-            get { return World.world; }
-            set { World.world = value; }
+            get
+            {
+                if (world == null)
+                {
+                    world = new World(); 
+                }
+                return World.world;
+            }
+        }
+
+        protected World()
+        {
+            //coder constructeur de world
         }
 
         private System.Collections.Generic.List<ProjetPOO.IUnit> unitList
@@ -64,15 +76,66 @@ namespace ProjetPOO
             }
         }
 
-        public static List<Unit> getUnit(Position position)
+        //getUnit rend une unité nulle s'il n'y a pas de pièce sur la position
+        //ou sinon rend l'unité de plus grande défense de la case (l'unité au hasard en cas d'égalité)
+        public Unit getUnit(Position position)
         {
-            //TODO : comment a t-on accès aux positions des unités ? Accès direct avec tile ou parcourir toutes les unités avec un if
-            /*foreach (Unit element in unitList)
+            List<Unit> l = new List<Unit>();
+            foreach (Unit unit in unitList)
             {
-            System.Console.WriteLine(element);
-            }*/
-            throw new System.NotImplementedException();
+                if (unit.position.equals(position))
+                {
+                    if (!l.Any())
+                    {
+                        l.Add(unit);
+                    }
+                    else
+                    {
+                        if (unit.def > l.First().def)
+                        {
+                            l.Clear();
+                            l.Add(unit);
+                        }
+                        else
+                        {
+                            if (unit.def == l.First().def)
+                            {
+                                l.Add(unit);
+                            } 
+                            else
+                            {
+                            }
+                        }
+                    }
+                }
+            }
+            //renvoie null si rien n'a été trouvé sur la case
+            if (!l.Any())
+            {
+                return null;
+            }
+            else
+            {
+                if (l.Count() == 1)
+                {
+                    return l.First();
+                } 
+                else
+                {
+                    //renvoie une unité au hasard
+                    //tester que le nombre est bien dans les cordes
+                    Random rnd = new Random();
+                    return l.ElementAt(rnd.Next(0,l.Count() + 1));
+                }
+            }
         }
+
+        public Tile getTile(Position p)
+        {
+            return board.getTile(p);
+        }
+        
+        //fonction qui prend une position et renvoie un tile
 
         public void removePlayer()
         {
