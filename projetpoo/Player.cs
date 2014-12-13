@@ -7,10 +7,11 @@ namespace ProjetPOO
 {
     public class Player
     {
-        public Player(string name)
+        public Player(string name, int n)
         {
             score = 0;
             nom = name;
+            numero = n;
         }
         protected string nom { get; private set; }
         public int numero { get; private set; }

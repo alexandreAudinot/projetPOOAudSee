@@ -48,19 +48,7 @@ namespace ProjetPOO
         private List<Orc> Orcs;
 
         override
-        public void createUnit()
-        {
-            //init Elfs
-            int i = World.Instance.nbUnity;
-            while (i > 0)
-            {
-                Elfs.Add(elf);
-                Dwarves.Add(dwarf);
-                Orcs.Add(orc);
-            }
-        }
-
-        public void init(List<Player> players, List<Tile> tiles, List<String> types)
+        public void createUnit(List<Player> players, List<Tile> tiles, List<String> types)
         {
             int i = 0;
             foreach (Player player in players)
@@ -69,6 +57,15 @@ namespace ProjetPOO
                 {
                     case ("Elfe"):
                         elf = new Elf(player,tiles.ElementAt(i));
+                        int nb = World.Instance.nbUnity;
+                        while (nb > 0)
+                         {
+                             Elfs.Add(elf);
+                            Dwarves.Add(dwarf);
+                            Orcs.Add(orc);
+                            nb--;
+                        }
+
                         break;
                     case ("Dwarf"):
                         dwarf = new Dwarf(player, tiles.ElementAt(i));

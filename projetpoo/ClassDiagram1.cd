@@ -20,13 +20,13 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Orc">
-    <Position X="2" Y="6.25" Width="1.5" />
+    <Position X="2" Y="7.25" Width="1.5" />
     <InheritanceLine Type="ProjetPOO.Unit" ManuallyRouted="true">
       <Path>
         <Point X="4.75" Y="5.709" />
         <Point X="4.75" Y="6.115" />
         <Point X="2.75" Y="6.115" />
-        <Point X="2.75" Y="6.25" />
+        <Point X="2.75" Y="7.25" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -35,13 +35,13 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Elf">
-    <Position X="3.75" Y="6.25" Width="1.5" />
+    <Position X="3.75" Y="7.25" Width="1.5" />
     <InheritanceLine Type="ProjetPOO.Unit" ManuallyRouted="true">
       <Path>
         <Point X="4.75" Y="5.709" />
         <Point X="4.75" Y="6.125" />
         <Point X="4.5" Y="6.125" />
-        <Point X="4.5" Y="6.25" />
+        <Point X="4.5" Y="7.25" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -165,7 +165,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Monteur">
-    <Position X="15.25" Y="2.5" Width="1.5" />
+    <Position X="15.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAACAAQAAAAAAAAAAAAAAAAAAgAKACAAAAA=</HashCode>
       <FileName>AbstractFactoryTiles.cs</FileName>
@@ -225,7 +225,7 @@
   <Interface Name="ProjetPOO.Board">
     <Position X="11.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAABAAAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Board.cs</FileName>
     </TypeIdentifier>
   </Interface>

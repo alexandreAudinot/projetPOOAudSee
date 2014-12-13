@@ -7,6 +7,6 @@ namespace ProjetPOO
 {
     public interface IFactory
     {
-        void createUnit();
+        void createUnit(List<Player> players, List<Tile> tiles, List<String> types);
     }
 }

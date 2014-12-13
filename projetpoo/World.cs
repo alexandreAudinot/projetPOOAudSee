@@ -13,7 +13,7 @@ namespace ProjetPOO
         public int nbUnity;
         private int nbPlayer;
         public int currentPlayer { get; set; }
-        private List<Player> players;
+        public List<Player> players;
         private static World world;
         private static Board board;
         private static List<string> listType;
@@ -31,13 +31,19 @@ namespace ProjetPOO
             }
         }
 
-        protected World(Board b)
+        public World(Board b)
         {
             nbPlayer = 0;
             stateGame = true;
             board = b;
             nbTours = 0;
             //coder constructeur de world
+        }
+
+        public void WorldVar(int nbT, int nbU)
+        {
+            maxnbTours = nbT;
+            nbUnity = nbU;
         }
 
         private System.Collections.Generic.List<ProjetPOO.IUnit> unitList { get; set; }
@@ -132,9 +138,9 @@ namespace ProjetPOO
         //fonction qui prend une position et renvoie un tile
 
 
-        private void addPlayer(string nomJoueur, string type)
+        public void addPlayer(string nomJoueur, string type)
         {
-            Player player = new Player(nomJoueur);
+            Player player = new Player(nomJoueur, nbPlayer);
             if (!listType.Remove(type))
             {
                 if (listType.Any())

@@ -13,5 +13,7 @@ namespace ProjetPOO
         }
 
         Tile getTile(Position p);
+        void initBoard();
+        void initVarBoard();
     }
 }

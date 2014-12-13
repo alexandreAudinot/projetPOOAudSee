@@ -12,6 +12,12 @@ namespace ProjetPOO
         {
             return null;
         }
+
+        override
+        public void initVarBoard()
+        {
+            World.Instance.WorldVar(5, 4);
+        }
     }
 
     public class NormalBoard : AbstractBoard
@@ -21,6 +27,12 @@ namespace ProjetPOO
         {
             return null;
         }
+
+        override
+        public void initVarBoard()
+        {
+            World.Instance.WorldVar(20, 6);
+        }
     }
 
     public class SmallBoard : AbstractBoard
@@ -29,6 +41,12 @@ namespace ProjetPOO
         public Tile getTile(Position p)
         {
             return null;
+        }
+
+        override
+        public void initVarBoard()
+        {
+            World.Instance.WorldVar(30, 8);
         }
     }
 }

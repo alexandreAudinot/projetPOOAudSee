@@ -7,7 +7,6 @@ namespace ProjetPOO
 {
     public abstract class AbstractFactory : IFactory
     {
-
-        public abstract void createUnit();
+        public abstract void createUnit(List<Player> players, List<Tile> tiles, List<String> types);
     }
 }

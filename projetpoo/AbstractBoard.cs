@@ -26,5 +26,6 @@ namespace ProjetPOO
         }
 
         public abstract Tile getTile(Position p);
+        public abstract void initVarBoard();
     }
 }
