@@ -87,9 +87,30 @@ namespace ProjetPOO
             this.controler.killUnit(this);
         }
 
+        //checkmove vérifie la cohérence du mouvement avec les règles
+        //on décide arbitrairement de ne prendre que des déplacements de une case
+        public bool checkMove(Position p)
+        {
+            //tomodify TODO pour les cases hexagonales
+            if ((Math.Abs((this.position.x - p.x)) <= 1) && (Math.Abs((this.position.y - p.y)) <= 1))
+            {
+                if ((Math.Abs((this.position.x - p.x)) <= 1) ^ (Math.Abs((this.position.y - p.y)) <= 1))
+                {//ou exclusif
+                    return true;
+                }
+            }
+            return false;
+        }
+
         //La méthode move détermine si l'évènement est un déplacement ou un combat et fait l'appel le cas échéant
+        //elle empêche les déplacements de plus d'une case
         public void move(Position p)
         {
+            if (!this.checkMove(p))
+            {
+                throw new Exception("Le mouvement est impossible");
+            }
+
             Unit elem = World.Instance.getUnit(p); 
             if (elem == null)
             {
@@ -132,5 +153,6 @@ namespace ProjetPOO
         {
             this.winFight(p);
         }
+        public abstract void endGame();
     }
 }

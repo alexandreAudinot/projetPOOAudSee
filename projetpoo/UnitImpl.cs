@@ -7,8 +7,9 @@ namespace ProjetPOO
 {
     public class Orc : Unit
     {
-        protected Orc(Player p, Tile t) : base(p,t)
+        public Orc(Player p, Tile t) : base(p,t)
         {
+            pvOrc = 0;
             //référence image
         }
         protected int pvOrc { get; private set; }
@@ -67,11 +68,18 @@ namespace ProjetPOO
             return true;
         }
 
+        override
+        public void endGame()
+        {
+            this.controler.score += pvOrc;
+        }
+
     }
 
     public class Dwarf : Unit
     {
-        protected Dwarf(Player p, Tile t) : base(p,t)
+        public Dwarf(Player p, Tile t)
+            : base(p, t)
         {
             //référence image
         }
@@ -150,11 +158,14 @@ namespace ProjetPOO
             this.die();
             return false;
         }
+
+        override
+        public void endGame() { }
     }
 
     public class Elf : Unit
     {
-        protected Elf(Player p, Tile t) : base(p, t)
+        public Elf(Player p, Tile t) : base(p, t)
         {
             //référence image
         }
@@ -231,8 +242,12 @@ namespace ProjetPOO
             {
                 //traite le repli d'un elfe : on donne la possibililité de bouger une seule fois
                 double depl = this.nbDeplacement;
-                this.initDeplacement();
-                this.calcDepl(p);
+                int current = World.Instance.currentPlayer;
+                World.Instance.currentPlayer = this.controler.numero;
+
+                this.move(p);
+
+                World.Instance.currentPlayer = current;
                 this.nbDeplacement = depl;
             }
             else
@@ -240,5 +255,8 @@ namespace ProjetPOO
                 throw new Exception("Le repli ne peut se faire que sur des cases non occupées");
             }
         }
+        
+        override
+        public void endGame(){}
     }
 }

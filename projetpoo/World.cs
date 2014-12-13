@@ -9,8 +9,10 @@ namespace ProjetPOO
     public class World
     {
         private int nbTours;
-        private int nbUnity;
-        private int sizeBoard;
+        private int maxnbTours;
+        public int nbUnity;
+        private int nbPlayer;
+        public int currentPlayer { get; set; }
         private List<Player> players;
         private static World world;
         private static Board board;
@@ -23,28 +25,22 @@ namespace ProjetPOO
             {
                 if (world == null)
                 {
-                    world = new World(); 
+                    world = new World(board); 
                 }
                 return World.world;
             }
         }
 
-        protected World()
+        protected World(Board b)
         {
+            nbPlayer = 0;
             stateGame = true;
+            board = b;
+            nbTours = 0;
             //coder constructeur de world
         }
 
-        private System.Collections.Generic.List<ProjetPOO.IUnit> unitList
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        private System.Collections.Generic.List<ProjetPOO.IUnit> unitList { get; set; }
 
         private CreateGame createGame
         {
@@ -57,27 +53,9 @@ namespace ProjetPOO
             }
         }
 
-        public Display display
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public Display display { get; private set; }
 
-        public SaveGame saveGame
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        private SaveGame saveGame { get; set; }
 
         //unitBool rend vrai s'il y a une unité sur la position p
         public bool unitBool(Position p)
@@ -169,6 +147,7 @@ namespace ProjetPOO
                 }
             }
             players.Add(player);
+            nbPlayer++;
         }
 
 
@@ -180,6 +159,7 @@ namespace ProjetPOO
             }
             if (players.Count() == 1)
             {
+                //message de players.First() a gagné la partie
                 this.endGame();
             }
         }
@@ -187,11 +167,28 @@ namespace ProjetPOO
         public void endGame()
         {
             stateGame = false;
+            foreach (Player p in players)
+            {
+                p.endGame();
+            }
         }
 
         public void saveTheGame()
         {
             throw new System.NotImplementedException();
+        }
+
+        public void endTurn()
+        {
+            currentPlayer = (currentPlayer + 1) % nbPlayer;
+            if (currentPlayer == 0)
+            {
+                nbTours++;
+                if (nbTours == maxnbTours)
+                {
+                    this.endGame();
+                }
+            }
         }
     }
 }

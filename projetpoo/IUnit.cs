@@ -17,6 +17,8 @@ namespace ProjetPOO
         void winFightDef(Position p);
         bool loseFight();
         void makeAMove(Position p, double depl);
+        void endGame();
+        bool checkMove(Position p);
     }
 
 }

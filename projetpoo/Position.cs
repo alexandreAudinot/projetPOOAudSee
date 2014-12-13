@@ -7,8 +7,8 @@ namespace ProjetPOO
 {
     public class Position
     {
-        private int x { get; set; }
-        private int y { get; set; }
+        public int x { get; set; }
+        public int y { get; set; }
 
         public void setPosition(Position pos)
         {

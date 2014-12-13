@@ -39,44 +39,48 @@ namespace ProjetPOO
 
     public class FactoryUnit : AbstractFactory
     {
+        private Elf elf;
+        private Dwarf dwarf;
+        private Orc orc;
 
-        private List<Elf> Elfs
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        private List<Dwarf> Dwarves
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        private List<Orc> Orcs
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        private List<Elf> Elfs;
+        private List<Dwarf> Dwarves;
+        private List<Orc> Orcs;
 
         override
         public void createUnit()
         {
-            throw new System.NotImplementedException();
+            //init Elfs
+            int i = World.Instance.nbUnity;
+            while (i > 0)
+            {
+                Elfs.Add(elf);
+                Dwarves.Add(dwarf);
+                Orcs.Add(orc);
+            }
+        }
+
+        public void init(List<Player> players, List<Tile> tiles, List<String> types)
+        {
+            int i = 0;
+            foreach (Player player in players)
+            {
+                switch(types.ElementAt(i))
+                {
+                    case ("Elfe"):
+                        elf = new Elf(player,tiles.ElementAt(i));
+                        break;
+                    case ("Dwarf"):
+                        dwarf = new Dwarf(player, tiles.ElementAt(i));
+                        break;
+                    case ("Orc"):
+                        orc = new Orc(player, tiles.ElementAt(i));
+                        break;
+                    default:
+                        throw new Exception("Type not recognized in factory");
+                }
+                i++;
+            }
         }
     }
 }

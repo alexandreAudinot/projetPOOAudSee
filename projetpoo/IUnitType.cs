@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ProjetPOO
 {
-    public class PoidsMouche
+    interface IUnitType
     {
+        void init();
+        void addType(string s);
     }
 }
