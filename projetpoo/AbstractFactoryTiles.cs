@@ -29,7 +29,7 @@ namespace ProjetPOO
             }
         }
 
-        private List<Mountain> Mountains
+        private List<TileImpl> Mountains
         {
             get
             {

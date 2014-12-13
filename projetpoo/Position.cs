@@ -20,5 +20,11 @@ namespace ProjetPOO
         {
             return ((p.x == this.x) && (p.y == this.y));
         }
+
+        public Position(int x0, int y0)
+        {
+            x = x0;
+            y = y0;
+        }
     }
 }

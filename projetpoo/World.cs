@@ -17,6 +17,7 @@ namespace ProjetPOO
         private static World world;
         private static Board board;
         public List<string> listType { get; set; }
+        public List<string> listAvailableType { get; set; }
         public static bool stateGame;
 
         public static World Instance
@@ -37,7 +38,7 @@ namespace ProjetPOO
             stateGame = true;
             board = b;
             nbTours = 0;
-            //coder constructeur de world
+            listType = new List<string>();
         }
 
         public void WorldVar(int nbT, int nbU)
@@ -129,17 +130,8 @@ namespace ProjetPOO
         public void addPlayer(string nomJoueur, string type)
         {
             Player player = new Player(nomJoueur, nbPlayer);
-            if (!listType.Remove(type))
-            {
-                if (listType.Any())
-                {
-                    throw new Exception("Le type n'a pas été matché");
-                }
-                else
-                {
-                    throw new Exception("Plus de types disponibles");
-                }
-            }
+            //checker type
+            listType.Add(type);
             players.Add(player);
             nbPlayer++;
         }

@@ -43,35 +43,51 @@ namespace ProjetPOO
         private Dwarf dwarf;
         private Orc orc;
 
-        private List<Elf> Elfs;
-        private List<Dwarf> Dwarves;
-        private List<Orc> Orcs;
+        private List<Elf> Elfs = new List<Elf>();
+        private List<Dwarf> Dwarves = new List<Dwarf>();
+        private List<Orc> Orcs = new List<Orc>();
 
         override
         public void createUnit(List<Player> players, List<Tile> tiles, List<String> types)
         {
-            int i = 0;
+            int nb,i = 0;
             foreach (Player player in players)
             {
                 switch(types.ElementAt(i))
                 {
                     case ("Elfe"):
+                        World.Instance.listAvailableType.Add(types.ElementAt(i));
                         elf = new Elf(player,tiles.ElementAt(i));
-                        int nb = World.Instance.nbUnity;
+                        nb = World.Instance.nbUnity;
                         while (nb > 0)
-                         {
+                        {
                              Elfs.Add(elf);
-                            Dwarves.Add(dwarf);
-                            Orcs.Add(orc);
                             nb--;
                         }
-
                         break;
+
+
                     case ("Dwarf"):
                         dwarf = new Dwarf(player, tiles.ElementAt(i));
+                        elf = new Elf(player,tiles.ElementAt(i));
+                        nb = World.Instance.nbUnity;
+                        while (nb > 0)
+                        {
+                             Elfs.Add(elf);
+                            nb--;
+                        }
                         break;
+
+
                     case ("Orc"):
                         orc = new Orc(player, tiles.ElementAt(i));
+                        elf = new Elf(player,tiles.ElementAt(i));
+                        nb = World.Instance.nbUnity;
+                        while (nb > 0)
+                        {
+                             Elfs.Add(elf);
+                            nb--;
+                        }
                         break;
                     default:
                         throw new Exception("Type not recognized in factory");

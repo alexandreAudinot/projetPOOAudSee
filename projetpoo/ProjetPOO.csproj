@@ -45,14 +45,10 @@
     <Compile Include="Board.cs" />
     <Compile Include="Builder.cs" />
     <Compile Include="IBuilder.cs" />
-    <Compile Include="IUnitType.cs" />
-    <Compile Include="UnitType.cs" />
     <Compile Include="TileType.cs" />
     <Compile Include="CreateGame.cs" />
     <Compile Include="BoardImpl.cs" />
-    <Compile Include="Desert.cs" />
     <Compile Include="Factory.cs" />
-    <Compile Include="Forest.cs" />
     <Compile Include="IFactory.cs" />
     <Compile Include="IPlayer.cs" />
     <Compile Include="ITile.cs" />
@@ -60,9 +56,8 @@
     <Compile Include="IWorld.cs" />
     <Compile Include="LoadGame.cs" />
     <Compile Include="Map.cs" />
-    <Compile Include="Mountain.cs" />
+    <Compile Include="TileImpl.cs" />
     <Compile Include="UnitImpl.cs" />
-    <Compile Include="Plain.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -15,7 +15,7 @@
   <Class Name="ProjetPOO.World">
     <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQCCUAAAAAAAAAACFABAAEAAAwEQCACAYBAAAAEAIAA=</HashCode>
+      <HashCode>AQCAUCAAIAAAAAACFABAAEAAAwAQCACAYBAAAAEAIAA=</HashCode>
       <FileName>World.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -89,56 +89,43 @@
     <Position X="8" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Desert.cs</FileName>
+      <FileName>TileImpl.cs</FileName>
+      <NewMemberFileName>Desert.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Forest">
     <Position X="10.5" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Forest.cs</FileName>
+      <FileName>TileImpl.cs</FileName>
+      <NewMemberFileName>Forest.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ProjetPOO.Mountain">
-    <Position X="8" Y="7" Width="1.5" />
+  <Class Name="ProjetPOO.TileImpl">
+    <Position X="8" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Mountain.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ProjetPOO.Plain">
-    <Position X="10.5" Y="7" Width="1.5" />
-    <InheritanceLine Type="ProjetPOO.Tile" ManuallyRouted="true" FixedToPoint="true">
-      <Path>
-        <Point X="10" Y="6.305" />
-        <Point X="10" Y="7.479" />
-        <Point X="10.5" Y="7.479" />
-        <Point X="10.5" Y="7.5" />
-      </Path>
-    </InheritanceLine>
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Plain.cs</FileName>
+      <FileName>TileImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.DemoBoard">
     <Position X="9.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>BoardImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.SmallBoard">
     <Position X="11" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>BoardImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.NormalBoard">
     <Position X="12.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>BoardImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -160,7 +147,7 @@
   <Class Name="ProjetPOO.FactoryUnit">
     <Position X="7.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAEQAAAAAIAAAAAAAAAAACAAAAIAAAAAAAAQCAI=</HashCode>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAACAAAAAAAAAAAAAACAI=</HashCode>
       <FileName>Factory.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -196,7 +183,7 @@
   <Class Name="ProjetPOO.AbstractBoard">
     <Position X="9.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAABAAAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAABAAAAABAAEAAAAQAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>AbstractBoard.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -222,10 +209,24 @@
       <FileName>LoadGame.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="ProjetPOO.Plain">
+    <Position X="10.5" Y="7" Width="1.5" />
+    <InheritanceLine Type="ProjetPOO.Tile" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="10" Y="6.497" />
+        <Point X="10" Y="7.618" />
+        <Point X="10.5" Y="7.618" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TileImpl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="ProjetPOO.Board">
     <Position X="11.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAABAAEAAAAQAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Board.cs</FileName>
     </TypeIdentifier>
   </Interface>

@@ -12,5 +12,10 @@ namespace ProjetPOO
         {
             return p;
         }
+
+        public Tile(Position p0)
+        {
+            p = p0;
+        }
     }
 }
