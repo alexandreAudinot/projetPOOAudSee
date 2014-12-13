@@ -17,17 +17,23 @@ namespace ProjetPOO
             Board b = new DemoBoard();
             //*******************************************************************************//
             b.initBoard();
-            
+
+
+
+
             //init world
             World w = new World(b);
             b.initVarBoard();
+            UnitType lType = new UnitType();
+            lType.init();
+            w.listType = lType.listType;
 
             //init players
              //addPlayer(string nomJoueur, string type)
              //appel évènement à faire
             //*******************************************************************************//
-             w.addPlayer("Dan", "Orc");
-             w.addPlayer("Alexandre", "Nain");
+            w.addPlayer("Dan", "Orc");
+            w.addPlayer("Alexandre", "Nain");
             //*******************************************************************************//
 
             //init unit
@@ -36,6 +42,7 @@ namespace ProjetPOO
             // Les paramètres de début de partie ajoutent
             //*******************************************************************************//
             Tile t = new Tile();
+            List<String> l = new List<String>();
             //*******************************************************************************//
             f.createUnit(w.players, new List<Tile>(), new List<String>());
 ;

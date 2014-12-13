@@ -16,7 +16,7 @@ namespace ProjetPOO
         public List<Player> players;
         private static World world;
         private static Board board;
-        private static List<string> listType;
+        public List<string> listType { get; set; }
         public static bool stateGame;
 
         public static World Instance
@@ -25,7 +25,7 @@ namespace ProjetPOO
             {
                 if (world == null)
                 {
-                    world = new World(board); 
+                    world = new World(board);
                 }
                 return World.world;
             }
@@ -44,22 +44,10 @@ namespace ProjetPOO
         {
             maxnbTours = nbT;
             nbUnity = nbU;
+            currentPlayer = 0;
         }
 
         private System.Collections.Generic.List<ProjetPOO.IUnit> unitList { get; set; }
-
-        private CreateGame createGame
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public Display display { get; private set; }
 
         private SaveGame saveGame { get; set; }
 

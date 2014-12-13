@@ -8,7 +8,7 @@ namespace ProjetPOO
 {
     public class UnitType : ProjetPOO.IUnitType
     {
-        private static List<string> listType { get; set; }
+        public List<string> listType { get; set; }
         public void init()
         {
             //on stocke tous les types dans une classe séparée de la classe world pour permettre d'ajouter de nouveaux types
