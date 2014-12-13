@@ -43,7 +43,6 @@
     <Compile Include="AbstractFactory.cs" />
     <Compile Include="AbstractFactoryTiles.cs" />
     <Compile Include="Board.cs" />
-    <Compile Include="Builder.cs" />
     <Compile Include="IBuilder.cs" />
     <Compile Include="TileType.cs" />
     <Compile Include="CreateGame.cs" />
@@ -54,7 +53,6 @@
     <Compile Include="ITile.cs" />
     <Compile Include="IUnit.cs" />
     <Compile Include="IWorld.cs" />
-    <Compile Include="LoadGame.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="TileImpl.cs" />
     <Compile Include="UnitImpl.cs" />

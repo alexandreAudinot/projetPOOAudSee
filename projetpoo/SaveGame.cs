@@ -7,9 +7,21 @@ namespace ProjetPOO
 {
     public class SaveGame
     {
-        public void SaveOnDisk()
+        public World world;
+        public Board board;
+        public void saveOnDisk(World w, Board b)
         {
-            throw new System.NotImplementedException();
+            if (World.stateGame)
+            {
+                throw new Exception("Impossible d'enregistrer une partie terminée");
+            }
+            world = w;
+            board = b;
+        }
+
+        public void loadOnDisk()
+        {
+            World w = new World(world,board);
         }
     }
 }

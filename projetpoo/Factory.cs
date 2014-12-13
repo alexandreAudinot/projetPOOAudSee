@@ -20,7 +20,7 @@ namespace ProjetPOO
 
         }
     }
-
+    /*
     public class MonteurLoadGame : Monteur
     {
         override public void createTiles()
@@ -28,7 +28,7 @@ namespace ProjetPOO
 
         }
     }
-
+    */
     public class MonteurSmall : Monteur
     {
         override public void createTiles()

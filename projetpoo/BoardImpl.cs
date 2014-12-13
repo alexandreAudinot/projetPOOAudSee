@@ -7,10 +7,11 @@ namespace ProjetPOO
 {
     public class DemoBoard : AbstractBoard
     {
+
         override
-        public Tile getTile(Position p)
+        public void initBoard()
         {
-            return null;
+            size = 6;
         }
 
         override
@@ -23,9 +24,10 @@ namespace ProjetPOO
     public class NormalBoard : AbstractBoard
     {
         override
-        public Tile getTile(Position p)
+        public void initBoard()
         {
-            return null;
+            size = 10;
+            ITile = new ITile[size,size];
         }
 
         override
@@ -38,9 +40,9 @@ namespace ProjetPOO
     public class SmallBoard : AbstractBoard
     {
         override
-        public Tile getTile(Position p)
+        public void initBoard()
         {
-            return null;
+            size = 4;
         }
 
         override

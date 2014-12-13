@@ -111,21 +111,21 @@
   <Class Name="ProjetPOO.DemoBoard">
     <Position X="9.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BoardImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.SmallBoard">
     <Position X="11" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BoardImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.NormalBoard">
     <Position X="12.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BoardImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -147,7 +147,7 @@
   <Class Name="ProjetPOO.FactoryUnit">
     <Position X="7.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAACAAAAAAAAAAAAAACAI=</HashCode>
+      <HashCode>AAAAAAEQAAAAAIAAAAAAAAAAACAAAAAAAAAAAAAQCAI=</HashCode>
       <FileName>Factory.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -183,30 +183,19 @@
   <Class Name="ProjetPOO.AbstractBoard">
     <Position X="9.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAABAAEAAAAQAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAABAAEAAAAYAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>AbstractBoard.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ProjetPOO.MonteurLoadGame">
-    <Position X="18.25" Y="6.25" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
-      <FileName>Factory.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="ProjetPOO.SaveGame">
     <Position X="17" Y="3.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAUAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>SaveGame.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ProjetPOO.LoadGame">
-    <Position X="17" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
-      <FileName>LoadGame.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Plain">

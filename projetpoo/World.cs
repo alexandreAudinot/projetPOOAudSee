@@ -32,6 +32,21 @@ namespace ProjetPOO
             }
         }
 
+        public World(World w, Board b)
+        {
+            nbTours = w.nbTours;
+            maxnbTours = w.maxnbTours;
+            nbUnity = w.nbUnity;
+            nbPlayer = w.nbPlayer;
+            currentPlayer = w.currentPlayer;
+            players = w.players;
+            world = w;
+            board = b;
+            listType = w.listType;
+            listAvailableType = w.listAvailableType;
+            stateGame = false;
+        }
+
         public World(Board b)
         {
             nbPlayer = 0;
