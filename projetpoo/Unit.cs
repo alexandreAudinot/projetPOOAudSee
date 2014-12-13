@@ -33,7 +33,7 @@ namespace ProjetPOO
             return hp > 0;
         }
         
-        private Player controler{get;set;}
+        protected Player controler{get;set;}
         public Position position{get;set;}
         public abstract double calcDepl(Position p);
         public abstract double calcDeplAtt(Position p);

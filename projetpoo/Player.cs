@@ -12,7 +12,7 @@ namespace ProjetPOO
 
         protected List<ProjetPOO.IUnit> listUnit { get; set; }
 
-        protected void incScore()
+        public void incScore()
         {
             score++;
         }

@@ -11,6 +11,7 @@ namespace ProjetPOO
         {
             //référence image
         }
+        protected int pvOrc { get; private set; }
 
         override
         public double calcDeplAtt(Position p)
@@ -52,7 +53,11 @@ namespace ProjetPOO
         override
         public void winFight(Position p)
         {
-            
+            pvOrc++;
+            if (World.Instance.getTile(p).GetType().ToString() != "Forest")
+            {
+                this.controler.incScore();
+            }
         }
 
         override
@@ -133,11 +138,10 @@ namespace ProjetPOO
         public void winFight(Position p)
         {
             //coder tout
-            if (World.Instance.getTile(p).GetType().ToString() == "Plain")
+            if (World.Instance.getTile(p).GetType().ToString() != "Plain")
             {
-                return;
+                this.controler.incScore();
             }
-
         }
 
         override
@@ -195,7 +199,7 @@ namespace ProjetPOO
         override
         public void winFight(Position p)
         {
-            //coder tout
+            this.controler.incScore();
         }
 
         override
