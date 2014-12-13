@@ -10,8 +10,13 @@ namespace ProjetPOO
         void move(Position p);
         void fight(Position p, Unit u);
         void die();
-        void makeAMove(Position p);
-        void winFight();
+        double calcDepl(Position p);
+        double calcDeplAtt(Position p);
+        void winFight(Position p);
+        void winFightAtt(Position p);
+        void winFightDef(Position p);
+        bool loseFight();
+        void makeAMove(Position p, double depl);
     }
 
 }

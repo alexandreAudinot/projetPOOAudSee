@@ -76,6 +76,19 @@ namespace ProjetPOO
             }
         }
 
+        //unitBool rend vrai s'il y a une unité sur la position p
+        public bool unitBool(Position p)
+        {
+            foreach (Unit unit in unitList)
+            {
+                if (unit.position.equals(p))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         //getUnit rend une unité nulle s'il n'y a pas de pièce sur la position
         //ou sinon rend l'unité de plus grande défense de la case (l'unité au hasard en cas d'égalité)
         public Unit getUnit(Position position)

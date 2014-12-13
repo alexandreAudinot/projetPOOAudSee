@@ -9,7 +9,7 @@ namespace ProjetPOO
     public abstract class Unit : ProjetPOO.IUnit
     {
         public int att { get; private set; }
-        public int def { get; private set; }
+        public int def { get; protected set; }
         public int hp { get; private set; }
         protected double nbDeplacement { get; set; }
 
@@ -35,19 +35,21 @@ namespace ProjetPOO
         
         private Player controler{get;set;}
         public Position position{get;set;}
-        public abstract void makeAMove(Position p);
+        public abstract double calcDepl(Position p);
+        public abstract double calcDeplAtt(Position p);
 
         //méthode fight traite le combat de deux unités
         public void fight(Position p, Unit u)
         {
             //le nombre de combats est compris entre 3 et le nombre de points de vie maximum des 2 unités ajouté de 2
             Random rdm = new Random();
-            int nbCombats = rdm.Next(3,2 + Math.Max(this.hp,u.hp));
+            int nbCombats = rdm.Next(3,2 + Math.Max(this.hp,u.hp)) - 1;
             //calcul des probabilités de combat
-            double probAtt = 0;//TODO
+            double probAtt = (Math.Abs(u.def - this.att) / u.def) * (50) + 50;
             //Sélection de l'attaquant et attaque
             while(this.isAlive() && u.isAlive() && nbCombats > 0)
             {
+                nbCombats++;
                 if (rdm.Next(0, 100) < probAtt)
                 {
                     //l'attaque est pondérée par les points de vie de l'attaquant
@@ -63,13 +65,19 @@ namespace ProjetPOO
                 //cas de mort d'une unité
                 if (this.isAlive())
                 {
-                    u.die();
-                    this.winFight();
+                    //message this.getType().toString() gagne le combat
+                    if (u.loseFight())
+                    {
+                        this.winFightAtt(p);
+                    }
                 } 
                 else
                 {
-                    this.die();
-                    u.winFight();
+                    //message u.getType().toString() gagne le combat
+                    if (this.loseFight())
+                    {
+                        u.winFightDef(p);
+                    }
                 }
             }
         }
@@ -85,14 +93,44 @@ namespace ProjetPOO
             Unit elem = World.Instance.getUnit(p); 
             if (elem == null)
             {
-                this.makeAMove(p);
+                this.makeAMove(p,this.calcDepl(p));
             }
             else
             {
+                this.makeAMove(p, this.calcDeplAtt(p));
                 this.fight(p, elem);
             }
         }
 
-        public abstract void winFight();
+        public void makeAMove(Position p, double depl)
+        {
+            //mise à jour de nbDeplacement
+            nbDeplacement -= this.calcDepl(p);
+            position.setPosition(p);
+        }
+
+        public abstract void winFight(Position p);
+        public abstract bool loseFight();
+
+
+        //winFightAtt permet de gérer le combat gagné pour l'attaquant au départ
+        //l'unité gagnante doit tenter de se déplacer sur la case de l'unité perdante
+        //ce qui n'est pas le cas de l'unité perdante
+        public void winFightAtt(Position p)
+        {
+            if (!World.Instance.unitBool(p))
+            {
+                double depl = this.nbDeplacement;
+                this.initDeplacement();
+                this.calcDepl(p);
+                this.nbDeplacement = depl;
+            }
+            this.winFight(p);
+        }
+
+        public void winFightDef(Position p)
+        {
+            this.winFight(p);
+        }
     }
 }
