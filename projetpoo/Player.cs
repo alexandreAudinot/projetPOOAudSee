@@ -7,6 +7,13 @@ namespace ProjetPOO
 {
     public class Player
     {
+        public Player(string name)
+        {
+            score = 0;
+            nom = name;
+            //initlistunti
+        }
+        protected string nom { get; private set; }
 
         private int score { get; set; }
 
@@ -20,12 +27,11 @@ namespace ProjetPOO
         public void killUnit(Unit myUnit)
         {
             listUnit.Remove(myUnit);
+            //check player dying
         }
         protected void lose()
         {
-            //World.myWorld.removeplayer(this);
-            //call remove player of world
-            throw new System.NotImplementedException();
+            World.Instance.removePlayer(this);
         }
     }
 }

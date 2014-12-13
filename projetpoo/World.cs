@@ -14,6 +14,8 @@ namespace ProjetPOO
         private List<Player> players;
         private static World world;
         private static Board board;
+        private static List<string> listType;
+        public static bool stateGame;
 
         public static World Instance
         {
@@ -29,6 +31,7 @@ namespace ProjetPOO
 
         protected World()
         {
+            stateGame = true;
             //coder constructeur de world
         }
 
@@ -150,14 +153,40 @@ namespace ProjetPOO
         
         //fonction qui prend une position et renvoie un tile
 
-        public void removePlayer()
+
+        private void addPlayer(string nomJoueur, string type)
         {
-            throw new System.NotImplementedException();
+            Player player = new Player(nomJoueur);
+            if (!listType.Remove(type))
+            {
+                if (listType.Any())
+                {
+                    throw new Exception("Le type n'a pas été matché");
+                }
+                else
+                {
+                    throw new Exception("Plus de types disponibles");
+                }
+            }
+            players.Add(player);
+        }
+
+
+        public void removePlayer(Player p)
+        {
+            if (!players.Remove(p))
+            {
+                throw new Exception("Erreur dans la suppression d'un joueur");
+            }
+            if (players.Count() == 1)
+            {
+                this.endGame();
+            }
         }
 
         public void endGame()
         {
-            throw new System.NotImplementedException();
+            stateGame = false;
         }
 
         public void saveTheGame()

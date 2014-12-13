@@ -8,7 +8,6 @@ namespace ProjetPOO
     public class Tile
     {
         private Position p;
-
         public Position getPosition()
         {
             return p;
