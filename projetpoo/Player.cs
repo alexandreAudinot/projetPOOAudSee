@@ -7,18 +7,18 @@ namespace ProjetPOO
 {
     public class Player
     {
+        public string nom { get; private set; }
+        public int numero { get; private set; }
+        public int score { get; set; } //passer en private set ?
+        public List<ProjetPOO.IUnit> listUnit { get; private set; }
+
         public Player(string name, int n)
         {
             score = 0;
             nom = name;
             numero = n;
+            listUnit = new List<IUnit>();
         }
-        protected string nom { get; private set; }
-        public int numero { get; private set; }
-
-        public int score { get; set; }
-
-        public List<ProjetPOO.IUnit> listUnit { get; private set; }
 
         public void incScore()
         {

@@ -13,7 +13,7 @@ namespace ProjetPOO
         public int nbUnity;
         public int nbPlayer {get; private set; }
         public int currentPlayer { get; set; }
-        public List<Player> players;
+        public List<Player> players { get; set; }
         private static World world;
         public static Board board {get; private set;}
         public List<string> listType { get; set; }
@@ -219,6 +219,28 @@ namespace ProjetPOO
                     this.endGame();
                 }
             }
+        }
+
+        public String gagnant()
+        {
+            String s = "No";
+            int scoreMax = 0;
+            foreach (Player player in players)
+            {
+                if (player.score > scoreMax)
+                {
+                    s = player.nom;
+                    scoreMax = player.score;
+                }
+                else
+                {
+                    if  (player.score == scoreMax)
+                    {
+                        return "Match null";
+                    }
+                }
+          }
+            return s;
         }
     }
 }
