@@ -18,7 +18,7 @@ namespace ProjetPOO
 
         public int score { get; set; }
 
-        protected List<ProjetPOO.IUnit> listUnit { get; set; }
+        public List<ProjetPOO.IUnit> listUnit { get; private set; }
 
         public void incScore()
         {

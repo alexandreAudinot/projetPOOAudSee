@@ -19,7 +19,6 @@ namespace ProjetPOO
         public List<string> listType { get; set; }
         public List<string> listAvailableType { get; private set; }
         public static bool stateGame;
-        private System.Collections.Generic.List<ProjetPOO.IUnit> unitList { get; set; }
         public static World Instance
         {
             get
@@ -81,13 +80,17 @@ namespace ProjetPOO
         //unitBool rend vrai s'il y a une unité sur la position p
         public bool unitBool(Position p)
         {
-            foreach (Unit unit in unitList)
+            foreach (Player player in players)
             {
-                if (unit.position.equals(p))
+                foreach (Unit unit in player.listUnit)
                 {
-                    return true;
+                    if (unit.position.equals(p))
+                    {
+                        return true;
+                    }
                 }
             }
+                
             return false;
         }
 
@@ -96,34 +99,38 @@ namespace ProjetPOO
         public Unit getUnit(Position position)
         {
             List<Unit> l = new List<Unit>();
-            foreach (Unit unit in unitList)
+            foreach (Player player in players)
             {
-                if (unit.position.equals(position))
+                foreach (Unit unit in player.listUnit)
                 {
-                    if (!l.Any())
+                    if (unit.position.equals(position))
                     {
-                        l.Add(unit);
-                    }
-                    else
-                    {
-                        if (unit.def > l.First().def)
+                        if (!l.Any())
                         {
-                            l.Clear();
                             l.Add(unit);
                         }
                         else
                         {
-                            if (unit.def == l.First().def)
+                            if (unit.def > l.First().def)
                             {
+                                l.Clear();
                                 l.Add(unit);
-                            } 
+                            }
                             else
                             {
+                                if (unit.def == l.First().def)
+                                {
+                                    l.Add(unit);
+                                }
+                                else
+                                {
+                                }
                             }
                         }
                     }
                 }
             }
+            
             //renvoie null si rien n'a été trouvé sur la case
             if (!l.Any())
             {
