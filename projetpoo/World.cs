@@ -8,18 +8,18 @@ namespace ProjetPOO
 {
     public class World
     {
-        private int nbTours;
-        private int maxnbTours;
+        public int nbTours { get; private set; }
+        public int maxnbTours { get; private set; }
         public int nbUnity;
-        private int nbPlayer;
+        public int nbPlayer {get; private set; }
         public int currentPlayer { get; set; }
         public List<Player> players;
         private static World world;
-        private static Board board;
+        public static Board board {get; private set;}
         public List<string> listType { get; set; }
         public List<string> listAvailableType { get; set; }
         public static bool stateGame;
-
+        private System.Collections.Generic.List<ProjetPOO.IUnit> unitList { get; set; }
         public static World Instance
         {
             get
@@ -32,6 +32,19 @@ namespace ProjetPOO
             }
         }
 
+        //constructeur classique
+        //les autres variables sont initialisées par les monteurs
+        public World(Board b)
+        {
+            nbPlayer = 0;
+            stateGame = true;
+            board = b;
+            nbTours = 0;
+            listType = new List<string>();
+            players = new List<Player>();
+        }
+        
+        //constructeur pour chargement du jeu
         public World(World w, Board b)
         {
             nbTours = w.nbTours;
@@ -47,25 +60,13 @@ namespace ProjetPOO
             stateGame = false;
         }
 
-        public World(Board b)
-        {
-            nbPlayer = 0;
-            stateGame = true;
-            board = b;
-            nbTours = 0;
-            listType = new List<string>();
-        }
-
+        //initialisation des variables de world par les monteurs
         public void WorldVar(int nbT, int nbU)
         {
             maxnbTours = nbT;
             nbUnity = nbU;
             currentPlayer = 0;
         }
-
-        private System.Collections.Generic.List<ProjetPOO.IUnit> unitList { get; set; }
-
-        private SaveGame saveGame { get; set; }
 
         //unitBool rend vrai s'il y a une unité sur la position p
         public bool unitBool(Position p)
@@ -134,14 +135,13 @@ namespace ProjetPOO
             }
         }
 
+        //fonction qui prend une position et renvoie un tile
         public Tile getTile(Position p)
         {
             return board.getTile(p);
         }
-        
-        //fonction qui prend une position et renvoie un tile
-
-
+ 
+        //fonctin qui ajoute un joueur
         public void addPlayer(string nomJoueur, string type)
         {
             Player player = new Player(nomJoueur, nbPlayer);
@@ -151,7 +151,7 @@ namespace ProjetPOO
             nbPlayer++;
         }
 
-
+        //fonction qui enlève un joueur
         public void removePlayer(Player p)
         {
             if (!players.Remove(p))
@@ -165,6 +165,7 @@ namespace ProjetPOO
             }
         }
 
+        //fonction qui termine le jeu
         public void endGame()
         {
             stateGame = false;
@@ -174,11 +175,7 @@ namespace ProjetPOO
             }
         }
 
-        public void saveTheGame()
-        {
-            throw new System.NotImplementedException();
-        }
-
+        //fonction qui termine le tour du joueur
         public void endTurn()
         {
             currentPlayer = (currentPlayer + 1) % nbPlayer;

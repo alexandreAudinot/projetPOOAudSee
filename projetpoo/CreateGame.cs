@@ -23,7 +23,7 @@ namespace ProjetPOO
 
             //init world
             World w = new World(b);
-            b.initVarBoard();
+            World.board.initVarBoard();
 
             //init players
              //addPlayer(string nomJoueur, string type)
