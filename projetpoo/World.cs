@@ -17,7 +17,7 @@ namespace ProjetPOO
         private static World world;
         public static Board board {get; private set;}
         public List<string> listType { get; set; }
-        public List<string> listAvailableType { get; set; }
+        public List<string> listAvailableType { get; private set; }
         public static bool stateGame;
         private System.Collections.Generic.List<ProjetPOO.IUnit> unitList { get; set; }
         public static World Instance
@@ -42,6 +42,8 @@ namespace ProjetPOO
             nbTours = 0;
             listType = new List<string>();
             players = new List<Player>();
+            listAvailableType = new List<string>();
+            InitType();
         }
         
         //constructeur pour chargement du jeu
@@ -58,6 +60,14 @@ namespace ProjetPOO
             listType = w.listType;
             listAvailableType = w.listAvailableType;
             stateGame = false;
+        }
+
+        //ajoute les types possibles des variables pendant l'initialisation
+        public void InitType()
+        {
+            listAvailableType.Add("Orc");
+            listAvailableType.Add("Dwarf");
+            listAvailableType.Add("Elf");
         }
 
         //initialisation des variables de world par les monteurs
@@ -141,14 +151,28 @@ namespace ProjetPOO
             return board.getTile(p);
         }
  
-        //fonctin qui ajoute un joueur
+        //fonction qui ajoute un joueur
         public void addPlayer(string nomJoueur, string type)
         {
-            Player player = new Player(nomJoueur, nbPlayer);
-            //checker type
-            listType.Add(type);
-            players.Add(player);
-            nbPlayer++;
+            if (!listAvailableType.Contains(type))
+            {
+                throw new Exception("Le type n'est pas valide");
+            } 
+            else
+            {
+                if (listType.Contains(type))
+                {
+                    throw new Exception("Le type est déjà utilisé par un autre joueur");
+                }
+                else
+                {
+                    Player player = new Player(nomJoueur, nbPlayer);
+                    listType.Add(type);
+                    players.Add(player);
+                    nbPlayer++;
+                }
+                    
+            }
         }
 
         //fonction qui enlève un joueur

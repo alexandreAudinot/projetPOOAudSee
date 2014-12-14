@@ -56,7 +56,7 @@ namespace ProjetPOO
                 switch(types.ElementAt(i))
                 {
                     case ("Elfe"):
-                        World.Instance.listAvailableType.Add(types.ElementAt(i));
+                        World.Instance.listType.Add("Elf");
                         elf = new Elf(player,tiles.ElementAt(i));
                         nb = World.Instance.nbUnity;
                         while (nb > 0)
@@ -68,8 +68,8 @@ namespace ProjetPOO
 
 
                     case ("Dwarf"):
+                        World.Instance.listType.Add("Dwarf");
                         dwarf = new Dwarf(player, tiles.ElementAt(i));
-                        elf = new Elf(player,tiles.ElementAt(i));
                         nb = World.Instance.nbUnity;
                         while (nb > 0)
                         {
@@ -80,8 +80,8 @@ namespace ProjetPOO
 
 
                     case ("Orc"):
+                        World.Instance.listType.Add("Orc");
                         orc = new Orc(player, tiles.ElementAt(i));
-                        elf = new Elf(player,tiles.ElementAt(i));
                         nb = World.Instance.nbUnity;
                         while (nb > 0)
                         {
