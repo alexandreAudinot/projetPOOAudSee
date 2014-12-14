@@ -55,16 +55,23 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Wrapping\Wrapping.vcxproj">
-      <Project>{c4ab33e0-e70e-462a-ab0d-36b499a01d8b}</Project>
-      <Name>Wrapping</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="..\Debug\GenerationMap.dll">
       <Link>GenerationMap.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjetPOO\ProjetPOO.csproj">
+      <Project>{024fd6cd-668c-4927-9a48-eb0966ebc2a5}</Project>
+      <Name>ProjetPOO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wrapping\Wrapping.vcxproj">
+      <Project>{c4ab33e0-e70e-462a-ab0d-36b499a01d8b}</Project>
+      <Name>Wrapping</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

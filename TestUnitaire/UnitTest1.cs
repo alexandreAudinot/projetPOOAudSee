@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ProjetPOO;
 using Wrapping;
 
 namespace TestUnitaire
@@ -11,6 +12,7 @@ namespace TestUnitaire
         public void GameInit()
         {
             Wrapper w = new Wrapper();
+            World w0 = new World(null);
             //Assert.IsNotNull(Player);
         }
     }
