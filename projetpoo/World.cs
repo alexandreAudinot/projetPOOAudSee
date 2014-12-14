@@ -58,7 +58,8 @@ namespace ProjetPOO
             board = b;
             listType = w.listType;
             listAvailableType = w.listAvailableType;
-            stateGame = false;
+            stateGame = true;
+            world = w;
         }
 
         //ajoute les types possibles des variables pendant l'initialisation
@@ -72,9 +73,9 @@ namespace ProjetPOO
         //initialisation des variables de world par les monteurs
         public void WorldVar(int nbT, int nbU)
         {
-            maxnbTours = nbT;
-            nbUnity = nbU;
-            currentPlayer = 0;
+            Instance.maxnbTours = nbT;
+            Instance.nbUnity = nbU;
+            Instance.currentPlayer = 0;
         }
 
         //unitBool rend vrai s'il y a une unité sur la position p
