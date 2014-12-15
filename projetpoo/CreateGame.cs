@@ -22,15 +22,14 @@ namespace ProjetPOO
 
 
             //init world
-            World w = new World(b);
             World.board.initVarBoard();
 
             //init players
              //addPlayer(string nomJoueur, string type)
              //appel évènement à faire
             //*******************************************************************************//
-            w.addPlayer("Dan", "Orc");
-            w.addPlayer("Alexandre", "Nain");
+            World.Instance.addPlayer("Dan", "Orc");
+            World.Instance.addPlayer("Alexandre", "Nain");
             //*******************************************************************************//
 
             //init unit
@@ -45,14 +44,14 @@ namespace ProjetPOO
             tiles.Add(t1);
             tiles.Add(t2);
             //*******************************************************************************//
-            f.createUnit(w.players, tiles, w.listType);
+            f.createUnit(World.Instance.players, tiles, World.Instance.listType);
 ;
         }
 
 
         public void loadGame(World w, Board b)
         {
-            World w0 = new World(w,b);
+            //TODO
         }
     }
 }

@@ -51,8 +51,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="UnitImplBoard.cs" />
+    <Compile Include="UnitFactory.cs" />
+    <Compile Include="UnitPosition.cs" />
+    <Compile Include="UnitUnit.cs" />
+    <Compile Include="UnitUnitImpl.cs" />
+    <Compile Include="UnitTile.cs" />
+    <Compile Include="UnitWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitCreateGame.cs" />
     <Compile Include="UnitTestPlayer.cs" />
     <Compile Include="UnitTestWorld.cs" />
   </ItemGroup>

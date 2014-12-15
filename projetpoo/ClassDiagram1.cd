@@ -15,7 +15,7 @@
   <Class Name="ProjetPOO.World">
     <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQCAUCAAIAAAAAACFABAAEAAAwAQCACAYBAAAAEAIAA=</HashCode>
+      <HashCode>AQCAUCAAIgAAAAACBAAAAEAAAwAQCECAYBAAAAEAAAA=</HashCode>
       <FileName>World.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -81,7 +81,7 @@
   <Class Name="ProjetPOO.Tile">
     <Position X="9.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Tile.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -202,7 +202,7 @@
     <Position X="10.5" Y="7.5" Width="1.5" />
     <InheritanceLine Type="ProjetPOO.Tile" ManuallyRouted="true" FixedToPoint="true">
       <Path>
-        <Point X="10" Y="7.247" />
+        <Point X="10" Y="7.055" />
         <Point X="10" Y="8.118" />
         <Point X="10.5" Y="8.118" />
       </Path>

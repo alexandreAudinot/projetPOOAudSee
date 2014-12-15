@@ -21,7 +21,7 @@ namespace ProjetPOO
 
         public void loadOnDisk()
         {
-            World w = new World(world,board);
+            //TODO
         }
     }
 }

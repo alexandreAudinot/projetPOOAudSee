@@ -7,15 +7,11 @@ namespace ProjetPOO
 {
     public class Tile
     {
-        private Position p;
-        public Position getPosition()
-        {
-            return p;
-        }
+        public Position position { get; private set; }
 
         public Tile(Position p0)
         {
-            p = p0;
+            position = p0;
         }
     }
 }

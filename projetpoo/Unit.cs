@@ -12,6 +12,13 @@ namespace ProjetPOO
         public int def { get; protected set; }
         public int hp { get; private set; }
         protected double nbDeplacement { get; set; }
+        protected Player controler { get; set; }
+        public Position position { get; set; }
+        public abstract double calcDepl(Position p);
+        public abstract double calcDeplAtt(Position p);
+        public abstract void endGame();
+        public abstract bool loseFight();
+        public abstract void winFight(Position p);
 
         protected Unit(Player p, Tile t)
         {
@@ -19,7 +26,7 @@ namespace ProjetPOO
             def = 1;
             hp = 5;
             controler = p;
-            position = t.getPosition();
+            position = t.position;
             nbDeplacement = 0;
         }
 
@@ -32,11 +39,6 @@ namespace ProjetPOO
         {
             return hp > 0;
         }
-        
-        protected Player controler{get;set;}
-        public Position position{get;set;}
-        public abstract double calcDepl(Position p);
-        public abstract double calcDeplAtt(Position p);
 
         //méthode fight traite le combat de deux unités
         public void fight(Position p, Unit u)
@@ -130,10 +132,6 @@ namespace ProjetPOO
             position.setPosition(p);
         }
 
-        public abstract void winFight(Position p);
-        public abstract bool loseFight();
-
-
         //winFightAtt permet de gérer le combat gagné pour l'attaquant au départ
         //l'unité gagnante doit tenter de se déplacer sur la case de l'unité perdante
         //ce qui n'est pas le cas de l'unité perdante
@@ -153,6 +151,5 @@ namespace ProjetPOO
         {
             this.winFight(p);
         }
-        public abstract void endGame();
     }
 }

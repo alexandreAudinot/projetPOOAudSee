@@ -15,7 +15,7 @@ namespace ProjetPOO
         public int currentPlayer { get; set; }
         public List<Player> players { get; set; }
         private static World world;
-        public static Board board {get; private set;}
+        public static Board board {get; set;}
         public List<string> listType { get; set; }
         public List<string> listAvailableType { get; private set; }
         public static bool stateGame;
@@ -33,41 +33,24 @@ namespace ProjetPOO
 
         //constructeur classique
         //les autres variables sont initialisées par les monteurs
-        public World(Board b)
+        private World(Board b)
         {
-            nbPlayer = 0;
+            World.Instance.nbPlayer = 0;
             stateGame = true;
             board = b;
-            nbTours = 0;
-            listType = new List<string>();
-            players = new List<Player>();
-            listAvailableType = new List<string>();
+            World.Instance.nbTours = 0;
+            World.Instance.listType = new List<string>();
+            World.Instance.players = new List<Player>();
+            World.Instance.listAvailableType = new List<string>();
             InitType();
-        }
-        
-        //constructeur pour chargement du jeu
-        public World(World w, Board b)
-        {
-            nbTours = w.nbTours;
-            maxnbTours = w.maxnbTours;
-            nbUnity = w.nbUnity;
-            nbPlayer = w.nbPlayer;
-            currentPlayer = w.currentPlayer;
-            players = w.players;
-            world = w;
-            board = b;
-            listType = w.listType;
-            listAvailableType = w.listAvailableType;
-            stateGame = true;
-            world = w;
-        }
+        } 
 
         //ajoute les types possibles des variables pendant l'initialisation
         public void InitType()
         {
-            listAvailableType.Add("Orc");
-            listAvailableType.Add("Dwarf");
-            listAvailableType.Add("Elf");
+            World.Instance.listAvailableType.Add("Orc");
+            World.Instance.listAvailableType.Add("Dwarf");
+            World.Instance.listAvailableType.Add("Elf");
         }
 
         //initialisation des variables de world par les monteurs
@@ -81,7 +64,7 @@ namespace ProjetPOO
         //unitBool rend vrai s'il y a une unité sur la position p
         public bool unitBool(Position p)
         {
-            foreach (Player player in players)
+            foreach (Player player in World.Instance.players)
             {
                 foreach (Unit unit in player.listUnit)
                 {
@@ -100,7 +83,7 @@ namespace ProjetPOO
         public Unit getUnit(Position position)
         {
             List<Unit> l = new List<Unit>();
-            foreach (Player player in players)
+            foreach (Player player in World.Instance.players)
             {
                 foreach (Unit unit in player.listUnit)
                 {
@@ -162,22 +145,22 @@ namespace ProjetPOO
         //fonction qui ajoute un joueur
         public void addPlayer(string nomJoueur, string type)
         {
-            if (!listAvailableType.Contains(type))
+            if (!World.Instance.listAvailableType.Contains(type))
             {
                 throw new Exception("Le type n'est pas valide");
             } 
             else
             {
-                if (listType.Contains(type))
+                if (World.Instance.listType.Contains(type))
                 {
                     throw new Exception("Le type est déjà utilisé par un autre joueur");
                 }
                 else
                 {
                     Player player = new Player(nomJoueur, nbPlayer);
-                    listType.Add(type);
-                    players.Add(player);
-                    nbPlayer++;
+                    World.Instance.listType.Add(type);
+                    World.Instance.players.Add(player);
+                    World.Instance.nbPlayer++;
                 }
                     
             }
@@ -186,11 +169,11 @@ namespace ProjetPOO
         //fonction qui enlève un joueur
         public void removePlayer(Player p)
         {
-            if (!players.Remove(p))
+            if (!World.Instance.players.Remove(p))
             {
                 throw new Exception("Erreur dans la suppression d'un joueur");
             }
-            if (players.Count() == 1)
+            if (World.Instance.players.Count() == 1)
             {
                 //message de players.First() a gagné la partie
                 this.endGame();
@@ -201,7 +184,7 @@ namespace ProjetPOO
         public void endGame()
         {
             stateGame = false;
-            foreach (Player p in players)
+            foreach (Player p in World.Instance.players)
             {
                 p.endGame();
             }
@@ -210,13 +193,13 @@ namespace ProjetPOO
         //fonction qui termine le tour du joueur
         public void endTurn()
         {
-            currentPlayer = (currentPlayer + 1) % nbPlayer;
-            if (currentPlayer == 0)
+            World.Instance.currentPlayer = (World.Instance.currentPlayer + 1) % nbPlayer;
+            if (World.Instance.currentPlayer == 0)
             {
                 nbTours++;
-                if (nbTours == maxnbTours)
+                if (World.Instance.nbTours == World.Instance.maxnbTours)
                 {
-                    this.endGame();
+                    World.Instance.endGame();
                 }
             }
         }
@@ -225,7 +208,7 @@ namespace ProjetPOO
         {
             String s = "No";
             int scoreMax = 0;
-            foreach (Player player in players)
+            foreach (Player player in World.Instance.players)
             {
                 if (player.score > scoreMax)
                 {

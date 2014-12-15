@@ -15,7 +15,6 @@ namespace TestUnitaire
         public static void InitAll()
         {
             Board b = new DemoBoard();
-            World world = new World(b);
             b.initBoard();
             World.board.initVarBoard();
         }
@@ -24,8 +23,7 @@ namespace TestUnitaire
         public void testWorldBoard()
         {
             Board b = new DemoBoard();
-            World world = new World(b);
-            Assert.IsNotNull(world);
+            Assert.IsNotNull(World.Instance);
             Assert.AreEqual(0, World.Instance.nbPlayer);
             Assert.IsTrue(World.stateGame);
             Assert.AreEqual(World.board, b);
@@ -33,28 +31,6 @@ namespace TestUnitaire
             Assert.IsNotNull(World.Instance.listType);
             Assert.IsNotNull(World.Instance.listAvailableType);
             Assert.IsNotNull(World.Instance.players);
-        }
-
-        [TestMethod]
-        public void testWorldBoard2()
-        {
-            Board b = new DemoBoard();
-            World world = new World(b);
-            b.initBoard();
-            World.board.initVarBoard();
-            Assert.AreEqual(World.Instance.maxnbTours, 5);
-            World world2 = new World(World.Instance, World.board);
-            Assert.IsNotNull(world2);
-            Assert.AreEqual(0, World.Instance.nbPlayer);
-            Assert.IsTrue(World.stateGame);
-            Assert.AreEqual(World.board, b);
-            Assert.AreEqual(0, World.Instance.nbTours);
-            Assert.IsNotNull(World.Instance.listType);
-            Assert.IsNotNull(World.Instance.listAvailableType);
-            Assert.IsNotNull(World.Instance.players);
-            //Assert.AreEqual(World.Instance.maxnbTours, 5);
-            /*Assert.AreEqual(World.Instance.nbUnity, 4);
-            Assert.AreEqual(World.Instance.currentPlayer, 0);*/
         }
 
         [TestMethod]
@@ -69,8 +45,8 @@ namespace TestUnitaire
         [TestMethod]
         public void testInitType()
         {
-            World w0 = new World(new DemoBoard());
-            List<String> l = new List<string>();
+            Board b = new DemoBoard();
+            Assert.IsNotNull(World.Instance);
             Assert.IsTrue(World.Instance.listAvailableType.Contains("Orc"));
             Assert.IsTrue(World.Instance.listAvailableType.Contains("Dwarf"));
             Assert.IsTrue(World.Instance.listAvailableType.Contains("Elf"));

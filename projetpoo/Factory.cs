@@ -55,7 +55,7 @@ namespace ProjetPOO
             {
                 switch(types.ElementAt(i))
                 {
-                    case ("Elfe"):
+                    case ("Elfe"): //changer en appelant des factory d'elf
                         World.Instance.listType.Add("Elf");
                         elf = new Elf(player,tiles.ElementAt(i));
                         nb = World.Instance.nbUnity;
