@@ -50,9 +50,9 @@ namespace ProjetPOO
         }
 
 
-        public void loadGame()
+        public void loadGame(World w, Board b)
         {
-            throw new System.NotImplementedException();
+            World w0 = new World(w,b);
         }
     }
 }

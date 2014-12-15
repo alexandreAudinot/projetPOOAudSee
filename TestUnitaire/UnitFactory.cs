@@ -1,17 +1,14 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Wrapping;
 
 namespace TestUnitaire
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitFactory
     {
         [TestMethod]
-        public void GameInit()
+        public void TestMethod1()
         {
-            Wrapper w = new Wrapper();
-            //Assert.IsNotNull(w);
         }
     }
 }

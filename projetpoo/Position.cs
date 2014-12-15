@@ -10,6 +10,12 @@ namespace ProjetPOO
         public int x { get; set; }
         public int y { get; set; }
 
+        public Position(int x0, int y0)
+        {
+            x = x0;
+            y = y0;
+        }
+
         public void setPosition(Position pos)
         {
             x = pos.x;
@@ -20,11 +26,6 @@ namespace ProjetPOO
         {
             return ((p.x == this.x) && (p.y == this.y));
         }
-
-        public Position(int x0, int y0)
-        {
-            x = x0;
-            y = y0;
-        }
+        
     }
 }
