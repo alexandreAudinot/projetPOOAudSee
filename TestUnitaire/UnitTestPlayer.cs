@@ -3,6 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjetPOO;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace TestUnitaire
 {
@@ -35,9 +37,11 @@ namespace TestUnitaire
             Orc o1 = new Orc(World.Instance.players.ElementAt(1), new Tile(new Position(1, 1)));
             p.listUnit.Add(o0);
             p.listUnit.Add(o1);
-            p.killUnit(p.listUnit.First());
+            p.killUnit((Unit) p.listUnit.First());
             Assert.AreEqual(1, p.listUnit.Count);
-            Assert.AreEqual(2, p.listUnit.First().Position.y);
+            Assert.AreEqual(2, ((Unit) p.listUnit.First()).position.y);
+            List<Player> l = new List<Player>();
+            Player s = l.First();
         }
 
         [TestMethod]
@@ -48,8 +52,8 @@ namespace TestUnitaire
             World.Instance.addPlayer("Jean-Pierre", "Elf");
             World.Instance.addPlayer("Georgette", "Orc");
             //ajouter une unité au joueur1
-            World.Instance.players.First().killUnit();
-            Assert.AreEqual("Georgette", World.players.First().nom);
+            //World.Instance.players.First().killUnit();
+            Assert.AreEqual("Georgette", World.Instance.players.First().nom);
         }
 
         [TestMethod]
@@ -59,7 +63,7 @@ namespace TestUnitaire
             World.Instance.addPlayer("Jean-Pierre", "Elf");
             World.Instance.addPlayer("Georgette", "Orc");
             World.Instance.players.First().lose();
-            Assert.AreEqual("Georgette", World.players.First().nom);
+            Assert.AreEqual("Georgette", World.Instance.players.First().nom);
         }
 
         [TestMethod]

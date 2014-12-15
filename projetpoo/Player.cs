@@ -10,7 +10,7 @@ namespace ProjetPOO
         public string nom { get; private set; }
         public int numero { get; private set; }
         public int score { get; set; } //passer en private set ?
-        public List<ProjetPOO.IUnit> listUnit { get; private set; }
+        public List<IUnit> listUnit { get; private set; }
 
         public Player(string name, int n)
         {
@@ -33,7 +33,7 @@ namespace ProjetPOO
                 this.lose();
             }
         }
-        protected void lose()
+        public void lose()
         {
             World.Instance.removePlayer(this);
         }

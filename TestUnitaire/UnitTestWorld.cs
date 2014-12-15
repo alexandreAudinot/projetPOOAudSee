@@ -3,6 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjetPOO;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace TestUnitaire
 {
@@ -36,7 +38,10 @@ namespace TestUnitaire
         [TestMethod]
         public void testWorldBoard2()
         {
-            InitAll();
+            Board b = new DemoBoard();
+            World world = new World(b);
+            b.initBoard();
+            World.board.initVarBoard();
             Assert.AreEqual(World.Instance.maxnbTours, 5);
             World world2 = new World(World.Instance, World.board);
             Assert.IsNotNull(world2);
