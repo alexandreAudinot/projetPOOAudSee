@@ -11,8 +11,8 @@ namespace ProjetPOO
         public int att { get; private set; }
         public int def { get; protected set; }
         public int hp { get; private set; }
-        protected double nbDeplacement { get; set; }
-        protected Player controler { get; set; }
+        public double nbDeplacement { get; set; }
+        public Player controler { get; set; }
         public Position position { get; set; }
         public abstract double calcDepl(Position p);
         public abstract double calcDeplAtt(Position p);

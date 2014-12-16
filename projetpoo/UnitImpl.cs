@@ -7,12 +7,13 @@ namespace ProjetPOO
 {
     public class Orc : Unit
     {
+        public int pvOrc { get; private set; }
+
         public Orc(Player p, Tile t) : base(p,t)
         {
             pvOrc = 0;
             //référence image
         }
-        protected int pvOrc { get; private set; }
 
         override
         public double calcDeplAtt(Position p)
