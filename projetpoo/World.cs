@@ -35,22 +35,22 @@ namespace ProjetPOO
         //les autres variables sont initialisées par les monteurs
         private World(Board b)
         {
-            World.Instance.nbPlayer = 0;
+            nbPlayer = 0;
             stateGame = true;
             board = b;
-            World.Instance.nbTours = 0;
-            World.Instance.listType = new List<string>();
-            World.Instance.players = new List<Player>();
-            World.Instance.listAvailableType = new List<string>();
+            nbTours = 0;
+            listType = new List<string>();
+            players = new List<Player>();
+            listAvailableType = new List<string>();
             InitType();
         } 
 
         //ajoute les types possibles des variables pendant l'initialisation
         public void InitType()
         {
-            World.Instance.listAvailableType.Add("Orc");
-            World.Instance.listAvailableType.Add("Dwarf");
-            World.Instance.listAvailableType.Add("Elf");
+            listAvailableType.Add("Orc");
+            listAvailableType.Add("Dwarf");
+            listAvailableType.Add("Elf");
         }
 
         //initialisation des variables de world par les monteurs
