@@ -52,10 +52,15 @@ namespace ProjetPOO
             return deplacementDuTour;
         }
 
+        public void incPvOrc()
+        {
+            pvOrc++;
+        }
+
         override
         public void winFight(Position p)
         {
-            pvOrc++;
+            incPvOrc();
             if (World.Instance.getTile(p).GetType().ToString() != "Forest")
             {
                 this.controler.incScore();

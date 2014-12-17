@@ -1,0 +1,16 @@
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\bin\Release\WpfDisplay.exe.config
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\bin\Release\WpfDisplay.exe
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\bin\Release\WpfDisplay.pdb
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\obj\Release\Game.baml
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\obj\Release\MainWindow.baml
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\obj\Release\Menu.baml
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\obj\Release\Game.g.cs
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\obj\Release\MainWindow.g.cs
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\obj\Release\Menu.g.cs
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\obj\Release\App.g.cs
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\obj\Release\WpfDisplay_MarkupCompile.cache
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\obj\Release\WpfDisplay.g.resources
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\obj\Release\WpfDisplay.Properties.Resources.resources
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\obj\Release\WpfDisplay.csproj.GenerateResource.Cache
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\obj\Release\WpfDisplay.exe
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\obj\Release\WpfDisplay.pdb

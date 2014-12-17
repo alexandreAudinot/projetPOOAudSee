@@ -49,10 +49,7 @@
     <Compile Include="BoardImpl.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="IFactory.cs" />
-    <Compile Include="IPlayer.cs" />
-    <Compile Include="ITile.cs" />
     <Compile Include="IUnit.cs" />
-    <Compile Include="Map.cs" />
     <Compile Include="TileImpl.cs" />
     <Compile Include="UnitImpl.cs" />
     <Compile Include="Player.cs" />

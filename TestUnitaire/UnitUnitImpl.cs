@@ -23,7 +23,14 @@ namespace TestUnitaire
             Assert.AreEqual(5, o.hp);
             Assert.AreEqual(0, o.nbDeplacement);
             Assert.AreEqual(p, o.controler);
-            Assert.IsTrue((new Position(1,1)).equals(o.position));
+            Assert.IsTrue((new Position(1, 1)).equals(o.position));
+            World.Clean();
+        }
+
+        [TestMethod]
+        public void testincPvOrc()
+        {
+            //TODO
         }
 
         [TestMethod]

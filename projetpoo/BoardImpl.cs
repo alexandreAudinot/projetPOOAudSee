@@ -13,7 +13,7 @@ namespace ProjetPOO
         {
             size = 6;
             World.board = this;
-            ITile = new ITile[size, size];
+            Tiles = new Tile[size, size];
         }
 
         override
@@ -29,7 +29,7 @@ namespace ProjetPOO
         public void initBoard()
         {
             size = 10;
-            ITile = new ITile[size, size];
+            Tiles = new Tile[size, size];
             World.board = this;
         }
 
@@ -47,7 +47,7 @@ namespace ProjetPOO
         {
             size = 4;
             World.board = this;
-            ITile = new ITile[size, size];
+            Tiles = new Tile[size, size];
         }
 
         override

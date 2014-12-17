@@ -8,9 +8,9 @@ namespace ProjetPOO
 {
     public abstract class AbstractBoard : Board
     {
-        protected int size;
+        public int size { get; set; }
         //private ProjetPOO.ITile[,] tile;
-        public ProjetPOO.ITile[,] ITile { get; set; }
+        public Tile[,] Tiles { get; set; }
 
         /*public void initBoard()
         {
@@ -28,7 +28,7 @@ namespace ProjetPOO
             {
                 throw new Exception("La carte est trop petite pour cette position");
             }
-            return (Tile) ITile[p.x, p.y];
+            return (Tile) Tiles[p.x, p.y];
         }
 
         public abstract void initVarBoard();

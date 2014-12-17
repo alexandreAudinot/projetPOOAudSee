@@ -15,7 +15,7 @@ namespace ProjetPOO
         public int currentPlayer { get; set; }
         public List<Player> players { get; set; }
         private static World world;
-        public static Board board {get; set;}
+        public static AbstractBoard board { get; set; }
         public List<string> listType { get; set; }
         public List<string> listAvailableType { get; private set; }
         public bool stateGame;
@@ -25,7 +25,7 @@ namespace ProjetPOO
             {
                 if (world == null)
                 {
-                    world = new World(board);
+                    world = new World(World.board);
                 }
                 return World.world;
             }
@@ -33,7 +33,7 @@ namespace ProjetPOO
 
         //constructeur classique
         //les autres variables sont initialisées par les monteurs
-        private World(Board b)
+        private World(AbstractBoard b)
         {
             nbPlayer = 0;
             stateGame = true;
@@ -51,6 +51,13 @@ namespace ProjetPOO
             listAvailableType.Add("Orc");
             listAvailableType.Add("Dwarf");
             listAvailableType.Add("Elf");
+        }
+
+        //méthode qui permet de nettoyer world entre les tests
+        public static void Clean()
+        {
+            world = null;
+            World.board = null;
         }
 
         //initialisation des variables de world par les monteurs

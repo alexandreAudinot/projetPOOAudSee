@@ -12,12 +12,13 @@ namespace TestUnitaire
     public class UnitTestWorld
     {
 
-
         public static void InitAll()
         {
-            Board b = new DemoBoard();
+            World.Clean();
+            AbstractBoard b = new DemoBoard();
+            World.board = b;
             Assert.IsNotNull(World.Instance);
-            b.initBoard();
+            World.board.initBoard();
             World.board.initVarBoard();
             Assert.IsNotNull(World.Instance);
         }
@@ -25,7 +26,9 @@ namespace TestUnitaire
         [TestMethod]
         public void testWorldBoard()
         {
-            Board b = new DemoBoard();
+            World.Clean();
+            AbstractBoard b = new DemoBoard();
+            World.board = b;
             Assert.IsNotNull(World.Instance);
             Assert.AreEqual(0, World.Instance.nbPlayer);
             Assert.IsTrue(World.Instance.stateGame);
@@ -60,15 +63,27 @@ namespace TestUnitaire
         public void testUnitBool()
         {
             InitAll();
-            //initialiser les pièces à la position voulue
-            //tester dans le cas vrai et le cas false
-            //rend vrai si dessus, faux sinon
+            MonteurDemo m = new MonteurDemo();
+            m.createTiles();
+            World.Instance.addPlayer("Jean-Pierre", "Orc");
+            World.Instance.players.First().listUnit.Add(new Orc(World.Instance.players.First(), World.board.getTile(new Position(1,1))));
+            Assert.IsTrue(World.Instance.unitBool(new Position(1, 1)));
+            Assert.IsFalse(World.Instance.unitBool(new Position(1, 2)));
         }
 
         [TestMethod]
         public void testGetUnit()
         {
             InitAll();
+            MonteurDemo m = new MonteurDemo();
+            m.createTiles();
+            World.Instance.addPlayer("Jean-Pierre", "Elf");
+            Orc o0 = new Orc(World.Instance.players.First(), World.board.getTile(new Position(1, 1)));
+            o0.incpv()
+            World.Instance.players.First().listUnit.Add(o0);
+            World.Instance.players.First().listUnit.Add());
+            //Assert.AreEquals(World.Instance.getUnit(new Position(1, 1)));
+            Assert.IsNull(World.Instance.getUnit(new Position(1, 2)));
             //initialiser les pièces à la position voulue
             //tester dans le cas vrai et le cas false
             //tester dans le cas 2 unités random et 2 unités défenses différentes

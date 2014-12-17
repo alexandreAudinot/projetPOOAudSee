@@ -9,7 +9,17 @@ namespace ProjetPOO
     {
         override public void createTiles()
         {
+            int size0 = World.board.size;
+            Tile[,] tab = new Tile[size0, size0];
 
+            for (int i = 0; i < size0; i++)
+            {
+                for (int j = 0; j < size0; j++)
+                {
+                    tab[i, j] = (Tile)new Forest(new Position(i, j));
+                }
+            }
+            ((DemoBoard)World.board).Tiles = tab;
         }
     }
 
@@ -17,7 +27,16 @@ namespace ProjetPOO
     {
         override public void createTiles()
         {
-
+            int size0 = World.board.size;
+            Tile[,] tab = new Tile[size0,size0];
+            for (int i = 0; i < size0; i++)
+            {
+                for (int j = 0; j < size0; i++)
+                {
+                    tab[i,j] = new Forest(new Position(i, j));
+                }
+            }
+                ((NormalBoard) World.board).Tiles = tab;
         }
     }
     /*
@@ -33,7 +52,16 @@ namespace ProjetPOO
     {
         override public void createTiles()
         {
-
+            int size0 = World.board.size;
+            Tile[,] tab = new Tile[size0, size0];
+            for (int i = 0; i < size0; i++)
+            {
+                for (int j = 0; j < size0; i++)
+                {
+                    tab[i, j] = (Tile) new Forest(new Position(i, j));
+                }
+            }
+            ((SmallBoard) World.board).Tiles = tab;
         }
     }
 
