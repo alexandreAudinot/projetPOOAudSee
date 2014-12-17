@@ -54,6 +54,7 @@ namespace TestUnitaire
             //ajouter une unité au joueur1
             //World.Instance.players.First().killUnit();
             Assert.AreEqual("Georgette", World.Instance.players.First().nom);
+            Assert.IsFalse(true);
         }
 
         [TestMethod]
@@ -81,6 +82,14 @@ namespace TestUnitaire
             World.Instance.players.ElementAt(1).incScore();
             //faire faire des combats avec des orcs
             //compter les points
+            Assert.IsFalse(true);
         }
+
+        [TestMethod]
+        public void testUpdateScore()
+        {
+            Assert.IsFalse(true);
+        }
+
     }
 }

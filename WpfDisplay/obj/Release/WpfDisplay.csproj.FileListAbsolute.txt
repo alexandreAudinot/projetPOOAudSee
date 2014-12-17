@@ -1,6 +1,7 @@
 C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\bin\Release\WpfDisplay.exe.config
 C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\bin\Release\WpfDisplay.exe
 C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\bin\Release\WpfDisplay.pdb
+C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\obj\Release\WpfDisplay.csprojResolveAssemblyReference.cache
 C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\obj\Release\Game.baml
 C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\obj\Release\MainWindow.baml
 C:\Users\Dan\Desktop\Cours\projetPOOAudSee\WpfDisplay\obj\Release\Menu.baml

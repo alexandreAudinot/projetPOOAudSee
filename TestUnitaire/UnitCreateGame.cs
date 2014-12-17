@@ -10,12 +10,14 @@ namespace TestUnitaire
         public void testinit()
         {
             //TODO
+            Assert.IsFalse(true);
         }
 
         [TestMethod]
         public void testLoadGame()
         {
             //TODO
+            Assert.IsFalse(true);
         }
     }
 }

@@ -20,6 +20,7 @@ namespace ProjetPOO
         public abstract bool loseFight();
         public abstract void winFight(Position p);
 
+        //constructeur d'unité, méthode accessible que par les classes filles
         protected Unit(Player p, Tile t)
         {
             att = 2;
@@ -30,12 +31,28 @@ namespace ProjetPOO
             nbDeplacement = 0;
         }
 
-        protected void initDeplacement()
+        //méthode utilisée pour les tests unitaires seulement
+        //permet de changer la défense d'une unité
+        public void setDefForUnitTest(int h)
+        {
+            def = h;
+        }
+
+        //méthode utilisée pour les tests unitaires seulement
+        //permet de changer la vie d'une unité
+        public void setHPForUnitTest(int h)
+        {
+            hp = h;
+        }
+
+        //initialisation du déplacement en début de tour
+        public void initDeplacement()
         {
             nbDeplacement = 2 ; //TOCHECK
         }
 
-        protected bool isAlive()
+        //vérification si l'unité est en vie
+        public bool isAlive()
         {
             return hp > 0;
         }
@@ -84,6 +101,8 @@ namespace ProjetPOO
             }
         }
 
+        //die permet de tuer l'unité courante
+        //de la retirer de la liste d'unité du joueur
         public void die()
         {
             this.controler.killUnit(this);
@@ -91,16 +110,24 @@ namespace ProjetPOO
 
         //checkmove vérifie la cohérence du mouvement avec les règles
         //on décide arbitrairement de ne prendre que des déplacements de une case
+        //Les déplacements possibles pour la case 2,2 sont (1,2), (2,1), (2,3), (3,2), (1,3), (3,1).
         public bool checkMove(Position p)
         {
             //tomodify TODO pour les cases hexagonales
-            if ((Math.Abs((this.position.x - p.x)) <= 1) && (Math.Abs((this.position.y - p.y)) <= 1))
+            if (!((p.x < 0)||(p.y < 0)||(p.x >= World.board.size)||(p.y >= World.board.size)))
             {
-                if ((Math.Abs((this.position.x - p.x)) <= 1) ^ (Math.Abs((this.position.y - p.y)) <= 1))
-                {//ou exclusif
-                    return true;
-                }
+                if (
+                    ((p.x + 1 == this.position.x) && (this.position.y == p.y))
+                    || ((p.x - 1 == this.position.x) && (this.position.y == p.y))
+                    || ((p.x == this.position.x) && (this.position.y + 1 == p.y))
+                    || ((p.x == this.position.x) && (this.position.y - 1 == p.y))
+                    || ((p.x == this.position.x + 1) && (this.position.y - 1 == p.y))
+                    || ((p.x == this.position.x - 1) && (this.position.y + 1 == p.y)))
+                        {
+                            return true;
+                        }
             }
+            
             return false;
         }
 

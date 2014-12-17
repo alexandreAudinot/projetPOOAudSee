@@ -45,5 +45,22 @@ namespace ProjetPOO
                 unit.endGame();
             }
         }
+
+        public void updateScore()
+        {
+            List<Position> l = new List<Position>();
+            foreach (Unit unit in listUnit)
+            {
+                foreach (Position p in l)
+                {
+                    if (!p.equals(unit.position))
+                    {
+                        l.Add(unit.position);
+                    }
+                }
+            }
+            score = l.Count();
+        }
+    
     }
 }

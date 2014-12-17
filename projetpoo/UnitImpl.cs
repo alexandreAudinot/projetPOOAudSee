@@ -15,6 +15,13 @@ namespace ProjetPOO
             //référence image
         }
 
+        //méthode utilisée pour les tests unitaires seulement
+        //permet de changer les pv d'un orc
+        public void setPvForUnitTest(int h)
+        {
+            pvOrc = h;
+        }
+
         override
         public double calcDeplAtt(Position p)
         {
@@ -60,10 +67,9 @@ namespace ProjetPOO
         override
         public void winFight(Position p)
         {
-            incPvOrc();
             if (World.Instance.getTile(p).GetType().ToString() != "Forest")
             {
-                this.controler.incScore();
+                incPvOrc();
             }
         }
 

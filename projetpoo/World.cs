@@ -191,15 +191,27 @@ namespace ProjetPOO
         public void endGame()
         {
             stateGame = false;
-            foreach (Player p in World.Instance.players)
+            World.Instance.updateScore();
+            /*foreach (Player p in World.Instance.players)
             {
                 p.endGame();
+            }*/
+        }
+
+        //méthode updateScore qui update le score de tous les joueurs
+        //appelle la méthode sur chaque joueur
+        public void updateScore()
+        {
+            foreach (Player p in players)
+            {
+                p.updateScore();
             }
         }
 
         //fonction qui termine le tour du joueur
         public void endTurn()
         {
+            World.Instance.updateScore();
             World.Instance.currentPlayer = (World.Instance.currentPlayer + 1) % nbPlayer;
             if (World.Instance.currentPlayer == 0)
             {
@@ -211,6 +223,8 @@ namespace ProjetPOO
             }
         }
 
+        //gagnant permet de rendre le gagnant de la partie (String)
+        //rend match nul en cas d'égalité dans les points de victoire
         public String gagnant()
         {
             String s = "No";
@@ -226,7 +240,7 @@ namespace ProjetPOO
                 {
                     if  (player.score == scoreMax)
                     {
-                        return "Match null";
+                        return "Match nul";
                     }
                 }
           }
