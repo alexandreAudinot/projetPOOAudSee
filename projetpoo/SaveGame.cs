@@ -11,7 +11,7 @@ namespace ProjetPOO
         public Board board;
         public void saveOnDisk(World w, Board b)
         {
-            if (World.stateGame)
+            if (World.Instance.stateGame)
             {
                 throw new Exception("Impossible d'enregistrer une partie terminée");
             }

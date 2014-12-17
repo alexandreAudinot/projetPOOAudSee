@@ -18,7 +18,7 @@ namespace ProjetPOO
         public static Board board {get; set;}
         public List<string> listType { get; set; }
         public List<string> listAvailableType { get; private set; }
-        public static bool stateGame;
+        public bool stateGame;
         public static World Instance
         {
             get

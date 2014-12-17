@@ -72,7 +72,7 @@ namespace TestUnitaire
             UnitTestWorld.InitAll();
             World.Instance.addPlayer("Jean-Pierre", "Elf");
             World.Instance.removePlayer(World.Instance.players.First());
-            Assert.IsTrue(World.stateGame);
+            Assert.IsTrue(World.Instance.stateGame);
             //vérification des points de vistoire à faire + pv orcs
             //création d'unités
             //leur faire faire des combats avec des morts => création de points de victoire

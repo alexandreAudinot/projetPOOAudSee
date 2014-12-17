@@ -12,11 +12,14 @@ namespace TestUnitaire
     public class UnitTestWorld
     {
 
+
         public static void InitAll()
         {
             Board b = new DemoBoard();
+            Assert.IsNotNull(World.Instance);
             b.initBoard();
             World.board.initVarBoard();
+            Assert.IsNotNull(World.Instance);
         }
 
         [TestMethod]
@@ -25,7 +28,7 @@ namespace TestUnitaire
             Board b = new DemoBoard();
             Assert.IsNotNull(World.Instance);
             Assert.AreEqual(0, World.Instance.nbPlayer);
-            Assert.IsTrue(World.stateGame);
+            Assert.IsTrue(World.Instance.stateGame);
             Assert.AreEqual(World.board, b);
             Assert.AreEqual(0, World.Instance.nbTours);
             Assert.IsNotNull(World.Instance.listType);
@@ -118,7 +121,7 @@ namespace TestUnitaire
             World.Instance.addPlayer("Jean-Pierre", "Elf");
             World.Instance.addPlayer("Georgette", "Orc");
             World.Instance.removePlayer(World.Instance.players.First());
-            Assert.IsFalse(World.stateGame);
+            Assert.IsFalse(World.Instance.stateGame);
         }
 
         [ExpectedException(typeof(ArgumentException), "Erreur dans la suppression d'un joueur")]
@@ -137,7 +140,7 @@ namespace TestUnitaire
             InitAll();
             World.Instance.addPlayer("Jean-Pierre", "Elf");
             World.Instance.removePlayer(World.Instance.players.First());
-            Assert.IsTrue(World.stateGame);
+            Assert.IsTrue(World.Instance.stateGame);
             //vérification des points de vistoire à faire + pv orcs
             //création d'unités
             //leur faire faire des combats avec des morts => création de points de victoire
@@ -173,7 +176,7 @@ namespace TestUnitaire
                 World.Instance.endTurn();
                 turn++;
             }
-            Assert.IsFalse(World.stateGame);
+            Assert.IsFalse(World.Instance.stateGame);
         }
 
         [TestMethod]
@@ -182,7 +185,7 @@ namespace TestUnitaire
             InitAll();
             World.Instance.addPlayer("Jean-Pierre", "Elf");
             World.Instance.removePlayer(World.Instance.players.First());
-            Assert.IsTrue(World.stateGame);
+            Assert.IsTrue(World.Instance.stateGame);
             World.Instance.players.First().incScore();
             World.Instance.players.ElementAt(1).incScore();
             World.Instance.players.ElementAt(1).incScore();
@@ -195,7 +198,7 @@ namespace TestUnitaire
             InitAll();
             World.Instance.addPlayer("Jean-Pierre", "Elf");
             World.Instance.removePlayer(World.Instance.players.First());
-            Assert.IsTrue(World.stateGame);
+            Assert.IsTrue(World.Instance.stateGame);
             World.Instance.players.First().incScore();
             World.Instance.players.ElementAt(1).incScore();
             Assert.AreEqual("Match null", World.Instance.gagnant());
