@@ -7,36 +7,24 @@ namespace ProjetPOO
 {
     public class MonteurDemo : Monteur
     {
-        override public void createTiles()
+        public MonteurDemo()
         {
-            int size0 = World.board.size;
-            Tile[,] tab = new Tile[size0, size0];
 
-            for (int i = 0; i < size0; i++)
-            {
-                for (int j = 0; j < size0; j++)
-                {
-                    tab[i, j] = (Tile)new Forest(new Position(i, j));
-                }
-            }
-            ((DemoBoard)World.board).Tiles = tab;
+        }
+
+        //permet de caster le board créer par la classe mère
+        public void createTiles()
+        {
+            ((DemoBoard)World.board).Tiles = this.createTilesBoard();
         }
     }
 
     public class MonteurNormal : Monteur
     {
-        override public void createTiles()
+        //permet de caster le board créer par la classe mère
+        public void createTiles()
         {
-            int size0 = World.board.size;
-            Tile[,] tab = new Tile[size0,size0];
-            for (int i = 0; i < size0; i++)
-            {
-                for (int j = 0; j < size0; i++)
-                {
-                    tab[i,j] = new Forest(new Position(i, j));
-                }
-            }
-                ((NormalBoard) World.board).Tiles = tab;
+            ((NormalBoard)World.board).Tiles = this.createTilesBoard();
         }
     }
     /*
@@ -50,18 +38,10 @@ namespace ProjetPOO
     */
     public class MonteurSmall : Monteur
     {
-        override public void createTiles()
+        //permet de caster le board créer par la classe mère
+        public void createTiles()
         {
-            int size0 = World.board.size;
-            Tile[,] tab = new Tile[size0, size0];
-            for (int i = 0; i < size0; i++)
-            {
-                for (int j = 0; j < size0; i++)
-                {
-                    tab[i, j] = (Tile) new Forest(new Position(i, j));
-                }
-            }
-            ((SmallBoard) World.board).Tiles = tab;
+            ((SmallBoard)World.board).Tiles = this.createTilesBoard();
         }
     }
 
@@ -74,6 +54,9 @@ namespace ProjetPOO
         private List<Elf> Elfs = new List<Elf>();
         private List<Dwarf> Dwarves = new List<Dwarf>();
         private List<Orc> Orcs = new List<Orc>();
+        public static Position pinitElf;
+        public static Position pinitDwarf;
+        public static Position pinitOrc;
 
         override
         public void createUnit(List<Player> players, List<Tile> tiles, List<String> types)
@@ -85,7 +68,7 @@ namespace ProjetPOO
                 {
                     case ("Elfe"): //changer en appelant des factory d'elf
                         World.Instance.listType.Add("Elf");
-                        elf = new Elf(player,tiles.ElementAt(i));
+                        elf = new Elf(player, pinitElf);
                         nb = World.Instance.nbUnity;
                         while (nb > 0)
                         {
@@ -97,7 +80,7 @@ namespace ProjetPOO
 
                     case ("Dwarf"):
                         World.Instance.listType.Add("Dwarf");
-                        dwarf = new Dwarf(player, tiles.ElementAt(i));
+                        dwarf = new Dwarf(player,pinitDwarf);
                         nb = World.Instance.nbUnity;
                         while (nb > 0)
                         {
@@ -109,7 +92,7 @@ namespace ProjetPOO
 
                     case ("Orc"):
                         World.Instance.listType.Add("Orc");
-                        orc = new Orc(player, tiles.ElementAt(i));
+                        orc = new Orc(player,pinitOrc);
                         nb = World.Instance.nbUnity;
                         while (nb > 0)
                         {

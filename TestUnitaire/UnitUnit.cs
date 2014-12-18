@@ -16,7 +16,7 @@ namespace TestUnitaire
         public void testsetDefForUnitTest()
         {
             Player p = new Player("Thorin", 1);
-            Dwarf o = new Dwarf(p, new Tile(new Position(1, 1)));
+            Dwarf o = new Dwarf(p, new Position(1, 1));
             o.setDefForUnitTest(10);
             Assert.AreEqual(10, o.def);
         }
@@ -25,7 +25,7 @@ namespace TestUnitaire
         public void testsetHPForUnitTest()
         {
             Player p = new Player("Thorin", 1);
-            Dwarf o = new Dwarf(p, new Tile(new Position(1, 1)));
+            Dwarf o = new Dwarf(p, new Position(1, 1));
             o.setHPForUnitTest(10);
             Assert.AreEqual(10, o.hp);
         }
@@ -34,7 +34,7 @@ namespace TestUnitaire
         public void testInitDeplacement()
         {
             Player p = new Player("Thorin", 1);
-            Dwarf o = new Dwarf(p, new Tile(new Position(1, 1)));
+            Dwarf o = new Dwarf(p, new Position(1, 1));
             o.initDeplacement();
             Assert.AreEqual(2, o.nbDeplacement);
         }
@@ -43,9 +43,9 @@ namespace TestUnitaire
         public void testIsAlive()
         {
             Player p = new Player("Thorin", 1);
-            Dwarf o = new Dwarf(p, new Tile(new Position(1, 1)));
-            Assert.AreEqual(true,  o.isAlive());
-            Dwarf o0 = new Dwarf(p, new Tile(new Position(1, 1)));
+            Dwarf o = new Dwarf(p, new Position(1, 1));
+            Assert.AreEqual(true, o.isAlive());
+            Dwarf o0 = new Dwarf(p, new Position(1, 1));
             o0.setHPForUnitTest(0);
             Assert.AreEqual(false,  o0.isAlive());
         }
@@ -64,8 +64,8 @@ namespace TestUnitaire
             MonteurDemo m = new MonteurDemo();
             m.createTiles();
             World.Instance.addPlayer("Jean-Pierre", "Elf");
-            Orc o0 = new Orc(World.Instance.players.First(), World.board.getTile(new Position(1, 1)));
-            Orc o1 = new Orc(World.Instance.players.First(), World.board.getTile(new Position(1, 2)));
+            Orc o0 = new Orc(World.Instance.players.First(), new Position(1,2));
+            Orc o1 = new Orc(World.Instance.players.First(), new Position(1,2));
             World.Instance.players.First().listUnit.Add(o0);
             World.Instance.players.First().listUnit.Add(o1);
             World.Instance.players.First().listUnit.First().die();
@@ -78,7 +78,7 @@ namespace TestUnitaire
         {
             UnitTestWorld.InitAll();
             Player p = new Player("Thorin", 1);
-            Dwarf o = new Dwarf(p, new Tile(new Position(2, 2)));
+            Dwarf o = new Dwarf(p, new Position(2, 2));
             Assert.IsTrue(o.checkMove(new Position(3, 2)));
             Assert.IsTrue(o.checkMove(new Position(2, 3)));
             Assert.IsTrue(o.checkMove(new Position(1, 2)));

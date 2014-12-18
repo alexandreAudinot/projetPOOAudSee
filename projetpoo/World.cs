@@ -182,7 +182,6 @@ namespace ProjetPOO
             }
             if (World.Instance.players.Count() == 1)
             {
-                //message de players.First() a gagné la partie
                 this.endGame();
             }
         }
@@ -224,27 +223,35 @@ namespace ProjetPOO
         }
 
         //gagnant permet de rendre le gagnant de la partie (String)
-        //rend match nul en cas d'égalité dans les points de victoire
+        //rend match nul en cas d'égalité
         public String gagnant()
         {
-            String s = "No";
-            int scoreMax = 0;
-            foreach (Player player in World.Instance.players)
+            if (World.Instance.players.Count() == 1)
             {
-                if (player.score > scoreMax)
+                return World.Instance.players.First().nom;
+            } 
+            else
+            {
+                String s = "No";
+                int scoreMax = -1;
+                foreach (Player player in World.Instance.players)
                 {
-                    s = player.nom;
-                    scoreMax = player.score;
-                }
-                else
-                {
-                    if  (player.score == scoreMax)
+                    if (player.score > scoreMax)
                     {
-                        return "Match nul";
+                        s = player.nom;
+                        scoreMax = player.score;
+                    }
+                    else
+                    {
+                        if (player.score == scoreMax)
+                        {
+                            return "Match nul";
+                        }
+                        return s;
                     }
                 }
-          }
-            return s;
+                throw new Exception("Il n'y a pas de gagnant avec une liste vide");
+            }
         }
     }
 }

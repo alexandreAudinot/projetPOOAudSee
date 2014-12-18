@@ -28,7 +28,7 @@ namespace ProjetPOO
         override
         public void initBoard()
         {
-            size = 10;
+            size = 14;
             Tiles = new Tile[size, size];
             World.board = this;
         }
@@ -45,7 +45,7 @@ namespace ProjetPOO
         override
         public void initBoard()
         {
-            size = 4;
+            size = 10;
             World.board = this;
             Tiles = new Tile[size, size];
         }

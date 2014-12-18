@@ -9,9 +9,10 @@ namespace ProjetPOO
     {
         public string nom { get; private set; }
         public int numero { get; private set; }
-        public int score { get; set; } //passer en private set ?
+        public int score { get; set; }
         public List<IUnit> listUnit { get; set; }
 
+        //constructeur testPlayer
         public Player(string name, int n)
         {
             score = 0;
@@ -20,11 +21,14 @@ namespace ProjetPOO
             listUnit = new List<IUnit>();
         }
 
+        //incScore fonction qui permet d'incrémenter le score
         public void incScore()
         {
             score++;
         }
 
+        //fonction qui permet de tuer une unité
+        //fait perdre le joueur si plus d'unité
         public void killUnit(Unit myUnit)
         {
             listUnit.Remove(myUnit);
@@ -33,12 +37,16 @@ namespace ProjetPOO
                 this.lose();
             }
         }
+
+        //fonction lose appelée si le joueur a perdu
+        //on efface le joueur de la liste des joueurs
         public void lose()
         {
             World.Instance.removePlayer(this);
         }
 
-        public void endGame()
+        //fonction updateSpecialPv qui permet de mettre à jour les points de victoire spéciaux
+        public void updateSpecialPv()
         {
             foreach (Unit unit in listUnit)
             {
@@ -46,21 +54,30 @@ namespace ProjetPOO
             }
         }
 
+        //fonction updateScore permet de mettre à jour les points de victoire
         public void updateScore()
         {
             List<Position> l = new List<Position>();
+            l.Add(new Position(-1, -1));
+            Boolean trouve = false;
             foreach (Unit unit in listUnit)
             {
                 foreach (Position p in l)
                 {
-                    if (!p.equals(unit.position))
+                    if (p.equals(unit.position))
                     {
-                        l.Add(unit.position);
+                        trouve = true;
+                        break;
                     }
                 }
+                if (!trouve)
+                {
+                    l.Add(unit.position);
+                }
+                trouve = false;
             }
-            score = l.Count();
+            score = l.Count - 1;
+            this.updateSpecialPv();
         }
-    
     }
 }

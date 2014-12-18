@@ -56,7 +56,6 @@
     <Compile Include="UnitPosition.cs" />
     <Compile Include="UnitUnit.cs" />
     <Compile Include="UnitUnitImpl.cs" />
-    <Compile Include="UnitTile.cs" />
     <Compile Include="UnitWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitCreateGame.cs" />

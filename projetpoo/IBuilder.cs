@@ -6,11 +6,6 @@ namespace ProjetPOO
 {
     public interface IBuilder
     {
-        Board Board
-        {
-            get;
-            set;
-        }
-        void make();
+        Tile[,] createTilesBoard();
     }
 }

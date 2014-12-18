@@ -15,7 +15,7 @@ namespace TestUnitaire
         public void testOrc()
         {
             Player p = new Player("Azog",1);
-            Orc o = new Orc(p, new Tile(new Position(1, 1)));
+            Orc o = new Orc(p, new Position(1,1));
             Assert.IsNotNull(o);
             Assert.AreEqual(0, o.pvOrc);
             Assert.AreEqual(2, o.att);
@@ -31,7 +31,7 @@ namespace TestUnitaire
         public void testincPvOrc()
         {
             Player p = new Player("Azog", 1);
-            Orc o = new Orc(p, new Tile(new Position(1, 1)));
+            Orc o = new Orc(p, new Position(1, 1));
             o.incPvOrc();
             Assert.IsNotNull(o);
             Assert.AreEqual(1, o.pvOrc);
@@ -77,7 +77,7 @@ namespace TestUnitaire
         public void testDwarf()
         {
             Player p = new Player("Thorin", 1);
-            Dwarf o = new Dwarf(p, new Tile(new Position(1, 1)));
+            Orc o = new Orc(p, new Position(1, 1));
             Assert.IsNotNull(o);
             Assert.AreEqual(2, o.att);
             Assert.AreEqual(1, o.def);
@@ -128,7 +128,7 @@ namespace TestUnitaire
         public void testElf()
         {
             Player p = new Player("Boucle d'or", 1);
-            Elf o = new Elf(p, new Tile(new Position(1, 1)));
+            Orc o = new Orc(p, new Position(1, 1));
             Assert.IsNotNull(o);
             Assert.AreEqual(2, o.att);
             Assert.AreEqual(1, o.def);

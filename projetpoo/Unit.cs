@@ -21,13 +21,13 @@ namespace ProjetPOO
         public abstract void winFight(Position p);
 
         //constructeur d'unité, méthode accessible que par les classes filles
-        protected Unit(Player p, Tile t)
+        protected Unit(Player p, Position po)
         {
             att = 2;
             def = 1;
             hp = 5;
             controler = p;
-            position = t.position;
+            position = po;
             nbDeplacement = 0;
         }
 

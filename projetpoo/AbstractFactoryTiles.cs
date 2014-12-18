@@ -7,61 +7,94 @@ namespace ProjetPOO
 {
     public abstract class Monteur : IBuilder
     {
-        private List<Desert> Deserts
+        public Desert desert { get; private set; }
+        public Forest forest { get; private set; }
+        public Mountain mountain { get; private set; }
+        public Plain plain { get; private set; }
+
+        //constructeur monteur
+        public Monteur()
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            desert = new Desert();
+            forest = new Forest();
+            mountain = new Mountain();
+            plain = new Plain();
         }
 
-        private List<Forest> Forests
+        public Tile[,] createTilesBoard()
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+            int size0 = World.board.size;
+            int forest = size0*size0 / 4;
+            int mountain = size0 * size0 / 4;
+            int desert = size0 * size0 / 4;
+            int plain = size0 * size0 / 4;
+            Random random = new Random();
+            Tile[,] tab = new Tile[size0, size0];
+            Boolean accept = false;
+            int rn = -1;
 
-        private List<TileImpl> Mountains
-        {
-            get
+            for (int i = 0; i < size0; i++)
             {
-                throw new System.NotImplementedException();
+                for (int j = 0; j < size0; j++)
+                {
+                    accept = false;
+                    do {
+                            rn = random.Next(0, 4);
+                            switch (rn)
+                            {
+                                case 0:
+                                    if (mountain > 0)
+                                    {
+                                        mountain--;
+                                        accept = true;
+                                    }
+                                    break;
+                                case 1:
+                                    if (desert > 0)
+                                    {
+                                        desert--;
+                                        accept = true;
+                                    }
+                                    break;
+                                case 2:
+                                    if (forest > 0)
+                                    {
+                                        forest--;
+                                        accept = true;
+                                    }
+                                    break;
+                                case 3:
+                                    if (plain > 0)
+                                    {
+                                        plain--;
+                                        accept = true;
+                                    }
+                                    break;
+                                default:
+                                    throw new Exception("Nombre aléatoire non matché");
+                            } 
+                    }
+                    while (!accept); 
+                    switch (rn)
+                    {
+                        case 0:
+                        tab[i, j] = (Tile)new Mountain();
+                        break;
+                        case 1:
+                        tab[i, j] = (Tile)new Desert();
+                        break;
+                        case 2:
+                        tab[i, j] = (Tile)new Forest();
+                        break;
+                        case 3:
+                        tab[i, j] = (Tile)new Plain();
+                        break;
+                        default:
+                        throw new Exception("Nombre aléatoire non matché");
+                    }
+                }
             }
-            set
-            {
-            }
-        }
-
-        private List<Plain> Plains
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public ProjetPOO.Board Board
-        {
-            get;
-            set;
-        }
-    
-        public abstract void createTiles();
-
-        public void make()
-        {
-
+            return tab;
         }
     }
 

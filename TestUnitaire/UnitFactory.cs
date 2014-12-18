@@ -14,22 +14,132 @@ namespace TestUnitaire
         [TestMethod]
         public void testcreateTilesDemo()
         {
-            //TODO
-            Assert.IsFalse(true);
+            UnitTestWorld.InitAll();
+            MonteurDemo m = new MonteurDemo();
+            m.createTiles();
+            int forest = 0;
+            int mountain = 0;
+            int desert = 0;
+            int plain = 0;
+            for (int i = 0; i < World.board.size; i++)
+            {
+                for (int j = 0; j < World.board.size; j++)
+                {
+                    switch (World.board.Tiles[i, j].GetType().ToString())
+                    {
+                        case "ProjetPOO.Desert":
+                            desert++;
+                            break;
+                        case "ProjetPOO.Mountain":
+                            mountain++;
+                            break;
+                        case "ProjetPOO.Forest":
+                            forest++;
+                            break;
+                        case "ProjetPOO.Plain":
+                            plain++;
+                            break;
+                        default:
+                            throw new Exception("le nom n'est pas correct" + World.board.Tiles[i, j].GetType().ToString());
+                    }
+                }
+            }
+            Assert.AreEqual(9, forest);
+            Assert.AreEqual(9, desert);
+            Assert.AreEqual(9, plain);
+            Assert.AreEqual(9, mountain);
         }
 
         [TestMethod]
         public void testcreateTilesSmall()
         {
-            //TODO
-            Assert.IsFalse(true);
+            World.Clean();
+            AbstractBoard b = new SmallBoard();
+            World.board = b;
+            Assert.IsNotNull(World.Instance);
+            World.board.initBoard();
+            World.board.initVarBoard();
+            Assert.IsNotNull(World.Instance);
+
+            MonteurSmall m = new MonteurSmall();
+            m.createTiles();
+            int forest = 0;
+            int mountain = 0;
+            int desert = 0;
+            int plain = 0;
+            for (int i = 0; i < World.board.size; i++)
+            {
+                for (int j = 0; j < World.board.size; j++)
+                {
+                    switch (World.board.Tiles[i, j].GetType().ToString())
+                    {
+                        case "ProjetPOO.Desert":
+                            desert++;
+                            break;
+                        case "ProjetPOO.Mountain":
+                            mountain++;
+                            break;
+                        case "ProjetPOO.Forest":
+                            forest++;
+                            break;
+                        case "ProjetPOO.Plain":
+                            plain++;
+                            break;
+                        default:
+                            throw new Exception("le nom n'est pas correct" + World.board.Tiles[i, j].GetType().ToString());
+                    }
+                }
+            }
+            Assert.AreEqual(25, forest);
+            Assert.AreEqual(25, desert);
+            Assert.AreEqual(25, plain);
+            Assert.AreEqual(25, mountain);
         }
 
         [TestMethod]
         public void testcreateTilesNormal()
         {
-            //TODO
-            Assert.IsFalse(true);
+            World.Clean();
+            NormalBoard b = new NormalBoard();
+            World.board = b;
+            Assert.IsNotNull(World.Instance);
+            World.board.initBoard();
+            World.board.initVarBoard();
+            Assert.IsNotNull(World.Instance);
+
+            MonteurNormal m = new MonteurNormal();
+            m.createTiles();
+            int forest = 0;
+            int mountain = 0;
+            int desert = 0;
+            int plain = 0;
+            for (int i = 0; i < World.board.size; i++)
+            {
+                for (int j = 0; j < World.board.size; j++)
+                {
+                    switch (World.board.Tiles[i, j].GetType().ToString())
+                    {
+                        case "ProjetPOO.Desert":
+                            desert++;
+                            break;
+                        case "ProjetPOO.Mountain":
+                            mountain++;
+                            break;
+                        case "ProjetPOO.Forest":
+                            forest++;
+                            break;
+                        case "ProjetPOO.Plain":
+                            plain++;
+                            break;
+                        default:
+                            throw new Exception("le nom n'est pas correct" + World.board.Tiles[i, j].GetType().ToString());
+                    }
+                }
+            }
+            Assert.AreEqual(14*14/4, forest);
+            Assert.AreEqual(49, desert);
+            Assert.AreEqual(49, plain);
+            Assert.AreEqual(49, mountain);
         }
 
         [TestMethod]

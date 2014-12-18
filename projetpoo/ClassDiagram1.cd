@@ -15,35 +15,19 @@
   <Class Name="ProjetPOO.World">
     <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQCAUCAAIgAAAAACBAAAAEAAAwAQCECAYBAAAAEAAAA=</HashCode>
+      <HashCode>AQCAUCAgIgAAAAACBAAAAEAAAwAQCECAYBAAAAEAQAA=</HashCode>
       <FileName>World.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Orc">
     <Position X="2" Y="7.25" Width="1.5" />
-    <InheritanceLine Type="ProjetPOO.Unit" ManuallyRouted="true">
-      <Path>
-        <Point X="4.75" Y="5.709" />
-        <Point X="4.75" Y="6.885" />
-        <Point X="2.75" Y="6.885" />
-        <Point X="2.75" Y="7.25" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAggAAAAAAABAAAgAAAAA=</HashCode>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAACAggAAAAAQABAAAgAAAAA=</HashCode>
       <FileName>UnitImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Elf">
     <Position X="3.75" Y="7.25" Width="1.5" />
-    <InheritanceLine Type="ProjetPOO.Unit" ManuallyRouted="true">
-      <Path>
-        <Point X="4.75" Y="5.709" />
-        <Point X="4.75" Y="6.865" />
-        <Point X="4.5" Y="6.865" />
-        <Point X="4.5" Y="7.25" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAAAAAAAAAQAAAgAAAAAAABAAAgAAAAA=</HashCode>
       <FileName>UnitImpl.cs</FileName>
@@ -59,7 +43,7 @@
   <Class Name="ProjetPOO.Unit">
     <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAiAAAACECAgAoAAQAoAAAAAAgBBAAgEAAAA=</HashCode>
+      <HashCode>AAAAgAAAAiAAAACEKAgAoAAQAoAAAAAEgBBAAgEAAAA=</HashCode>
       <FileName>Unit.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -74,14 +58,17 @@
   <Class Name="ProjetPOO.Player">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAEAAAAAAAAAIIAAAAAAAECQAABEAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAgAEAAAAAAAAAIIAAAAAAAECQAABEAAAAAAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Tile">
     <Position X="9.25" Y="5.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Tile.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -147,14 +134,17 @@
   <Class Name="ProjetPOO.FactoryUnit">
     <Position X="7.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAEQAAAAAIAAAAAAAAAAACAAAAAAAAAAAAAQCAI=</HashCode>
+      <HashCode>AAAAAAEYAAAAAIAAAAAAAAAAACAAAEAAAAAAAAAQCAY=</HashCode>
       <FileName>Factory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Monteur">
     <Position X="14.5" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAACAAQAAAAAAAAAAAAAAAAAAgAKACAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAggAAAAAAAACAABAAAAAAAAAACA=</HashCode>
       <FileName>AbstractFactoryTiles.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -168,6 +158,9 @@
   </Class>
   <Class Name="ProjetPOO.MonteurSmall">
     <Position X="14.5" Y="6.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
       <FileName>Factory.cs</FileName>
@@ -183,7 +176,7 @@
   <Class Name="ProjetPOO.AbstractBoard">
     <Position X="9.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAEAAAAYAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAAYAAAAAAAAAAAAIAAAAAAAEAAAA=</HashCode>
       <FileName>AbstractBoard.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -202,7 +195,7 @@
     <Position X="10.5" Y="7.5" Width="1.5" />
     <InheritanceLine Type="ProjetPOO.Tile" ManuallyRouted="true" FixedToPoint="true">
       <Path>
-        <Point X="10" Y="7.055" />
+        <Point X="10" Y="6.603" />
         <Point X="10" Y="8.118" />
         <Point X="10.5" Y="8.118" />
       </Path>
@@ -215,7 +208,7 @@
   <Interface Name="ProjetPOO.Board">
     <Position X="11.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAEAAAAQAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAAQAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Board.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -237,7 +230,7 @@
   <Interface Name="ProjetPOO.IBuilder">
     <Position X="16.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IBuilder.cs</FileName>
     </TypeIdentifier>
   </Interface>

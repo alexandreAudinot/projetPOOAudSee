@@ -9,7 +9,7 @@ namespace ProjetPOO
     {
         public int pvOrc { get; private set; }
 
-        public Orc(Player p, Tile t) : base(p,t)
+        public Orc(Player p, Position po) : base(p,po)
         {
             pvOrc = 0;
             //référence image
@@ -90,8 +90,7 @@ namespace ProjetPOO
 
     public class Dwarf : Unit
     {
-        public Dwarf(Player p, Tile t)
-            : base(p, t)
+        public Dwarf(Player p, Position po) : base(p,po)
         {
             //référence image
         }
@@ -177,7 +176,7 @@ namespace ProjetPOO
 
     public class Elf : Unit
     {
-        public Elf(Player p, Tile t) : base(p, t)
+        public Elf(Player p, Position po) : base(p,po)
         {
             //référence image
         }

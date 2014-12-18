@@ -6,6 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+/* ---------------------------------------------------------------------------------------------- *
+ * ---------------------------------------------------------------------------------------------- *
+ * --- Classe test validée - Classe test validée - Classe test validée -  Classe test validée --- *
+ * ---------------------------------------------------------------------------------------------- *
+ * ---------------------------------------------------------------------------------------------- */
+
 namespace TestUnitaire
 {
     [TestClass]
@@ -32,29 +38,27 @@ namespace TestUnitaire
         [TestMethod]
         public void testKillUnit()
         {
-            Player p = new Player("Maurice", 1);
-            Orc o0 = new Orc(World.Instance.players.ElementAt(1), new Tile(new Position(1, 2)));
-            Orc o1 = new Orc(World.Instance.players.ElementAt(1), new Tile(new Position(1, 1)));
-            p.listUnit.Add(o0);
-            p.listUnit.Add(o1);
-            p.killUnit((Unit) p.listUnit.First());
-            Assert.AreEqual(1, p.listUnit.Count);
-            Assert.AreEqual(2, ((Unit) p.listUnit.First()).position.y);
-            List<Player> l = new List<Player>();
-            Player s = l.First();
+            UnitTestWorld.InitAll();
+            World.Instance.addPlayer("Jean-Pierre", "Elf");
+            World.Instance.addPlayer("Caathy Couss", "Orc");
+            World.Instance.players.First().listUnit.Add(new Orc(World.Instance.players.First(), new Position(1, 1)));
+            World.Instance.players.First().listUnit.Add(new Orc(World.Instance.players.First(), new Position(1, 2)));
+            World.Instance.players.First().killUnit((Unit)World.Instance.players.First().listUnit.First());
+            Assert.AreEqual(1, World.Instance.players.First().listUnit.Count());
+            Assert.AreEqual(2, ((Unit)World.Instance.players.First().listUnit.First()).position.y);
+            World.Instance.players.First().killUnit((Unit)World.Instance.players.First().listUnit.First());
+            Assert.AreEqual(1, World.Instance.players.Count());
         }
 
         [TestMethod]
         public void testKillUnitLose()
         {
-
             UnitTestWorld.InitAll();
             World.Instance.addPlayer("Jean-Pierre", "Elf");
-            World.Instance.addPlayer("Georgette", "Orc");
-            //ajouter une unité au joueur1
-            //World.Instance.players.First().killUnit();
-            Assert.AreEqual("Georgette", World.Instance.players.First().nom);
-            Assert.IsFalse(true);
+            World.Instance.addPlayer("Caathy Couss", "Orc");
+            World.Instance.players.First().listUnit.Add(new Orc(World.Instance.players.First(), new Position(1, 1)));
+            World.Instance.players.First().killUnit((Unit)World.Instance.players.First().listUnit.First());
+            Assert.AreEqual(1, World.Instance.players.Count());
         }
 
         [TestMethod]
@@ -68,27 +72,47 @@ namespace TestUnitaire
         }
 
         [TestMethod]
-        public void testEndGame()
+        public void testupdateSpecialPv()
         {
             UnitTestWorld.InitAll();
-            World.Instance.addPlayer("Jean-Pierre", "Elf");
-            World.Instance.removePlayer(World.Instance.players.First());
-            Assert.IsTrue(World.Instance.stateGame);
-            //vérification des points de vistoire à faire + pv orcs
-            //création d'unités
-            //leur faire faire des combats avec des morts => création de points de victoire
-            World.Instance.players.First().incScore();
-            World.Instance.players.ElementAt(1).incScore();
-            World.Instance.players.ElementAt(1).incScore();
-            //faire faire des combats avec des orcs
-            //compter les points
-            Assert.IsFalse(true);
+            World.Instance.addPlayer("Legolas a toujours des flèches", "Elf");
+            World.Instance.addPlayer("Il va mourir à la fin", "Orc");
+            Orc o = new Orc(World.Instance.players.ElementAt(1), new Position(1, 1));
+            o.setPvForUnitTest(2);
+            Orc o0 = new Orc(World.Instance.players.ElementAt(1), new Position(1, 1));
+            o0.setPvForUnitTest(1);
+            World.Instance.players.ElementAt(1).listUnit.Add(o);
+            World.Instance.players.ElementAt(1).listUnit.Add(o0);
+            World.Instance.players.First().score = 2;
+            World.Instance.players.ElementAt(1).score = 0;
+            World.Instance.players.First().updateSpecialPv();
+            World.Instance.players.ElementAt(1).updateSpecialPv();
+            Assert.AreEqual(2, World.Instance.players.First().score);
+            Assert.AreEqual(3, World.Instance.players.ElementAt(1).score);
         }
 
         [TestMethod]
         public void testUpdateScore()
         {
-            Assert.IsFalse(true);
+            UnitTestWorld.InitAll();
+            World.Instance.addPlayer("Les nains sentent mauvais", "Elf");
+            World.Instance.addPlayer("No man can kill me", "Orc");
+            Elf e = new Elf(World.Instance.players.First(), new Position(1, 0));
+            Elf e1 = new Elf(World.Instance.players.First(), new Position(1, 3));
+            World.Instance.players.ElementAt(0).listUnit.Add(e);
+            World.Instance.players.ElementAt(0).listUnit.Add(e1);
+            Orc o = new Orc(World.Instance.players.ElementAt(1), new Position(1, 1));
+            o.setPvForUnitTest(9);
+            Orc o0 = new Orc(World.Instance.players.ElementAt(1), new Position(1, 1));
+            o0.setPvForUnitTest(0);
+            World.Instance.players.ElementAt(1).listUnit.Add(o);
+            World.Instance.players.ElementAt(1).listUnit.Add(o0);
+            World.Instance.players.First().score = 2;
+            World.Instance.players.ElementAt(1).score = 0;
+            World.Instance.players.First().updateScore();
+            World.Instance.players.ElementAt(1).updateScore();
+            Assert.AreEqual(2, World.Instance.players.First().score);
+            Assert.AreEqual(10, World.Instance.players.ElementAt(1).score);
         }
 
     }
