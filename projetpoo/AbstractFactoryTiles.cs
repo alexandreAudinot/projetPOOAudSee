@@ -7,18 +7,18 @@ namespace ProjetPOO
 {
     public abstract class Monteur : IBuilder
     {
-        public Desert desert { get; private set; }
-        public Forest forest { get; private set; }
-        public Mountain mountain { get; private set; }
-        public Plain plain { get; private set; }
+        public Desert desertTile { get; private set; }
+        public Forest forestTile { get; private set; }
+        public Mountain mountainTile { get; private set; }
+        public Plain plainTile { get; private set; }
 
         //constructeur monteur
         public Monteur()
         {
-            desert = new Desert();
-            forest = new Forest();
-            mountain = new Mountain();
-            plain = new Plain();
+            desertTile = new Desert();
+            forestTile = new Forest();
+            mountainTile = new Mountain();
+            plainTile = new Plain();
         }
 
         public Tile[,] createTilesBoard()
@@ -78,16 +78,16 @@ namespace ProjetPOO
                     switch (rn)
                     {
                         case 0:
-                        tab[i, j] = (Tile)new Mountain();
+                        tab[i, j] = (Tile) mountainTile ;
                         break;
                         case 1:
-                        tab[i, j] = (Tile)new Desert();
+                        tab[i, j] = (Tile) desertTile;
                         break;
                         case 2:
-                        tab[i, j] = (Tile)new Forest();
+                        tab[i, j] = (Tile) forestTile;
                         break;
                         case 3:
-                        tab[i, j] = (Tile)new Plain();
+                        tab[i, j] = (Tile) plainTile;
                         break;
                         default:
                         throw new Exception("Nombre aléatoire non matché");

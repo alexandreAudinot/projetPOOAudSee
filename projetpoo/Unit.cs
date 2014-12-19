@@ -131,6 +131,18 @@ namespace ProjetPOO
             return false;
         }
 
+        //fonction canMove permet de savoir si un déplacement est possible de la case de l'unité
+        //on utlisera la fonction lors du repli de l'elfe
+        public bool canMove()
+        {
+            return ((!World.Instance.unitBool(new Position(this.position.x + 1,this.position.y))
+            || (!World.Instance.unitBool(new Position(this.position.x - 1, this.position.y)))
+            || (!World.Instance.unitBool(new Position(this.position.x, this.position.y + 1)))
+            || (!World.Instance.unitBool(new Position(this.position.x, this.position.y - 1)))
+            || (!World.Instance.unitBool(new Position(this.position.x + 1, this.position.y - 1)))
+            || (!World.Instance.unitBool(new Position(this.position.x - 1, this.position.y + 1)))));
+        }
+
         //La méthode move détermine si l'évènement est un déplacement ou un combat et fait l'appel le cas échéant
         //elle empêche les déplacements de plus d'une case
         public void move(Position p)
@@ -147,6 +159,10 @@ namespace ProjetPOO
             }
             else
             {
+                if (World.repliCurrentPlayer != -1)
+                {
+                    throw new Exception("Il n'est pas possible d'attaquer lors d'un repli");
+                }
                 this.makeAMove(p, this.calcDeplAtt(p));
                 this.fight(p, elem);
             }

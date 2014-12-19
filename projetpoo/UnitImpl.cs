@@ -9,10 +9,10 @@ namespace ProjetPOO
     {
         public int pvOrc { get; private set; }
 
+        //constructeur de Orc
         public Orc(Player p, Position po) : base(p,po)
         {
             pvOrc = 0;
-            //référence image
         }
 
         //méthode utilisée pour les tests unitaires seulement
@@ -22,13 +22,14 @@ namespace ProjetPOO
             pvOrc = h;
         }
 
+        //calcDeplAtt calcule le déplacement en cas d'attaque de l'orc
         override
         public double calcDeplAtt(Position p)
         {
             return calcDepl(p);
         }
 
-        //calcDepl effectue le mouvement de la pièce vers la position
+        //calcDepl effectue le mouvement de la pièce vers la position pour les orcs
         override
         public double calcDepl(Position p)
         {
@@ -37,20 +38,20 @@ namespace ProjetPOO
             //gettyle TODO
             switch (World.Instance.getTile(p).GetType().ToString())
             {
-                case "Mountain":
+                case "ProjetPOO.Mountain":
                     deplacementDuTour = 1;
                     break;
-                case "Forest":
+                case "ProjetPOO.Forest":
                     deplacementDuTour = 1;
                     break;
-                case "Plain":
+                case "ProjetPOO.Plain":
                     deplacementDuTour = 0.5;
                     break;
-                case "Desert":
+                case "ProjetPOO.Desert":
                     deplacementDuTour = 1;
                     break;
                 default:
-                    throw new Exception("Type de terrain non matché");
+                    throw new Exception("Type de terrain non matché : " + World.Instance.getTile(p).GetType().ToString());
             }
             if (deplacementDuTour > nbDeplacement)
             {
@@ -59,20 +60,23 @@ namespace ProjetPOO
             return deplacementDuTour;
         }
 
+        //incPvOrc incrémente les points de victoire de l'orc
         public void incPvOrc()
         {
             pvOrc++;
         }
 
+        //WinFight est le traitement en cas de victoire de l'orc
         override
         public void winFight(Position p)
         {
-            if (World.Instance.getTile(p).GetType().ToString() != "Forest")
+            if (World.Instance.getTile(p).GetType().ToString() != "ProjetPOO.Forest")
             {
                 incPvOrc();
             }
         }
 
+        //loseFight est le traitement en cas de défaite de l'orc
         override
         public bool loseFight()
         {
@@ -80,21 +84,24 @@ namespace ProjetPOO
             return true;
         }
 
+        //endGame fait le traitement de fin de partie pour les orcs (ajout de pv)
         override
         public void endGame()
         {
-            this.controler.score += pvOrc;
+            if (World.Instance.getTile(this.position).GetType().ToString() != "ProjetPOO.Forest")
+            {
+                this.controler.score += pvOrc;
+            }
         }
 
     }
 
     public class Dwarf : Unit
     {
-        public Dwarf(Player p, Position po) : base(p,po)
-        {
-            //référence image
-        }
+        //constructeur de Dwarf
+        public Dwarf(Player p, Position po) : base(p,po){}
 
+        //calcDeplAtt calcule le déplacement en cas d'attaque du nain
         override
         public double calcDeplAtt(Position p)
         {
@@ -102,16 +109,16 @@ namespace ProjetPOO
             //Les coûts de déplacement sont différents selon le type de terrain
             switch (World.Instance.getTile(p).GetType().ToString())
             {
-                case "Mountain":
+                case "ProjetPOO.Mountain":
                     deplacementDuTour = 1;
                     break;
-                case "Forest":
+                case "ProjetPOO.Forest":
                     deplacementDuTour = 1;
                     break;
-                case "Plain":
+                case "ProjetPOO.Plain":
                     deplacementDuTour = 0.5;
                     break;
-                case "Desert":
+                case "ProjetPOO.Desert":
                     deplacementDuTour = 1;
                     break;
                 default:
@@ -124,6 +131,7 @@ namespace ProjetPOO
             return deplacementDuTour;
         }
 
+        //calcDepl effectue le mouvement de la pièce vers la position pour les Dwarves
         override
         public double calcDepl(Position p)
         {
@@ -131,16 +139,16 @@ namespace ProjetPOO
             //Les coûts de déplacement sont différents selon le type de terrain
             switch (World.Instance.getTile(p).GetType().ToString())
             {
-                case "Mountain":
+                case "ProjetPOO.Mountain":
                     deplacementDuTour = 0;
                     break;
-                case "Forest":
+                case "ProjetPOO.Forest":
                     deplacementDuTour = 1;
                     break;
-                case "Plain":
+                case "ProjetPOO.Plain":
                     deplacementDuTour = 0.5;
                     break;
-                case "Desert":
+                case "ProjetPOO.Desert":
                     deplacementDuTour = 1;
                     break;
                 default:
@@ -153,6 +161,7 @@ namespace ProjetPOO
             return deplacementDuTour;
         }
 
+        //WinFight est le traitement en cas de victoire du Dwarf
         override
         public void winFight(Position p)
         {
@@ -163,6 +172,7 @@ namespace ProjetPOO
             }
         }
 
+        //WinFight est le traitement en cas de victoire du Dwarf
         override
         public bool loseFight()
         {
@@ -170,16 +180,15 @@ namespace ProjetPOO
             return false;
         }
 
+        //endGame fait le traitement de fin de partie pour les dwarves (rien)
         override
         public void endGame() { }
     }
 
     public class Elf : Unit
     {
-        public Elf(Player p, Position po) : base(p,po)
-        {
-            //référence image
-        }
+        //constructeur de Elf
+        public Elf(Player p, Position po) : base(p,po){}
 
         //calcDeplAtt gère le déplacement d'une attaque. Il n'est différent que pour le nain.
         //le reste des unités appelle calcdepl
@@ -189,6 +198,7 @@ namespace ProjetPOO
             return calcDepl(p);
         }
 
+        //calcDepl effectue le mouvement de la pièce vers la position pour un elfe
         override
         public double calcDepl(Position p)
         {
@@ -196,16 +206,16 @@ namespace ProjetPOO
             //Les coûts de déplacement sont différents selon le type de terrain
             switch (World.Instance.getTile(p).GetType().ToString())
             {
-                case "Mountain" :
+                case "ProjetPOO.Mountain" :
                     deplacementDuTour = 1;
                     break;
-                case "Forest":
+                case "ProjetPOO.Forest":
                     deplacementDuTour = 0.5;
                     break;
-                case "Plain":
+                case "ProjetPOO.Plain":
                     deplacementDuTour = 1;
                     break;
-                case "Desert":
+                case "ProjetPOO.Desert":
                     deplacementDuTour = 2;
                     break;
                 default:
@@ -218,12 +228,11 @@ namespace ProjetPOO
             return deplacementDuTour;
         }
 
+        //WinFight est le traitement en cas de victoire d'un elfe
         override
-        public void winFight(Position p)
-        {
-            this.controler.incScore();
-        }
+        public void winFight(Position p){}
 
+        //WinFight est le traitement en cas de victoire de l'elfe
         override
         public bool loseFight()
         {
@@ -231,13 +240,22 @@ namespace ProjetPOO
             int prob = rdm.Next(0,2);
             if (prob == 1)
             {
+                if (!this.canMove())
+                {
+                    this.die();
+                    return true;
+                }
                 this.def = 1;
-                //repli de l'unité
-                //appel du joueur elfe pour qu'il choississe une case non occupée pour se replier (interrompt le tour du premier joueur)
+                //le repli de l'unité est demandé au joueur
+                //le joueur qui jouait avant perd momentanément la main
+                //le joueur elfe choisit une case non occupée pour se replier
                 //call methode controler qui rend une position de repli TODO
                 //message l'unité elfe est sauvée et se replie
-                this.repli(null); //remplacer par position p de repli
+                World.repliCurrentPlayer = World.Instance.currentPlayer;
+                World.Instance.currentPlayer = this.controler.numero;
+                this.initDeplacement();
                 return false;
+                //le joueur fait son repli : seulement un move est possible
             }
             else
             {
@@ -246,27 +264,17 @@ namespace ProjetPOO
             }
         }
 
-        public void repli(Position p)
+        //repli permet à l'elfe de se replier 50% du temps quand un combat est perdu
+        //il dispose alors d'un point de déplacement pour fuir, mais ses points de vie redescendront à 1
+        //dans le cas où il n'y a pas de possibilité de déplacement, l'unité mourra
+        public void apresRepli(Position p)
         {
-            Unit elem = World.Instance.getUnit(p); 
-            if (elem == null)
-            {
                 //traite le repli d'un elfe : on donne la possibililité de bouger une seule fois
-                double depl = this.nbDeplacement;
-                int current = World.Instance.currentPlayer;
-                World.Instance.currentPlayer = this.controler.numero;
-
-                this.move(p);
-
-                World.Instance.currentPlayer = current;
-                this.nbDeplacement = depl;
-            }
-            else
-            {
-                throw new Exception("Le repli ne peut se faire que sur des cases non occupées");
-            }
+            World.Instance.currentPlayer = World.repliCurrentPlayer;
+            World.repliCurrentPlayer = -1;
         }
-        
+
+        //endGame fait le traitement de fin de partie pour les elfes (rien)
         override
         public void endGame(){}
     }

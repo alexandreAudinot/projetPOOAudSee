@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+//se servir de l'interface iplayer pour différencier les résultats orc sur foret ne fait pas de points : polymorphisme
 namespace ProjetPOO
 {
     public class Player
@@ -57,27 +57,111 @@ namespace ProjetPOO
         //fonction updateScore permet de mettre à jour les points de victoire
         public void updateScore()
         {
+            if (this.listUnit.Count() > 0 )
+            {
+                if (this.listUnit.First().GetType().ToString() != "ProjetPOO.Orc")
+                {
+                    if (this.listUnit.First().GetType().ToString() != "ProjetPOO.Dwarf")
+                    {
+                        {
+                            List<Position> l = new List<Position>();
+                            l.Add(new Position(-1, -1));
+                            Boolean trouve = false;
+                            foreach (Unit unit in listUnit)
+                            {
+                                foreach (Position p in l)
+                                {
+                                    if (p.equals(unit.position))
+                                    {
+                                        trouve = true;
+                                        break;
+                                    }
+                                }
+                                if (!trouve)
+                                {
+                                    l.Add(unit.position);
+                                }
+                                trouve = false;
+                            }
+                            score = l.Count - 1;
+                            this.updateSpecialPv();
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        this.updateScoreDwarf();
+                        this.updateSpecialPv();
+                        return;
+                    }
+                }
+                else
+                {
+                    this.updateScoreOrc();
+                    this.updateSpecialPv();
+                    return;
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        //fonction updateScoreOrc permet de mettre à jour les points de victoire pour les orcs
+        public void updateScoreOrc()
+        {
             List<Position> l = new List<Position>();
             l.Add(new Position(-1, -1));
             Boolean trouve = false;
             foreach (Unit unit in listUnit)
             {
-                foreach (Position p in l)
+                if ((World.Instance.getTile(unit.position)).GetType().ToString() != "ProjetPOO.Forest")
                 {
-                    if (p.equals(unit.position))
+                    foreach (Position p in l)
                     {
-                        trouve = true;
-                        break;
+                        if (p.equals(unit.position))
+                        {
+                            trouve = true;
+                            break;
+                        }
                     }
+                    if (!trouve)
+                    {
+                        l.Add(unit.position);
+                    }
+                    trouve = false;
                 }
-                if (!trouve)
-                {
-                    l.Add(unit.position);
-                }
-                trouve = false;
             }
             score = l.Count - 1;
-            this.updateSpecialPv();
+        }
+
+        //fonction updateScoreOrc permet de mettre à jour les points de victoire pour les orcs
+        public void updateScoreDwarf()
+        {
+            List<Position> l = new List<Position>();
+            l.Add(new Position(-1, -1));
+            Boolean trouve = false;
+            foreach (Unit unit in listUnit)
+            {
+                if ((World.Instance.getTile(unit.position)).GetType().ToString() != "ProjetPOO.Plain")
+                {
+                    foreach (Position p in l)
+                    {
+                        if (p.equals(unit.position))
+                        {
+                            trouve = true;
+                            break;
+                        }
+                    }
+                    if (!trouve)
+                    {
+                        l.Add(unit.position);
+                    }
+                    trouve = false;
+                }
+            }
+            score = l.Count - 1;
         }
     }
 }

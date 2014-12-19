@@ -11,6 +11,20 @@ namespace TestUnitaire
     [TestClass]
     public class UnitUnit
     {
+        public static void InitAll()
+        {
+            World.Clean();
+            AbstractBoard b = new DemoBoard();
+            World.board = b;
+            Assert.IsNotNull(World.Instance);
+            World.board.initBoard();
+            World.board.initVarBoard();
+            Assert.IsNotNull(World.Instance);
+            World.board.Tiles[0, 0] = new Mountain();
+            World.board.Tiles[1, 1] = new Forest();
+            World.board.Tiles[2, 2] = new Plain();
+            World.board.Tiles[3, 3] = new Desert();
+        }
 
         [TestMethod]
         public void testsetDefForUnitTest()
@@ -90,6 +104,23 @@ namespace TestUnitaire
             Assert.IsFalse(o.checkMove(new Position(2, -1)));
             Assert.IsFalse(o.checkMove(new Position(250, 2)));
             Assert.IsFalse(o.checkMove(new Position(2, 250)));
+        }
+
+        [ExpectedException(typeof(Exception), "Le mouvement est impossible")]
+        [TestMethod]
+        public void testMoveImpossible()
+        {
+            Player p = new Player("Thorin", 1);
+            Dwarf o = new Dwarf(p, new Position(2, 2));
+            o.move(new Position(-5, -5));
+            Assert.IsFalse(true);
+        }
+
+        [TestMethod]
+        public void testMove()
+        {
+            //TODO
+            Assert.IsFalse(true);
         }
 
         [TestMethod]

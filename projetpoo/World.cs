@@ -19,6 +19,7 @@ namespace ProjetPOO
         public List<string> listType { get; set; }
         public List<string> listAvailableType { get; private set; }
         public bool stateGame;
+        public static int repliCurrentPlayer;
         public static World Instance
         {
             get
@@ -43,6 +44,7 @@ namespace ProjetPOO
             players = new List<Player>();
             listAvailableType = new List<string>();
             InitType();
+            repliCurrentPlayer = -1;
         } 
 
         //ajoute les types possibles des variables pendant l'initialisation

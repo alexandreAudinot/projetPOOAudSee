@@ -91,19 +91,20 @@ namespace TestUnitaire
             Assert.AreEqual(3, World.Instance.players.ElementAt(1).score);
         }
 
+        //teste aussi updateScoreOrc
         [TestMethod]
         public void testUpdateScore()
         {
-            UnitTestWorld.InitAll();
+            UnitUnit.InitAll();
             World.Instance.addPlayer("Les nains sentent mauvais", "Elf");
             World.Instance.addPlayer("No man can kill me", "Orc");
             Elf e = new Elf(World.Instance.players.First(), new Position(1, 0));
             Elf e1 = new Elf(World.Instance.players.First(), new Position(1, 3));
             World.Instance.players.ElementAt(0).listUnit.Add(e);
             World.Instance.players.ElementAt(0).listUnit.Add(e1);
-            Orc o = new Orc(World.Instance.players.ElementAt(1), new Position(1, 1));
+            Orc o = new Orc(World.Instance.players.ElementAt(1), new Position(2, 2));
             o.setPvForUnitTest(9);
-            Orc o0 = new Orc(World.Instance.players.ElementAt(1), new Position(1, 1));
+            Orc o0 = new Orc(World.Instance.players.ElementAt(1), new Position(2, 2));
             o0.setPvForUnitTest(0);
             World.Instance.players.ElementAt(1).listUnit.Add(o);
             World.Instance.players.ElementAt(1).listUnit.Add(o0);
@@ -113,6 +114,61 @@ namespace TestUnitaire
             World.Instance.players.ElementAt(1).updateScore();
             Assert.AreEqual(2, World.Instance.players.First().score);
             Assert.AreEqual(10, World.Instance.players.ElementAt(1).score);
+        }
+
+        //teste updateScoreDwarf sans plaine
+        [TestMethod]
+        public void testUpdateScoreForDwarves()
+        {
+            UnitUnit.InitAll();
+            World.Instance.addPlayer("Les nains sentent mauvais", "Dwarf");
+            Dwarf e = new Dwarf(World.Instance.players.First(), new Position(1, 1));
+            Dwarf e1 = new Dwarf(World.Instance.players.First(), new Position(3, 3));
+            World.Instance.players.ElementAt(0).listUnit.Add(e);
+            World.Instance.players.ElementAt(0).listUnit.Add(e1);
+            World.Instance.players.First().score = 2;
+            World.Instance.players.First().updateScore();
+            Assert.AreEqual(2, World.Instance.players.First().score);
+        }
+
+        //teste updateScoreDwarf avec plaine
+        [TestMethod]
+        public void testUpdateScoreForDwarvesPlain()
+        {
+            UnitUnit.InitAll();
+            World.Instance.addPlayer("Les nains sentent mauvais", "Dwarf");
+            Dwarf e = new Dwarf(World.Instance.players.First(), new Position(2, 2));
+            Dwarf e1 = new Dwarf(World.Instance.players.First(), new Position(1, 1));
+            World.Instance.players.ElementAt(0).listUnit.Add(e);
+            World.Instance.players.ElementAt(0).listUnit.Add(e1);
+            World.Instance.players.First().score = 2;
+            World.Instance.players.First().updateScore();
+            Assert.AreEqual(1, World.Instance.players.First().score);
+        }
+
+        //teste aussi updateScoreOrc
+        [TestMethod]
+        public void testUpdateScoreForest()
+        {
+            UnitUnit.InitAll();
+            World.Instance.addPlayer("Les nains sentent mauvais", "Elf");
+            World.Instance.addPlayer("No man can kill me", "Orc");
+            Elf e = new Elf(World.Instance.players.First(), new Position(1, 0));
+            Elf e1 = new Elf(World.Instance.players.First(), new Position(1, 3));
+            World.Instance.players.ElementAt(0).listUnit.Add(e);
+            World.Instance.players.ElementAt(0).listUnit.Add(e1);
+            Orc o = new Orc(World.Instance.players.ElementAt(1), new Position(1, 1));
+            o.setPvForUnitTest(9);
+            Orc o0 = new Orc(World.Instance.players.ElementAt(1), new Position(2, 2));
+            o0.setPvForUnitTest(0);
+            World.Instance.players.ElementAt(1).listUnit.Add(o);
+            World.Instance.players.ElementAt(1).listUnit.Add(o0);
+            World.Instance.players.First().score = 2;
+            World.Instance.players.ElementAt(1).score = 0;
+            World.Instance.players.First().updateScore();
+            World.Instance.players.ElementAt(1).updateScore();
+            Assert.AreEqual(2, World.Instance.players.First().score);
+            Assert.AreEqual(1, World.Instance.players.ElementAt(1).score);
         }
 
     }
