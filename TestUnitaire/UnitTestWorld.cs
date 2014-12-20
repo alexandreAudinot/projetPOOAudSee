@@ -24,7 +24,6 @@ namespace TestUnitaire
             AbstractBoard b = new DemoBoard();
             World.board = b;
             Assert.IsNotNull(World.Instance);
-            World.board.initBoard();
             World.board.initVarBoard();
             Assert.IsNotNull(World.Instance);
         }
@@ -141,11 +140,12 @@ namespace TestUnitaire
         [TestMethod]
         public void testAddPlayer()
         {
-            InitAll();
+            UnitUnit.InitAll();
             World.Instance.addPlayer("Jean-Pierre", "Elf");
             Assert.AreEqual(1, World.Instance.nbPlayer);
             Assert.IsTrue(World.Instance.listType.Contains("Elf"));
             Assert.AreEqual("Jean-Pierre", World.Instance.players.First().nom);
+            Assert.IsTrue(new Position(1, 1).equals(World.Instance.players.First().pDepart));
         }
 
         [ExpectedException(typeof(Exception), "Le type n'est pas valide")]

@@ -97,8 +97,4 @@ namespace ProjetPOO
             return tab;
         }
     }
-
-    public abstract class AbstractFactoryUnit : AbstractFactory
-    {
-    }
 }

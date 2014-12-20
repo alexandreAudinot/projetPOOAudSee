@@ -11,7 +11,6 @@ namespace ProjetPOO
         public int size { get; set; }
         public Tile[,] Tiles { get; set; }
         public abstract void initVarBoard();
-        public abstract void initBoard();
 
         /*public void initBoard()
         {
@@ -29,6 +28,5 @@ namespace ProjetPOO
             }
             return (Tile) Tiles[p.x, p.y];
         }
-
     }
 }

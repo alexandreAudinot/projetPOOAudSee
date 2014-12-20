@@ -40,7 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractBoard.cs" />
-    <Compile Include="AbstractFactory.cs" />
     <Compile Include="AbstractFactoryTiles.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="IBuilder.cs" />
@@ -48,7 +47,6 @@
     <Compile Include="CreateGame.cs" />
     <Compile Include="BoardImpl.cs" />
     <Compile Include="Factory.cs" />
-    <Compile Include="IFactory.cs" />
     <Compile Include="IUnit.cs" />
     <Compile Include="TileImpl.cs" />
     <Compile Include="UnitImpl.cs" />

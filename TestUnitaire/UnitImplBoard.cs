@@ -6,6 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+/* ---------------------------------------------------------------------------------------------- *
+ * ---------------------------------------------------------------------------------------------- *
+ * --- Classe test validée - Classe test validée - Classe test validée -  Classe test validée --- *
+ * ---------------------------------------------------------------------------------------------- *
+ * ---------------------------------------------------------------------------------------------- */
+
 namespace TestUnitaire
 {
     [TestClass]
@@ -22,15 +28,10 @@ namespace TestUnitaire
         [TestMethod]
         public void testInitBoardDemo()
         {
-            World.Clean();
-            AbstractBoard b = new DemoBoard();
-            World.board = b;
-            Assert.IsNotNull(World.Instance);
+            DemoBoard b = new DemoBoard();
+            Assert.IsNotNull(b);
             Assert.IsNotNull(World.board);
-            //Assert.IsNotNull(World.board.forest);
-            World.board.initBoard();
-            World.board.initVarBoard();
-            Assert.IsNotNull(World.Instance);
+            Assert.AreEqual(6, World.board.size);
         }
 
         [TestMethod]
@@ -40,7 +41,6 @@ namespace TestUnitaire
             AbstractBoard b = new DemoBoard();
             World.board = b;
             Assert.IsNotNull(World.Instance);
-            World.board.initBoard();
             World.board.initVarBoard();
             Assert.IsNotNull(World.Instance);
             Assert.AreEqual(5, World.Instance.maxnbTours);
@@ -51,8 +51,10 @@ namespace TestUnitaire
         [TestMethod]
         public void testInitBoardSmall()
         {
-            //TODO
-            Assert.IsFalse(true);
+            SmallBoard b = new SmallBoard();
+            Assert.IsNotNull(b);
+            Assert.IsNotNull(World.board);
+            Assert.AreEqual(10, World.board.size);
         }
 
         [TestMethod]
@@ -62,7 +64,6 @@ namespace TestUnitaire
             AbstractBoard b = new SmallBoard();
             World.board = b;
             Assert.IsNotNull(World.Instance);
-            World.board.initBoard();
             World.board.initVarBoard();
             Assert.IsNotNull(World.Instance);
             Assert.AreEqual(20, World.Instance.maxnbTours);
@@ -73,8 +74,10 @@ namespace TestUnitaire
         [TestMethod]
         public void testInitBoardNormal()
         {
-            //TODO
-            Assert.IsFalse(true);
+            NormalBoard b = new NormalBoard();
+            Assert.IsNotNull(b);
+            Assert.IsNotNull(World.board);
+            Assert.AreEqual(14, World.board.size);
         }
 
         [TestMethod]
@@ -84,7 +87,6 @@ namespace TestUnitaire
             AbstractBoard b = new NormalBoard();
             World.board = b;
             Assert.IsNotNull(World.Instance);
-            World.board.initBoard();
             World.board.initVarBoard();
             Assert.IsNotNull(World.Instance);
             Assert.AreEqual(30, World.Instance.maxnbTours);

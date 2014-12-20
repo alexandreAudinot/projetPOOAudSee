@@ -23,7 +23,6 @@ namespace TestUnitaire
             AbstractBoard b = new DemoBoard();
             World.board = b;
             Assert.IsNotNull(World.Instance);
-            World.board.initBoard();
             World.board.initVarBoard();
             Assert.IsNotNull(World.Instance);
             World.board.Tiles[0, 0] = new Mountain();
@@ -116,9 +115,6 @@ namespace TestUnitaire
             {
                 World.Instance.players.First().listUnit.First().fight(new Position(1, 1), (Unit)World.Instance.players.ElementAt(1).listUnit.First());
             }
-            //throw new Exception("nombre de joueurs " + World.Instance.players.Count() + " J1 " + World.Instance.players.First().listUnit.Count()
-             //   + " J2 " + World.Instance.players.ElementAt(1).listUnit.Count());
-            //Assert.IsTrue(World.Instance.stateGame);
             if (World.Instance.players.First().listUnit.Count() == 2)
             {
                 Assert.IsTrue((new Position(1, 1)).equals(((Unit)World.Instance.players.First().listUnit.First()).position));

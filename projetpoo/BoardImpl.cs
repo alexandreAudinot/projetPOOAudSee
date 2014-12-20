@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+//remplacer tous les demoboard par des monteurDemo dans tous les tests et partout
 namespace ProjetPOO
 {
     public class DemoBoard : AbstractBoard
     {
-
-        override
-        public void initBoard()
+        public DemoBoard()
         {
             size = 6;
             World.board = this;
@@ -25,8 +23,7 @@ namespace ProjetPOO
 
     public class SmallBoard : AbstractBoard
     {
-        override
-        public void initBoard()
+        public SmallBoard()
         {
             size = 10;
             World.board = this;
@@ -42,8 +39,7 @@ namespace ProjetPOO
 
         public class NormalBoard : AbstractBoard
         {
-            override
-            public void initBoard()
+            public NormalBoard()
             {
                 size = 14;
                 World.board = this;

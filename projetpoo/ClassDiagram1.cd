@@ -98,31 +98,23 @@
   <Class Name="ProjetPOO.DemoBoard">
     <Position X="9.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAEAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BoardImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.SmallBoard">
     <Position X="11" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAEAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BoardImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.NormalBoard">
     <Position X="12.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAEAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BoardImpl.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="ProjetPOO.AbstractFactory">
-    <Position X="7.5" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
-      <FileName>AbstractFactory.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="ProjetPOO.MonteurDemo">
     <Position X="12.75" Y="6.25" Width="1.5" />
@@ -134,15 +126,12 @@
   <Class Name="ProjetPOO.FactoryUnit">
     <Position X="7.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAEYAAAAAIAAAAAAAAAAACAAAEAAAAAAAAAQCAY=</HashCode>
+      <HashCode>AAAAAAEYAAAAAIAAAAAAAAAAACAAAEAAAAAAAAAQCAQ=</HashCode>
       <FileName>Factory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Monteur">
     <Position X="14.5" Y="2.75" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Properties" Collapsed="true" />
-    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAABAAAAAAAAAgAAAAAAACQABAAAAAAAAAAAAA=</HashCode>
       <FileName>AbstractFactoryTiles.cs</FileName>
@@ -176,7 +165,7 @@
       <Compartment Name="Properties" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAIAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAAIAAAAAAAAAAAAIAAAAAAAEAAAA=</HashCode>
       <FileName>AbstractBoard.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -208,7 +197,7 @@
   <Interface Name="ProjetPOO.Board">
     <Position X="11.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAEAAAAQAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Board.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -219,18 +208,10 @@
       <FileName>IUnit.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="ProjetPOO.IFactory">
-    <Position X="7.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
-      <FileName>IFactory.cs</FileName>
-      <NewMemberFileName>Ifactory.cs</NewMemberFileName>
-    </TypeIdentifier>
-  </Interface>
   <Interface Name="ProjetPOO.IBuilder">
     <Position X="16.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAEAAAAQgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IBuilder.cs</FileName>
     </TypeIdentifier>
   </Interface>

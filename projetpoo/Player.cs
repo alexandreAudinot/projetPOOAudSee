@@ -11,14 +11,26 @@ namespace ProjetPOO
         public int numero { get; private set; }
         public int score { get; set; }
         public List<IUnit> listUnit { get; set; }
+        public Position pDepart { get; set; }
 
         //constructeur testPlayer
+        //on impose la position des pièces du joueur 0 en (1,1)
+        //on impose la position des pièces du joueur 1 à l'autre coin par symétrie centrale
         public Player(string name, int n)
         {
             score = 0;
             nom = name;
             numero = n;
             listUnit = new List<IUnit>();
+            if (n == 0)
+            {
+                pDepart = new Position(1, 1);
+            }
+            else
+            {
+                pDepart = new Position(World.board.size - 1, World.board.size - 1);
+            }
+            
         }
 
         //incScore fonction qui permet d'incrémenter le score

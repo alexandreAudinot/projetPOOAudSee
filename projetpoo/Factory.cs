@@ -10,7 +10,9 @@ namespace ProjetPOO
         //permet de caster le board créer par la classe mère
         public MonteurDemo() : base()
         {
+            DemoBoard b = new DemoBoard();
             ((DemoBoard)World.board).Tiles = this.createTilesBoard();
+            World.board.initVarBoard();
         }
     }
 
@@ -19,7 +21,9 @@ namespace ProjetPOO
         //permet de caster le board créer par la classe mère
         public MonteurNormal() : base()
         {
+            NormalBoard b = new NormalBoard();
             ((NormalBoard)World.board).Tiles = this.createTilesBoard();
+            World.board.initVarBoard();
         }
     }
     /*
@@ -36,38 +40,32 @@ namespace ProjetPOO
         //permet de caster le board créer par la classe mère
         public MonteurSmall() : base()
         {
+            SmallBoard b = new SmallBoard();
             ((SmallBoard)World.board).Tiles = this.createTilesBoard();
+            World.board.initVarBoard();
         }
     }
 
-    public class FactoryUnit : AbstractFactory
+    public class FactoryUnit
     {
         private Elf elf;
         private Dwarf dwarf;
         private Orc orc;
 
-        private List<Elf> Elfs = new List<Elf>();
-        private List<Dwarf> Dwarves = new List<Dwarf>();
-        private List<Orc> Orcs = new List<Orc>();
-        public static Position pinitElf;
-        public static Position pinitDwarf;
-        public static Position pinitOrc;
-
-        override
-        public void createUnit(List<Player> players, List<Tile> tiles, List<String> types)
+        public FactoryUnit(List<Player> players, List<Position> lpos, List<String> types)
         {
             int nb,i = 0;
             foreach (Player player in players)
             {
                 switch(types.ElementAt(i))
                 {
-                    case ("Elfe"): //changer en appelant des factory d'elf
+                    case ("Elf"):
                         World.Instance.listType.Add("Elf");
-                        elf = new Elf(player, pinitElf);
+                        elf = new Elf(player, lpos.ElementAt(i));
                         nb = World.Instance.nbUnity;
                         while (nb > 0)
                         {
-                             Elfs.Add(elf);
+                             World.Instance.players.ElementAt(i).listUnit.Add(elf);
                             nb--;
                         }
                         break;
@@ -75,11 +73,11 @@ namespace ProjetPOO
 
                     case ("Dwarf"):
                         World.Instance.listType.Add("Dwarf");
-                        dwarf = new Dwarf(player,pinitDwarf);
+                        dwarf = new Dwarf(player, lpos.ElementAt(i));
                         nb = World.Instance.nbUnity;
                         while (nb > 0)
                         {
-                             Elfs.Add(elf);
+                            World.Instance.players.ElementAt(i).listUnit.Add(dwarf);
                             nb--;
                         }
                         break;
@@ -87,11 +85,11 @@ namespace ProjetPOO
 
                     case ("Orc"):
                         World.Instance.listType.Add("Orc");
-                        orc = new Orc(player,pinitOrc);
+                        orc = new Orc(player, lpos.ElementAt(i));
                         nb = World.Instance.nbUnity;
                         while (nb > 0)
                         {
-                             Elfs.Add(elf);
+                            World.Instance.players.ElementAt(i).listUnit.Add(orc);
                             nb--;
                         }
                         break;

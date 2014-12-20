@@ -37,6 +37,7 @@ namespace TestUnitaire
         [TestMethod]
         public void testincPvOrc()
         {
+            UnitUnit.InitAll();
             Player p = new Player("Azog", 1);
             Orc o = new Orc(p, new Position(1, 1));
             o.incPvOrc();

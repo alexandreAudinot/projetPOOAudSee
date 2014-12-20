@@ -8,7 +8,6 @@ namespace ProjetPOO
     public interface Board
     {
         Tile getTile(Position p);
-        void initBoard();
         void initVarBoard();
     }
 }

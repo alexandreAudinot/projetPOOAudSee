@@ -14,7 +14,6 @@ namespace TestUnitaire
         [TestMethod]
         public void testcreateTilesDemo()
         {
-            UnitTestWorld.InitAll();
             MonteurDemo m = new MonteurDemo();
             int forest = 0;
             int mountain = 0;
@@ -55,9 +54,6 @@ namespace TestUnitaire
             World.Clean();
             AbstractBoard b = new SmallBoard();
             World.board = b;
-            Assert.IsNotNull(World.Instance);
-            World.board.initBoard();
-            World.board.initVarBoard();
             Assert.IsNotNull(World.Instance);
 
             MonteurSmall m = new MonteurSmall();
@@ -101,7 +97,6 @@ namespace TestUnitaire
             NormalBoard b = new NormalBoard();
             World.board = b;
             Assert.IsNotNull(World.Instance);
-            World.board.initBoard();
             World.board.initVarBoard();
             Assert.IsNotNull(World.Instance);
 
@@ -140,10 +135,59 @@ namespace TestUnitaire
         }
 
         [TestMethod]
-        public void testCreateUnit()
+        public void testFactoryUnitDemo()
         {
-            //TODO
-            Assert.IsFalse(true);
+            MonteurDemo m = new MonteurDemo();
+            World.Instance.addPlayer("Charlie and the chocolate factory", "Orc");
+            World.Instance.addPlayer("Factory-elle", "Dwarf");
+            List<Position> lpos = new List<Position>();
+            foreach (Player p in World.Instance.players)
+            {
+                lpos.Add(p.pDepart);
+            }
+            FactoryUnit f = new FactoryUnit(World.Instance.players, lpos, World.Instance.listType);
+            Assert.AreEqual(4, World.Instance.players.First().listUnit.Count());
+            Assert.AreEqual(4, World.Instance.players.ElementAt(1).listUnit.Count());
+            Assert.IsNotNull(World.Instance.players.ElementAt(0).listUnit.First());
+            Assert.IsNotNull(World.Instance.players.ElementAt(1).listUnit.First());
+        }
+
+        [TestMethod]
+        public void testFactoryUnitSmall()
+        {
+            World.Clean();
+            MonteurSmall m = new MonteurSmall();
+            World.Instance.addPlayer("Charlie and the chocolate factory", "Orc");
+            World.Instance.addPlayer("Factory-elle", "Dwarf");
+            List<Position> lpos = new List<Position>();
+            foreach (Player p in World.Instance.players)
+            {
+                lpos.Add(p.pDepart);
+            }
+            FactoryUnit f = new FactoryUnit(World.Instance.players, lpos, World.Instance.listType);
+            Assert.AreEqual(6, World.Instance.players.First().listUnit.Count());
+            Assert.AreEqual(6, World.Instance.players.ElementAt(1).listUnit.Count());
+            Assert.IsNotNull(World.Instance.players.ElementAt(0).listUnit.First());
+            Assert.IsNotNull(World.Instance.players.ElementAt(1).listUnit.First());
+        }
+
+        [TestMethod]
+        public void testFactoryUnitNormal()
+        {
+            World.Clean();
+            MonteurNormal m = new MonteurNormal();
+            World.Instance.addPlayer("Charlie and the chocolate factory", "Orc");
+            World.Instance.addPlayer("Factory-elle", "Dwarf");
+            List<Position> lpos = new List<Position>();
+            foreach (Player p in World.Instance.players)
+            {
+                lpos.Add(p.pDepart);
+            }
+            FactoryUnit f = new FactoryUnit(World.Instance.players, lpos, World.Instance.listType);
+            Assert.AreEqual(8, World.Instance.players.First().listUnit.Count());
+            Assert.AreEqual(8, World.Instance.players.ElementAt(1).listUnit.Count());
+            Assert.IsNotNull(World.Instance.players.ElementAt(0).listUnit.First());
+            Assert.IsNotNull(World.Instance.players.ElementAt(1).listUnit.First());
         }
     }
 }

@@ -11,42 +11,32 @@ namespace ProjetPOO
 
         protected void init()
         {
-            //init board
-            //appel selon les évènements
-            //*******************************************************************************//
-            Board b = new DemoBoard();
-            //*******************************************************************************//
-            b.initBoard();
-            FactoryUnit.pinitDwarf = new Position(1, 1);
-            FactoryUnit.pinitElf = new Position(2, 2);
-            FactoryUnit.pinitOrc = new Position(3, 3);
+            /* ----------------------------------------Fonction init ---------------------------------------- *
+             * ---------------------------------------------------------------------------------------------- */
 
 
+             /* ------------------------------Type du plateau, appels à faire--------------------------------- *
+              * -----------------------Plateau Demo : MonteurDemo m = new MonteurDemo()----------------------- *
+              * -----------------------Plateau Small : MonteurSmall m = new MonteurSmall()-------------------- *
+              * -----------------------Plateau Normal : MonteurNormal m = new MonteurDemo()------------------- *
+              * ---------------------------------------------------------------------------------------------- */
 
-            //init world
-            World.board.initVarBoard();
 
-            //init players
-             //addPlayer(string nomJoueur, string type)
-             //appel évènement à faire
-            //*******************************************************************************//
-            World.Instance.addPlayer("Dan", "Orc");
-            World.Instance.addPlayer("Alexandre", "Nain");
-            //*******************************************************************************//
+            /* ------------------------------Type des joueurs, appels à faire-------------------------------- *
+             * ---------------------- les joueurs sont numérotés selon la vitesse d'inscription-------------- *
+             * -----------------------Joueur nom, type : World.Instance.addPlayer(nom,type) ----------------- *
+             * -----------------------Joueur nom, type : World.Instance.addPlayer(nom,type) ----------------- *
+             * --------------------------------Donner le numéro de chaque joueur----------------------------- *
+             * --------------------------------------------------------------------------------------------- */
 
-            //init unit
-            IFactory f = new FactoryUnit();
+            Random rdm = new Random();
+            World.Instance.currentPlayer = rdm.Next(0, World.Instance.players.Count());
+            //changer les positions initiales, changer avec position Player.pDepart
 
-            // List<Player> players, List<Tile> tiles, List<String> types
-            // Les paramètres de début de partie ajoutent la position des tiles
-            //*******************************************************************************//
-            Tile t1 = new Tile();
-            Tile t2 = new Tile();
-            List<Tile> tiles = new List<Tile>();
-            tiles.Add(t1);
-            tiles.Add(t2);
-            //*******************************************************************************//
-            f.createUnit(World.Instance.players, tiles, World.Instance.listType);
+
+            //FactoryUnit f = new FactoryUnit();
+
+            //f.createUnit(World.Instance.players, tiles, World.Instance.listType);
 ;
         }
 
