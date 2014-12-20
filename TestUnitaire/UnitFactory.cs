@@ -16,7 +16,6 @@ namespace TestUnitaire
         {
             UnitTestWorld.InitAll();
             MonteurDemo m = new MonteurDemo();
-            m.createTiles();
             int forest = 0;
             int mountain = 0;
             int desert = 0;
@@ -62,7 +61,6 @@ namespace TestUnitaire
             Assert.IsNotNull(World.Instance);
 
             MonteurSmall m = new MonteurSmall();
-            m.createTiles();
             int forest = 0;
             int mountain = 0;
             int desert = 0;
@@ -108,7 +106,6 @@ namespace TestUnitaire
             Assert.IsNotNull(World.Instance);
 
             MonteurNormal m = new MonteurNormal();
-            m.createTiles();
             int forest = 0;
             int mountain = 0;
             int desert = 0;

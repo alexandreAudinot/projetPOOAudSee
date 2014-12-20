@@ -27,6 +27,14 @@ namespace ProjetPOO
             score++;
         }
 
+        public void initDeplacement()
+        {
+            foreach (Unit u in listUnit)
+            {
+                u.initDeplacement();
+            }
+        }
+
         //fonction qui permet de tuer une unité
         //fait perdre le joueur si plus d'unité
         public void killUnit(Unit myUnit)
@@ -162,6 +170,13 @@ namespace ProjetPOO
                 }
             }
             score = l.Count - 1;
+        }
+
+        public void apresRepli()
+        {
+            //traite le repli d'un elfe : on donne la possibililité de bouger une seule fois
+            World.Instance.currentPlayer = World.Instance.repliCurrentPlayer;
+            World.Instance.repliCurrentPlayer = -1;
         }
     }
 }

@@ -15,7 +15,7 @@
   <Class Name="ProjetPOO.World">
     <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQCAUCAgIgAAAAACBAAAAEAAAwAQCECAYBAAAAEAQAA=</HashCode>
+      <HashCode>AQCAUCAgIgAAAAACBAAAAEAAAwAQCECAYBAAAAFAQAA=</HashCode>
       <FileName>World.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -29,7 +29,7 @@
   <Class Name="ProjetPOO.Elf">
     <Position X="3.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAAAAAAAAAQAAAgAAAAAAABAAAgAAAAA=</HashCode>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAgAAAAAAABAAAgAAAAA=</HashCode>
       <FileName>UnitImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -43,13 +43,13 @@
   <Class Name="ProjetPOO.Unit">
     <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAiAAAACEKAgAoAAQAoAAAAAEgBBAAgEAAAA=</HashCode>
+      <HashCode>AAAAgAAAAiAgAACEKAoAoAAQAoAAAAAEgBBAAgEAAAA=</HashCode>
       <FileName>Unit.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ProjetPOO.Position">
-    <Position X="0.5" Y="3.5" Width="1.5" />
+    <Position X="0.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAAAAAAAACAAAAAAAAAABgAAAAAAA=</HashCode>
       <FileName>Position.cs</FileName>
@@ -58,7 +58,7 @@
   <Class Name="ProjetPOO.Player">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAgAEAAAAAAAAAIIAAAAAAAECQAABEAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAgAMAAAAAAAABIIAAAAAgAECQAAAFAAAAIAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -89,7 +89,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.TileImpl">
-    <Position X="8" Y="7.5" Width="1.5" />
+    <Position X="7.75" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TileImpl.cs</FileName>
@@ -127,7 +127,7 @@
   <Class Name="ProjetPOO.MonteurDemo">
     <Position X="12.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Factory.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -144,7 +144,7 @@
       <Compartment Name="Properties" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAggAAAAAAAACAABAAAAAAAAAACA=</HashCode>
+      <HashCode>AAAAAAAABAAAAAAAAAgAAAAAAACQABAAAAAAAAAAAAA=</HashCode>
       <FileName>AbstractFactoryTiles.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -158,25 +158,25 @@
   </Class>
   <Class Name="ProjetPOO.MonteurSmall">
     <Position X="14.5" Y="6.25" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Factory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.MonteurNormal">
     <Position X="16.25" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Factory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.AbstractBoard">
     <Position X="9.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAEAAAAYAAAAAAAAAAAAIAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAIAAAAAAAEAAAA=</HashCode>
       <FileName>AbstractBoard.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -215,7 +215,7 @@
   <Interface Name="ProjetPOO.IUnit">
     <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAACAAAACECAAAAAAQAoAAAAAAABAAAgAAAAA=</HashCode>
+      <HashCode>AAAAgAAAACAAAACECAAAAAAQAoAAAAAAABAAAgEAAAA=</HashCode>
       <FileName>IUnit.cs</FileName>
     </TypeIdentifier>
   </Interface>
@@ -230,7 +230,7 @@
   <Interface Name="ProjetPOO.IBuilder">
     <Position X="16.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAAQgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IBuilder.cs</FileName>
     </TypeIdentifier>
   </Interface>

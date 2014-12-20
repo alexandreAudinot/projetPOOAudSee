@@ -19,6 +19,7 @@ namespace ProjetPOO
         void makeAMove(Position p, double depl);
         void endGame();
         bool checkMove(Position p);
+        bool isAlive();
     }
 
 }

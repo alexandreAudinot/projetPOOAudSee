@@ -9,8 +9,9 @@ namespace ProjetPOO
     public abstract class AbstractBoard : Board
     {
         public int size { get; set; }
-        //private ProjetPOO.ITile[,] tile;
         public Tile[,] Tiles { get; set; }
+        public abstract void initVarBoard();
+        public abstract void initBoard();
 
         /*public void initBoard()
         {
@@ -19,9 +20,7 @@ namespace ProjetPOO
             generatedList = wrapper.compute(12, 12);
         }*/
 
-        public abstract void initBoard();
-        //future méthode à utiliser après
-
+        //méthode getTile qui permet de retourner la Tile en rapport avec la position
         public Tile getTile(Position p)
         {
             if ((p.x > size)||(p.y > size))
@@ -31,6 +30,5 @@ namespace ProjetPOO
             return (Tile) Tiles[p.x, p.y];
         }
 
-        public abstract void initVarBoard();
     }
 }

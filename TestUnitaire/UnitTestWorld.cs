@@ -43,7 +43,7 @@ namespace TestUnitaire
             Assert.IsNotNull(World.Instance.listType);
             Assert.IsNotNull(World.Instance.listAvailableType);
             Assert.IsNotNull(World.Instance.players);
-            Assert.AreEqual(-1, World.repliCurrentPlayer);
+            Assert.AreEqual(-1, World.Instance.repliCurrentPlayer);
         }
 
         [TestMethod]
@@ -97,7 +97,6 @@ namespace TestUnitaire
         {
             InitAll();
             MonteurDemo m = new MonteurDemo();
-            m.createTiles();
             World.Instance.addPlayer("Jean-Pierre", "Elf");
             Orc o0 = new Orc(World.Instance.players.First(), new Position(1, 1));
             Orc o1 = new Orc(World.Instance.players.First(), new Position(1, 1));
@@ -135,7 +134,6 @@ namespace TestUnitaire
         {
             InitAll();
             MonteurDemo m = new MonteurDemo();
-            m.createTiles();
             Assert.IsNotNull(World.board.getTile(new Position(1, 1)));
             Assert.AreEqual(World.board.Tiles[1, 1], World.board.getTile(new Position(1, 1)));
         }

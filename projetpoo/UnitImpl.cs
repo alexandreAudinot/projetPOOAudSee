@@ -93,7 +93,6 @@ namespace ProjetPOO
                 this.controler.score += pvOrc;
             }
         }
-
     }
 
     public class Dwarf : Unit
@@ -177,7 +176,7 @@ namespace ProjetPOO
         public bool loseFight()
         {
             this.die();
-            return false;
+            return true;
         }
 
         //endGame fait le traitement de fin de partie pour les dwarves (rien)
@@ -251,7 +250,7 @@ namespace ProjetPOO
                 //le joueur elfe choisit une case non occupée pour se replier
                 //call methode controler qui rend une position de repli TODO
                 //message l'unité elfe est sauvée et se replie
-                World.repliCurrentPlayer = World.Instance.currentPlayer;
+                World.Instance.repliCurrentPlayer = World.Instance.currentPlayer;
                 World.Instance.currentPlayer = this.controler.numero;
                 this.initDeplacement();
                 return false;
@@ -267,12 +266,6 @@ namespace ProjetPOO
         //repli permet à l'elfe de se replier 50% du temps quand un combat est perdu
         //il dispose alors d'un point de déplacement pour fuir, mais ses points de vie redescendront à 1
         //dans le cas où il n'y a pas de possibilité de déplacement, l'unité mourra
-        public void apresRepli(Position p)
-        {
-                //traite le repli d'un elfe : on donne la possibililité de bouger une seule fois
-            World.Instance.currentPlayer = World.repliCurrentPlayer;
-            World.repliCurrentPlayer = -1;
-        }
 
         //endGame fait le traitement de fin de partie pour les elfes (rien)
         override

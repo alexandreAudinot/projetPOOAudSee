@@ -14,6 +14,7 @@ namespace ProjetPOO
         public double nbDeplacement { get; set; }
         public Player controler { get; set; }
         public Position position { get; set; }
+        public int initialLife{ get; protected set; }
         public abstract double calcDepl(Position p);
         public abstract double calcDeplAtt(Position p);
         public abstract void endGame();
@@ -29,6 +30,7 @@ namespace ProjetPOO
             controler = p;
             position = po;
             nbDeplacement = 0;
+            initialLife = 5;
         }
 
         //méthode utilisée pour les tests unitaires seulement
@@ -64,41 +66,60 @@ namespace ProjetPOO
             Random rdm = new Random();
             int nbCombats = rdm.Next(3,2 + Math.Max(this.hp,u.hp)) - 1;
             //calcul des probabilités de combat
-            double probAtt = (Math.Abs(u.def - this.att) / u.def) * (50) + 50;
+            double probAtt;
+            if (this.att < u.def)
+            {
+                probAtt = (100 - 100 * this.att / u.def) * 50.0 / 100 + 50;
+            }
+            else
+            {
+                probAtt = (100 - 100 * u.def/this.att)*50.0/100 + 50;
+            }
+            //String s = "nb Combats : " + nbCombats + " Probatt : " + probAtt;
             //Sélection de l'attaquant et attaque
             while(this.isAlive() && u.isAlive() && nbCombats > 0)
             {
-                nbCombats++;
+                nbCombats--;
                 if (rdm.Next(0, 100) < probAtt)
                 {
                     //l'attaque est pondérée par les points de vie de l'attaquant
-                    u.hp -= this.hp * this.att;
+                    u.hp -= (int) Math.Truncate((this.hp * 1.0 / this.initialLife) * this.att);
+                    //s += ", 75 attaque de " + ((int)Math.Truncate((this.hp * 1.0 / this.initialLife) * this.att)).ToString() + "(" + this.hp + "," + u.hp + ")";
                 }
                 else
                 {
-                    this.hp -= u.hp * u.att;
+                    this.hp -= (int) Math.Truncate((u.hp * 1.0 / u.initialLife) * u.att);
+                    //s += ", 25 attaque de " + ((int)Math.Truncate((u.hp * 1.0 / u.initialLife) * u.att)).ToString() + "(" + this.hp + "," + u.hp + ")";
                 }
             }
-            if (nbCombats != 0)
-            {
                 //cas de mort d'une unité
-                if (this.isAlive())
+                if (!this.isAlive())
                 {
+                    //s += " Mort de l'attaquant";
                     //message this.getType().toString() gagne le combat
-                    if (u.loseFight())
-                    {
-                        this.winFightAtt(p);
-                    }
-                } 
-                else
-                {
-                    //message u.getType().toString() gagne le combat
                     if (this.loseFight())
                     {
                         u.winFightDef(p);
                     }
-                }
-            }
+                } 
+                else
+                {
+                    if (!u.isAlive())
+                    {
+                        //s += " Mort du défenseur";
+                        if (u.loseFight())
+                        {
+                            this.winFightAtt(p);
+                            this.makeAMove(p, this.calcDeplAtt(p));
+                        }
+                    }
+                    else
+                    {
+                        //s += " Pas de gagnant";
+                        //message pas de gagnant
+                    }
+               }
+            //throw new Exception(s);
         }
 
         //die permet de tuer l'unité courante
@@ -114,20 +135,16 @@ namespace ProjetPOO
         public bool checkMove(Position p)
         {
             //tomodify TODO pour les cases hexagonales
-            if (!((p.x < 0)||(p.y < 0)||(p.x >= World.board.size)||(p.y >= World.board.size)))
+            if (!((p.x < 0) || (p.y < 0) || (p.x >= World.board.size) || (p.y >= World.board.size)))
             {
-                if (
+                return (
                     ((p.x + 1 == this.position.x) && (this.position.y == p.y))
                     || ((p.x - 1 == this.position.x) && (this.position.y == p.y))
                     || ((p.x == this.position.x) && (this.position.y + 1 == p.y))
                     || ((p.x == this.position.x) && (this.position.y - 1 == p.y))
                     || ((p.x == this.position.x + 1) && (this.position.y - 1 == p.y))
-                    || ((p.x == this.position.x - 1) && (this.position.y + 1 == p.y)))
-                        {
-                            return true;
-                        }
+                    || ((p.x == this.position.x - 1) && (this.position.y + 1 == p.y)));
             }
-            
             return false;
         }
 
@@ -147,24 +164,38 @@ namespace ProjetPOO
         //elle empêche les déplacements de plus d'une case
         public void move(Position p)
         {
-            if (!this.checkMove(p))
+            if (World.Instance.currentPlayer == this.controler.numero)
             {
-                throw new Exception("Le mouvement est impossible");
-            }
+                if (!this.checkMove(p))
+                {
+                    throw new Exception("Le mouvement est impossible");
+                }
 
-            Unit elem = World.Instance.getUnit(p); 
-            if (elem == null)
-            {
-                this.makeAMove(p,this.calcDepl(p));
+                Unit elem = World.Instance.getUnit(p);
+                if (elem == null)
+                {
+                    this.makeAMove(p, this.calcDepl(p));
+                }
+                else
+                {
+                    if (elem.controler.numero == this.controler.numero)
+                    {
+                        this.makeAMove(p, this.calcDeplAtt(p));
+                    }
+                    else
+                    {
+                        if (World.Instance.repliCurrentPlayer != -1)
+                        {
+                            throw new Exception("Il n'est pas possible d'attaquer lors d'un repli");
+                        }
+                        this.calcDeplAtt(p);
+                        this.fight(p, elem);
+                    }   
+                }
             }
             else
             {
-                if (World.repliCurrentPlayer != -1)
-                {
-                    throw new Exception("Il n'est pas possible d'attaquer lors d'un repli");
-                }
-                this.makeAMove(p, this.calcDeplAtt(p));
-                this.fight(p, elem);
+                throw new Exception("C'est au joueur " + World.Instance.currentPlayer + " de jouer");
             }
         }
 
@@ -184,7 +215,7 @@ namespace ProjetPOO
             {
                 double depl = this.nbDeplacement;
                 this.initDeplacement();
-                this.calcDepl(p);
+                this.makeAMove(p, this.nbDeplacement);
                 this.nbDeplacement = depl;
             }
             this.winFight(p);

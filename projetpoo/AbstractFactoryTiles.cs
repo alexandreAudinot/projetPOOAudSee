@@ -100,10 +100,5 @@ namespace ProjetPOO
 
     public abstract class AbstractFactoryUnit : AbstractFactory
     {
-
-        protected void createTiles()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

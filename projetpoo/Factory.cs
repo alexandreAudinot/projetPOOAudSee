@@ -7,13 +7,8 @@ namespace ProjetPOO
 {
     public class MonteurDemo : Monteur
     {
-        public MonteurDemo()
-        {
-
-        }
-
         //permet de caster le board créer par la classe mère
-        public void createTiles()
+        public MonteurDemo() : base()
         {
             ((DemoBoard)World.board).Tiles = this.createTilesBoard();
         }
@@ -22,7 +17,7 @@ namespace ProjetPOO
     public class MonteurNormal : Monteur
     {
         //permet de caster le board créer par la classe mère
-        public void createTiles()
+        public MonteurNormal() : base()
         {
             ((NormalBoard)World.board).Tiles = this.createTilesBoard();
         }
@@ -39,7 +34,7 @@ namespace ProjetPOO
     public class MonteurSmall : Monteur
     {
         //permet de caster le board créer par la classe mère
-        public void createTiles()
+        public MonteurSmall() : base()
         {
             ((SmallBoard)World.board).Tiles = this.createTilesBoard();
         }

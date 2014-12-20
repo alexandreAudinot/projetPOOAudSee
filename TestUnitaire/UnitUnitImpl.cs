@@ -6,6 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+/* ---------------------------------------------------------------------------------------------- *
+ * ---------------------------------------------------------------------------------------------- *
+ * --- Classe test validée - Classe test validée - Classe test validée -  Classe test validée --- *
+ * ---------------------------------------------------------------------------------------------- *
+ * ---------------------------------------------------------------------------------------------- */
+
 namespace TestUnitaire
 {
     [TestClass]
@@ -23,6 +29,7 @@ namespace TestUnitaire
             Assert.AreEqual(5, o.hp);
             Assert.AreEqual(0, o.nbDeplacement);
             Assert.AreEqual(p, o.controler);
+            Assert.AreEqual(5, o.initialLife);
             Assert.IsTrue((new Position(1, 1)).equals(o.position));
             World.Clean();
         }
@@ -94,7 +101,7 @@ namespace TestUnitaire
             World.Instance.addPlayer("lost", "Dwarf");
             World.Instance.players.First().listUnit.Add(new Orc(World.Instance.players.First(), new Position(1, 1)));
             World.Instance.players.First().listUnit.Add(new Orc(World.Instance.players.First(), new Position(1, 1)));
-            World.Instance.players.First().listUnit.First().loseFight();
+            Assert.IsTrue(World.Instance.players.First().listUnit.First().loseFight());
             Assert.AreEqual(1, World.Instance.players.First().listUnit.Count());
             World.Instance.players.First().listUnit.First().loseFight();
             Assert.IsFalse(World.Instance.stateGame);
@@ -176,7 +183,7 @@ namespace TestUnitaire
             World.Instance.players.First().listUnit.Add(new Dwarf(World.Instance.players.First(), new Position(1, 1)));
             World.Instance.players.First().listUnit.First().loseFight();
             Assert.AreEqual(1, World.Instance.players.First().listUnit.Count());
-            World.Instance.players.First().listUnit.First().loseFight();
+            Assert.IsTrue(World.Instance.players.First().listUnit.First().loseFight());
             Assert.IsFalse(World.Instance.stateGame);
         }
 
@@ -236,23 +243,21 @@ namespace TestUnitaire
         [TestMethod]
         public void testloseFightElf()
         {
-            //TODO
-            Assert.IsFalse(true);
-        }
-
-        [TestMethod]
-        public void testApresRepliElf()
-        {
             UnitUnit.InitAll();
             World.Instance.currentPlayer = 1;
-            World.repliCurrentPlayer = 0;
+            World.Instance.repliCurrentPlayer = 0;
             World.Instance.addPlayer("I", "Elf");
             World.Instance.addPlayer("lost", "Dwarf");
             World.Instance.players.First().listUnit.Add(new Elf(World.Instance.players.First(), new Position(1, 1)));
-            World.Instance.players.First().listUnit.First().apresRepli();
-            Assert.AreEqual(0, World.Instance.currentPlayer);
-            //pourquoi statique
-            Assert.AreEqual(-1,World.repliCurrentPlayer);
-        }   
+            World.Instance.players.First().listUnit.Add(new Elf(World.Instance.players.First(), new Position(1, 1)));
+            World.Instance.players.First().listUnit.First().loseFight();
+            if (World.Instance.players.First().listUnit.Count() == 2)
+            {
+                Assert.AreEqual(0, World.Instance.currentPlayer);
+                Assert.AreEqual(1, World.Instance.repliCurrentPlayer);
+            }
+            //les autres tests ont été réalisés en débuggage, ils ne sont pas affichés à cause de l'aléatoire
+            //présent dans la méthode loseFight
+        }
     }
 }
