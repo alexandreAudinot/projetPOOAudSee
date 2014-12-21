@@ -35,7 +35,6 @@ namespace TestUnitaire
             AbstractBoard b = new DemoBoard();
             World.board = b;
             Assert.IsNotNull(World.Instance);
-            Assert.AreEqual(0, World.Instance.nbPlayer);
             Assert.IsTrue(World.Instance.stateGame);
             Assert.AreEqual(World.board, b);
             Assert.AreEqual(0, World.Instance.nbTours);
@@ -142,7 +141,6 @@ namespace TestUnitaire
         {
             UnitUnit.InitAll();
             World.Instance.addPlayer("Jean-Pierre", "Elf");
-            Assert.AreEqual(1, World.Instance.nbPlayer);
             Assert.IsTrue(World.Instance.listType.Contains("Elf"));
             Assert.AreEqual("Jean-Pierre", World.Instance.players.First().nom);
             Assert.IsTrue(new Position(1, 1).equals(World.Instance.players.First().pDepart));
@@ -154,7 +152,6 @@ namespace TestUnitaire
         {
             InitAll();
             World.Instance.addPlayer("Jean-Pierre", "Perdu");
-            Assert.AreEqual(0, World.Instance.nbPlayer);
             Assert.IsFalse(true);
         }
 
@@ -165,7 +162,6 @@ namespace TestUnitaire
             InitAll();
             World.Instance.addPlayer("Jean-Pierre", "Elf");
             World.Instance.addPlayer("Georgette", "Elf");
-            Assert.AreEqual(1, World.Instance.nbPlayer);
             Assert.IsFalse(true);
         }
 

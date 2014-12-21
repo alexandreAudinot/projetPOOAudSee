@@ -11,7 +11,6 @@ namespace ProjetPOO
         public int nbTours { get; private set; }
         public int maxnbTours { get; private set; }
         public int nbUnity;
-        public int nbPlayer {get; private set; }
         public int currentPlayer { get; set; }
         public List<Player> players { get; set; }
         private static World world;
@@ -36,7 +35,6 @@ namespace ProjetPOO
         //les autres variables sont initialisées par les monteurs
         private World(AbstractBoard b)
         {
-            nbPlayer = 0;
             stateGame = true;
             board = b;
             nbTours = 0;
@@ -169,7 +167,6 @@ namespace ProjetPOO
                     Player player = new Player(nomJoueur, World.Instance.players.Count());
                     World.Instance.listType.Add(type);
                     World.Instance.players.Add(player);
-                    World.Instance.nbPlayer++;
                 }
                     
             }
@@ -213,7 +210,7 @@ namespace ProjetPOO
         public void endTurn()
         {
             World.Instance.updateScore();
-            World.Instance.currentPlayer = (World.Instance.currentPlayer + 1) % nbPlayer;
+            World.Instance.currentPlayer = (World.Instance.currentPlayer + 1) % World.Instance.players.Count();
             if (World.Instance.currentPlayer == 0)
             {
                 nbTours++;

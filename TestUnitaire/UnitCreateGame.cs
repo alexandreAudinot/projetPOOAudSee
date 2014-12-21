@@ -105,7 +105,8 @@ namespace TestUnitaire
             World.Instance.players.ElementAt(1).listUnit.Add(e2);
             World.Instance.players.First().initDeplacement();
             SaveGame save = new SaveGame();
-            save.saveOnDisk();
+            //save.saveOnDisk();
+            save.loadOnDisk();
         }
     }
 }

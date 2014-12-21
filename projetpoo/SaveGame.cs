@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace ProjetPOO
 {
@@ -26,7 +27,6 @@ namespace ProjetPOO
             text += "[maxnbTours = " + World.Instance.nbTours + "], ";
             text += "[nbTours = " + World.Instance.maxnbTours + "], ";
             text += "[nbUnity = " + World.Instance.nbUnity + "], ";
-            text += "[nbPlayer = " + World.Instance.nbPlayer + "], ";
             text += "[currentPlayer = " + World.Instance.currentPlayer + "], ";
             text += "[stateGame = " + World.Instance.stateGame + "], ";
             text += "[repliCurrentPlayer = " + World.Instance.repliCurrentPlayer + "]\n";
@@ -99,36 +99,59 @@ namespace ProjetPOO
         }
 
 
-        public void loadOnDisk(String s)
+        public void loadOnDisk()
         {
-            
-        // Read and display the data from your file.
-        try
-        {
-            string pathString = @"c:\Users\Dan\Desktop\Cours\projetPOOAudSee\Save\" + s;
-            byte[] readBuffer = System.IO.File.ReadAllBytes(pathString);
-            foreach (byte ba in readBuffer)
+            //on récupère le fichier trié par lignes
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Dan\Desktop\Cours\projetPOOAudSee\TestUnitaire\bin\Debug\save1.txt");
+            if (lines[0] != "Sauvegarde ProjetPOOAudSee")
             {
-                Console.Write(ba + " ");
+                throw new Exception("Le fichier lu n'est pas comptabible");
             }
-            Console.WriteLine();
+
+            //on recupère le type du plateau
+            Regex rsize = new Regex(@"^\[size = ([\w]+)\],? ");
+            Match msize = rsize.Match(lines[4]);
+            if (msize.Success)
+            {
+                switch (msize.Groups[1].Value)
+                {
+                    case "6":
+                        MonteurDemo monteur = new MonteurDemo();
+                        break;
+                    case "10":
+                        MonteurSmall monteur2 = new MonteurSmall();
+                        break;
+                    case "14":
+                        MonteurNormal monteur3 = new MonteurNormal();
+                        break;
+                    default:
+                        throw new Exception("Size non matchée");
+                }
+            }
+            //on récupère les informations relatives au world
+            Regex rline1 = new Regex(@"^\[maxnbTours = ([\w]+)\],? \[nbTours = ([\w]+)\],? \[nbUnity = ([\w]+)\],?"
+                + @" \[currentPlayer = ([\w]+)\],? \[stateGame = ([\w]+)\],? \[repliCurrentPlayer = ([-\w]+)\]?");
+            Match mline1 = rline1.Match(lines[2]);
+            if (mline1.Success)
+            {
+                int smaxnbTours = int.Parse(mline1.Groups[1].Value);
+                int snbTours = int.Parse(mline1.Groups[2].Value);
+                int snbUnity = int.Parse(mline1.Groups[3].Value);
+                int scurrentPlayer = int.Parse(mline1.Groups[4].Value);
+                Boolean sstateGame = Boolean.Parse(mline1.Groups[5].Value);
+                int srepliCurrentPlayer = int.Parse(mline1.Groups[6].Value);
+                //throw new Exception(smaxnbTours + " " + snbTours + " " + snbUnity + " " + scurrentPlayer + " " + sstateGame + " " + srepliCurrentPlayer);
+            }
+            //on récupère le board
+            String s = "";
+            string sourceString = @"<box><3>\n<table><1>\n<chair><8>";
+            Regex ItemRegex = new Regex(@"<(?<item>\w+?)><(?<count>\d+?)>", RegexOptions.Compiled);
+            foreach (Match ItemMatch in ItemRegex.Matches(sourceString))
+            {
+                s += ItemMatch.Groups[1].Value + " ";
+            }
+
+            throw new Exception (s);
         }
-        catch (System.IO.IOException e)
-        {
-            Console.WriteLine(e.Message);
-        }
-
-        // Keep the console window open in debug mode.
-        System.Console.WriteLine("Press any key to exit.");
-        System.Console.ReadKey();
-    }
-    // Sample output:
-
-    // Path to my file: c:\Top-Level Folder\SubFolder\ttxvauxe.vv0
-
-    //0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29
-    //30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56
-    // 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 8
-    //3 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99
     }
 }
