@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-//se servir de l'interface iplayer pour différencier les résultats orc sur foret ne fait pas de points : polymorphisme
+
 namespace ProjetPOO
 {
     public class Player

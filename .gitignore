@@ -1,6 +1,7 @@
 *.dll
 *.pdb
 Debug/
+Save/
 projetpoo/bin/
 projetpoo/obj/
 

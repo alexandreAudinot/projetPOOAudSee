@@ -87,10 +87,25 @@ namespace TestUnitaire
         }
 
         [TestMethod]
-        public void testLoadGame()
+        public void testSaveGame()
         {
-            //TODO
-            Assert.IsFalse(true);
+            UnitTestWorld.InitAll();
+            MonteurDemo m = new MonteurDemo();
+            World.Instance.addPlayer("Azog", "Orc");
+            World.Instance.addPlayer("Marty Mc Fly", "Dwarf");
+            Orc o0 = new Orc(World.Instance.players.First(), new Position(1, 2));
+            Orc o1 = new Orc(World.Instance.players.First(), new Position(3, 3));
+            Dwarf e0 = new Dwarf(World.Instance.players.ElementAt(1), new Position(1, 1));
+            Dwarf e2 = new Dwarf(World.Instance.players.ElementAt(1), new Position(0, 0));
+            Dwarf e1 = new Dwarf(World.Instance.players.ElementAt(1), new Position(3, 4));
+            World.Instance.players.First().listUnit.Add(o0);
+            World.Instance.players.First().listUnit.Add(o1);
+            World.Instance.players.ElementAt(1).listUnit.Add(e0);
+            World.Instance.players.ElementAt(1).listUnit.Add(e1);
+            World.Instance.players.ElementAt(1).listUnit.Add(e2);
+            World.Instance.players.First().initDeplacement();
+            SaveGame save = new SaveGame();
+            save.saveOnDisk();
         }
     }
 }
