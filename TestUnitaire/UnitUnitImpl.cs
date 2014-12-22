@@ -20,7 +20,7 @@ namespace TestUnitaire
         [TestMethod]
         public void testOrc()
         {
-            Player p = new Player("Azog",1);
+            Player p = new Player("Azog",1,"Orc");
             Orc o = new Orc(p, new Position(1,1));
             Assert.IsNotNull(o);
             Assert.AreEqual(0, o.pvOrc);
@@ -38,7 +38,7 @@ namespace TestUnitaire
         public void testincPvOrc()
         {
             UnitUnit.InitAll();
-            Player p = new Player("Azog", 1);
+            Player p = new Player("Azog", 1, "Orc");
             Orc o = new Orc(p, new Position(1, 1));
             o.incPvOrc();
             Assert.IsNotNull(o);
@@ -51,7 +51,7 @@ namespace TestUnitaire
         public void testcalcDeplAttOrcPlusAssezMouvements()
         {
             UnitUnit.InitAll();
-            Orc o = new Orc(new Player("Monsieur patate", 2), new Position(5,5));
+            Orc o = new Orc(new Player("Monsieur patate", 2, "Orc"), new Position(5, 5));
             Assert.AreEqual(1, o.calcDeplAtt(new Position(0, 0)));
             Assert.AreEqual(1, o.calcDeplAtt(new Position(1, 1)));
             Assert.AreEqual(0.5, o.calcDeplAtt(new Position(2, 2)));
@@ -63,7 +63,7 @@ namespace TestUnitaire
         public void testcalcDeplAttOrc()
         {
             UnitUnit.InitAll();
-            Orc o = new Orc(new Player("Monsieur patate", 2), new Position(5, 5));
+            Orc o = new Orc(new Player("Monsieur patate", 2, "Orc"), new Position(5, 5));
             o.nbDeplacement = 2;
             Assert.AreEqual(1, o.calcDeplAtt(new Position(0, 0)));
             Assert.AreEqual(1, o.calcDeplAtt(new Position(1, 1)));
@@ -75,7 +75,7 @@ namespace TestUnitaire
         public void testcalcDeplOrc()
         {
             UnitUnit.InitAll();
-            Orc o = new Orc(new Player("Monsieur patate", 2), new Position(5, 5));
+            Orc o = new Orc(new Player("Monsieur patate", 2, "Orc"), new Position(5, 5));
             o.nbDeplacement = 2;
             Assert.AreEqual(1, o.calcDepl(new Position(0, 0)));
             Assert.AreEqual(1, o.calcDepl(new Position(1, 1)));
@@ -87,7 +87,7 @@ namespace TestUnitaire
         public void testwinFightOrc()
         {
             UnitUnit.InitAll();
-            Orc o = new Orc(new Player("Monsieur patate", 2), new Position(4, 4));
+            Orc o = new Orc(new Player("Monsieur patate", 2, "Orc"), new Position(4, 4));
             o.winFight(new Position(1, 1));
             Assert.AreEqual(0, o.pvOrc);
             o.winFight(new Position(2, 2));
@@ -112,19 +112,36 @@ namespace TestUnitaire
         public void testendGameOrc()
         {
             UnitUnit.InitAll();
-            Orc o = new Orc(new Player("It's me, Mario", 1), new Position(1, 1));
+            Orc o = new Orc(new Player("It's me, Mario", 1, "Orc"), new Position(1, 1));
             o.endGame();
             Assert.AreEqual(0, o.pvOrc);
-            Orc o0 = new Orc(new Player("It's me, Mario", 1), new Position(2, 2));
+            Orc o0 = new Orc(new Player("It's me, Mario", 1, "Orc"), new Position(2, 2));
             o0.incPvOrc();
             o0.endGame();
             Assert.AreEqual(1, o0.pvOrc);
         }
 
         [TestMethod]
+        public void testLoadUnitOrc()
+        {
+            World.Clean();
+            MonteurSmall m = new MonteurSmall();
+            World.Instance.addPlayer("I", "Orc");
+            Orc o = new Orc(World.Instance.players.First(), new Position(1, 1));
+            World.Instance.players.First().listUnit.Add(o);
+            o.loadUnit(10, 11, 12, 13, 14, 15);
+            Assert.AreEqual(10, o.att);
+            Assert.AreEqual(11, o.def);
+            Assert.AreEqual(12, o.hp);
+            Assert.AreEqual(13, o.nbDeplacement);
+            Assert.AreEqual(14, o.initialLife);
+            Assert.AreEqual(15, o.pvOrc);
+        }
+
+        [TestMethod]
         public void testDwarf()
         {
-            Player p = new Player("Thorin", 1);
+            Player p = new Player("Thorin", 1, "Dwarf");
             Dwarf o = new Dwarf(p, new Position(1, 1));
             Assert.IsNotNull(o);
             Assert.AreEqual(2, o.att);
@@ -142,7 +159,7 @@ namespace TestUnitaire
         public void testcalcDeplAttDwarfFailMove()
         {
             UnitUnit.InitAll();
-            Dwarf o = new Dwarf(new Player("Monsieur patate", 2), new Position(5, 5));
+            Dwarf o = new Dwarf(new Player("Monsieur patate", 2, "Dwarf"), new Position(5, 5));
             Assert.AreEqual(1, o.calcDeplAtt(new Position(0, 0)));
             Assert.AreEqual(1, o.calcDeplAtt(new Position(1, 1)));
             Assert.AreEqual(0.5, o.calcDeplAtt(new Position(2, 2)));
@@ -154,7 +171,7 @@ namespace TestUnitaire
         public void testcalcDeplAttDwarf()
         {
             UnitUnit.InitAll();
-            Dwarf o = new Dwarf(new Player("Monsieur patate", 2), new Position(5, 5));
+            Dwarf o = new Dwarf(new Player("Monsieur patate", 2, "Dwarf"), new Position(5, 5));
             o.nbDeplacement = 2;
             Assert.AreEqual(1, o.calcDeplAtt(new Position(0, 0)));
             Assert.AreEqual(1, o.calcDeplAtt(new Position(1, 1)));
@@ -166,7 +183,7 @@ namespace TestUnitaire
             public void testcalcDeplDwarf()
         {
             UnitUnit.InitAll();
-            Dwarf o = new Dwarf(new Player("Monsieur patate", 2), new Position(5, 5));
+            Dwarf o = new Dwarf(new Player("Monsieur patate", 2, "Dwarf"), new Position(5, 5));
             o.nbDeplacement = 2;
             Assert.AreEqual(0, o.calcDepl(new Position(0, 0)));
             Assert.AreEqual(1, o.calcDepl(new Position(1, 1)));
@@ -189,9 +206,25 @@ namespace TestUnitaire
         }
 
         [TestMethod]
+        public void testLoadUnitDwarf()
+        {
+            World.Clean();
+            MonteurSmall m = new MonteurSmall();
+            World.Instance.addPlayer("I", "Dwarf");
+            Dwarf o = new Dwarf(World.Instance.players.First(), new Position(1, 1));
+            World.Instance.players.First().listUnit.Add(o);
+            o.loadUnit(10, 11, 12, 13, 14, -1);
+            Assert.AreEqual(10, o.att);
+            Assert.AreEqual(11, o.def);
+            Assert.AreEqual(12, o.hp);
+            Assert.AreEqual(13, o.nbDeplacement);
+            Assert.AreEqual(14, o.initialLife);
+        }
+
+        [TestMethod]
         public void testElf()
         {
-            Player p = new Player("Boucle d'or", 1);
+            Player p = new Player("Boucle d'or", 1, "Dwarf");
             Elf o = new Elf(p, new Position(1, 1));
             Assert.IsNotNull(o);
             Assert.AreEqual(2, o.att);
@@ -208,7 +241,7 @@ namespace TestUnitaire
         public void testcalcDeplElf()
         {
             UnitUnit.InitAll();
-            Elf o = new Elf(new Player("Monsieur patate", 2), new Position(5, 5));
+            Elf o = new Elf(new Player("Monsieur patate", 2, "Elf"), new Position(5, 5));
             o.nbDeplacement = 2;
             Assert.AreEqual(1, o.calcDepl(new Position(0, 0)));
             Assert.AreEqual(0.5, o.calcDepl(new Position(1, 1)));
@@ -221,7 +254,7 @@ namespace TestUnitaire
         public void testcalcDeplAttElfFailMove()
         {
             UnitUnit.InitAll();
-            Elf o = new Elf(new Player("Monsieur patate", 2), new Position(5, 5));
+            Elf o = new Elf(new Player("Monsieur patate", 2, "Elf"), new Position(5, 5));
             Assert.AreEqual(1, o.calcDeplAtt(new Position(0, 0)));
             Assert.AreEqual(0.5, o.calcDeplAtt(new Position(1, 1)));
             Assert.AreEqual(1, o.calcDeplAtt(new Position(2, 2)));
@@ -233,7 +266,7 @@ namespace TestUnitaire
         public void testcalcDeplAttElf()
         {
             UnitUnit.InitAll();
-            Elf o = new Elf(new Player("Monsieur patate", 2), new Position(5, 5));
+            Elf o = new Elf(new Player("Monsieur patate", 2, "Elf"), new Position(5, 5));
             o.nbDeplacement = 2;
             Assert.AreEqual(1, o.calcDeplAtt(new Position(0, 0)));
             Assert.AreEqual(0.5, o.calcDeplAtt(new Position(1, 1)));
@@ -259,6 +292,22 @@ namespace TestUnitaire
             }
             //les autres tests ont été réalisés en débuggage, ils ne sont pas affichés à cause de l'aléatoire
             //présent dans la méthode loseFight
+        }
+
+        [TestMethod]
+        public void testLoadUnitElf()
+        {
+            World.Clean();
+            MonteurSmall m = new MonteurSmall();
+            World.Instance.addPlayer("I", "Elf");
+            Elf o = new Elf(World.Instance.players.First(), new Position(1, 1));
+            World.Instance.players.First().listUnit.Add(o);
+            o.loadUnit(10, 11, 12, 13, 14, -1);
+            Assert.AreEqual(10, o.att);
+            Assert.AreEqual(11, o.def);
+            Assert.AreEqual(12, o.hp);
+            Assert.AreEqual(13, o.nbDeplacement);
+            Assert.AreEqual(14, o.initialLife);
         }
     }
 }

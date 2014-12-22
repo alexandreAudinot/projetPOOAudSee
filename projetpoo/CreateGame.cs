@@ -29,16 +29,20 @@ namespace ProjetPOO
              * --------------------------------Donner le numéro de chaque joueur----------------------------- *
              * --------------------------------------------------------------------------------------------- */
 
+            //pour décider quel joueur joue en premier
             Random rdm = new Random();
             World.Instance.currentPlayer = rdm.Next(0, World.Instance.players.Count());
             //changer les positions initiales, changer avec position Player.pDepart
 
-
-            //FactoryUnit f = new FactoryUnit();
-
-            //f.createUnit(World.Instance.players, tiles, World.Instance.listType);
-;
+            //La partie va commencer ? Charger alors les unités
+            List<Position> lpos = new List<Position>();
+            foreach (Player p in World.Instance.players)
+            {
+                lpos.Add(p.pDepart);
+            }
+            FactoryUnit f = new FactoryUnit(World.Instance.players, lpos, World.Instance.listType);
         }
+        //la partie peut ensuite commencer
 
 
         public void loadGame(World w, Board b)

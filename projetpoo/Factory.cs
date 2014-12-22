@@ -26,15 +26,7 @@ namespace ProjetPOO
             World.board.initVarBoard();
         }
     }
-    /*
-    public class MonteurLoadGame : Monteur
-    {
-        override public void createTiles()
-        {
 
-        }
-    }
-    */
     public class MonteurSmall : Monteur
     {
         //permet de caster le board créer par la classe mère

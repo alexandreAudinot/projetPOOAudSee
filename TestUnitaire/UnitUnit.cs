@@ -35,7 +35,7 @@ namespace TestUnitaire
         [TestMethod]
         public void testsetDefForUnitTest()
         {
-            Player p = new Player("Thorin", 1);
+            Player p = new Player("Thorin", 1,"Dwarf");
             Dwarf o = new Dwarf(p, new Position(1, 1));
             o.setDefForUnitTest(10);
             Assert.AreEqual(10, o.def);
@@ -44,7 +44,7 @@ namespace TestUnitaire
         [TestMethod]
         public void testsetHPForUnitTest()
         {
-            Player p = new Player("Thorin", 1);
+            Player p = new Player("Thorin", 1, "Dwarf");
             Dwarf o = new Dwarf(p, new Position(1, 1));
             o.setHPForUnitTest(10);
             Assert.AreEqual(10, o.hp);
@@ -53,7 +53,7 @@ namespace TestUnitaire
         [TestMethod]
         public void testInitDeplacement()
         {
-            Player p = new Player("Thorin", 1);
+            Player p = new Player("Thorin", 1, "Dwarf");
             Dwarf o = new Dwarf(p, new Position(1, 1));
             o.initDeplacement();
             Assert.AreEqual(2, o.nbDeplacement);
@@ -62,7 +62,7 @@ namespace TestUnitaire
         [TestMethod]
         public void testIsAlive()
         {
-            Player p = new Player("Thorin", 1);
+            Player p = new Player("Thorin", 1, "Dwarf");
             Dwarf o = new Dwarf(p, new Position(1, 1));
             Assert.AreEqual(true, o.isAlive());
             Dwarf o0 = new Dwarf(p, new Position(1, 1));
@@ -144,7 +144,7 @@ namespace TestUnitaire
         public void testcheckmove()
         {
             UnitTestWorld.InitAll();
-            Player p = new Player("Thorin", 1);
+            Player p = new Player("Thorin", 1, "Dwarf");
             Dwarf o = new Dwarf(p, new Position(2, 2));
             Assert.IsTrue(o.checkMove(new Position(3, 2)));
             Assert.IsTrue(o.checkMove(new Position(2, 3)));
@@ -163,7 +163,7 @@ namespace TestUnitaire
         [TestMethod]
         public void testMoveImpossible()
         {
-            Player p = new Player("Thorin", 1);
+            Player p = new Player("Thorin", 1, "Dwarf");
             Dwarf o = new Dwarf(p, new Position(2, 2));
             o.move(new Position(-5, -5));
         }

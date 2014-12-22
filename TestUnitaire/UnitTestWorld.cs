@@ -45,6 +45,20 @@ namespace TestUnitaire
         }
 
         [TestMethod]
+        public void testLoadGameWorld()
+        {
+            World.Clean();
+            MonteurSmall m = new MonteurSmall();
+            World.Instance.loadGameWorld(10, 11, 12, 13, true, 15);
+            Assert.AreEqual(10, World.Instance.maxnbTours);
+            Assert.AreEqual(11, World.Instance.nbTours);
+            Assert.AreEqual(12, World.Instance.nbUnity);
+            Assert.AreEqual(13, World.Instance.currentPlayer);
+            Assert.IsTrue(World.Instance.stateGame);
+            Assert.AreEqual(15, World.Instance.repliCurrentPlayer);
+        }
+
+        [TestMethod]
         public void testWorldVar()
         {
             InitAll();

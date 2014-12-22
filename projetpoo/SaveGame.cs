@@ -10,16 +10,18 @@ namespace ProjetPOO
 {
     public class SaveGame
     {
-        public void saveOnDisk()
-       { 
+        //fonction saveOnDisk() qui permet d'enregistrer la partie en un fichier saveX.txt
+        public string saveOnDisk()
+        {
             string assemblyDir = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             string pathString = Path.Combine(assemblyDir, "save");
-           int save = 1;
-           while (System.IO.File.Exists(pathString + save.ToString() + ".txt"))
+            int save = 1;
+            while (System.IO.File.Exists(pathString + save.ToString() + ".txt"))
             {
                 save++;
             }
             pathString += save.ToString() + ".txt";
+            String resul = "save" + save.ToString() + ".txt";
             string text = "Sauvegarde ProjetPOOAudSee\n";
             //On remplit le fichier avec les données de world et du board
             //variables int ou boolean
@@ -29,7 +31,8 @@ namespace ProjetPOO
             text += "[nbUnity = " + World.Instance.nbUnity + "], ";
             text += "[currentPlayer = " + World.Instance.currentPlayer + "], ";
             text += "[stateGame = " + World.Instance.stateGame + "], ";
-            text += "[repliCurrentPlayer = " + World.Instance.repliCurrentPlayer + "]\n";
+            text += "[repliCurrentPlayer = " + World.Instance.repliCurrentPlayer + "], ";
+            text += "[nbPlayers = " + World.Instance.players.Count() + "]\n";
             //board
             text += "[Board]\n";
             text += "[size = " + World.board.size + "], ";
@@ -37,7 +40,7 @@ namespace ProjetPOO
             {
                 for (int j = 0; j < World.board.size; j++)
                 {
-                    switch (World.board.Tiles[i,j].GetType().ToString())
+                    switch (World.board.Tiles[i, j].GetType().ToString())
                     {
                         case "ProjetPOO.Mountain":
                             text += "M";
@@ -52,7 +55,7 @@ namespace ProjetPOO
                             text += "D";
                             break;
                         default:
-                            throw new Exception("Type de terrain non matché : " + World.board.Tiles[i,j].GetType().ToString());
+                            throw new Exception("Type de terrain non matché : " + World.board.Tiles[i, j].GetType().ToString());
                     }
                     text += "[" + i + "," + j + "], ";
                 }
@@ -61,24 +64,23 @@ namespace ProjetPOO
             text += "\n[listType]\n";
             foreach (String s in World.Instance.listType)
             {
-                text += "[" + s + "] ,";
+                text += "[" + s + "], ";
             }
             //Liste Type disponible
             text += "\n[listTypeAvailaible]\n";
             foreach (String s0 in World.Instance.listAvailableType)
             {
-                text += "[" + s0 + "] ,";
+                text += "[" + s0 + "], ";
             }
-            int cpt = -1;
             foreach (Player p in World.Instance.players)
             {
-                cpt++;
-                text += "\n\n[player" + cpt + "]\n";
+                text += "\n\n[player]\n";
                 //attributs généraux de player
                 text += "[nom = " + p.nom + "], ";
                 text += "[numero = " + p.numero + "], ";
                 text += "[score = " + p.score + "], ";
-                text += "[pDepart  = (" + p.pDepart.x + "," + p.pDepart.y + ")]\n[listunit";
+                text += "[type = " + p.type + "], ";
+                text += "[pDepart = (" + p.pDepart.x + "," + p.pDepart.y + ")]\n[listunit";
                 //liste d'unités
                 foreach (Unit u in p.listUnit)
                 {
@@ -91,19 +93,32 @@ namespace ProjetPOO
                     text += "[position = (" + u.position.x + "," + u.position.y + ")], ";
                     if (u.GetType().ToString() == "ProjetPOO.Orc")
                     {
-                        text += "[pvOrc = " + ((Orc) u).pvOrc + "], ";
+                        text += "[pvOrc = " + ((Orc)u).pvOrc + "], ";
                     }
                 }
             }
             System.IO.File.WriteAllText(pathString, text);
+            return resul;
         }
 
-
-        public void loadOnDisk()
+        //fonction qui charge la partie contenue dans le fichier nomFichier
+        public void loadOnDisk(String nomFichier)
         {
+            World.Clean();
+            Monteur m;
             //on récupère le fichier trié par lignes
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Dan\Desktop\Cours\projetPOOAudSee\TestUnitaire\bin\Debug\save1.txt");
-            if (lines[0] != "Sauvegarde ProjetPOOAudSee")
+            string[] lines = new String[0];
+            try
+            {
+                string assemblyDir = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                string pathString = Path.Combine(assemblyDir, nomFichier);
+                lines = System.IO.File.ReadAllLines(pathString);
+            }
+            catch(Exception)
+            {
+                throw new Exception("Le fichier de sauvegarde n'a pas été trouvé");
+            }
+                if (lines[0] != "Sauvegarde ProjetPOOAudSee")
             {
                 throw new Exception("Le fichier lu n'est pas comptabible");
             }
@@ -116,42 +131,233 @@ namespace ProjetPOO
                 switch (msize.Groups[1].Value)
                 {
                     case "6":
-                        MonteurDemo monteur = new MonteurDemo();
+                        m = new MonteurDemo();
                         break;
                     case "10":
-                        MonteurSmall monteur2 = new MonteurSmall();
+                        m = new MonteurSmall();
                         break;
                     case "14":
-                        MonteurNormal monteur3 = new MonteurNormal();
+                        m = new MonteurNormal();
                         break;
                     default:
-                        throw new Exception("Size non matchée");
+                        throw new Exception("Size non reconnue");
                 }
             }
+            else
+            {
+                throw new Exception("Type du plateau non matché");
+            }
+            int snbPlayers = 0;
             //on récupère les informations relatives au world
             Regex rline1 = new Regex(@"^\[maxnbTours = ([\w]+)\],? \[nbTours = ([\w]+)\],? \[nbUnity = ([\w]+)\],?"
-                + @" \[currentPlayer = ([\w]+)\],? \[stateGame = ([\w]+)\],? \[repliCurrentPlayer = ([-\w]+)\]?");
+                + @" \[currentPlayer = ([\w]+)\],? \[stateGame = ([\w]+)\],? \[repliCurrentPlayer = (-[\w]+|[\w]+)\],? \[nbPlayers = ([\w]+)\]?");
             Match mline1 = rline1.Match(lines[2]);
             if (mline1.Success)
             {
-                int smaxnbTours = int.Parse(mline1.Groups[1].Value);
-                int snbTours = int.Parse(mline1.Groups[2].Value);
-                int snbUnity = int.Parse(mline1.Groups[3].Value);
-                int scurrentPlayer = int.Parse(mline1.Groups[4].Value);
-                Boolean sstateGame = Boolean.Parse(mline1.Groups[5].Value);
-                int srepliCurrentPlayer = int.Parse(mline1.Groups[6].Value);
-                //throw new Exception(smaxnbTours + " " + snbTours + " " + snbUnity + " " + scurrentPlayer + " " + sstateGame + " " + srepliCurrentPlayer);
+                try
+                {
+                    int smaxnbTours = int.Parse(mline1.Groups[1].Value);
+                    int snbTours = int.Parse(mline1.Groups[2].Value);
+                    int snbUnity = int.Parse(mline1.Groups[3].Value);
+                    int scurrentPlayer = int.Parse(mline1.Groups[4].Value);
+                    Boolean sstateGame = Boolean.Parse(mline1.Groups[5].Value);
+                    int srepliCurrentPlayer = int.Parse(mline1.Groups[6].Value);
+                    snbPlayers = int.Parse(mline1.Groups[7].Value);
+                    World.Instance.loadGameWorld(smaxnbTours, snbTours, snbUnity, scurrentPlayer, sstateGame, srepliCurrentPlayer);
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Problème dans la conversion des String pour le stockage des variables de World");
+                }
+            }
+            else
+            {
+                throw new Exception("Variables de World non matchées");
             }
             //on récupère le board
-            String s = "";
-            string sourceString = @"<box><3>\n<table><1>\n<chair><8>";
-            Regex ItemRegex = new Regex(@"<(?<item>\w+?)><(?<count>\d+?)>", RegexOptions.Compiled);
+            string sourceString = lines[4];
+            Regex ItemRegex = new Regex(@" (\w+?)\[(\w+?),(\w+?)\]", RegexOptions.Compiled);
             foreach (Match ItemMatch in ItemRegex.Matches(sourceString))
             {
-                s += ItemMatch.Groups[1].Value + " ";
-            }
+                if (ItemMatch.Success)
+                {
+                    try
+                    {
+                        switch (ItemMatch.Groups[1].Value)
+                        {
+                            case "D":
+                                World.board.Tiles[int.Parse(ItemMatch.Groups[2].Value), int.Parse(ItemMatch.Groups[3].Value)] = m.desertTile;
+                                break;
+                            case "F":
+                                World.board.Tiles[int.Parse(ItemMatch.Groups[2].Value), int.Parse(ItemMatch.Groups[3].Value)] = m.forestTile;
+                                break;
+                            case "M":
+                                World.board.Tiles[int.Parse(ItemMatch.Groups[2].Value), int.Parse(ItemMatch.Groups[3].Value)] = m.mountainTile;
+                                break;
+                            case "P": ;
+                                World.board.Tiles[int.Parse(ItemMatch.Groups[2].Value), int.Parse(ItemMatch.Groups[3].Value)] = m.plainTile;
+                                break;
+                            default:
+                                throw new Exception("Terrain du board non reconnu");
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        throw new Exception("Problème dans la conversion des String pour le stockage des variables du board");
 
-            throw new Exception (s);
+                    }
+                }
+                else
+                {
+                    throw new Exception("Variables du plateau non matchées");
+                }
+            }
+            // gestion de la liste de types
+            string sourcelistType = lines[6];
+            Regex ItemRegex2 = new Regex(@"\[(\w+?)\]", RegexOptions.Compiled);
+            List<String> sltype = new List<string>();
+            foreach (Match ItemMatch in ItemRegex2.Matches(sourcelistType))
+            {
+                if (ItemMatch.Success)
+                {
+                    sltype.Add(ItemMatch.Groups[1].Value);
+                }
+                else
+                {
+                    throw new Exception("listType non matché");
+                }
+            }
+            // gestion de la liste de types available
+            string sourcelistType2 = lines[8];
+            Regex ItemRegex3 = new Regex(@"\[(\w+?)\]", RegexOptions.Compiled);
+            List<String> sltypeAv = new List<string>();
+            foreach (Match ItemMatch in ItemRegex3.Matches(sourcelistType2))
+            {
+                if (ItemMatch.Success)
+                {
+                    sltypeAv.Add(ItemMatch.Groups[1].Value);
+                }
+                else
+                {
+                    throw new Exception("listTypeAvailable non matché");
+                }
+            }
+            //Gestion des players
+            //on calcule l'indice de ligne avec (tare + nbplayerRead * 4)
+            int tare = 11;
+            int nbplayerRead = 0;
+            String stype;
+            while (nbplayerRead < snbPlayers)
+            {
+                Regex rlineP = new Regex(@"^\[nom = (.*)\],? \[numero = ([\w]+)\],? \[score = ([\w]+)\],? \[type = ([\w]+)\],?"
+                    + @" \[pDepart = \(([\w]+),([\w]+)\)\]?");
+                Match mlineP = rlineP.Match(lines[tare + nbplayerRead * 4]);
+                if (mlineP.Success)
+                {
+                    try
+                    {
+                        String snom = mlineP.Groups[1].Value;
+                        int snumero = int.Parse(mlineP.Groups[2].Value);
+                        int sscore = int.Parse(mlineP.Groups[3].Value);
+                        stype = mlineP.Groups[4].Value;
+                        Position pDepart = new Position(int.Parse(mlineP.Groups[5].Value), int.Parse(mlineP.Groups[6].Value));
+                        World.Instance.addPlayer(snom, stype);
+                        World.Instance.players.ElementAt(nbplayerRead).score = sscore;
+                        World.Instance.players.ElementAt(nbplayerRead).pDepart = pDepart;
+                    }
+                    catch (Exception)
+                    {
+                        throw new Exception("Problème dans la conversion des String pour le stockage des variables de player");
+                    }
+                    //on récupère listunit
+                    if (stype != "Orc")
+                    {
+                        //le joueur est elf ou dwarf
+                        string sourceString4 = lines[tare + nbplayerRead * 4 + 1];
+                        Regex ItemRegex4 = new Regex(@"\[att = (\w+?)\], \[def = (\w+?)\], \[hp = (\w+?)\], \[nbDeplacement = (\w+?)\], \[initialLife = (\w+?)\], \[controler = (\w+?)\], \[position = \((\w+?),(\w+?)\)\],", RegexOptions.Compiled);
+                        int cptUnity = -1;
+                        foreach (Match ItemMatch in ItemRegex4.Matches(sourceString4))
+                        {
+                            cptUnity++;
+                            if (ItemMatch.Success)
+                            {
+                                try
+                                {
+                                    int uatt = int.Parse(ItemMatch.Groups[1].Value);
+                                    int udef = int.Parse(ItemMatch.Groups[2].Value);
+                                    int uhp = int.Parse(ItemMatch.Groups[3].Value);
+                                    int unbDeplacement = int.Parse(ItemMatch.Groups[4].Value);
+                                    int uinitialLife = int.Parse(ItemMatch.Groups[5].Value);
+                                    int ucontroler = int.Parse(ItemMatch.Groups[6].Value);
+                                    Position uposition = new Position(int.Parse(ItemMatch.Groups[7].Value), int.Parse(ItemMatch.Groups[8].Value));
+                                    if (stype == "Elf")
+                                    {
+                                        World.Instance.players.ElementAt(nbplayerRead).listUnit.Add(new Elf(World.Instance.players.ElementAt(nbplayerRead), uposition));
+                                    }
+                                    else
+                                    {
+                                        World.Instance.players.ElementAt(nbplayerRead).listUnit.Add(new Dwarf(World.Instance.players.ElementAt(nbplayerRead), uposition));
+                                    }
+                                    ((Unit) World.Instance.players.ElementAt(nbplayerRead).listUnit.ElementAt(cptUnity)).loadUnit(uatt, udef, uhp, unbDeplacement, uinitialLife,-1);
+                                }
+                                catch (Exception)
+                                {
+                                    throw new Exception("Problème dans la conversion des String pour le stockage des variables de listunit classique");
+                                }
+                            }
+                            else
+                            {
+                                throw new Exception("Variables de listunit classique non matchées");
+                            } 
+                        }
+                        nbplayerRead++;
+                    }
+                    else
+                    {
+                        //le joueur est orc (gestion de pvorc)
+                        string sourceString4 = lines[tare + nbplayerRead * 4 + 1];
+                        Regex ItemRegex4 = new Regex(@"\[att = (\w+?)\], \[def = (\w+?)\], \[hp = (\w+?)\], \[nbDeplacement = (\w+?)\], \[initialLife = (\w+?)\], \[controler = (\w+?)\], \[position = \((\w+?),(\w+?)\)\], \[pvOrc = (\w+?)\],", RegexOptions.Compiled);
+                        String s = "";
+                        int cptUnity = -1;
+                        foreach (Match ItemMatch in ItemRegex4.Matches(sourceString4))
+                            {
+                            cptUnity++;
+                            if (ItemMatch.Success)
+                            {
+                                try
+                                {
+                                    int uatt = int.Parse(ItemMatch.Groups[1].Value);
+                                    int udef = int.Parse(ItemMatch.Groups[2].Value);
+                                    int uhp = int.Parse(ItemMatch.Groups[3].Value);
+                                    int unbDeplacement = int.Parse(ItemMatch.Groups[4].Value);
+                                    int uinitialLife = int.Parse(ItemMatch.Groups[5].Value);
+                                    int ucontroler = int.Parse(ItemMatch.Groups[6].Value);
+                                    Position uposition = new Position(int.Parse(ItemMatch.Groups[7].Value), int.Parse(ItemMatch.Groups[8].Value));
+                                    int upvOrc = int.Parse(ItemMatch.Groups[9].Value);
+                                    s += " (" + uatt + "," + udef + "," + uhp + "," + unbDeplacement + "," + uinitialLife + "," + ucontroler + "," +  uposition.x + "," + uposition.y + "," + upvOrc + ")";
+                                    World.Instance.players.ElementAt(nbplayerRead).listUnit.Add(new Orc(World.Instance.players.ElementAt(nbplayerRead), uposition));
+                                    
+                                ((Unit)World.Instance.players.ElementAt(nbplayerRead).listUnit.ElementAt(cptUnity)).loadUnit(uatt, udef, uhp, unbDeplacement, uinitialLife, upvOrc);
+                                 
+                                }
+                                catch (Exception)
+                                {
+                                    throw new Exception("Problème dans la conversion des String pour le stockage des variables de listunit Orc");
+                                }
+                            }
+                            else
+                            {
+                                throw new Exception("Variables de listunit Orc non matchées");
+                            }
+                        }
+                        nbplayerRead++;
+                    }
+                }
+                else
+                {
+                    throw new Exception("Variables de player non matchées");
+                }
+            }
         }
     }
 }

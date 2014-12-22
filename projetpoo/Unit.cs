@@ -8,9 +8,9 @@ namespace ProjetPOO
 {
     public abstract class Unit : ProjetPOO.IUnit
     {
-        public int att { get; private set; }
+        public int att { get; protected set; }
         public int def { get; protected set; }
-        public int hp { get; private set; }
+        public int hp { get; protected set; }
         public double nbDeplacement { get; set; }
         public Player controler { get; set; }
         public Position position { get; set; }
@@ -20,6 +20,7 @@ namespace ProjetPOO
         public abstract void endGame();
         public abstract bool loseFight();
         public abstract void winFight(Position p);
+        public abstract void loadUnit(int uatt, int udef, int uhp, int unbDeplacement, int uinitialLife, int opt);
 
         //constructeur d'unité, méthode accessible que par les classes filles
         protected Unit(Player p, Position po)

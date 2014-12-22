@@ -38,7 +38,7 @@ namespace TestUnitaire
         [TestMethod]
         public void testIncScore()
         {
-            Player p = new Player("Maurice", 1);
+            Player p = new Player("Maurice", 1, "Dwarf");
             p.incScore();
             Assert.AreEqual(1, p.score);
         }
@@ -100,16 +100,18 @@ namespace TestUnitaire
             World.Instance.addPlayer("Il va mourir à la fin", "Orc");
             Orc o = new Orc(World.Instance.players.ElementAt(1), new Position(1, 1));
             o.setPvForUnitTest(2);
-            Orc o0 = new Orc(World.Instance.players.ElementAt(1), new Position(1, 1));
+            Assert.AreEqual(2, o.pvOrc);
+            Orc o0 = new Orc(World.Instance.players.ElementAt(1), new Position(2, 2));
             o0.setPvForUnitTest(1);
+            Assert.AreEqual(1, o0.pvOrc);
             World.Instance.players.ElementAt(1).listUnit.Add(o);
             World.Instance.players.ElementAt(1).listUnit.Add(o0);
             World.Instance.players.First().score = 2;
             World.Instance.players.ElementAt(1).score = 0;
             World.Instance.players.First().updateSpecialPv();
             World.Instance.players.ElementAt(1).updateSpecialPv();
-            /*Assert.AreEqual(2, World.Instance.players.First().score);
-            Assert.AreEqual(3, World.Instance.players.ElementAt(1).score);*/
+            Assert.AreEqual(2, World.Instance.players.First().score);
+            Assert.AreEqual(1, World.Instance.players.ElementAt(1).score);
         }
 
         //teste aussi updateScoreOrc

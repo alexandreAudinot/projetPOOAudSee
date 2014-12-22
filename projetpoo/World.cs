@@ -45,6 +45,17 @@ namespace ProjetPOO
             repliCurrentPlayer = -1;
         } 
 
+        //fonction qui permet d'initialiser World lors d'un chargement
+        public void loadGameWorld(int smaxnbTours, int snbTours, int snbUnity, int scurrentPlayer, bool sstateGame, int srepliCurrentPlayer)
+        {
+            maxnbTours = smaxnbTours;
+            nbTours = snbTours;
+            nbUnity = snbUnity;
+            currentPlayer = scurrentPlayer;
+            stateGame = sstateGame;
+            repliCurrentPlayer = srepliCurrentPlayer;
+        }
+
         //ajoute les types possibles des variables pendant l'initialisation
         public void InitType()
         {
@@ -164,10 +175,10 @@ namespace ProjetPOO
                 }
                 else
                 {
-                    Player player = new Player(nomJoueur, World.Instance.players.Count());
+                    Player player = new Player(nomJoueur, World.Instance.players.Count(), type);
                     World.Instance.listType.Add(type);
                     World.Instance.players.Add(player);
-                }
+                    }
                     
             }
         }
@@ -190,10 +201,6 @@ namespace ProjetPOO
         {
             stateGame = false;
             World.Instance.updateScore();
-            /*foreach (Player p in World.Instance.players)
-            {
-                p.endGame();
-            }*/
         }
 
         //méthode updateScore qui update le score de tous les joueurs

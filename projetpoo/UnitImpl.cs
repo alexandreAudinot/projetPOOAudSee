@@ -15,6 +15,18 @@ namespace ProjetPOO
             pvOrc = 0;
         }
 
+        override
+        //loadUnit permet de charger une unité selon les valeurs données en paramètre
+        public void loadUnit(int uatt, int udef, int uhp, int unbDeplacement, int uinitialLife, int opt)
+        {
+            att = uatt;
+            def = udef;
+            hp = uhp;
+            nbDeplacement = unbDeplacement;
+            initialLife = uinitialLife;
+            pvOrc = opt;
+        }
+
         //méthode utilisée pour les tests unitaires seulement
         //permet de changer les pv d'un orc
         public void setPvForUnitTest(int h)
@@ -35,7 +47,6 @@ namespace ProjetPOO
         {
             double deplacementDuTour = 0;
             //Les coûts de déplacement sont différents selon le type de terrain
-            //gettyle TODO
             switch (World.Instance.getTile(p).GetType().ToString())
             {
                 case "ProjetPOO.Mountain":
@@ -99,6 +110,17 @@ namespace ProjetPOO
     {
         //constructeur de Dwarf
         public Dwarf(Player p, Position po) : base(p,po){}
+
+        override
+        //loadUnit permet de charger une unité
+        public  void loadUnit(int uatt, int udef, int uhp, int unbDeplacement, int uinitialLife, int opt)
+        {
+            att = uatt;
+            def = udef;
+            hp = uhp;
+            nbDeplacement = unbDeplacement;
+            initialLife = uinitialLife;
+        }
 
         //calcDeplAtt calcule le déplacement en cas d'attaque du nain
         override
@@ -188,6 +210,17 @@ namespace ProjetPOO
     {
         //constructeur de Elf
         public Elf(Player p, Position po) : base(p,po){}
+
+        override
+        //loadUnit permet de charger une unité
+        public void loadUnit(int uatt, int udef, int uhp, int unbDeplacement, int uinitialLife, int opt)
+        {
+            att = uatt;
+            def = udef;
+            hp = uhp;
+            nbDeplacement = unbDeplacement;
+            initialLife = uinitialLife;
+        }
 
         //calcDeplAtt gère le déplacement d'une attaque. Il n'est différent que pour le nain.
         //le reste des unités appelle calcdepl

@@ -12,12 +12,13 @@ namespace ProjetPOO
         public Tile[,] Tiles { get; set; }
         public abstract void initVarBoard();
 
-        /*public void initBoard()
+        
+        public void initBoard()
         {
             Wrapper wrapper = new Wrapper();
             List<int> generatedList;
             generatedList = wrapper.compute(12, 12);
-        }*/
+        }
 
         //méthode getTile qui permet de retourner la Tile en rapport avec la position
         public Tile getTile(Position p)
