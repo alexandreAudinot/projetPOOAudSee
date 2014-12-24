@@ -14,7 +14,8 @@
             <ColumnDefinition Width="516*"/>
             <ColumnDefinition Width="7*"/>
         </Grid.ColumnDefinitions>
-        <controls:Menu Grid.ColumnSpan="2" Margin="119,95,117,211" Grid.Row="1" />
+        <controls:Menu Grid.ColumnSpan="2" Margin="119,95,117,211" Grid.Row="1" Visibility="Visible" Name="Menu" />
+        <controls:Game Grid.ColumnSpan="2" Margin="119,95,117,211" Grid.Row="1" Visibility="Collapsed" Name="Game"/>
 
     </Grid>
 </Window>
