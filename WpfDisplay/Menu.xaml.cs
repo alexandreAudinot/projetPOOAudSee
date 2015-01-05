@@ -27,7 +27,8 @@ namespace WpfDisplay
 
         private void New_Click(object sender, RoutedEventArgs e)
         {
-
+            //throw signal "New game"
+            //((MainWindow)Parent).newGame();
         }
 
         private void Load_Click(object sender, RoutedEventArgs e)
