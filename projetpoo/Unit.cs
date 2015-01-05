@@ -51,7 +51,7 @@ namespace ProjetPOO
         //initialisation du déplacement en début de tour
         public void initDeplacement()
         {
-            nbDeplacement = 2 ; //TOCHECK
+            nbDeplacement = 1 ;
         }
 
         //vérification si l'unité est en vie
