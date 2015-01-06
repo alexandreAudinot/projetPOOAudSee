@@ -56,5 +56,10 @@ namespace WpfDisplay
         {
 
         }
+
+        private void test(object sender, RoutedEventArgs e)
+        {
+            //((Canvas)FindName("Map")).
+        }
     }
 }
