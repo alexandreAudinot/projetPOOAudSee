@@ -52,8 +52,8 @@ namespace TestUnitaire
             World.Instance.players.First().listUnit.Add(new Orc(World.Instance.players.First(), new Position(1, 1)));
             World.Instance.players.First().listUnit.Add(new Orc(World.Instance.players.First(), new Position(1, 2)));
             World.Instance.players.First().initDeplacement();
-            Assert.AreEqual(2, ((Unit)World.Instance.players.First().listUnit.First()).nbDeplacement);
-            Assert.AreEqual(2, ((Unit)World.Instance.players.First().listUnit.ElementAt(1)).nbDeplacement);
+            Assert.AreEqual(1, ((Unit)World.Instance.players.First().listUnit.First()).nbDeplacement);
+            Assert.AreEqual(1, ((Unit)World.Instance.players.First().listUnit.ElementAt(1)).nbDeplacement);
         }
 
         [TestMethod]

@@ -56,7 +56,7 @@ namespace TestUnitaire
             Player p = new Player("Thorin", 1, "Dwarf");
             Dwarf o = new Dwarf(p, new Position(1, 1));
             o.initDeplacement();
-            Assert.AreEqual(2, o.nbDeplacement);
+            Assert.AreEqual(1, o.nbDeplacement);
         }
 
         [TestMethod]
@@ -214,7 +214,7 @@ namespace TestUnitaire
             World.Instance.players.First().listUnit.Add(o1);
             World.Instance.players.First().initDeplacement();
             World.Instance.players.First().listUnit.First().makeAMove(new Position(2, 2), 1);
-            Assert.AreEqual(1.5, ((Unit)World.Instance.players.First().listUnit.First()).nbDeplacement);
+            Assert.AreEqual(0.5, ((Unit)World.Instance.players.First().listUnit.First()).nbDeplacement);
             Assert.IsTrue((((Unit)World.Instance.players.First().listUnit.First()).position).equals(new Position(2, 2)));
         }
 
@@ -298,7 +298,7 @@ namespace TestUnitaire
             World.Instance.players.First().listUnit.Add(o1);
             World.Instance.players.First().initDeplacement();
             World.Instance.players.First().listUnit.First().makeAMove(new Position(2, 2), 1);
-            Assert.AreEqual(1.5,((Unit) World.Instance.players.First().listUnit.First()).nbDeplacement);
+            Assert.AreEqual(0.5,((Unit) World.Instance.players.First().listUnit.First()).nbDeplacement);
             Assert.IsTrue((((Unit) World.Instance.players.First().listUnit.First()).position).equals(new Position (2,2)));
         }
 
