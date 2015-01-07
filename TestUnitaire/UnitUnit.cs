@@ -343,15 +343,25 @@ namespace TestUnitaire
             Monteur m = new MonteurNormal();
             World.Instance.addPlayer("Azog", "Orc");
             World.Instance.addPlayer("Marty Mc Fly", "Dwarf");
+            //throw new Exception(World.Instance.players.First().numero + " " + World.Instance.players.ElementAt(1).numero);
             Orc o = new Orc(World.Instance.players.First(), new Position(2, 2));
-            Orc o0 = new Orc(World.Instance.players.First(), new Position(1, 1));
-            Dwarf e = new Dwarf(World.Instance.players.First(), new Position(5, 5));
+            Orc o0 = new Orc(World.Instance.players.First(), new Position(1, 2));
+            Orc o00 = new Orc(World.Instance.players.First(), new Position(3, 1));
+            Dwarf e = new Dwarf(World.Instance.players.ElementAt(1), new Position(2, 1));
+            e.setHPForUnitTest(1);
+            Dwarf e0 = new Dwarf(World.Instance.players.ElementAt(1), new Position(2, 3));
             World.Instance.players.First().listUnit.Add(o);
             World.Instance.players.First().listUnit.Add(o0);
+            World.Instance.players.First().listUnit.Add(o00);
             World.Instance.players.ElementAt(1).listUnit.Add(e);
+            World.Instance.players.ElementAt(1).listUnit.Add(e0);
             List<Position> l = ((Unit) World.Instance.players.First().listUnit.First()).getMoveSuggestions();
-            throw new Exception(l.First().x + " " + l.First().y);
-            Assert.IsTrue((new Position(0, 1).equals(l.First())));
+            Assert.IsFalse((new Position(1, 2).equals(l.First())));
+            Assert.IsTrue((new Position(1, 3).equals(l.ElementAt(0))));
+            Assert.IsTrue((new Position(2, 1).equals(l.ElementAt(1))));
+            Assert.IsFalse((new Position(2, 3).equals(l.ElementAt(2))));
+            Assert.IsFalse((new Position(3, 1).equals(l.ElementAt(2))));
+            Assert.IsTrue((new Position(3, 2).equals(l.ElementAt(2))));
         }
     }
 }

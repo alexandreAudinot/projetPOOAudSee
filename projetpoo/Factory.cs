@@ -54,6 +54,7 @@ namespace ProjetPOO
                     case ("Elf"):
                         World.Instance.listType.Add("Elf");
                         elf = new Elf(player, lpos.ElementAt(i));
+                        elf.controler.numero = player.numero;
                         nb = World.Instance.nbUnity;
                         while (nb > 0)
                         {
@@ -66,6 +67,7 @@ namespace ProjetPOO
                     case ("Dwarf"):
                         World.Instance.listType.Add("Dwarf");
                         dwarf = new Dwarf(player, lpos.ElementAt(i));
+                        dwarf.controler.numero = player.numero;
                         nb = World.Instance.nbUnity;
                         while (nb > 0)
                         {
@@ -78,6 +80,7 @@ namespace ProjetPOO
                     case ("Orc"):
                         World.Instance.listType.Add("Orc");
                         orc = new Orc(player, lpos.ElementAt(i));
+                        orc.controler.numero = player.numero;
                         nb = World.Instance.nbUnity;
                         while (nb > 0)
                         {

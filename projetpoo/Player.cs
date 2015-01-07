@@ -8,7 +8,7 @@ namespace ProjetPOO
     public class Player
     {
         public string nom { get; private set; }
-        public int numero { get; private set; }
+        public int numero { get; set; }
         public int score { get; set; }
         public List<IUnit> listUnit { get; set; }
         public Position pDepart { get; set; }

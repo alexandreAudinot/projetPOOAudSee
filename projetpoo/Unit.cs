@@ -242,7 +242,6 @@ namespace ProjetPOO
             {
                 for (int y = j - 1; y < j + 2; y++)
                 {
-                    s = i + " " + j + " , ";
                     this.initDeplacement();
                     if (!(x == y))
                     {
@@ -250,7 +249,6 @@ namespace ProjetPOO
                         //on vérifie que le mouvement est possible
                         if (this.checkMove(p))
                         {
-                            throw new Exception("" + x + " " + y);
                             if (World.Instance.unitBool(p))
                             {//cas où une unité est sur la case
                                 if (World.Instance.unitCount(p) < 2)
@@ -271,8 +269,8 @@ namespace ProjetPOO
                             }
                             else
                             {
-                                throw new Exception("" + x + " " + y);
                                 l.Add(p);
+                                s += x + " " + y + " , ";
                                 //cas où il n'y a pas d'unité
                                 if (this.calcDepl(p) <= this.nbDeplacement)
                                 {//le déplacement est possible
@@ -287,12 +285,26 @@ namespace ProjetPOO
                     }
                 }
             }
+            throw new Exception("" + s);
 
+
+            //on ne prend que trois suggestions de l
+            /*List<Position> lres = new List<Position>();
+            int cpt = 3;
+            Random random = new Random();
+            int index;
+            while ((cpt > 0)||(l.Any()))
+            {
+                index = random.Next(0, l.Count());
+                lres.Add(l.ElementAt(index));
+                l.RemoveAt(index);
+                cpt--;
+            }*/
 
             //on ne prend que les trois premières suggestions de l
             List<Position> lres = new List<Position>();
             int cpt = 0;
-            foreach(Position p0 in l)
+            foreach (Position p0 in l)
             {
                 if (cpt > 3)
                 {
@@ -305,6 +317,7 @@ namespace ProjetPOO
                 }
             }
             //throw new Exception("coco" + s);
+
             return lres;
         }
     }
