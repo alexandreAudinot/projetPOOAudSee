@@ -335,5 +335,23 @@ namespace TestUnitaire
             Assert.AreEqual(1, ((Orc)World.Instance.players.First().listUnit.First()).pvOrc);
             Assert.IsTrue((new Position(1,2)).equals(o.position));
         }
+
+        [TestMethod]
+        public void testGetMoveSuggestions()
+        {
+            World.Clean();
+            Monteur m = new MonteurNormal();
+            World.Instance.addPlayer("Azog", "Orc");
+            World.Instance.addPlayer("Marty Mc Fly", "Dwarf");
+            Orc o = new Orc(World.Instance.players.First(), new Position(2, 2));
+            Orc o0 = new Orc(World.Instance.players.First(), new Position(1, 1));
+            Dwarf e = new Dwarf(World.Instance.players.First(), new Position(5, 5));
+            World.Instance.players.First().listUnit.Add(o);
+            World.Instance.players.First().listUnit.Add(o0);
+            World.Instance.players.ElementAt(1).listUnit.Add(e);
+            List<Position> l = ((Unit) World.Instance.players.First().listUnit.First()).getMoveSuggestions();
+            throw new Exception(l.First().x + " " + l.First().y);
+            Assert.IsTrue((new Position(0, 1).equals(l.First())));
+        }
     }
 }

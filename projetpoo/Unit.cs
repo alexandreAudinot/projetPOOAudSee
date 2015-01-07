@@ -135,7 +135,6 @@ namespace ProjetPOO
         //Les déplacements possibles pour la case 2,2 sont (1,2), (2,1), (2,3), (3,2), (1,3), (3,1).
         public bool checkMove(Position p)
         {
-            //tomodify TODO pour les cases hexagonales
             if (!((p.x < 0) || (p.y < 0) || (p.x >= World.board.size) || (p.y >= World.board.size)))
             {
                 return (
@@ -235,22 +234,28 @@ namespace ProjetPOO
         {
             List<Position> l = new List<Position>();
             int i = this.position.x;
-            int j = this.position.x;
+            int j = this.position.y;
             Position p;
+            String s = "";
 
-            for (int x = i - 1; x < x + 2; x++)
+            for (int x = i - 1; x < i + 2; x++)
             {
-                for (int y = j - 1; y < y + 2; y++)
+                for (int y = j - 1; y < j + 2; y++)
                 {
-                        p = new Position(x, y);
-                    //on vérifie que le mouvement est possible
-                    if (checkMove(p))
+                    s = i + " " + j + " , ";
+                    this.initDeplacement();
+                    if (!(x == y))
                     {
-                        if (World.Instance.unitBool(p))
-                        {//cas où une unité est sur la case
-                            if (World.Instance.unitCount(p) < 2)
+                        p = new Position(x, y);
+                        //on vérifie que le mouvement est possible
+                        if (this.checkMove(p))
+                        {
+                            throw new Exception("" + x + " " + y);
+                            if (World.Instance.unitBool(p))
+                            {//cas où une unité est sur la case
+                                if (World.Instance.unitCount(p) < 2)
                                 {//on n'attaquera pas / ne rejoindra pas les cases avec plus d'une unité dessus
-                                if (World.Instance.getUnit(p).controler.numero != this.controler.numero)
+                                    if (World.Instance.getUnit(p).controler.numero != this.controler.numero)
                                     {//cas de l'unité ennemie
                                         //cas où le déplacement est possible
                                         if (this.calcDeplAtt(p) <= this.nbDeplacement)
@@ -260,25 +265,26 @@ namespace ProjetPOO
                                                 l.Add(p);
                                             }
                                         }
-                                    }   
+                                    }
+                                }
+
                             }
+                            else
+                            {
+                                throw new Exception("" + x + " " + y);
+                                l.Add(p);
+                                //cas où il n'y a pas d'unité
+                                if (this.calcDepl(p) <= this.nbDeplacement)
+                                {//le déplacement est possible
+                                    /*if (!this.controler.findAllies())
+                                    {
+                                        l.Add(p);
+                                    }*/
 
-                        }
-                        else
-                        {
-                            //cas où il n'y a pas d'unité
-                            if (this.calcDepl(p) <= this.nbDeplacement)
-                            {//le déplacement est possible
-                                /*if (!this.controler.findAllies())
-                                {
-                                    l.Add(p);
-                                }*/
-
+                                }
                             }
                         }
                     }
-
-
                 }
             }
 
@@ -298,6 +304,7 @@ namespace ProjetPOO
                     cpt++;
                 }
             }
+            //throw new Exception("coco" + s);
             return lres;
         }
     }
