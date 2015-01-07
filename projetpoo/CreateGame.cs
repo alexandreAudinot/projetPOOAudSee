@@ -18,13 +18,12 @@ namespace ProjetPOO
              /* ------------------------------Type du plateau, appels à faire--------------------------------- *
               * -----------------------Plateau Demo : MonteurDemo m = new MonteurDemo()----------------------- *
               * -----------------------Plateau Small : MonteurSmall m = new MonteurSmall()-------------------- *
-              * -----------------------Plateau Normal : MonteurNormal m = new MonteurDemo()------------------- *
+              * -----------------------Plateau Normal : MonteurNormal m = new MonteurNormal()------------------- *
               * ---------------------------------------------------------------------------------------------- */
 
 
             /* ------------------------------Type des joueurs, appels à faire-------------------------------- *
              * ---------------------- les joueurs sont numérotés selon la vitesse d'inscription-------------- *
-             * -----------------------Joueur nom, type : World.Instance.addPlayer(nom,type) ----------------- *
              * -----------------------Joueur nom, type : World.Instance.addPlayer(nom,type) ----------------- *
              * --------------------------------Donner le numéro de chaque joueur----------------------------- *
              * --------------------------------------------------------------------------------------------- */
@@ -44,10 +43,5 @@ namespace ProjetPOO
         }
         //la partie peut ensuite commencer
 
-
-        public void loadGame(World w, Board b)
-        {
-            //TODO
-        }
     }
 }

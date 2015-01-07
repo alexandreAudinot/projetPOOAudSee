@@ -222,9 +222,83 @@ namespace ProjetPOO
             this.winFight(p);
         }
 
+        //winFightDef permet de gérer le traitement additionnel en cas de victoire dans un combat
+        //défensif pour l'unité courante
         public void winFightDef(Position p)
         {
             this.winFight(p);
+        }
+
+        //fight 2 unités ennemies TODO
+        //getMoveSuggestions permet de faire la suggestion de 3 cases maximum pour une unité
+        public List<Position> getMoveSuggestions()
+        {
+            List<Position> l = new List<Position>();
+            int i = this.position.x;
+            int j = this.position.x;
+            Position p;
+
+            for (int x = i - 1; x < x + 2; x++)
+            {
+                for (int y = j - 1; y < y + 2; y++)
+                {
+                        p = new Position(x, y);
+                    //on vérifie que le mouvement est possible
+                    if (checkMove(p))
+                    {
+                        if (World.Instance.unitBool(p))
+                        {//cas où une unité est sur la case
+                            if (World.Instance.unitCount(p) < 2)
+                                {//on n'attaquera pas / ne rejoindra pas les cases avec plus d'une unité dessus
+                                if (World.Instance.getUnit(p).controler.numero != this.controler.numero)
+                                    {//cas de l'unité ennemie
+                                        //cas où le déplacement est possible
+                                        if (this.calcDeplAtt(p) <= this.nbDeplacement)
+                                        { // on decide de ne tenter le combat que si la vie de l'unité adverse est inférieure
+                                            if (World.Instance.getUnit(p).hp < this.hp)
+                                            {//le combat est envisageable
+                                                l.Add(p);
+                                            }
+                                        }
+                                    }   
+                            }
+
+                        }
+                        else
+                        {
+                            //cas où il n'y a pas d'unité
+                            if (this.calcDepl(p) <= this.nbDeplacement)
+                            {//le déplacement est possible
+                                /*if (!this.controler.findAllies())
+                                {
+                                    l.Add(p);
+                                }*/
+
+                            }
+                        }
+                    }
+
+
+                }
+            }
+
+
+            //on ne prend que les trois premières suggestions de l
+            List<Position> lres = new List<Position>();
+            int cpt = 0;
+            foreach(Position p0 in l)
+            {
+                if (cpt > 3)
+                {
+                    return lres;
+                }
+                else
+                {
+                    lres.Add(p0);
+                    cpt++;
+                }
+            }
+            return lres;
         }
     }
 }

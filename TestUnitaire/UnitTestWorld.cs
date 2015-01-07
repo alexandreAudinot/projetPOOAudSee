@@ -89,6 +89,17 @@ namespace TestUnitaire
         }
 
         [TestMethod]
+        public void testUnitCount()
+        {
+            InitAll();
+            World.Instance.addPlayer("Jean-Pierre", "Orc");
+            World.Instance.players.First().listUnit.Add(new Orc(World.Instance.players.First(), new Position(1, 1)));
+            World.Instance.players.First().listUnit.Add(new Orc(World.Instance.players.First(), new Position(1, 1)));
+            Assert.AreEqual(2, World.Instance.unitCount(new Position(1, 1)));
+            Assert.AreEqual(0, World.Instance.unitCount(new Position(1, 2)));
+        }
+
+        [TestMethod]
         public void testCanMove()
         {
             InitAll();

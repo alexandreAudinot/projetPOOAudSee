@@ -61,7 +61,6 @@
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
     <None Include="Interfaces.cd" />
-    <None Include="PoidsMouche.cd" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Wrapping\Wrapping.vcxproj">

@@ -82,18 +82,25 @@ namespace ProjetPOO
         //unitBool rend vrai s'il y a une unité sur la position p
         public bool unitBool(Position p)
         {
+            return unitCount(p) > 0;
+        }
+
+        //unitCount rend le nombre d'unités sur la position p
+        public int unitCount(Position p)
+        {
+            int cpt = 0;
             foreach (Player player in World.Instance.players)
             {
                 foreach (Unit unit in player.listUnit)
                 {
                     if (unit.position.equals(p))
                     {
-                        return true;
+                        cpt++;
                     }
                 }
             }
-                
-            return false;
+
+            return cpt;
         }
 
         //getUnit rend une unité nulle s'il n'y a pas de pièce sur la position
