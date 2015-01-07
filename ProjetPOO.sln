@@ -20,6 +20,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Wrapping", "Wrapping\Wrappi
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfDisplay", "WpfDisplay\WpfDisplay.csproj", "{2912674D-28E9-478A-A2B7-DFADF3C2726C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{024FD6CD-668C-4927-9A48-EB0966EBC2A5} = {024FD6CD-668C-4927-9A48-EB0966EBC2A5}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

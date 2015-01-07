@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using ProjetPOO;
+
 namespace WpfDisplay
 {
     /// <summary>
@@ -20,46 +22,72 @@ namespace WpfDisplay
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static MainWindow INSTANCE;
+        public String typeP1, typeP2;
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void New_Game(object sender, RoutedEventArgs e)
+        private void NewGame(object sender, RoutedEventArgs e)
         {
             ((Grid)FindName("Menu")).Visibility = System.Windows.Visibility.Hidden;
             ((Grid)FindName("ModeSelection")).Visibility = System.Windows.Visibility.Visible;
+            typeP1 = "Elf";
+            typeP2 = "Elf";
         }
 
-        private void Load_Game(object sender, RoutedEventArgs e)
+        private void LoadGame(object sender, RoutedEventArgs e)
         {
 
         }
 
         private void ElfeSelectionP1(object sender, RoutedEventArgs e)
         {
-
+            typeP1 = "Elf";
         }
 
         private void OrcSelectionP1(object sender, RoutedEventArgs e)
         {
-
+            typeP1 = "Orc";
         }
 
         private void NainSelectionP1(object sender, RoutedEventArgs e)
         {
-
+            typeP1 = "Dwarf";
         }
 
         private void AleatoireSelectionP1(object sender, RoutedEventArgs e)
         {
-
+            Random rdm = new Random();
+            int n = rdm.Next(0, 3);
+            switch (n)
+            {
+                case 0:
+                    typeP1 = "Elf";
+                    break;
+                case 1:
+                    typeP1 = "Orc";
+                    break;
+                case 2:
+                    typeP1 = "Dwarf";
+                    break;
+            }
         }
 
         private void test(object sender, RoutedEventArgs e)
         {
             //((Canvas)FindName("Map")).
+        }
+
+        private void ValidateMode(object sender, RoutedEventArgs e)
+        {
+            ((Grid)FindName("ModeSelection")).Visibility = System.Windows.Visibility.Hidden;
+
+            MonteurSmall m = new MonteurSmall();
+            World.Instance.addPlayer("Joueur 1", typeP1);
+            World.Instance.addPlayer("Joueur 2", typeP2);
+
+            ((Grid)FindName("GameScene")).Visibility = System.Windows.Visibility.Visible;
         }
     }
 }
