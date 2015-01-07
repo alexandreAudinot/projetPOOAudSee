@@ -237,7 +237,6 @@ namespace ProjetPOO
             int j = this.position.y;
             Position p;
             String s = "";
-
             for (int x = i - 1; x < i + 2; x++)
             {
                 for (int y = j - 1; y < j + 2; y++)
@@ -269,15 +268,15 @@ namespace ProjetPOO
                             }
                             else
                             {
-                                l.Add(p);
-                                s += x + " " + y + " , ";
                                 //cas où il n'y a pas d'unité
                                 if (this.calcDepl(p) <= this.nbDeplacement)
                                 {//le déplacement est possible
-                                    /*if (!this.controler.findAllies())
+                                    s += x + " " + y + " , ";
+                                    if (this.strategy(p))
                                     {
+                                        s += x + " " + y + " , ";
                                         l.Add(p);
-                                    }*/
+                                    }
 
                                 }
                             }
@@ -285,11 +284,10 @@ namespace ProjetPOO
                     }
                 }
             }
-            throw new Exception("" + s);
 
 
-            //on ne prend que trois suggestions de l
-            /*List<Position> lres = new List<Position>();
+            //on prend trois suggestions de l aléatoirement
+            List<Position> lres = new List<Position>();
             int cpt = 3;
             Random random = new Random();
             int index;
@@ -299,10 +297,10 @@ namespace ProjetPOO
                 lres.Add(l.ElementAt(index));
                 l.RemoveAt(index);
                 cpt--;
-            }*/
+            }
 
             //on ne prend que les trois premières suggestions de l
-            List<Position> lres = new List<Position>();
+            /*List<Position> lres = new List<Position>();
             int cpt = 0;
             foreach (Position p0 in l)
             {
@@ -315,10 +313,44 @@ namespace ProjetPOO
                     lres.Add(p0);
                     cpt++;
                 }
-            }
-            //throw new Exception("coco" + s);
+            }*/
 
             return lres;
+        }
+
+        //strategy permet de déterminer s'il y a des alliers autour de l'unité courante
+        //on voudra pour l'IA éviter les cases où les alliers sont à proximité
+        //pour étirer au maximum la surface de jeu
+        //et éviter les unités avec plus de vie
+        public bool strategy(Position p)
+        {
+            Unit u;
+            for (int x = p.x - 1; x < p.x + 2; x++)
+            {
+                for (int y = p.y - 1; y < p.y + 2; y++)
+                {
+                    u = World.Instance.getUnit(new Position(x, y));
+                    if (u != null)
+                    {
+                        if ((!((u.position.x + 1 == p.x) && (u.position.y + 1 == p.y))) && ((!((u.position.x - 1 == p.x) && (u.position.y - 1 == p.y)))) && (!((x == this.position.x) && (y == this.position.y))))
+                        {
+                            if (u.controler.numero == this.controler.numero)
+                            {
+                            if ((y == 1) && (x == 2)) { throw new Exception("toto" + x + " " + y); }
+                                return false;
+                            }
+                            else
+                            {
+                                if (u.hp >= this.hp)
+                                {
+                                    return false;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return true;
         }
     }
 }
