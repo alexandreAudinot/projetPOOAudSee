@@ -111,7 +111,14 @@ namespace ProjetPOO
                         if (u.loseFight())
                         {
                             this.winFightAtt(p);
-                            this.makeAMove(p, this.calcDeplAtt(p));
+                            if (World.Instance.unitBool(p)) //NS
+                            {
+                                this.fight(p, World.Instance.getUnit(p));
+                            } 
+                            else
+                            {
+                                this.makeAMove(p, this.calcDeplAtt(p));
+                            }
                         }
                     }
                     else
