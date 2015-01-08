@@ -4,7 +4,7 @@
 
 GenerationMap::GenerationMap()
 {
-	srand (time(NULL));
+	srand((unsigned int)time(NULL));
 }
 
 GenerationMap::~GenerationMap()

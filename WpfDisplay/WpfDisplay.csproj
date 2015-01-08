@@ -88,6 +88,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MapView.cs" />
     <Compile Include="Menu.xaml.cs">
       <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>

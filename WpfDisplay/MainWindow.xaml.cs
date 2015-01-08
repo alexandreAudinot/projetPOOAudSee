@@ -22,7 +22,8 @@ namespace WpfDisplay
     /// </summary>
     public partial class MainWindow : Window
     {
-        public String typeP1, typeP2;
+        private String typeP1, typeP2;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,8 +31,8 @@ namespace WpfDisplay
 
         private void NewGame(object sender, RoutedEventArgs e)
         {
-            ((Grid)FindName("Menu")).Visibility = System.Windows.Visibility.Hidden;
-            ((Grid)FindName("ModeSelection")).Visibility = System.Windows.Visibility.Visible;
+            Menu.Visibility = System.Windows.Visibility.Hidden;
+            ModeSelection.Visibility = System.Windows.Visibility.Visible;
             typeP1 = "Elf";
             typeP2 = "Elf";
         }
@@ -76,18 +77,18 @@ namespace WpfDisplay
 
         private void test(object sender, RoutedEventArgs e)
         {
-            //((Canvas)FindName("Map")).
+            //Map.
         }
 
         private void ValidateMode(object sender, RoutedEventArgs e)
         {
-            ((Grid)FindName("ModeSelection")).Visibility = System.Windows.Visibility.Hidden;
+            ModeSelection.Visibility = System.Windows.Visibility.Hidden;
 
             MonteurSmall m = new MonteurSmall();
             World.Instance.addPlayer("Joueur 1", typeP1);
             World.Instance.addPlayer("Joueur 2", typeP2);
 
-            ((Grid)FindName("GameScene")).Visibility = System.Windows.Visibility.Visible;
+            GameScene.Visibility = System.Windows.Visibility.Visible;
         }
     }
 }
