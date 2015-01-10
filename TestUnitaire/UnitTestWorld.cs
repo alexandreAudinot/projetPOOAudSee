@@ -22,9 +22,9 @@ namespace TestUnitaire
         {
             World.Clean();
             AbstractBoard b = new DemoBoard();
-            World.board = b;
+            World.Instance.board = b;
             Assert.IsNotNull(World.Instance);
-            World.board.initVarBoard();
+            World.Instance.board.initVarBoard();
             Assert.IsNotNull(World.Instance);
         }
 
@@ -33,10 +33,10 @@ namespace TestUnitaire
         {
             World.Clean();
             AbstractBoard b = new DemoBoard();
-            World.board = b;
+            World.Instance.board = b;
             Assert.IsNotNull(World.Instance);
             Assert.IsTrue(World.Instance.stateGame);
-            Assert.AreEqual(World.board, b);
+            Assert.AreEqual(World.Instance.board, b);
             Assert.AreEqual(0, World.Instance.nbTours);
             Assert.IsNotNull(World.Instance.listType);
             Assert.IsNotNull(World.Instance.listAvailableType);
@@ -157,8 +157,8 @@ namespace TestUnitaire
         {
             InitAll();
             MonteurDemo m = new MonteurDemo();
-            Assert.IsNotNull(World.board.getTile(new Position(1, 1)));
-            Assert.AreEqual(World.board.Tiles[1, 1], World.board.getTile(new Position(1, 1)));
+            Assert.IsNotNull(World.Instance.board.getTile(new Position(1, 1)));
+            Assert.AreEqual(World.Instance.board.Tiles[1, 1], World.Instance.board.getTile(new Position(1, 1)));
         }
 
         [TestMethod]

@@ -35,12 +35,12 @@ namespace ProjetPOO
             text += "[nbPlayers = " + World.Instance.players.Count() + "]\n";
             //board
             text += "[Board]\n";
-            text += "[size = " + World.board.size + "], ";
-            for (int i = 0; i < World.board.size; i++)
+            text += "[size = " + World.Instance.board.size + "], ";
+            for (int i = 0; i < World.Instance.board.size; i++)
             {
-                for (int j = 0; j < World.board.size; j++)
+                for (int j = 0; j < World.Instance.board.size; j++)
                 {
-                    switch (World.board.Tiles[i, j].GetType().ToString())
+                    switch (World.Instance.board.Tiles[i, j].GetType().ToString())
                     {
                         case "ProjetPOO.Mountain":
                             text += "M";
@@ -55,7 +55,7 @@ namespace ProjetPOO
                             text += "D";
                             break;
                         default:
-                            throw new Exception("Type de terrain non matché : " + World.board.Tiles[i, j].GetType().ToString());
+                            throw new Exception("Type de terrain non matché : " + World.Instance.board.Tiles[i, j].GetType().ToString());
                     }
                     text += "[" + i + "," + j + "], ";
                 }
@@ -186,16 +186,16 @@ namespace ProjetPOO
                         switch (ItemMatch.Groups[1].Value)
                         {
                             case "D":
-                                World.board.Tiles[int.Parse(ItemMatch.Groups[2].Value), int.Parse(ItemMatch.Groups[3].Value)] = m.desertTile;
+                                World.Instance.board.Tiles[int.Parse(ItemMatch.Groups[2].Value), int.Parse(ItemMatch.Groups[3].Value)] = m.desertTile;
                                 break;
                             case "F":
-                                World.board.Tiles[int.Parse(ItemMatch.Groups[2].Value), int.Parse(ItemMatch.Groups[3].Value)] = m.forestTile;
+                                World.Instance.board.Tiles[int.Parse(ItemMatch.Groups[2].Value), int.Parse(ItemMatch.Groups[3].Value)] = m.forestTile;
                                 break;
                             case "M":
-                                World.board.Tiles[int.Parse(ItemMatch.Groups[2].Value), int.Parse(ItemMatch.Groups[3].Value)] = m.mountainTile;
+                                World.Instance.board.Tiles[int.Parse(ItemMatch.Groups[2].Value), int.Parse(ItemMatch.Groups[3].Value)] = m.mountainTile;
                                 break;
                             case "P": ;
-                                World.board.Tiles[int.Parse(ItemMatch.Groups[2].Value), int.Parse(ItemMatch.Groups[3].Value)] = m.plainTile;
+                                World.Instance.board.Tiles[int.Parse(ItemMatch.Groups[2].Value), int.Parse(ItemMatch.Groups[3].Value)] = m.plainTile;
                                 break;
                             default:
                                 throw new Exception("Terrain du board non reconnu");

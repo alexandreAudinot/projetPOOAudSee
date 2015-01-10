@@ -23,7 +23,7 @@ namespace ProjetPOO
 
         public Tile[,] createTilesBoard()
         {
-            int size0 = World.board.size;
+            int size0 = World.Instance.board.size;
             int forest = size0*size0 / 4;
             int mountain = size0 * size0 / 4;
             int desert = size0 * size0 / 4;

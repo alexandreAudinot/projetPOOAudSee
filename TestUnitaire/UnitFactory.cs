@@ -25,11 +25,11 @@ namespace TestUnitaire
             int mountain = 0;
             int desert = 0;
             int plain = 0;
-            for (int i = 0; i < World.board.size; i++)
+            for (int i = 0; i < World.Instance.board.size; i++)
             {
-                for (int j = 0; j < World.board.size; j++)
+                for (int j = 0; j < World.Instance.board.size; j++)
                 {
-                    switch (World.board.Tiles[i, j].GetType().ToString())
+                    switch (World.Instance.board.Tiles[i, j].GetType().ToString())
                     {
                         case "ProjetPOO.Desert":
                             desert++;
@@ -44,7 +44,7 @@ namespace TestUnitaire
                             plain++;
                             break;
                         default:
-                            throw new Exception("le nom n'est pas correct" + World.board.Tiles[i, j].GetType().ToString());
+                            throw new Exception("le nom n'est pas correct" + World.Instance.board.Tiles[i, j].GetType().ToString());
                     }
                 }
             }
@@ -59,7 +59,7 @@ namespace TestUnitaire
         {
             World.Clean();
             AbstractBoard b = new SmallBoard();
-            World.board = b;
+            World.Instance.board = b;
             Assert.IsNotNull(World.Instance);
 
             MonteurSmall m = new MonteurSmall();
@@ -67,11 +67,11 @@ namespace TestUnitaire
             int mountain = 0;
             int desert = 0;
             int plain = 0;
-            for (int i = 0; i < World.board.size; i++)
+            for (int i = 0; i < World.Instance.board.size; i++)
             {
-                for (int j = 0; j < World.board.size; j++)
+                for (int j = 0; j < World.Instance.board.size; j++)
                 {
-                    switch (World.board.Tiles[i, j].GetType().ToString())
+                    switch (World.Instance.board.Tiles[i, j].GetType().ToString())
                     {
                         case "ProjetPOO.Desert":
                             desert++;
@@ -86,7 +86,7 @@ namespace TestUnitaire
                             plain++;
                             break;
                         default:
-                            throw new Exception("le nom n'est pas correct" + World.board.Tiles[i, j].GetType().ToString());
+                            throw new Exception("le nom n'est pas correct" + World.Instance.board.Tiles[i, j].GetType().ToString());
                     }
                 }
             }
@@ -101,9 +101,9 @@ namespace TestUnitaire
         {
             World.Clean();
             NormalBoard b = new NormalBoard();
-            World.board = b;
+            World.Instance.board = b;
             Assert.IsNotNull(World.Instance);
-            World.board.initVarBoard();
+            World.Instance.board.initVarBoard();
             Assert.IsNotNull(World.Instance);
 
             MonteurNormal m = new MonteurNormal();
@@ -111,11 +111,11 @@ namespace TestUnitaire
             int mountain = 0;
             int desert = 0;
             int plain = 0;
-            for (int i = 0; i < World.board.size; i++)
+            for (int i = 0; i < World.Instance.board.size; i++)
             {
-                for (int j = 0; j < World.board.size; j++)
+                for (int j = 0; j < World.Instance.board.size; j++)
                 {
-                    switch (World.board.Tiles[i, j].GetType().ToString())
+                    switch (World.Instance.board.Tiles[i, j].GetType().ToString())
                     {
                         case "ProjetPOO.Desert":
                             desert++;
@@ -130,7 +130,7 @@ namespace TestUnitaire
                             plain++;
                             break;
                         default:
-                            throw new Exception("le nom n'est pas correct" + World.board.Tiles[i, j].GetType().ToString());
+                            throw new Exception("le nom n'est pas correct" + World.Instance.board.Tiles[i, j].GetType().ToString());
                     }
                 }
             }

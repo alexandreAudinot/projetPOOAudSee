@@ -30,7 +30,7 @@ namespace ProjetPOO
             }
             else
             {
-                pDepart = new Position(World.board.size - 1, World.board.size - 1);
+                pDepart = new Position(World.Instance.board.size - 1, World.Instance.board.size - 1);
             }
         }
 

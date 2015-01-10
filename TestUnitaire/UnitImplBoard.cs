@@ -21,8 +21,8 @@ namespace TestUnitaire
         public void testGetTile()
         {
             UnitUnit.InitAll();
-            Assert.AreEqual("ProjetPOO.Forest", World.board.getTile(new Position(1, 1)).GetType().ToString());
-            Assert.AreEqual("ProjetPOO.Plain", World.board.getTile(new Position(2, 2)).GetType().ToString());
+            Assert.AreEqual("ProjetPOO.Forest", World.Instance.board.getTile(new Position(1, 1)).GetType().ToString());
+            Assert.AreEqual("ProjetPOO.Plain", World.Instance.board.getTile(new Position(2, 2)).GetType().ToString());
         }
 
         [TestMethod]
@@ -30,8 +30,8 @@ namespace TestUnitaire
         {
             DemoBoard b = new DemoBoard();
             Assert.IsNotNull(b);
-            Assert.IsNotNull(World.board);
-            Assert.AreEqual(6, World.board.size);
+            Assert.IsNotNull(World.Instance.board);
+            Assert.AreEqual(6, World.Instance.board.size);
         }
 
         [TestMethod]
@@ -39,9 +39,9 @@ namespace TestUnitaire
         {
             World.Clean();
             AbstractBoard b = new DemoBoard();
-            World.board = b;
+            World.Instance.board = b;
             Assert.IsNotNull(World.Instance);
-            World.board.initVarBoard();
+            World.Instance.board.initVarBoard();
             Assert.IsNotNull(World.Instance);
             Assert.AreEqual(5, World.Instance.maxnbTours);
             Assert.AreEqual(4, World.Instance.nbUnity);
@@ -53,8 +53,8 @@ namespace TestUnitaire
         {
             SmallBoard b = new SmallBoard();
             Assert.IsNotNull(b);
-            Assert.IsNotNull(World.board);
-            Assert.AreEqual(10, World.board.size);
+            Assert.IsNotNull(World.Instance.board);
+            Assert.AreEqual(10, World.Instance.board.size);
         }
 
         [TestMethod]
@@ -62,9 +62,9 @@ namespace TestUnitaire
         {
             World.Clean();
             AbstractBoard b = new SmallBoard();
-            World.board = b;
+            World.Instance.board = b;
             Assert.IsNotNull(World.Instance);
-            World.board.initVarBoard();
+            World.Instance.board.initVarBoard();
             Assert.IsNotNull(World.Instance);
             Assert.AreEqual(20, World.Instance.maxnbTours);
             Assert.AreEqual(6, World.Instance.nbUnity);
@@ -76,8 +76,8 @@ namespace TestUnitaire
         {
             NormalBoard b = new NormalBoard();
             Assert.IsNotNull(b);
-            Assert.IsNotNull(World.board);
-            Assert.AreEqual(14, World.board.size);
+            Assert.IsNotNull(World.Instance.board);
+            Assert.AreEqual(14, World.Instance.board.size);
         }
 
         [TestMethod]
@@ -85,9 +85,9 @@ namespace TestUnitaire
         {
             World.Clean();
             AbstractBoard b = new NormalBoard();
-            World.board = b;
+            World.Instance.board = b;
             Assert.IsNotNull(World.Instance);
-            World.board.initVarBoard();
+            World.Instance.board.initVarBoard();
             Assert.IsNotNull(World.Instance);
             Assert.AreEqual(30, World.Instance.maxnbTours);
             Assert.AreEqual(8, World.Instance.nbUnity);

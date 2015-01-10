@@ -10,7 +10,7 @@ namespace ProjetPOO
         public DemoBoard()
         {
             size = 6;
-            World.board = this;
+            World.Instance.board = this;
             Tiles = new Tile[size, size];
         }
 
@@ -26,7 +26,7 @@ namespace ProjetPOO
         public SmallBoard()
         {
             size = 10;
-            World.board = this;
+            World.Instance.board = this;
             Tiles = new Tile[size, size];
         }
 
@@ -42,7 +42,7 @@ namespace ProjetPOO
             public NormalBoard()
             {
                 size = 14;
-                World.board = this;
+                World.Instance.board = this;
                 Tiles = new Tile[size, size];
             }
 

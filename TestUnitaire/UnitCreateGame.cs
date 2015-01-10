@@ -34,11 +34,11 @@ namespace TestUnitaire
             int mountain = 0;
             int desert = 0;
             int plain = 0;
-            for (int i = 0; i < World.board.size; i++)
+            for (int i = 0; i < World.Instance.board.size; i++)
             {
-                for (int j = 0; j < World.board.size; j++)
+                for (int j = 0; j < World.Instance.board.size; j++)
                 {
-                    switch (World.board.Tiles[i, j].GetType().ToString())
+                    switch (World.Instance.board.Tiles[i, j].GetType().ToString())
                     {
                         case "ProjetPOO.Desert":
                             desert++;
@@ -53,14 +53,14 @@ namespace TestUnitaire
                             plain++;
                             break;
                         default:
-                            throw new Exception("le nom n'est pas correct" + World.board.Tiles[i, j].GetType().ToString());
+                            throw new Exception("le nom n'est pas correct" + World.Instance.board.Tiles[i, j].GetType().ToString());
                     }
                 }
             }
-            Assert.AreEqual(World.board.size * World.board.size/4, forest);
-            Assert.AreEqual(World.board.size * World.board.size / 4, desert);
-            Assert.AreEqual(World.board.size * World.board.size / 4, plain);
-            Assert.AreEqual(World.board.size * World.board.size / 4, mountain);
+            Assert.AreEqual(World.Instance.board.size * World.Instance.board.size/4, forest);
+            Assert.AreEqual(World.Instance.board.size * World.Instance.board.size / 4, desert);
+            Assert.AreEqual(World.Instance.board.size * World.Instance.board.size / 4, plain);
+            Assert.AreEqual(World.Instance.board.size * World.Instance.board.size / 4, mountain);
         }
 
 
@@ -140,7 +140,7 @@ namespace TestUnitaire
             World.Instance.players.First().initDeplacement();
             World.Instance.players.First().score = 5;
             World.Instance.players.ElementAt(1).score = 1;
-            String tile = World.board.Tiles[0, 1].GetType().ToString();
+            String tile = World.Instance.board.Tiles[0, 1].GetType().ToString();
             SaveGame save = new SaveGame();
             String resul = save.saveOnDisk();
             World.Instance.players.First().score = 10;
@@ -148,7 +148,7 @@ namespace TestUnitaire
             save.loadOnDisk(resul);
             Assert.IsNotNull(World.Instance);
             Assert.AreEqual(2, World.Instance.players.Count());
-            Assert.AreEqual(tile, World.board.Tiles[0,1].GetType().ToString());
+            Assert.AreEqual(tile, World.Instance.board.Tiles[0,1].GetType().ToString());
             Assert.AreEqual(5, World.Instance.players.ElementAt(0).score);
             Assert.AreEqual(1, World.Instance.players.ElementAt(1).score);
             Assert.AreEqual(2, World.Instance.players.ElementAt(0).listUnit.Count());

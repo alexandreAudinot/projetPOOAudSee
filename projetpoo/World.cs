@@ -14,7 +14,7 @@ namespace ProjetPOO
         public int currentPlayer { get; set; }
         public List<Player> players { get; set; }
         private static World world;
-        public static AbstractBoard board { get; set; }
+        public AbstractBoard board { get; set; }
         public List<string> listType { get; set; }
         public List<string> listAvailableType { get; private set; }
         public bool stateGame;
@@ -25,7 +25,7 @@ namespace ProjetPOO
             {
                 if (world == null)
                 {
-                    world = new World(World.board);
+                    world = new World(World.Instance.board);
                 }
                 return World.world;
             }
@@ -68,7 +68,7 @@ namespace ProjetPOO
         public static void Clean()
         {
             world = null;
-            World.board = null;
+            World.Instance.board = null;
         }
 
         //initialisation des variables de world par les monteurs

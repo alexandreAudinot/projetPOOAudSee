@@ -11,8 +11,8 @@ namespace ProjetPOO
         public MonteurDemo() : base()
         {
             DemoBoard b = new DemoBoard();
-            ((DemoBoard)World.board).Tiles = this.createTilesBoard();
-            World.board.initVarBoard();
+            ((DemoBoard)World.Instance.board).Tiles = this.createTilesBoard();
+            World.Instance.board.initVarBoard();
         }
     }
 
@@ -22,8 +22,8 @@ namespace ProjetPOO
         public MonteurNormal() : base()
         {
             NormalBoard b = new NormalBoard();
-            ((NormalBoard)World.board).Tiles = this.createTilesBoard();
-            World.board.initVarBoard();
+            ((NormalBoard)World.Instance.board).Tiles = this.createTilesBoard();
+            World.Instance.board.initVarBoard();
         }
     }
 
@@ -33,8 +33,8 @@ namespace ProjetPOO
         public MonteurSmall() : base()
         {
             SmallBoard b = new SmallBoard();
-            ((SmallBoard)World.board).Tiles = this.createTilesBoard();
-            World.board.initVarBoard();
+            ((SmallBoard)World.Instance.board).Tiles = this.createTilesBoard();
+            World.Instance.board.initVarBoard();
         }
     }
 

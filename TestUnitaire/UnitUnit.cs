@@ -21,15 +21,15 @@ namespace TestUnitaire
         {
             World.Clean();
             AbstractBoard b = new DemoBoard();
-            World.board = b;
+            World.Instance.board = b;
             Assert.IsNotNull(World.Instance);
-            World.board.initVarBoard();
+            World.Instance.board.initVarBoard();
             Assert.IsNotNull(World.Instance);
-            World.board.Tiles[0, 0] = new Mountain();
-            World.board.Tiles[1, 1] = new Forest();
-            World.board.Tiles[1, 2] = new Forest();
-            World.board.Tiles[2, 2] = new Plain();
-            World.board.Tiles[3, 3] = new Desert();
+            World.Instance.board.Tiles[0, 0] = new Mountain();
+            World.Instance.board.Tiles[1, 1] = new Forest();
+            World.Instance.board.Tiles[1, 2] = new Forest();
+            World.Instance.board.Tiles[2, 2] = new Plain();
+            World.Instance.board.Tiles[3, 3] = new Desert();
         }
 
         [TestMethod]

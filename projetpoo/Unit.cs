@@ -142,7 +142,7 @@ namespace ProjetPOO
         //Les déplacements possibles pour la case 2,2 sont (1,2), (2,1), (2,3), (3,2), (1,3), (3,1).
         public bool checkMove(Position p)
         {
-            if (!((p.x < 0) || (p.y < 0) || (p.x >= World.board.size) || (p.y >= World.board.size)))
+            if (!((p.x < 0) || (p.y < 0) || (p.x >= World.Instance.board.size) || (p.y >= World.Instance.board.size)))
             {
                 return (
                     ((p.x + 1 == this.position.x) && (this.position.y == p.y))
