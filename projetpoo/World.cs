@@ -25,7 +25,7 @@ namespace ProjetPOO
             {
                 if (world == null)
                 {
-                    world = new World(World.Instance.board);
+                    world = new World();
                 }
                 return World.world;
             }
@@ -33,10 +33,9 @@ namespace ProjetPOO
 
         //constructeur classique
         //les autres variables sont initialisées par les monteurs
-        private World(AbstractBoard b)
+        private World()
         {
             stateGame = true;
-            board = b;
             nbTours = 0;
             listType = new List<string>();
             players = new List<Player>();
@@ -185,8 +184,7 @@ namespace ProjetPOO
                     Player player = new Player(nomJoueur, World.Instance.players.Count(), type);
                     World.Instance.listType.Add(type);
                     World.Instance.players.Add(player);
-                    }
-                    
+                }
             }
         }
 

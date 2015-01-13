@@ -23,10 +23,12 @@ namespace WpfDisplay
     public partial class MainWindow : Window
     {
         private String typeP1, typeP2;
+        public static String scene;
 
         public MainWindow()
         {
             InitializeComponent();
+            scene = "Menu";
         }
 
         private void NewGame(object sender, RoutedEventArgs e)
@@ -35,6 +37,7 @@ namespace WpfDisplay
             ModeSelection.Visibility = System.Windows.Visibility.Visible;
             typeP1 = "Elf";
             typeP2 = "Elf";
+            scene = "ModeSelection";
         }
 
         private void LoadGame(object sender, RoutedEventArgs e)
@@ -88,6 +91,7 @@ namespace WpfDisplay
             World.Instance.addPlayer("Joueur 1", typeP1);
             World.Instance.addPlayer("Joueur 2", typeP2);
 
+            scene = "Game";
             GameScene.Visibility = System.Windows.Visibility.Visible;
         }
     }

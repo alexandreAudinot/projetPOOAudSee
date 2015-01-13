@@ -7,10 +7,15 @@ namespace ProjetPOO
 {
     public abstract class Monteur : IBuilder
     {
-        public Desert desertTile { get; private set; }
-        public Forest forestTile { get; private set; }
-        public Mountain mountainTile { get; private set; }
-        public Plain plainTile { get; private set; }
+        public static Desert desert = new Desert();
+        public static Desert desertTile
+        {
+            get { return desert; }
+            private set { desert = value; }
+        }
+        public static Forest forestTile { get; private set; }
+        public static Mountain mountainTile { get; private set; }
+        public static Plain plainTile { get; private set; }
 
         //constructeur monteur
         public Monteur()

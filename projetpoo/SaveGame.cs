@@ -186,16 +186,16 @@ namespace ProjetPOO
                         switch (ItemMatch.Groups[1].Value)
                         {
                             case "D":
-                                World.Instance.board.Tiles[int.Parse(ItemMatch.Groups[2].Value), int.Parse(ItemMatch.Groups[3].Value)] = m.desertTile;
+                                World.Instance.board.Tiles[int.Parse(ItemMatch.Groups[2].Value), int.Parse(ItemMatch.Groups[3].Value)] = Monteur.desertTile;
                                 break;
                             case "F":
-                                World.Instance.board.Tiles[int.Parse(ItemMatch.Groups[2].Value), int.Parse(ItemMatch.Groups[3].Value)] = m.forestTile;
+                                World.Instance.board.Tiles[int.Parse(ItemMatch.Groups[2].Value), int.Parse(ItemMatch.Groups[3].Value)] = Monteur.forestTile;
                                 break;
                             case "M":
-                                World.Instance.board.Tiles[int.Parse(ItemMatch.Groups[2].Value), int.Parse(ItemMatch.Groups[3].Value)] = m.mountainTile;
+                                World.Instance.board.Tiles[int.Parse(ItemMatch.Groups[2].Value), int.Parse(ItemMatch.Groups[3].Value)] = Monteur.mountainTile;
                                 break;
                             case "P": ;
-                                World.Instance.board.Tiles[int.Parse(ItemMatch.Groups[2].Value), int.Parse(ItemMatch.Groups[3].Value)] = m.plainTile;
+                                World.Instance.board.Tiles[int.Parse(ItemMatch.Groups[2].Value), int.Parse(ItemMatch.Groups[3].Value)] = Monteur.plainTile;
                                 break;
                             default:
                                 throw new Exception("Terrain du board non reconnu");

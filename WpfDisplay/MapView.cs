@@ -23,30 +23,65 @@ namespace WpfDisplay
         private const float TILE_WIDTH = 79;
         private const float TILE_HEIGHT = 69;
 
-        ImageSource tileForest = BitmapFrame.Create(new Uri(@"pack://application:,,/Resources/foret.png"));
-        ImageSource tileDesert = BitmapFrame.Create(new Uri(@"pack://application:,,/Resources/desert.png"));
-        ImageSource tileMountain = BitmapFrame.Create(new Uri(@"pack://application:,,/Resources/montagne.png"));
-        ImageSource tilePlain= BitmapFrame.Create(new Uri(@"pack://application:,,/Resources/plaine.png"));
+        private Dictionary<Tile, ImageSource> tileTable;
 
         World world;
 
         public void init()
         {
             world = World.Instance;
+
+            tileTable = new Dictionary<Tile, ImageSource>();
+
+            tileTable.Add(Monteur.forestTile, BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/foret.png")));
+            tileTable.Add(Monteur.desertTile, BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/desert.png")));
+            tileTable.Add(Monteur.mountainTile, BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/montagne.png")));
+            tileTable.Add(Monteur.plainTile, BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/plaine.png")));
         }
 
-        public void processFrame()
+        protected override void OnRender(DrawingContext drawingContext)
         {
-            drawMap();
-            drawUnits();
+            Console.WriteLine("====================frame");
+            //if(MainWindow.scene == "Game")
+            {
+                //drawMap(drawingContext);
+                //drawingContext.DrawImage(BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/foret.png")), new Rect(10, 10, 40, 40));
+                drawUnits(drawingContext);
+            }
         }
 
-        private void drawMap()
+        private Tuple<float, float> toPixels(Position pos)
         {
-            //World.Instance.board.
+            return new Tuple<float, float>(pos.x*10, pos.y*10);
         }
 
-        private void drawUnits()
+        private void DrawElement(ImageSource img, Position pos, DrawingContext dc)
+        {
+            Tuple<float, float> realPos = toPixels(pos);
+            dc.DrawImage(img, new Rect(realPos.Item1 - TILE_WIDTH / 2, realPos.Item2 - TILE_HEIGHT / 2, TILE_WIDTH, TILE_HEIGHT));
+        }
+
+        private void drawMap(DrawingContext drawingContext)
+        {
+            int width = World.Instance.board.size;
+            int height = World.Instance.board.size;
+
+            Position pos;
+            ImageSource img;
+
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    pos = new Position(i, j);
+                    Tile tile = World.Instance.board.getTile(pos);
+                    tileTable.TryGetValue(tile, out img);
+                    DrawElement(img, pos, drawingContext);
+                }
+            }
+        }
+
+        private void drawUnits(DrawingContext drawingContext)
         {
 
         }
