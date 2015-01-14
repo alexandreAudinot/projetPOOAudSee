@@ -80,7 +80,8 @@ namespace WpfDisplay
 
         private void test(object sender, RoutedEventArgs e)
         {
-            //Map.
+            Console.WriteLine("====== button ======");
+            mapView.InvalidateVisual();
         }
 
         private void ValidateMode(object sender, RoutedEventArgs e)
@@ -91,8 +92,10 @@ namespace WpfDisplay
             World.Instance.addPlayer("Joueur 1", typeP1);
             World.Instance.addPlayer("Joueur 2", typeP2);
 
+            mapView.init();
             scene = "Game";
             GameScene.Visibility = System.Windows.Visibility.Visible;
+            mapView.InvalidateVisual();
         }
     }
 }

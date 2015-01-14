@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,26 +34,29 @@ namespace WpfDisplay
 
             tileTable = new Dictionary<Tile, ImageSource>();
 
-            tileTable.Add(Monteur.forestTile, BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/foret.png")));
-            tileTable.Add(Monteur.desertTile, BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/desert.png")));
+            tileTable.Add(Monteur.forestTile,   BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/foret.png")));
+            tileTable.Add(Monteur.desertTile,   BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/desert.png")));
             tileTable.Add(Monteur.mountainTile, BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/montagne.png")));
-            tileTable.Add(Monteur.plainTile, BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/plaine.png")));
+            tileTable.Add(Monteur.plainTile,    BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/plaine.png")));
         }
 
         protected override void OnRender(DrawingContext drawingContext)
         {
+            base.OnRender(drawingContext);
             Console.WriteLine("====================frame");
-            //if(MainWindow.scene == "Game")
+            if(MainWindow.scene == "Game")
             {
-                //drawMap(drawingContext);
-                //drawingContext.DrawImage(BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/foret.png")), new Rect(10, 10, 40, 40));
+                drawMap(drawingContext);
                 drawUnits(drawingContext);
             }
         }
 
         private Tuple<float, float> toPixels(Position pos)
         {
-            return new Tuple<float, float>(pos.x*10, pos.y*10);
+            if(pos.y % 2 == 0)
+                return new Tuple<float, float>(pos.x * 79,      pos.y * 52);
+            else
+                return new Tuple<float, float>(pos.x * 79 + 40, pos.y * 52);
         }
 
         private void DrawElement(ImageSource img, Position pos, DrawingContext dc)

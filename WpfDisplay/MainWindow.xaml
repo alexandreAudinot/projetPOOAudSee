@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:WpfDisplay"
         xmlns:local="clr-namespace:WpfDisplay"
-        Title="SmallWorld" Height="543" Width="531" Background="#FF51362A">
+        Title="SmallWorld" Height="800" Width="1000" Background="#FF51362A">
     <Grid>
         <Grid Name="Menu">
             <Grid.RowDefinitions>
