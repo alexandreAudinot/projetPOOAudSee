@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="WpfDisplay.UnitInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="67" d:DesignWidth="153" Background="#AA704533" MouseLeftButtonDown="onClick">
+    <Grid>
+        <Rectangle x:Name="selected" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="67" Margin="1,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Visibility="Hidden"/>
+        <Image x:Name="img" HorizontalAlignment="Left" Width="50" Height="67" VerticalAlignment="Top"/>
+        <Label Content="Attaque :" HorizontalAlignment="Left" Margin="56,-5,0,0" VerticalAlignment="Top" Foreground="White" BorderThickness="0"/>
+        <Label Content="Défense :" HorizontalAlignment="Left" Margin="55,10,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Points de vie :" HorizontalAlignment="Left" Margin="55,26,0,0" VerticalAlignment="Top" Foreground="White"/>
+
+        <Label x:Name="attaque" Content="*" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="White" Margin="0,-5,0,0"/>
+        <Label x:Name="defense" Content="*" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="White" Margin="0,10,0,0"/>
+        <Label x:Name="pv" Content="*" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="White" Margin="0,26,0,0" RenderTransformOrigin="-1.5,-0.192"/>
+
+        <Grid x:Name="blocAnneaux" HorizontalAlignment="Left" Height="26" Margin="56,41,0,0" VerticalAlignment="Top" Width="97">
+            <Label Content="Anneaux :" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
+            <Label x:Name="anneaux" Content="*" HorizontalAlignment="Right" VerticalAlignment="Top" Foreground="White"/>
+        </Grid>
+    </Grid>
+</UserControl>

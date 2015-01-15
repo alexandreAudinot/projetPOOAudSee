@@ -160,6 +160,23 @@ namespace ProjetPOO
             }
         }
 
+        //renvoie la liste des unités à une position
+        public List<Unit> getUnitList(Position pos)
+        {
+            List<Unit> l = new List<Unit>();
+            foreach (Player player in World.Instance.players)
+            {
+                foreach (Unit unit in player.listUnit)
+                {
+                    if (unit.position.equals(pos))
+                    {
+                        l.Add(unit);
+                    }
+                }
+            }
+            return l;
+        }
+
         //fonction qui prend une position et renvoie un tile
         public Tile getTile(Position p)
         {

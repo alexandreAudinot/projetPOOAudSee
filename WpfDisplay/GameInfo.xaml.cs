@@ -18,26 +18,19 @@ using ProjetPOO;
 namespace WpfDisplay
 {
     /// <summary>
-    /// Interaction logic for PlayerInfo.xaml
+    /// Interaction logic for GameInfo.xaml
     /// </summary>
-    public partial class PlayerInfo : UserControl
+    public partial class GameInfo : UserControl
     {
-        private Player associatedPlayer;
-        public PlayerInfo()
+        public GameInfo()
         {
             InitializeComponent();
         }
 
-        public void setPlayer(Player p)
+        public void updateGameInfos()
         {
-            associatedPlayer = p;
-            name.Content = p.nom;
-        }
-
-        public void updateInfos()
-        {
-            points.Content = associatedPlayer.score;
-            nbUnits.Content = associatedPlayer.listUnit.Count;
+            player.Content = "C'est au joueur " + World.Instance.currentPlayer + " de jouer";
+            turn.Content = "Tour " + World.Instance.nbTours + "/" + World.Instance.maxnbTours;
         }
     }
 }
