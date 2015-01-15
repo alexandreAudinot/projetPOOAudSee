@@ -30,9 +30,12 @@ namespace Wrapping{
 
 		List<int>^ computeSug(int i0, int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12)
 		{
-			Suggestion_compute(sug,i0, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12);
+			int* sol = Suggestion_compute(sug,i0, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12);
 			List<int>^ out = gcnew List<int>();
-
+			for (int i = 0; i < 6; i++)
+			{
+				out->Add(sol[i]);
+			}
 			return out;
 		}
 	};
