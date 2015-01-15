@@ -40,6 +40,14 @@ namespace ProjetPOO
                 lpos.Add(p.pDepart);
             }
             FactoryUnit f = new FactoryUnit(World.Instance.players, lpos, World.Instance.listType);
+            if (World.Instance.currentPlayer == 0)
+            {
+                World.Instance.players.First().initDeplacement();
+            }
+            else
+            {
+                World.Instance.players.ElementAt(1).initDeplacement();
+            }
         }
         //la partie peut ensuite commencer
 
