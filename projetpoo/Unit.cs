@@ -251,7 +251,7 @@ namespace ProjetPOO
             {
                 for (int y = j - 1; y < j + 2; y++)
                 {
-                    this.initDeplacement();
+                    this.nbDeplacement = depl;
                     if (!(x == y))
                     {
                         p = new Position(x, y);
@@ -368,6 +368,7 @@ namespace ProjetPOO
         //il ne fera aucune suggestion si rien est intéressant
         public List<Position> getMoveSuggestions2()
         {
+            double depl = this.nbDeplacement;
             int i = this.position.x;
             int j = this.position.y;
             Position p;
@@ -389,6 +390,7 @@ namespace ProjetPOO
                             lp.Add(p);
                             if (!World.Instance.unitBool(p))
                             {//cas où il n'y a pas d'unité sur la case
+                                this.nbDeplacement = depl;
                                 if (this.nbDeplacement >= this.calcDepl(p))
                                 {
                                     lp.Add(p);
@@ -401,6 +403,7 @@ namespace ProjetPOO
                                 u = World.Instance.getUnit(p);
                                 if (u.controler.numero == this.controler.numero)
                                 {//allié
+                                    this.nbDeplacement = depl;
                                     if (this.nbDeplacement >= this.calcDepl(p))
                                     {
                                         lp.Add(p);
@@ -410,6 +413,7 @@ namespace ProjetPOO
                                 }
                                 else
                                 {//ennemi
+                                    this.nbDeplacement = depl;
                                     if (this.nbDeplacement >= this.calcDeplAtt(p))
                                     {
                                         lp.Add(p);
@@ -426,7 +430,34 @@ namespace ProjetPOO
             List<int> resul = algo.computeSug(l.ElementAt(0), l.ElementAt(1), l.ElementAt(2), l.ElementAt(3),  l.ElementAt(4),
                 l.ElementAt(5), l.ElementAt(6),l.ElementAt(7), l.ElementAt(8), l.ElementAt(9), l.ElementAt(10) , l.ElementAt(11), l.ElementAt(12));
             //translate
-            return null;
+            List<Position> lres = new List<Position>();
+            int rang = 0;
+            for (int x = i - 1; x < i + 2; x++)
+            {
+                for (int y = j - 1; y < j + 2; y++)
+                {
+                    if (!(x == y))
+                    {
+                        p = new Position(x, y);
+                        if (resul.ElementAt(rang) == 1)
+                        {
+                            lres.Add(p);
+                        }
+                    }
+                }
+            }
+            Random rnd = new Random();
+            int cpt = 0;
+            int rn;
+            while ((cpt < 3) && (cpt < lres.Count()))
+            {
+                rn = rnd.Next(0, 3);
+                lres.RemoveAt(rn);
+                cpt++;
+            }
+            throw new Exception("fin" + resul.Count());
+            this.nbDeplacement = depl;
+            return lres;
         }
     }
 }

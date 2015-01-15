@@ -352,6 +352,7 @@ namespace TestUnitaire
             World.Instance.players.First().listUnit.Add(o0);
             World.Instance.players.ElementAt(1).listUnit.Add(e);
             World.Instance.players.ElementAt(1).listUnit.Add(e0);
+            o.initDeplacement();
             List<Position> l = ((Unit)World.Instance.players.First().listUnit.First()).getMoveSuggestions();
             /*Assert.IsTrue((new Position(1, 3).equals(l.First())));
             Assert.IsTrue((new Position(2, 3).equals(l.ElementAt(1))));
@@ -405,6 +406,34 @@ namespace TestUnitaire
             Assert.IsTrue(o.strategy(new Position(3, 1)));
             Assert.IsFalse(o.strategy(new Position(1, 2)));
             Assert.IsFalse(o.strategy(new Position(2, 1)));
+        }
+
+        [TestMethod]
+        public void testGetMoveSuggestions2()
+        {
+            World.Clean();
+            Monteur m = new MonteurNormal();
+            World.Instance.addPlayer("Azog", "Orc");
+            World.Instance.addPlayer("Marty Mc Fly", "Dwarf");
+            Orc o = new Orc(World.Instance.players.First(), new Position(2, 2));
+            /*Orc o0 = new Orc(World.Instance.players.First(), new Position(1, 2));
+            Orc o1 = new Orc(World.Instance.players.First(), new Position(3, 2));
+            Dwarf e = new Dwarf(World.Instance.players.ElementAt(1), new Position(2, 1));
+            e.setDefForUnitTest(20);
+            Dwarf e0 = new Dwarf(World.Instance.players.ElementAt(1), new Position(1, 3));
+            */World.Instance.players.First().listUnit.Add(o);/*
+            World.Instance.players.First().listUnit.Add(o0);
+            World.Instance.players.First().listUnit.Add(o1);
+            World.Instance.players.ElementAt(1).listUnit.Add(e);
+            World.Instance.players.ElementAt(1).listUnit.Add(e0);*/
+            o.initDeplacement();
+            List<Position> l = ((Unit)World.Instance.players.First().listUnit.First()).getMoveSuggestions2();
+            Assert.AreEqual(3, l.Count());
+            Assert.IsTrue((new Position(1, 3).equals(l.First())));
+            Assert.IsTrue((new Position(2, 3).equals(l.ElementAt(1))));
+            Assert.IsTrue((new Position(3, 1).equals(l.ElementAt(2))));
+             /*Présence de Random dans les tests : les tests ont été réalisés sous cette forme
+             sans l'aléatoire et validés*/
         }
     }
 }
