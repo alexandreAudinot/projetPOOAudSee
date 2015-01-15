@@ -18,9 +18,15 @@
     <ClInclude Include="GenerationMap.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
+    <ClInclude Include="Suggestion.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GenerationMap.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Suggestion.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>

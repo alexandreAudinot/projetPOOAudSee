@@ -12,6 +12,9 @@ using System.Text;
  * ---------------------------------------------------------------------------------------------- *
  * ---------------------------------------------------------------------------------------------- */
 
+//les tests de génération du board de cette classe ont été d'abord effectué sur un board généré par du code C#
+//puis par un board de C++ via le Wrapper. Seuls les tests C++ sont effectués ici.
+
 namespace TestUnitaire
 {
     [TestClass]

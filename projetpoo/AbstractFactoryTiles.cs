@@ -113,26 +113,21 @@ namespace ProjetPOO
             Wrapper board = new Wrapper();
             Tile[,] tab = new Tile[size, size];
             List<int> resul =  board.compute(size, size);
-            int a = 0,b=0,c=0,d=0;
             for (int x = 0; x < size * size; x++)
             {
                 switch (resul.ElementAt(x))
                 {
                     case 0:
                         tab[(int) x  / size, x % size] = (Tile)mountainTile;
-                        a++;
                         break;
                     case 1:
                         tab[(int)x / size, x % size] = (Tile)desertTile;
-                        b++;
                         break;
                     case 2:
                         tab[(int)x / size, x % size] = (Tile)forestTile;
-                        c++;
                         break;
                     case 3:
                         tab[(int)x / size, x % size] = (Tile)plainTile;
-                        d++;
                         break;
                     default:
                         throw new Exception("Nombre aléatoire non matché");
