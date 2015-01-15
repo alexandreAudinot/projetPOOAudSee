@@ -53,11 +53,11 @@ namespace ProjetPOO
                 {
                     case ("Elf"):
                         World.Instance.listType.Add("Elf");
-                        elf = new Elf(player, lpos.ElementAt(i));
-                        elf.controler.numero = player.numero;
                         nb = World.Instance.nbUnity;
                         while (nb > 0)
                         {
+                            elf = new Elf(player, player.pDepart());
+                            elf.controler.numero = player.numero;
                              World.Instance.players.ElementAt(i).listUnit.Add(elf);
                             nb--;
                         }
@@ -66,11 +66,11 @@ namespace ProjetPOO
 
                     case ("Dwarf"):
                         World.Instance.listType.Add("Dwarf");
-                        dwarf = new Dwarf(player, lpos.ElementAt(i));
-                        dwarf.controler.numero = player.numero;
                         nb = World.Instance.nbUnity;
                         while (nb > 0)
                         {
+                            dwarf = new Dwarf(player, player.pDepart());
+                            dwarf.controler.numero = player.numero;
                             World.Instance.players.ElementAt(i).listUnit.Add(dwarf);
                             nb--;
                         }
@@ -79,11 +79,11 @@ namespace ProjetPOO
 
                     case ("Orc"):
                         World.Instance.listType.Add("Orc");
-                        orc = new Orc(player, lpos.ElementAt(i));
-                        orc.controler.numero = player.numero;
                         nb = World.Instance.nbUnity;
                         while (nb > 0)
                         {
+                            orc = new Orc(player, player.pDepart());
+                            orc.controler.numero = player.numero;
                             World.Instance.players.ElementAt(i).listUnit.Add(orc);
                             nb--;
                         }

@@ -223,6 +223,14 @@ namespace WpfDisplay
             playerInfo1.updateInfos();
             playerInfo2.updateInfos();
             gameInfo.updateGameInfos();
+            unitInfo1.updateInfos();
+            unitInfo2.updateInfos();
+            unitInfo3.updateInfos();
+            unitInfo4.updateInfos();
+            unitInfo5.updateInfos();
+            unitInfo6.updateInfos();
+            unitInfo7.updateInfos();
+            unitInfo8.updateInfos();
             InvalidateVisual();
         }
 
@@ -239,6 +247,7 @@ namespace WpfDisplay
         private void ButtonQuit(object sender, RoutedEventArgs e)
         {
             GameScene.Visibility = System.Windows.Visibility.Hidden;
+            World.Clean();
             Menu.Visibility = System.Windows.Visibility.Visible;
         }
     }

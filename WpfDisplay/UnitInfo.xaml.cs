@@ -33,14 +33,27 @@ namespace WpfDisplay
             set
             {
                 associatedUnit = value;
+                updateInfos();
+            }
+        }
 
-                string unitType;
+        public UnitInfo()
+        {
+            InitializeComponent();
+        }
 
+        public void updateInfos()
+        {
+            string unitType;
+
+            if (associatedUnit != null)
+            {
                 unitType = associatedUnit.GetType().ToString();
                 img.Source = mapView.getImageFromType(unitType);
                 attaque.Content = associatedUnit.att;
                 defense.Content = associatedUnit.def;
                 pv.Content = associatedUnit.hp;
+                deplacement.Content = associatedUnit.nbDeplacement;
                 if (unitType == "ProjetPOO.Orc")
                 {
                     blocAnneaux.Visibility = System.Windows.Visibility.Visible;
@@ -51,11 +64,6 @@ namespace WpfDisplay
                     blocAnneaux.Visibility = System.Windows.Visibility.Hidden;
                 }
             }
-        }
-
-        public UnitInfo()
-        {
-            InitializeComponent();
         }
 
         private void onClick(object sender, MouseButtonEventArgs e)

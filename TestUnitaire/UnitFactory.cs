@@ -149,7 +149,7 @@ namespace TestUnitaire
             List<Position> lpos = new List<Position>();
             foreach (Player p in World.Instance.players)
             {
-                lpos.Add(p.pDepart);
+                lpos.Add(p.pDepart());
             }
             FactoryUnit f = new FactoryUnit(World.Instance.players, lpos, World.Instance.listType);
             Assert.AreEqual(4, World.Instance.players.First().listUnit.Count());
@@ -168,7 +168,7 @@ namespace TestUnitaire
             List<Position> lpos = new List<Position>();
             foreach (Player p in World.Instance.players)
             {
-                lpos.Add(p.pDepart);
+                lpos.Add(p.pDepart());
             }
             FactoryUnit f = new FactoryUnit(World.Instance.players, lpos, World.Instance.listType);
             Assert.AreEqual(6, World.Instance.players.First().listUnit.Count());
@@ -187,7 +187,7 @@ namespace TestUnitaire
             List<Position> lpos = new List<Position>();
             foreach (Player p in World.Instance.players)
             {
-                lpos.Add(p.pDepart);
+                lpos.Add(p.pDepart());
             }
             FactoryUnit f = new FactoryUnit(World.Instance.players, lpos, World.Instance.listType);
             Assert.AreEqual(8, World.Instance.players.First().listUnit.Count());

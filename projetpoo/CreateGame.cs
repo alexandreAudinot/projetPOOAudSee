@@ -37,7 +37,7 @@ namespace ProjetPOO
             List<Position> lpos = new List<Position>();
             foreach (Player p in World.Instance.players)
             {
-                lpos.Add(p.pDepart);
+                lpos.Add(p.pDepart());
             }
             FactoryUnit f = new FactoryUnit(World.Instance.players, lpos, World.Instance.listType);
             if (World.Instance.currentPlayer == 0)

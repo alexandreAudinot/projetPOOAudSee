@@ -11,7 +11,11 @@ namespace ProjetPOO
         public int numero { get; set; }
         public int score { get; set; }
         public List<IUnit> listUnit { get; set; }
-        public Position pDepart { get; set; }
+        public int coordDepart;
+        public Position pDepart()
+        {
+            return new Position(coordDepart, coordDepart);
+        }
         public String type { get; private set; }
 
         //constructeur testPlayer
@@ -26,11 +30,11 @@ namespace ProjetPOO
             type = t;
             if (n == 0)
             {
-                pDepart = new Position(1, 1);
+                coordDepart = 1;
             }
             else
             {
-                pDepart = new Position(World.Instance.board.size - 1, World.Instance.board.size - 1);
+                coordDepart = World.Instance.board.size - 1;
             }
         }
 

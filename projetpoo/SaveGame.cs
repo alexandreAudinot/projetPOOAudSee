@@ -79,8 +79,9 @@ namespace ProjetPOO
                 text += "[nom = " + p.nom + "], ";
                 text += "[numero = " + p.numero + "], ";
                 text += "[score = " + p.score + "], ";
-                text += "[type = " + p.type + "], ";
-                text += "[pDepart = (" + p.pDepart.x + "," + p.pDepart.y + ")]\n[listunit";
+                //text += "[type = " + p.type + "], ";
+                //text += "[pDepart = (" + p.pDepart.x + "," + p.pDepart.y + ")]\n[listunit";
+                text += "[type = " + p.type + "]\n[listunit";
                 //liste d'unités
                 foreach (Unit u in p.listUnit)
                 {
@@ -263,7 +264,7 @@ namespace ProjetPOO
                         Position pDepart = new Position(int.Parse(mlineP.Groups[5].Value), int.Parse(mlineP.Groups[6].Value));
                         World.Instance.addPlayer(snom, stype);
                         World.Instance.players.ElementAt(nbplayerRead).score = sscore;
-                        World.Instance.players.ElementAt(nbplayerRead).pDepart = pDepart;
+                        //World.Instance.players.ElementAt(nbplayerRead).pDepart = pDepart;
                     }
                     catch (Exception)
                     {

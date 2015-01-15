@@ -145,13 +145,26 @@ namespace ProjetPOO
         {
             if (!((p.x < 0) || (p.y < 0) || (p.x >= World.Instance.board.size) || (p.y >= World.Instance.board.size)))
             {
-                return (
-                    ((p.x + 1 == this.position.x) && (this.position.y == p.y))
-                    || ((p.x - 1 == this.position.x) && (this.position.y == p.y))
-                    || ((p.x == this.position.x) && (this.position.y + 1 == p.y))
-                    || ((p.x == this.position.x) && (this.position.y - 1 == p.y))
-                    || ((p.x == this.position.x + 1) && (this.position.y - 1 == p.y))
-                    || ((p.x == this.position.x - 1) && (this.position.y + 1 == p.y)));
+                if(this.position.y % 2 == 0)
+                {
+                    return (
+                        ((p.x + 1 == this.position.x) && (this.position.y == p.y))
+                        || ((p.x - 1 == this.position.x) && (this.position.y == p.y))
+                        || ((p.x == this.position.x) && (this.position.y + 1 == p.y))
+                        || ((p.x == this.position.x) && (this.position.y - 1 == p.y))
+                        || ((p.x == this.position.x + 1) && (this.position.y - 1 == p.y))
+                        || ((p.x == this.position.x + 1) && (this.position.y + 1 == p.y)));
+                }
+                else
+                {
+                    return (
+                        ((p.x + 1 == this.position.x) && (this.position.y == p.y))
+                        || ((p.x - 1 == this.position.x) && (this.position.y == p.y))
+                        || ((p.x == this.position.x) && (this.position.y + 1 == p.y))
+                        || ((p.x == this.position.x) && (this.position.y - 1 == p.y))
+                        || ((p.x == this.position.x - 1) && (this.position.y - 1 == p.y))
+                        || ((p.x == this.position.x - 1) && (this.position.y + 1 == p.y)));
+                }
             }
             return false;
         }
