@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Wrapping;
 
 namespace ProjetPOO
 {
@@ -26,6 +27,8 @@ namespace ProjetPOO
             plainTile = new Plain();
         }
 
+        //fonction createTilesBoard() rend un tableau de tiles
+        //initialisé à partir d'un algorithme C#
         public Tile[,] createTilesBoard()
         {
             int size0 = World.Instance.board.size;
@@ -97,6 +100,37 @@ namespace ProjetPOO
                         default:
                         throw new Exception("Nombre aléatoire non matché");
                     }
+                }
+            }
+            return tab;
+        }
+
+        //fonction createTilesBoard2() rend un tableau de tiles
+        //initialisé à partir d'un algorithme C++ via le wrapper
+        public Tile[,] createTilesBoard2()
+        {
+            int size = World.Instance.board.size;
+            Wrapper board = new Wrapper();
+            Tile[,] tab = new Tile[size, size];
+            List<int> resul =  board.compute(size, size);
+            for (int x = 0; x < size * size; x++)
+            {
+                switch (resul.ElementAt(x))
+                {
+                    case 0:
+                        tab[(int) x  / size, x % size] = (Tile)mountainTile;
+                        break;
+                    case 1:
+                        tab[(int)x / size, x % size] = (Tile)desertTile;
+                        break;
+                    case 2:
+                        tab[(int)x / size, x % size] = (Tile)forestTile;
+                        break;
+                    case 3:
+                        tab[(int)x / size, x % size] = (Tile)plainTile;
+                        break;
+                    default:
+                        throw new Exception("Nombre aléatoire non matché");
                 }
             }
             return tab;

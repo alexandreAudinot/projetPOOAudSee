@@ -16,34 +16,60 @@ int* GenerationMap::generer(int w, int h) const
 	// Algo de génération de map
 
 	int* out = new int[w*h]();
-	
-	initialiser(out, w, h);
-
-	for (int i = 0; i < w; i++)
+	int forest = h*h / 4;
+	int mountain = h * h / 4;
+	int desert = h * h / 4;
+	int plain = h * h / 4;
+	bool accept = false;
+	int cpt = 0;
+	int rn;
+	while (cpt < w*h)
 	{
-		for (int j = 0; j < h; j++)
-		{
-			out[j + i*h] = 42;
-		}
+		do {
+			rn = rand() % 4;
+			switch (rn)
+			{
+			case 0:
+				if (mountain > 0)
+				{
+					mountain--;
+					accept = true;
+					out[cpt] = 0;
+					cpt++;
+				}
+				break;
+			case 1:
+				if (desert > 0)
+				{
+					desert--;
+					accept = true;
+					out[cpt] = 1;
+					cpt++;
+				}
+				break;
+			case 2:
+				if (forest > 0)
+				{
+					forest--;
+					accept = true;
+					out[cpt] = 2;
+					cpt++;
+				}
+				break;
+			case 3:
+				if (plain > 0)
+				{
+					plain--;
+					accept = true;
+					out[cpt] = 3;
+					cpt++;
+				}
+				break;
+			}
+		} while (!accept);
 	}
-
 	return out;
 }
-
-void GenerationMap::initialiser(int* map, int w, int h) const
-{
-	for (int i = 0; i < w; i++)
-	{
-		for (int j = 0; j < h; j++)
-		{
-			map[j + i*h] = -1;
-		}
-	}
-}
-
-
-
-
 
 GenerationMap* GenerationMap_new()
 {

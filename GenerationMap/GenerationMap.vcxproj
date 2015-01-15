@@ -12,9 +12,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GenerationMap.h" />
+    <ClInclude Include="Suggestion.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GenerationMap.cpp" />
+    <ClCompile Include="Suggestion.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{8A68A13A-894A-4D1E-B782-82C420F42F8D}</ProjectGuid>

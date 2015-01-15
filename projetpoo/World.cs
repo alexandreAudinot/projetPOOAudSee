@@ -242,11 +242,16 @@ namespace ProjetPOO
             World.Instance.currentPlayer = (World.Instance.currentPlayer + 1) % World.Instance.players.Count();
             if (World.Instance.currentPlayer == 0)
             {
+                World.Instance.players.First().initDeplacement();
                 nbTours++;
                 if (World.Instance.nbTours == World.Instance.maxnbTours)
                 {
                     World.Instance.endGame();
                 }
+            }
+            else
+            {
+                World.Instance.players.ElementAt(1).initDeplacement();
             }
         }
 

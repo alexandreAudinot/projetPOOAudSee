@@ -402,7 +402,7 @@ namespace TestUnitaire
             Assert.IsTrue(o.strategy(new Position(3, 2)));
             Assert.IsFalse(o.strategy(new Position(2, 2)));
             Assert.IsFalse(o.strategy(new Position(1, 3)));
-            Assert.IsFalse(o.strategy(new Position(3, 1)));
+            Assert.IsTrue(o.strategy(new Position(3, 1)));
             Assert.IsFalse(o.strategy(new Position(1, 2)));
             Assert.IsFalse(o.strategy(new Position(2, 1)));
         }

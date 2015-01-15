@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Wrapping;
 
 namespace ProjetPOO
 {
@@ -156,7 +157,7 @@ namespace ProjetPOO
         }
 
         //fonction canMove permet de savoir si un déplacement est possible de la case de l'unité
-        //on utlisera la fonction lors du repli de l'elfe
+        //on utilisera la fonction lors du repli de l'elfe
         public bool canMove()
         {
             return ((!World.Instance.unitBool(new Position(this.position.x + 1,this.position.y))
@@ -235,8 +236,9 @@ namespace ProjetPOO
             this.winFight(p);
         }
 
-        //fight 2 unités ennemies TODO
+        //getMoveSuggestions est un algorithme de suggestion en C#
         //getMoveSuggestions permet de faire la suggestion de 3 cases maximum pour une unité
+        //il ne fera aucune suggestion si rien est intéressant
         public List<Position> getMoveSuggestions()
         {
             List<Position> l = new List<Position>();
@@ -244,6 +246,7 @@ namespace ProjetPOO
             int j = this.position.y;
             Position p;
             String s = "";
+            double depl = this.nbDeplacement;
             for (int x = i - 1; x < i + 2; x++)
             {
                 for (int y = j - 1; y < j + 2; y++)
@@ -292,7 +295,7 @@ namespace ProjetPOO
                 }
             }
 
-
+            this.nbDeplacement = depl;
             //on prend trois suggestions de l aléatoirement
             List<Position> lres = new List<Position>();
             int cpt = 3;
@@ -328,7 +331,8 @@ namespace ProjetPOO
         //strategy permet de déterminer s'il y a des alliers autour de l'unité courante
         //on voudra pour l'IA éviter les cases où les alliers sont à proximité
         //pour étirer au maximum la surface de jeu
-        //et éviter les unités avec plus de vie
+        //et éviter les unités avec plus de vie que l'unité courante
+        //sinon, il cherchera les combats
         public bool strategy(Position p)
         {
             Unit u;
@@ -343,12 +347,11 @@ namespace ProjetPOO
                         {
                             if (u.controler.numero == this.controler.numero)
                             {
-                            if ((y == 1) && (x == 2)) { throw new Exception("toto" + x + " " + y); }
                                 return false;
                             }
                             else
                             {
-                                if (u.hp >= this.hp)
+                                if (u.hp > this.hp)
                                 {
                                     return false;
                                 }
@@ -358,6 +361,72 @@ namespace ProjetPOO
                 }
             }
             return true;
+        }
+
+        //getMoveSuggestions2 est un algorithme de suggestion en C++ via le wrapper
+        //getMoveSuggestions2 permet de faire la suggestion de 3 cases maximum pour une unité
+        //il ne fera aucune suggestion si rien est intéressant
+        public List<Position> getMoveSuggestions2()
+        {
+            int i = this.position.x;
+            int j = this.position.y;
+            Position p;
+            String s = "";
+            List<int> l = new List<int>();
+            Unit u;
+            List<Position> lp = new List<Position>();
+            l.Add(this.hp);
+            for (int x = i - 1; x < i + 2; x++)
+            {
+                for (int y = j - 1; y < j + 2; y++)
+                {
+                    if (!(x == y))
+                    {
+                        p = new Position(x, y);
+                        //on vérifie que le mouvement est possible
+                        if (this.checkMove(p))
+                        {
+                            lp.Add(p);
+                            if (!World.Instance.unitBool(p))
+                            {//cas où il n'y a pas d'unité sur la case
+                                if (this.nbDeplacement >= this.calcDepl(p))
+                                {
+                                    lp.Add(p);
+                                    l.Add(-1);
+                                    l.Add(-1);
+                                }
+                            }
+                            else
+                            {// il y a une unité sur la case
+                                u = World.Instance.getUnit(p);
+                                if (u.controler.numero == this.controler.numero)
+                                {//allié
+                                    if (this.nbDeplacement >= this.calcDepl(p))
+                                    {
+                                        lp.Add(p);
+                                        l.Add(1);
+                                        l.Add(1);
+                                    }
+                                }
+                                else
+                                {//ennemi
+                                    if (this.nbDeplacement >= this.calcDeplAtt(p))
+                                    {
+                                        lp.Add(p);
+                                        l.Add(0);
+                                        l.Add(u.hp);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            Wrapper algo = new Wrapper();
+            List<int> resul = algo.computeSug(l.ElementAt(0), l.ElementAt(1), l.ElementAt(2), l.ElementAt(3),  l.ElementAt(4),
+                l.ElementAt(5), l.ElementAt(6),l.ElementAt(7), l.ElementAt(8), l.ElementAt(9), l.ElementAt(10) , l.ElementAt(11), l.ElementAt(12));
+            //translate
+            return null;
         }
     }
 }
