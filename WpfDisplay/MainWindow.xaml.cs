@@ -48,16 +48,19 @@ namespace WpfDisplay
         private void ElfeSelectionP1(object sender, RoutedEventArgs e)
         {
             typeP1 = "Elf";
+            imgP1.Source = new BitmapImage(new Uri(@"pack://application:,,/Ressources/elfe.png"));
         }
 
         private void OrcSelectionP1(object sender, RoutedEventArgs e)
         {
             typeP1 = "Orc";
+            imgP1.Source = new BitmapImage(new Uri(@"pack://application:,,/Ressources/orc.png"));
         }
 
         private void NainSelectionP1(object sender, RoutedEventArgs e)
         {
             typeP1 = "Dwarf";
+            imgP1.Source = new BitmapImage(new Uri(@"pack://application:,,/Ressources/nain.png"));
         }
 
         private void AleatoireSelectionP1(object sender, RoutedEventArgs e)
@@ -80,7 +83,7 @@ namespace WpfDisplay
 
         private void test(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("====== button ======" + World.Instance.nbUnity);
+            Console.WriteLine("====== button ======" + World.Instance.unitCount(new Position(1, 1)));
             mapView.InvalidateVisual();
         }
 
@@ -89,10 +92,12 @@ namespace WpfDisplay
             ModeSelection.Visibility = System.Windows.Visibility.Hidden;
 
             MonteurSmall m = new MonteurSmall();
-            World.Instance.addPlayer("Joueur 1", typeP1);
+            World.Instance.addPlayer(nameP1.Text, typeP1);
             World.Instance.addPlayer("Joueur 2", typeP2);
+            CreateGame.init();
 
             mapView.init();
+            playerInfo1.name.Content = nameP1.Text;
             scene = "Game";
             GameScene.Visibility = System.Windows.Visibility.Visible;
             mapView.InvalidateVisual();

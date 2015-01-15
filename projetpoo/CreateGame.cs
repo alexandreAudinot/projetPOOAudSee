@@ -7,9 +7,9 @@ namespace ProjetPOO
 {
     public class CreateGame
     {
-        public Monteur Monteur { get; private set; }
+        public static Monteur Monteur { get; private set; }
 
-        protected void init()
+        public static void init()
         {
             /* ----------------------------------------Fonction init ---------------------------------------- *
              * ---------------------------------------------------------------------------------------------- */

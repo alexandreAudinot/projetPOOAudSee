@@ -41,19 +41,6 @@ void GenerationMap::initialiser(int* map, int w, int h) const
 	}
 }
 
-void GenerationMap::genererBiome(int* map, int w, int h, int biome, int length) const
-{
-	int x = rand() % w;
-	int y = rand() % h;
-	int deplacement;
-	for(int i=0; i< length; i++)
-	{
-		map[y + x*h] = biome;
-		deplacement = rand() % 4;
-		//switch case en fonction du deplacement
-	}
-}
-
 
 
 

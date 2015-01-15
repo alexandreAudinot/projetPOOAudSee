@@ -155,7 +155,7 @@ namespace ProjetPOO
                     //renvoie une unité au hasard
                     //tester que le nombre est bien dans les cordes
                     Random rnd = new Random();
-                    return l.ElementAt(rnd.Next(0,l.Count() + 1));
+                    return l.ElementAt(rnd.Next(0,l.Count()));
                 }
             }
         }

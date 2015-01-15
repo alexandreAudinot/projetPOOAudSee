@@ -130,6 +130,7 @@ namespace WpfDisplay
                     unit = World.Instance.getUnit(pos);
                     if (unit != null)
                     {
+                        Console.WriteLine("====== unit ======" + World.Instance.nbUnity);
                         unitType = unit.GetType().ToString();
                         unitTable.TryGetValue(unitType, out img);
                         drawElement(img, pos, drawingContext);
