@@ -16,24 +16,13 @@ using System.Windows.Shapes;
 namespace WpfDisplay
 {
     /// <summary>
-    /// Logique d'interaction pour Menu.xaml
+    /// Interaction logic for PlayerInfo.xaml
     /// </summary>
-    public partial class Menu : UserControl
+    public partial class PlayerInfo : UserControl
     {
-        public Menu()
+        public PlayerInfo()
         {
             InitializeComponent();
-        }
-
-        private void New_Click(object sender, RoutedEventArgs e)
-        {
-            //throw signal "New game"
-            //((MainWindow)Parent).newGame();
-        }
-
-        private void Load_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

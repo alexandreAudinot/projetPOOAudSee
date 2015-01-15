@@ -27,6 +27,7 @@ namespace WpfDisplay
 
         private Dictionary<Tile,   ImageSource> tileTable;
         private Dictionary<string, ImageSource> unitTable;
+        ImageSource selectedTileImg;
 
         World world;
 
@@ -45,6 +46,8 @@ namespace WpfDisplay
             unitTable.Add("ProjetPOO.Elf",   BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/elfe.png")));
             unitTable.Add("ProjetPOO.Dwarf", BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/nain.png")));
             unitTable.Add("ProjetPOO.Orc",   BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/orc.png")));
+
+            selectedTileImg = BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/selected.png"));
         }
 
         protected override void OnRender(DrawingContext drawingContext)
@@ -102,6 +105,8 @@ namespace WpfDisplay
                     tile = World.Instance.board.getTile(pos);
                     tileTable.TryGetValue(tile, out img);
                     drawElement(img, pos, drawingContext);
+                    if(pos.x * pos.y > 25)
+                        drawElement(selectedTileImg, pos, drawingContext);
                 }
             }
         }
