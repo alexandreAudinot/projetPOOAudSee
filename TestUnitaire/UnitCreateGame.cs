@@ -28,6 +28,7 @@ namespace TestUnitaire
             UnitCreateGame.testMonteurTiles();
         }
 
+        [TestMethod]
         public static void testMonteurTiles()
         {
             int forest = 0;

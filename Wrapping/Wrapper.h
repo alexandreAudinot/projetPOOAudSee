@@ -19,14 +19,10 @@ namespace Wrapping{
 			int* in = GenerationMap_compute(algo, w, h);
 			List<int>^ out = gcnew List<int>();
 
-			for (int i = 0; i < w; i++)
+			for (int i = 0; i < w*h; i++)
 			{
-				for (int j = 0; j < h; j++)
-				{
-					out->Add(in[j + i*h]);
-				}
+					out->Add(in[i]);
 			}
-
 			return out;
 		}
 	};
