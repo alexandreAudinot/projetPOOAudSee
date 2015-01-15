@@ -29,7 +29,7 @@ namespace WpfDisplay
         private const int TILE_HEIGHT = 100;//69;
 
         private const int TILE_DISTANCE_X = TILE_WIDTH;//79;
-        private const int TILE_DISTANCE_Y = TILE_HEIGHT*3/4;//52;
+        private const int TILE_DISTANCE_Y = TILE_HEIGHT * 3 / 4;//52;
         private const int TILE_SHIFT      = TILE_WIDTH/2;//40;
 
         private const int NB_MAX_UNITS = 8;
@@ -37,6 +37,7 @@ namespace WpfDisplay
         private Dictionary<Tile,   ImageSource> tileTable;
         private Dictionary<string, ImageSource> unitTable;
         private ImageSource selectedTileImg;
+        private ImageSource suggestedTileImg;
 
         private Position selectedTile;
         private Unit selectedUnit;
@@ -62,9 +63,11 @@ namespace WpfDisplay
             selectedTileImg = BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/selected.png"));
             selectedTile = null;
             selectedUnit = null;
+            selectedTileImg = BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/suggested.png"));
             suggestedTiles = new List<Position>();
 
-            updateSize();
+            Width = world.board.size * TILE_DISTANCE_X + 50;
+            Height = world.board.size * TILE_DISTANCE_Y + 25;
         }
 
         public ImageSource getImageFromType(string type)
@@ -112,84 +115,84 @@ namespace WpfDisplay
         private Position toCoords(Point p)
         {
             Position pos = new Position(0, 0);
-            int x = (int)p.X % 100;
-            int y = (int)p.Y % 150;
+            int x = (int)p.X % TILE_DISTANCE_X;
+            int y = (int)p.Y % (TILE_DISTANCE_Y * 2);
             Console.WriteLine("x;y = " + x + ";" + y);
 
-            if(y < 25)
+            if (y < TILE_DISTANCE_Y * 2 / 3)
             {
-                if (x < 50)
+                if (x < TILE_DISTANCE_X / 2)
                 {
                     if (x - 2 * y < 0)
                     {
-                        pos.y = (int)(p.Y / 75); Console.WriteLine("--1");
-                        pos.x = (int)(p.X / 100) - 1;
+                        pos.y = (int)(p.Y / TILE_DISTANCE_Y); Console.WriteLine("--1");
+                        pos.x = (int)(p.X / TILE_DISTANCE_X) - 1;
                     }
                     else
                     {
-                        pos.y = (int)(p.Y / 75) - 1; Console.WriteLine("--2");
-                        pos.x = (int)(p.X / 100);
+                        pos.y = (int)(p.Y / TILE_DISTANCE_Y) - 1; Console.WriteLine("--2");
+                        pos.x = (int)(p.X / TILE_DISTANCE_X);
                     }
                 }
                 else
                 {
                     if ((x-50) + 2 * y < 50)
                     {
-                        pos.y = (int)(p.Y / 75) - 1; Console.WriteLine("--3");
-                        pos.x = (int)(p.X / 100);
+                        pos.y = (int)(p.Y / TILE_DISTANCE_Y) - 1; Console.WriteLine("--3");
+                        pos.x = (int)(p.X / TILE_DISTANCE_X);
                     }
                     else
                     {
-                        pos.y = (int)(p.Y / 75); Console.WriteLine("--4");
-                        pos.x = (int)(p.X / 100);
+                        pos.y = (int)(p.Y / TILE_DISTANCE_Y); Console.WriteLine("--4");
+                        pos.x = (int)(p.X / TILE_DISTANCE_X);
                     }
                 }
             }
-            else if(y < 75)
+            else if (y < TILE_DISTANCE_Y)
             {
-                pos.y = (int)(p.Y / 75);
-                if (x < 50)
+                pos.y = (int)(p.Y / TILE_DISTANCE_Y);
+                if (x < TILE_DISTANCE_X / 2)
                 {
-                    pos.x = (int)(p.X / 100) - 1; Console.WriteLine("--5");
+                    pos.x = (int)(p.X / TILE_DISTANCE_X) - 1; Console.WriteLine("--5");
                 }
                 else
                 {
-                    pos.x = (int)(p.X / 100); Console.WriteLine("--6");
+                    pos.x = (int)(p.X / TILE_DISTANCE_X); Console.WriteLine("--6");
                 }
             }
-            else if(y < 100)
+            else if (y < TILE_DISTANCE_Y + TILE_DISTANCE_Y * 2 / 3)
             {
-                if (x < 50)
+                if (x < TILE_DISTANCE_X / 2)
                 {
-                    if (x + 2 * (y - 75) < 50)
+                    if (x + 2 * (y - TILE_DISTANCE_Y) < 50)
                     {
-                        pos.y = (int)(p.Y / 75) - 1; Console.WriteLine("--7");
-                        pos.x = (int)(p.X / 100) - 1;
+                        pos.y = (int)(p.Y / TILE_DISTANCE_Y) - 1; Console.WriteLine("--7");
+                        pos.x = (int)(p.X / TILE_DISTANCE_X) - 1;
                     }
                     else
                     {
-                        pos.y = (int)(p.Y / 75); Console.WriteLine("--8");
-                        pos.x = (int)(p.X / 100);
+                        pos.y = (int)(p.Y / TILE_DISTANCE_Y); Console.WriteLine("--8");
+                        pos.x = (int)(p.X / TILE_DISTANCE_X);
                     }
                 }
                 else
                 {
-                    if ((x-50) - 2 * (y-75) < 00)
+                    if ((x - 50) - 2 * (y - TILE_DISTANCE_Y) < 0)
                     {
-                        pos.y = (int)(p.Y / 75); Console.WriteLine("--9");
-                        pos.x = (int)(p.X / 100);
+                        pos.y = (int)(p.Y / TILE_DISTANCE_Y); Console.WriteLine("--9");
+                        pos.x = (int)(p.X / TILE_DISTANCE_X);
                     }
                     else
                     {
-                        pos.y = (int)(p.Y / 75) - 1; Console.WriteLine("--10");
-                        pos.x = (int)(p.X / 100);
+                        pos.y = (int)(p.Y / TILE_DISTANCE_Y) - 1; Console.WriteLine("--10");
+                        pos.x = (int)(p.X / TILE_DISTANCE_X);
                     }
                 }
             }
             else
             {
-                pos.y = (int)(p.Y / 75); Console.WriteLine("--11/12");
-                pos.x = (int)(p.X / 100);
+                pos.y = (int)(p.Y / TILE_DISTANCE_Y); Console.WriteLine("--11/12");
+                pos.x = (int)(p.X / TILE_DISTANCE_X);
             }
 
             return pos;
@@ -242,6 +245,14 @@ namespace WpfDisplay
             }
             if(selectedTile != null)
                 drawElement(selectedTileImg, selectedTile, drawingContext);
+            /*if(selectedUnit != null)
+            {
+                List<Position> l = selectedUnit.getMoveSuggestions();
+                foreach(Position p in l)
+                {
+                    drawElement(suggestedTileImg, selectedUnit.position, drawingContext);
+                }
+            }*/
         }
 
         private void drawUnits(DrawingContext drawingContext)
@@ -295,30 +306,25 @@ namespace WpfDisplay
             }
         }
 
-        public void updateSize()
-        {
-            Width  = world.board.size * TILE_DISTANCE_X + 50;
-            Height = world.board.size * TILE_DISTANCE_Y + 25;
-        }
-
         public void onLeftClick(Point p)
         {
             Position pos = toCoords(p);
             selectedTile = pos;
 
+            mainWindow.printError("");
+
             unselectAll();
             updateUnitInfos();
 
-            Console.WriteLine("====select (" + p.X + ";" + p.Y + ") " + pos.x + ";" + pos.y + " --> " + World.Instance.unitCount(pos));
             InvalidateVisual();
         }
         public void onRightClick(Point p)
         {
-            Position pos = toCoords(p);
+            mainWindow.printError("");
 
+            Position pos = toCoords(p);
             moveUnit(pos);
 
-            Console.WriteLine("====move " + pos.x + ";" + pos.y + " --> " + World.Instance.unitCount(pos));
             InvalidateVisual();
         }
 
@@ -330,8 +336,9 @@ namespace WpfDisplay
             }
             catch(Exception e)
             {
-                Console.WriteLine(e.Message);
+                mainWindow.printError(e.Message);
             }
+            updateUnitInfos();
             mainWindow.updateInfos();
         }
 

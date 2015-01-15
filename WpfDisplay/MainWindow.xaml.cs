@@ -180,6 +180,11 @@ namespace WpfDisplay
 
         private void ValidateMode(object sender, RoutedEventArgs e)
         {
+            if(typeP1 == typeP2)
+            {
+                errorMode.Text = "Les deux joueurs doivent avoir des types différents";
+                return;
+            }
             ModeSelection.Visibility = System.Windows.Visibility.Hidden;
             Monteur m;
 
@@ -249,6 +254,11 @@ namespace WpfDisplay
             GameScene.Visibility = System.Windows.Visibility.Hidden;
             World.Clean();
             Menu.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        public void printError(string s)
+        {
+            error.Text = s;
         }
     }
 }

@@ -216,7 +216,7 @@ namespace ProjetPOO
             }
             else
             {
-                throw new Exception("C'est au joueur " + World.Instance.currentPlayer + " de jouer");
+                throw new Exception("C'est au joueur " + (World.Instance.currentPlayer+1) + " de jouer");
             }
         }
 
