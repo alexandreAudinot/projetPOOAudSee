@@ -80,7 +80,7 @@ namespace WpfDisplay
 
         private void test(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("====== button ======");
+            Console.WriteLine("====== button ======" + World.Instance.nbUnity);
             mapView.InvalidateVisual();
         }
 
