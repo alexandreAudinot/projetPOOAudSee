@@ -249,6 +249,36 @@ namespace ProjetPOO
             this.winFight(p);
         }
 
+        //permet de calculer le déplacement, mais renvoie un entier grand
+        //si jamais le mouvement est impossible au lieu d'une exception
+        double calcDepl2(Position p)
+        {
+            double d;
+            try
+            {
+               return d = this.calcDepl(p);
+            }
+            catch(Exception e)
+            {
+               return d = 5000;
+            }
+        }
+
+        //permet de calculer le déplacement, mais renvoie un entier grand
+        //si jamais le mouvement est impossible au lieu d'une exception
+        double calcDeplAtt2(Position p)
+        {
+            double d;
+            try
+            {
+                return d = this.calcDeplAtt(p);
+            }
+            catch (Exception e)
+            {
+                return d = 5000;
+            }
+        }
+
         //getMoveSuggestions est un algorithme de suggestion en C#
         //getMoveSuggestions permet de faire la suggestion de 3 cases maximum pour une unité
         //il ne fera aucune suggestion si rien est intéressant
@@ -278,7 +308,7 @@ namespace ProjetPOO
                                     if (World.Instance.getUnit(p).controler.numero != this.controler.numero)
                                     {//cas de l'unité ennemie
                                         //cas où le déplacement est possible
-                                        if (this.calcDeplAtt(p) <= this.nbDeplacement)
+                                        if (this.calcDeplAtt2(p) <= this.nbDeplacement)
                                         { // on decide de ne tenter le combat que si la vie de l'unité adverse est inférieure
                                             if (World.Instance.getUnit(p).hp < this.hp)
                                             {//le combat est envisageable
@@ -292,7 +322,7 @@ namespace ProjetPOO
                             else
                             {
                                 //cas où il n'y a pas d'unité
-                                if (this.calcDepl(p) <= this.nbDeplacement)
+                                if (this.calcDepl2(p) <= this.nbDeplacement)
                                 {//le déplacement est possible
                                     s += x + " " + y + " , ";
                                     if (this.strategy(p))
@@ -310,7 +340,7 @@ namespace ProjetPOO
 
             this.nbDeplacement = depl;
             //on prend trois suggestions de l aléatoirement
-            List<Position> lres = new List<Position>();
+            /*List<Position> lres = new List<Position>();
             int cpt = 3;
             Random random = new Random();
             int index;
@@ -320,7 +350,7 @@ namespace ProjetPOO
                 lres.Add(l.ElementAt(index));
                 l.RemoveAt(index);
                 cpt--;
-            }
+            }*/
 
             //on ne prend que les trois premières suggestions de l
             /*List<Position> lres = new List<Position>();
@@ -337,8 +367,8 @@ namespace ProjetPOO
                     cpt++;
                 }
             }*/
-
-            return lres;
+            //throw new Exception(l.ElementAt(1).x + " " + l.ElementAt(1).y);
+            return l;
         }
 
         //strategy permet de déterminer s'il y a des alliers autour de l'unité courante
