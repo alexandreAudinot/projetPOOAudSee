@@ -33,6 +33,7 @@ namespace WpfDisplay
             InitializeComponent();
 
             Menu.Visibility = System.Windows.Visibility.Visible;
+            Intro.Visibility = System.Windows.Visibility.Hidden;
             ModeSelection.Visibility = System.Windows.Visibility.Hidden;
             GameScene.Visibility = System.Windows.Visibility.Hidden;
             scene = "Menu";
@@ -64,12 +65,12 @@ namespace WpfDisplay
         private void NewGame(object sender, RoutedEventArgs e)
         {
             Menu.Visibility = System.Windows.Visibility.Hidden;
-            ModeSelection.Visibility = System.Windows.Visibility.Visible;
+            Intro.Visibility = System.Windows.Visibility.Visible;
             typeP1 = "Elf";
             typeP2 = "Orc";
             mapSize = "Normal";
             descriptionMap.Text = "Normale :\nTaille : 14x14\nNombre de tours : 30\nNombre d'unités par joueur : 8";
-            scene = "ModeSelection";
+            scene = "Intro";
         }
 
         private void LoadGame(object sender, RoutedEventArgs e)
@@ -89,6 +90,13 @@ namespace WpfDisplay
             Menu.Visibility = System.Windows.Visibility.Hidden;
             
             initVisualElements();
+        }
+
+        private void SkipIntro(object sender, RoutedEventArgs e)
+        {
+            Intro.Visibility = System.Windows.Visibility.Hidden;
+            scene = "ModeSelection";
+            ModeSelection.Visibility = System.Windows.Visibility.Visible;
         }
 
 
@@ -227,8 +235,11 @@ namespace WpfDisplay
             playerInfo1.setPlayer(World.Instance.players.ElementAt(0));
             playerInfo2.setPlayer(World.Instance.players.ElementAt(1));
             scene = "Game";
-            GameScene.Visibility = System.Windows.Visibility.Visible;
+            errorLoad.Text = "";
+            errorMode.Text = "";
+            error.Text = "";
             mapView.InvalidateVisual();
+            GameScene.Visibility = System.Windows.Visibility.Visible;
             updateInfos();
         }
 
@@ -269,6 +280,7 @@ namespace WpfDisplay
             SaveGame save = new SaveGame();
             String resul = save.saveOnDisk();
             Console.WriteLine("game saved : " + resul);
+            error.Text = "game saved : " + resul;
         }
 
         private void ButtonQuit(object sender, RoutedEventArgs e)

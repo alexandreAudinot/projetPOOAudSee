@@ -26,8 +26,8 @@ namespace ProjetPOO
             //On remplit le fichier avec les données de world et du board
             //variables int ou boolean
             text += "[World]\n";
-            text += "[maxnbTours = " + World.Instance.nbTours + "], ";
-            text += "[nbTours = " + World.Instance.maxnbTours + "], ";
+            text += "[maxnbTours = " + World.Instance.maxnbTours + "], ";
+            text += "[nbTours = " + World.Instance.nbTours + "], ";
             text += "[nbUnity = " + World.Instance.nbUnity + "], ";
             text += "[currentPlayer = " + World.Instance.currentPlayer + "], ";
             text += "[stateGame = " + World.Instance.stateGame + "], ";

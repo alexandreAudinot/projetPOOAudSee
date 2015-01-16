@@ -25,6 +25,8 @@ namespace WpfDisplay
         private MainWindow mainWindow;
         private World world;
 
+        private bool gameOver;
+
         private const int TILE_WIDTH  = 100;//79;
         private const int TILE_HEIGHT = 100;//69;
 
@@ -47,6 +49,8 @@ namespace WpfDisplay
         {
             mainWindow = mw;
             world = World.Instance;
+
+            gameOver = false;
 
             tileTable = new Dictionary<Tile,   ImageSource>();
             unitTable = new Dictionary<string, ImageSource>();
@@ -346,8 +350,28 @@ namespace WpfDisplay
 
         public void endTurn()
         {
-            world.endTurn();
-            mainWindow.updateInfos();
+            if (gameOver)
+            {
+                return;
+            }
+            else
+            {
+                if (world.stateGame)
+                {
+                    world.endTurn();
+                    mainWindow.updateInfos();
+                }
+                else
+                {
+                    gameOver = true;
+                    endGame();
+                }
+            }
+        }
+
+        private void endGame()
+        {
+            mainWindow.error.Text = "Victoire du joueur " + world.gagnant();
         }
 
         public void MovementKeyPressed(Key key)

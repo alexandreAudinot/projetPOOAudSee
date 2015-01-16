@@ -265,25 +265,14 @@ namespace ProjetPOO
             } 
             else
             {
-                String s = "No";
-                int scoreMax = -1;
-                foreach (Player player in World.Instance.players)
+                if (World.Instance.players.First().score > World.Instance.players.ElementAt(1).score)
                 {
-                    if (player.score > scoreMax)
-                    {
-                        s = player.nom;
-                        scoreMax = player.score;
-                    }
-                    else
-                    {
-                        if (player.score == scoreMax)
-                        {
-                            return "Match nul";
-                        }
-                        return s;
-                    }
+                    return World.Instance.players.First().nom;
                 }
-                throw new Exception("Il n'y a pas de gagnant avec une liste vide");
+                else
+                {
+                    return World.Instance.players.ElementAt(1).nom;
+                }
             }
         }
     }

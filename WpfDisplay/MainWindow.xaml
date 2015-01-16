@@ -16,13 +16,17 @@
                 <ColumnDefinition Width="500"/>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Image Grid.ColumnSpan="3" HorizontalAlignment="Center" Height="770" VerticalAlignment="Top" Width="992" Source="Ressources/flou.jpg" Grid.RowSpan="3" Stretch="Fill"/>
+            <Image Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top" Source="Ressources/flou.jpg" Grid.RowSpan="3" Stretch="Fill"/>
             <Button Content="Nouvelle partie" HorizontalAlignment="Left" Margin="10,0,0,100" Grid.Row="1" VerticalAlignment="Bottom" Width="150" Click="NewGame" Height="100" FontSize="18" Grid.Column="1"/>
             <Button Content="Charger partie" HorizontalAlignment="Center" Margin="0,0,0,100" Grid.Row="1" VerticalAlignment="Bottom" Width="150" Click="LoadGame" Height="100" FontSize="18" Grid.Column="1"/>
             <Button Content="Quitter" HorizontalAlignment="Right" Margin="0,0,10,100" Grid.Row="1" VerticalAlignment="Bottom" Width="150" Click="QuitGame" Height="100" FontSize="18" Grid.Column="1"/>
             <TextBox x:Name="load" Grid.Column="1" HorizontalAlignment="Center" Height="23" Margin="0,0,0,31" Grid.Row="1" TextWrapping="Wrap" Text="save1" VerticalAlignment="Bottom" Width="120"/>
             <TextBlock x:Name="errorLoad" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,0,10" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Bottom" Background="Black" Foreground="White" Width="250" TextAlignment="Center"/>
 
+        </Grid>
+        <Grid Name="Intro" Visibility="Hidden">
+            <Image Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top" Source="Ressources/flou.jpg" Grid.RowSpan="3" Stretch="Fill"/>
+            <Button Content="Suivant" HorizontalAlignment="Left" Margin="488,657,0,0" VerticalAlignment="Top" Width="75" Click="SkipIntro"/>
         </Grid>
         <Grid Name="ModeSelection" Visibility="Hidden">
             <Grid.RowDefinitions>
@@ -97,6 +101,10 @@
             </ScrollViewer>
             <local:GameInfo x:Name="gameInfo" Grid.Column="1" HorizontalAlignment="Center" Margin="0,35,0,0" Grid.Row="1" VerticalAlignment="Top"/>
 
+        </Grid>
+        <Grid Name="Epilogue" Visibility="Hidden">
+            <Image Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top" Source="Ressources/flou.jpg" Grid.RowSpan="3" Stretch="Fill"/>
+            <Button Content="Suivant" HorizontalAlignment="Left" Margin="488,657,0,0" VerticalAlignment="Top" Width="75" Click="SkipIntro"/>
         </Grid>
     </Grid>
 </Window>
