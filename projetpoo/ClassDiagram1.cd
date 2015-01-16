@@ -6,7 +6,7 @@
   <Comment CommentText="On utilise le Design Pattern Stategy pour implémenter plusieurs niveaux de difficultés gérés par une interface.">
     <Position X="4.604" Y="1.229" Height="1.125" Width="2.075" />
   </Comment>
-  <Comment CommentText="On utilise une Fabrique Abstraite qui sera implémentée par une fabrique qui elle-même créera les unités.">
+  <Comment CommentText="On utilise une Fabrique pour créer les unités">
     <Position X="8.644" Y="11.271" Height="1.011" Width="1.815" />
   </Comment>
   <Comment CommentText="On utilise le Design Pattern Monteur pour créer le plateau de différentes façons">
@@ -16,28 +16,28 @@
     <Position X="12.573" Y="0.729" Height="0.582" Width="2.075" />
   </Comment>
   <Class Name="ProjetPOO.World" Collapsed="true">
-    <Position X="19" Y="1.5" Width="1.5" />
+    <Position X="17.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQCAUCAgIgAAAAICBAAAQAAAAwAQCECAYBABAAEASAA=</HashCode>
       <FileName>World.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Orc">
-    <Position X="8.5" Y="13" Width="1.5" />
+    <Position X="8.5" Y="13.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgCAAAAAAAAAAAAAAAACAggABAAAQABAAAgAAAAA=</HashCode>
       <FileName>UnitImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Elf">
-    <Position X="10.75" Y="13" Width="1.5" />
+    <Position X="10.75" Y="13.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgCAAAAAAAAAAAAAAAAAAAgABAAAAABAAAgAAAAA=</HashCode>
       <FileName>UnitImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Dwarf">
-    <Position X="13" Y="13" Width="1.5" />
+    <Position X="13" Y="13.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgCAAAAAAAAAAAAAAAAAAAgABAAAAABAAAgAAAAA=</HashCode>
       <FileName>UnitImpl.cs</FileName>
@@ -59,7 +59,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Player" Collapsed="true">
-    <Position X="19" Y="0.5" Width="1.5" />
+    <Position X="17.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAMAAgAAAAABIIAAAAAABECQAAAFAAAAIAAA=</HashCode>
       <FileName>Player.cs</FileName>
@@ -113,14 +113,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.MonteurDemo">
-    <Position X="0.5" Y="9.25" Width="1.5" />
+    <Position X="0.5" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Factory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.FactoryUnit" Collapsed="true">
-    <Position X="17.25" Y="0.5" Width="1.5" />
+    <Position X="15.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAACAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>Factory.cs</FileName>
@@ -129,27 +129,20 @@
   <Class Name="ProjetPOO.Monteur">
     <Position X="2.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAAAAAAAAAgAAAAAAgCQABBAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAABAAQAAAAAAgAAAAAAgCQABBAAAAAAAAAAAA=</HashCode>
       <FileName>AbstractFactoryTiles.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ProjetPOO.CreateGame" Collapsed="true">
-    <Position X="15.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
-      <FileName>CreateGame.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="ProjetPOO.MonteurSmall">
-    <Position X="2.75" Y="9.25" Width="1.5" />
+    <Position X="2.75" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Factory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.MonteurNormal">
-    <Position X="5" Y="9.25" Width="1.5" />
+    <Position X="5" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Factory.cs</FileName>
@@ -166,16 +159,6 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ProjetPOO.SaveGame" Collapsed="true">
-    <Position X="17.25" Y="1.5" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>AAAAQAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>SaveGame.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="ProjetPOO.Plain">
     <Position X="13" Y="2.25" Width="1.5" />
     <TypeIdentifier>
@@ -191,7 +174,7 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="ProjetPOO.IUnit" Collapsed="true">
-    <Position X="19" Y="2.75" Width="1.5" />
+    <Position X="15.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAACAAAACECAAAAAAQAoABAAAAABAAAgEAAAA=</HashCode>
       <FileName>IUnit.cs</FileName>

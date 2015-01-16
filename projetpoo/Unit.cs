@@ -485,8 +485,7 @@ namespace ProjetPOO
             List<int> resul;
             try
             {
-                resul = algo.computeSug(l.ElementAt(0), l.ElementAt(1), l.ElementAt(2), l.ElementAt(3), l.ElementAt(4),
-                l.ElementAt(5), l.ElementAt(6), l.ElementAt(7), l.ElementAt(8), l.ElementAt(9), l.ElementAt(10), l.ElementAt(11), l.ElementAt(12));
+                resul = algo.computeSug(l);
             }
             catch(Exception e)
             {
