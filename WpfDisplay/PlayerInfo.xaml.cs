@@ -30,7 +30,7 @@ namespace WpfDisplay
         public void setPlayer(Player p)
         {
             associatedPlayer = p;
-            name.Content = p.nom + " : " + p.listUnit.First().getTypes();
+            name.Content = p.nom + " : " + p.listUnit.First().getLeType();
         }
 
         public void updateInfos()

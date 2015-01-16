@@ -22,7 +22,7 @@ namespace ProjetPOO
         public abstract bool loseFight();
         public abstract void winFight(Position p);
         public abstract void loadUnit(int uatt, int udef, int uhp, int unbDeplacement, int uinitialLife, int opt);
-        public abstract string getTypes();
+        public abstract string getLeType();
         //constructeur d'unité, méthode accessible que par les classes filles
         protected Unit(Player p, Position po)
         {

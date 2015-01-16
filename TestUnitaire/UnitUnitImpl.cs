@@ -175,7 +175,7 @@ namespace TestUnitaire
             o.nbDeplacement = 2;
             Assert.AreEqual(1, o.calcDeplAtt(new Position(0, 0)));
             Assert.AreEqual(1, o.calcDeplAtt(new Position(1, 1)));
-            Assert.AreEqual(0.5, o.calcDeplAtt(new Position(2, 2)));
+            Assert.AreEqual(1, o.calcDeplAtt(new Position(2, 2)));
             Assert.AreEqual(1, o.calcDeplAtt(new Position(3, 3)));
         }
 
@@ -300,6 +300,27 @@ namespace TestUnitaire
             Assert.AreEqual(12, o.hp);
             Assert.AreEqual(13, o.nbDeplacement);
             Assert.AreEqual(14, o.initialLife);
+        }
+
+        [TestMethod]
+        public void testGetLeTypeOrc()
+        {
+            Orc o = new Orc(new Player("Azog", 1, "ee"),new Position(1,1));
+            Assert.IsTrue(o.getLeType() == "Orque");
+        }
+
+        [TestMethod]
+        public void testGetLeTypeNain()
+        {
+            Dwarf o = new Dwarf(new Player("Fili", 1, "ee"), new Position(1, 2));
+            Assert.IsTrue(o.getLeType() == "Nain");
+        }
+
+        [TestMethod]
+        public void testGetLeTypeElf()
+        {
+            Elf o = new Elf(new Player("Tauriel", 1, "ee"), new Position(2, 1));
+            Assert.IsTrue(o.getLeType() == "Elfe");
         }
     }
 }

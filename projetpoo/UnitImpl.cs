@@ -17,7 +17,7 @@ namespace ProjetPOO
 
         //renvoie le type de l'unité pour l'affichage
         override
-        public string getTypes()
+        public string getLeType()
         {
             return "Orque";
         }
@@ -131,7 +131,7 @@ namespace ProjetPOO
 
         //renvoie le type de l'unité pour l'affichage
         override
-        public string getTypes()
+        public string getLeType()
         {
             return "Nain";
         }
@@ -151,7 +151,7 @@ namespace ProjetPOO
                     deplacementDuTour = 1;
                     break;
                 case "ProjetPOO.Plain":
-                    deplacementDuTour = 0.5;
+                    deplacementDuTour = 1;
                     break;
                 case "ProjetPOO.Desert":
                     deplacementDuTour = 1;
@@ -217,7 +217,7 @@ namespace ProjetPOO
 
         //endGame fait le traitement de fin de partie pour les dwarves (rien)
         override
-        public void endGame() { }
+        public void endGame() {}
     }
 
     public class Elf : Unit
@@ -238,7 +238,7 @@ namespace ProjetPOO
 
         //renvoie le type de l'unité pour l'affichage
         override
-        public string getTypes()
+        public string getLeType()
         {
             return "Elfe";
         }

@@ -1,4 +1,22 @@
-﻿<Window x:Class="WpfDisplay.MainWindow"
+﻿<!-- Bouton d'aide qui ouvre une popup avec les données suivantes
+    Le but du jeu est d'avoir le plus d'anneaux. Plusieurs unités sur la même case ne génère qu'un seul anneau. 
+    Le coût de déplacement varie selon les cases et les unités. En général, il est de 1.
+    Mais il est différent dans les cas suivants.
+    Les elfes ne peuvent pas traverser les déserts.
+    Les elfes ne payent que 0.5 depl. en traversant une forêt.
+    Les orques ne payent que 0.5 depl. en traversant une plaine.
+    Les nains ne payent que 0.5 depl. en traversant une plaine.
+    Les nains peuvent voyager gratuitement dans les montagnes.
+    Le coût d'une attaque est toujours de 1.
+    Seuls les orques génèrent un anneau quand ils tuent une unité adverse, mais ils n'acquièrent pas d'anneaux sur les cases Forêt.
+    Les nains n'acquièrent pas de points dans les plaines.
+    
+    Les elfes ont 50% de chance de fuir un combat perdu (où ils devaient mourir), il se replient sur une case adjacente accessible.
+    Dans le cas inverse, l'unité mourra)
+    Il est conseillé d'éparpiller au maximum ses unités, en attaquant l'adversaire dès que possible.
+    L'évaluation du nombre d'anneau est lancé lors de l'activation du sort de Saruman, ou si un des joueurs perd la partie avant.-->
+    
+    <Window x:Class="WpfDisplay.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:WpfDisplay"

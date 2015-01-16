@@ -147,8 +147,13 @@ namespace TestUnitaire
             World.Instance.addPlayer("Les nains sentent mauvais", "Dwarf");
             Dwarf e = new Dwarf(World.Instance.players.First(), new Position(1, 1));
             Dwarf e1 = new Dwarf(World.Instance.players.First(), new Position(3, 3));
+            Dwarf e2 = new Dwarf(World.Instance.players.First(), new Position(0, 0));
+            World.Instance.board.Tiles[0, 0] = new Plain();
+            World.Instance.board.Tiles[1, 1] = new Forest();
+            World.Instance.board.Tiles[2, 2] = new Mountain();
             World.Instance.players.ElementAt(0).listUnit.Add(e);
             World.Instance.players.ElementAt(0).listUnit.Add(e1);
+            World.Instance.players.ElementAt(0).listUnit.Add(e2);
             World.Instance.players.First().score = 2;
             World.Instance.players.First().updateScore();
             Assert.AreEqual(2, World.Instance.players.First().score);
