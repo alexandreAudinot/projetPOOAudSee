@@ -258,7 +258,7 @@ namespace WpfDisplay
             }
             World.Instance.addPlayer(nameP1.Text, typeP1);
             World.Instance.addPlayer(nameP2.Text, typeP2);
-            CreateGame.init();
+            m.initForXaml();
 
             initVisualElements();
         }

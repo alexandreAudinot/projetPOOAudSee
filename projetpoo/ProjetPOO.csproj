@@ -44,7 +44,6 @@
     <Compile Include="Board.cs" />
     <Compile Include="IBuilder.cs" />
     <Compile Include="TileType.cs" />
-    <Compile Include="CreateGame.cs" />
     <Compile Include="BoardImpl.cs" />
     <Compile Include="Factory.cs" />
     <Compile Include="IUnit.cs" />
