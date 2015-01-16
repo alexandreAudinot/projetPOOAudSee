@@ -228,7 +228,7 @@ namespace ProjetPOO
                     }
                     else
                     {
-                        this.calcDeplAtt(p);
+                        this.nbDeplacement -= this.calcDeplAtt(p);
                         this.fight(p, elem);
                     }   
                 }
