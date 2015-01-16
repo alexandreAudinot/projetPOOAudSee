@@ -32,6 +32,8 @@ namespace WpfDisplay
         {
             InitializeComponent();
 
+            this.WindowState = WindowState.Maximized;
+            this.ResizeMode = ResizeMode.NoResize;
             goToMenu();
 
             unitInfoList = new List<UnitInfo>();
