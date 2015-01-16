@@ -24,7 +24,7 @@ namespace ProjetPOO
 
         override
         //loadUnit permet de charger une unité selon les valeurs données en paramètre
-        public void loadUnit(int uatt, int udef, int uhp, int unbDeplacement, int uinitialLife, int opt)
+        public void loadUnit(int uatt, int udef, int uhp, double unbDeplacement, int uinitialLife, int opt)
         {
             att = uatt;
             def = udef;
@@ -120,7 +120,7 @@ namespace ProjetPOO
 
         override
         //loadUnit permet de charger une unité
-        public  void loadUnit(int uatt, int udef, int uhp, int unbDeplacement, int uinitialLife, int opt)
+        public  void loadUnit(int uatt, int udef, int uhp, double unbDeplacement, int uinitialLife, int opt)
         {
             att = uatt;
             def = udef;
@@ -227,7 +227,7 @@ namespace ProjetPOO
 
         override
         //loadUnit permet de charger une unité
-        public void loadUnit(int uatt, int udef, int uhp, int unbDeplacement, int uinitialLife, int opt)
+        public void loadUnit(int uatt, int udef, int uhp, double unbDeplacement, int uinitialLife, int opt)
         {
             att = uatt;
             def = udef;
@@ -291,19 +291,17 @@ namespace ProjetPOO
         {
             Random rdm = new Random();
             int prob = rdm.Next(0,2);
-            if (1 == 1)
+            if (prob == 1)
             {
                 if (!this.canMove())
                 {
                     this.die();
                     return true;
                 }
-                int aa = 0;
                 this.hp = 1;
                 Position p = randomPosition();
-                aa = 0;
                 int cpt = 0;
-                while(cpt < 10000000000)
+                while(cpt < 10000)
                 {
                     p = randomPosition();
                         if(World.Instance.getTile(p).GetType().ToString() != "ProjetPOO.Desert")

@@ -210,6 +210,9 @@ namespace WpfDisplay
                 pos.x = (int)(p.X / TILE_DISTANCE_X);
             }
 
+            if (pos.x < 0 || pos.x >= world.board.size || pos.y < 0 || pos.y >= world.board.size)
+                return null;
+
             return pos;
         }
         /*private double distanceSquared(Point p1, Point p2)
@@ -263,14 +266,22 @@ namespace WpfDisplay
             if(selectedUnit != null)
             {
                 //Sélection de l'algorithme de l'IA ici
-                List<Position> l = selectedUnit.getMoveSuggestions();
-                //List<Position> l = selectedUnit.getMoveSuggestions2();
-                foreach(Position p in l)
+                int algo = mainWindow.getAlgo();
+                if (algo != 2)
                 {
-                    drawElement(suggestedTileImg, p, drawingContext);
-                    //Console.WriteLine("sugg - " + p.x + ";" + p.y);
+                    List<Position> l;
+                    if(algo == 1)
+                        l = selectedUnit.getMoveSuggestions();
+                    else
+                        l = selectedUnit.getMoveSuggestions2();
+
+                    foreach (Position p in l)
+                    {
+                        drawElement(suggestedTileImg, p, drawingContext);
+                        //Console.WriteLine("sugg - " + p.x + ";" + p.y);
+                    }
+                    InvalidateVisual();
                 }
-                InvalidateVisual();
             }
         }
 
@@ -319,6 +330,7 @@ namespace WpfDisplay
                     unitInfo.Visibility = System.Windows.Visibility.Visible;
                     if (i == 0)
                     {
+                        unselectAll();
                         unitInfo.select();
                     }
                 }
@@ -332,21 +344,26 @@ namespace WpfDisplay
         public void onLeftClick(Point p)
         {
             Position pos = toCoords(p);
-            selectedTile = pos;
 
-            mainWindow.printError("");
+            if (pos != null)
+            {
+                selectedTile = pos;
 
-            unselectAll();
-            updateUnitInfos();
+                mainWindow.printError("");
 
-            InvalidateVisual();
+                unselectAll();
+                updateUnitInfos();
+
+                InvalidateVisual();
+            }
         }
         public void onRightClick(Point p)
         {
             mainWindow.printError("");
 
             Position pos = toCoords(p);
-            moveUnit(pos);
+            if(pos != null)
+                moveUnit(pos);
         }
 
         private void moveUnit(Position pos)

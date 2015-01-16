@@ -68,12 +68,12 @@ namespace WpfDisplay
 
         private void onClick(object sender, MouseButtonEventArgs e)
         {
-            mapView.unselectAll();
             select();
         }
 
         public void select()
         {
+            mapView.unselectAll();
             mapView.setSelectedUnit(associatedUnit);
             selected.Visibility = System.Windows.Visibility.Visible;
         }

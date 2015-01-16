@@ -32,8 +32,8 @@ namespace WpfDisplay
         {
             InitializeComponent();
 
-            this.WindowState = WindowState.Maximized;
-            this.ResizeMode = ResizeMode.NoResize;
+            //this.WindowState = WindowState.Maximized;
+            //this.ResizeMode = ResizeMode.NoResize;
             goToMenu();
 
             unitInfoList = new List<UnitInfo>();
@@ -107,16 +107,14 @@ namespace WpfDisplay
             try
             {
                 save.loadOnDisk(load.Text + ".txt");
+
+                Menu.Visibility = System.Windows.Visibility.Hidden;
+                initVisualElements();
             }
             catch(Exception ex)
             {
                 errorLoad.Text = ex.Message;
-                return;
             }
-
-            Menu.Visibility = System.Windows.Visibility.Hidden;
-            
-            initVisualElements();
         }
 
         private void GoToIntro2(object sender, RoutedEventArgs e)
@@ -384,6 +382,21 @@ namespace WpfDisplay
         {
             HelpPopup popup = new HelpPopup();
             popup.ShowDialog();
+        }
+
+        public int getAlgo()
+        {
+            if ((bool)algo1.IsChecked)
+                return 0;
+            else if ((bool)algo2.IsChecked)
+                return 1;
+            return 2;
+        }
+
+        private void algoChecked(object sender, RoutedEventArgs e)
+        {
+            if(scene == "Game")
+                mapView.InvalidateVisual();
         }
     }
 }

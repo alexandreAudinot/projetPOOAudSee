@@ -5,7 +5,6 @@ using System.Text;
 using System.IO;
 using System.Reflection;
 using System.Text.RegularExpressions;
-
 namespace ProjetPOO
 {
     public class SaveManager
@@ -29,7 +28,6 @@ namespace ProjetPOO
             System.IO.File.WriteAllText(pathString, text);
             return resul;
         }
-
         //La fonction saveWorld copie le world dans un String qu'elle renvoie en sortie
         public string saveWorld()
         {
@@ -45,8 +43,7 @@ namespace ProjetPOO
             text += "[nbPlayers = " + World.Instance.players.Count() + "]\n";
             return text;
         }
-
-        //La fonction saveBoard enregistre le board à la suite de text et le renvoie 
+        //La fonction saveBoard enregistre le board à la suite de text et le renvoie
         public string saveBoard(String text)
         {
             //board
@@ -78,7 +75,6 @@ namespace ProjetPOO
             }
             return text;
         }
-
         //la fonction savePlayer enregistre le player dans un string qu'elle concatène avec le
         //String d'entrée pour rendre un String final
         public string savePlayer(String text)
@@ -123,7 +119,6 @@ namespace ProjetPOO
             }
             return text;
         }
-
         //fonction qui charge la partie contenue dans le fichier nomFichier
         public void loadOnDisk(String nomFichier)
         {
@@ -136,19 +131,17 @@ namespace ProjetPOO
                 string pathString = Path.Combine(assemblyDir, nomFichier);
                 lines = System.IO.File.ReadAllLines(pathString);
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw new Exception("Le fichier de sauvegarde n'a pas été trouvé");
             }
-                if (lines[0] != "Sauvegarde ProjetPOOAudSee")
+            if (lines[0] != "Sauvegarde ProjetPOOAudSee")
             {
                 throw new Exception("Le fichier lu n'est pas comptabible");
             }
-                loadPlateau(lines);
-                
-                loadPlayer(lines,loadWorld(lines));
-    }
-
+            loadPlateau(lines);
+            loadPlayer(lines, loadWorld(lines));
+        }
         //La fonction LoadPlateau récupère le monteur et le board
         public void loadPlateau(String[] lines)
         {
@@ -177,7 +170,6 @@ namespace ProjetPOO
             {
                 throw new Exception("Type du plateau non matché");
             }
-
             //on récupère le board
             string sourceString = lines[4];
             Regex ItemRegex = new Regex(@" (\w+?)\[(\w+?),(\w+?)\]", RegexOptions.Compiled);
@@ -208,7 +200,6 @@ namespace ProjetPOO
                     catch (Exception)
                     {
                         throw new Exception("Problème dans la conversion des String pour le stockage des variables du board");
-
                     }
                 }
                 else
@@ -217,13 +208,12 @@ namespace ProjetPOO
                 }
             }
         }
-
         public int loadWorld(String[] lines)
         {
             int snbPlayers = 0;
             //on récupère les informations relatives au world
             Regex rline1 = new Regex(@"^\[maxnbTours = ([\w]+)\],? \[nbTours = ([\w]+)\],? \[nbUnity = ([\w]+)\],?"
-                + @" \[currentPlayer = ([\w]+)\],? \[stateGame = ([\w]+)\],? \[nbPlayers = ([\w]+)\]?");
+            + @" \[currentPlayer = ([\w]+)\],? \[stateGame = ([\w]+)\],? \[nbPlayers = ([\w]+)\]?");
             Match mline1 = rline1.Match(lines[2]);
             if (mline1.Success)
             {
@@ -278,11 +268,9 @@ namespace ProjetPOO
             }
             return snbPlayers;
         }
-
         //loadPlayer load les players dans l'environnement World
         public void loadPlayer(String[] lines, int snbPlayers)
         {
-           
             //Gestion des players
             //on calcule l'indice de ligne avec (tare + nbplayerRead * 4)
             int tare = 11;
@@ -356,7 +344,7 @@ namespace ProjetPOO
                     {
                         //le joueur est orc (gestion de pvorc)
                         string sourceString4 = lines[tare + nbplayerRead * 4 + 1];
-                        Regex ItemRegex4 = new Regex(@"\[att = (\w+?)\], \[def = (\w+?)\], \[hp = (\w+?)\], \[nbDeplacement = (\w+?)\], \[initialLife = (\w+?)\], \[controler = (\w+?)\], \[position = \((\w+?),(\w+?)\)\], \[pvOrc = (\w+?)\],", RegexOptions.Compiled);
+                        Regex ItemRegex4 = new Regex(@"\[att = (\w+?)\], \[def = (\w+?)\], \[hp = (\w+?)\], \[nbDeplacement = (.*?)\], \[initialLife = (\w+?)\], \[controler = (\w+?)\], \[position = \((\w+?),(\w+?)\)\], \[pvOrc = (\w+?)\],", RegexOptions.Compiled);
                         String s = "";
                         int cptUnity = -1;
                         foreach (Match ItemMatch in ItemRegex4.Matches(sourceString4))
@@ -369,16 +357,14 @@ namespace ProjetPOO
                                     int uatt = int.Parse(ItemMatch.Groups[1].Value);
                                     int udef = int.Parse(ItemMatch.Groups[2].Value);
                                     int uhp = int.Parse(ItemMatch.Groups[3].Value);
-                                    int unbDeplacement = int.Parse(ItemMatch.Groups[4].Value);
+                                    double unbDeplacement = double.Parse(ItemMatch.Groups[4].Value);
                                     int uinitialLife = int.Parse(ItemMatch.Groups[5].Value);
                                     int ucontroler = int.Parse(ItemMatch.Groups[6].Value);
                                     Position uposition = new Position(int.Parse(ItemMatch.Groups[7].Value), int.Parse(ItemMatch.Groups[8].Value));
                                     int upvOrc = int.Parse(ItemMatch.Groups[9].Value);
                                     s += " (" + uatt + "," + udef + "," + uhp + "," + unbDeplacement + "," + uinitialLife + "," + ucontroler + "," + uposition.x + "," + uposition.y + "," + upvOrc + ")";
                                     World.Instance.players.ElementAt(nbplayerRead).listUnit.Add(new Orc(World.Instance.players.ElementAt(nbplayerRead), uposition));
-
                                     ((Unit)World.Instance.players.ElementAt(nbplayerRead).listUnit.ElementAt(cptUnity)).loadUnit(uatt, udef, uhp, unbDeplacement, uinitialLife, upvOrc);
-
                                 }
                                 catch (Exception)
                                 {
@@ -399,5 +385,5 @@ namespace ProjetPOO
                 }
             }
         }
-        }
+    }
 }

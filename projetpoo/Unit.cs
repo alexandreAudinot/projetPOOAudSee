@@ -21,7 +21,7 @@ namespace ProjetPOO
         public abstract void endGame();
         public abstract bool loseFight();
         public abstract void winFight(Position p);
-        public abstract void loadUnit(int uatt, int udef, int uhp, int unbDeplacement, int uinitialLife, int opt);
+        public abstract void loadUnit(int uatt, int udef, int uhp, double unbDeplacement, int uinitialLife, int opt);
         public abstract string getLeType();
         //constructeur d'unité, méthode accessible que par les classes filles
         protected Unit(Player p, Position po)
@@ -273,7 +273,7 @@ namespace ProjetPOO
             {
                return d = this.calcDepl(p);
             }
-            catch(Exception e)
+            catch(Exception)
             {
                return d = 5000;
             }
@@ -288,7 +288,7 @@ namespace ProjetPOO
             {
                 return d = this.calcDeplAtt(p);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return d = 5000;
             }
@@ -424,7 +424,7 @@ namespace ProjetPOO
                                 {
                                     d = this.calcDepl(p);
                                 }
-                                catch (Exception e)
+                                catch (Exception)
                                 {
                                     d = 5000;
                                 }
@@ -457,7 +457,7 @@ namespace ProjetPOO
                                     {
                                         d = this.calcDepl(p);
                                     }
-                                    catch (Exception e)
+                                    catch (Exception)
                                     {
                                         d = 5000;
                                     }
@@ -487,7 +487,7 @@ namespace ProjetPOO
             {
                 resul = algo.computeSug(l);
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 List<Position> llp = new List<Position>();
                 llp.Add(this.position);

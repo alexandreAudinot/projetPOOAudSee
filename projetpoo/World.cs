@@ -65,7 +65,6 @@ namespace ProjetPOO
         public static void Clean()
         {
             world = null;
-            World.Instance.board = null;
         }
 
         //initialisation des variables de world par les monteurs
