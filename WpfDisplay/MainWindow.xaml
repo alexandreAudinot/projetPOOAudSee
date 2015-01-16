@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:WpfDisplay"
         xmlns:local="clr-namespace:WpfDisplay"
-        Title="SmallWorld" Height="800" Width="1000" Background="#FF51362A">
+        Title="SmallWorld" Height="800" Width="1000" Background="#FF51362A" KeyDown="Window_KeyDown">
     <Grid>
-        <Grid Name="Menu" Visibility="Hidden">
+        <Grid Name="Menu">
             <Grid.RowDefinitions>
                 <RowDefinition Height="9*"/>
                 <RowDefinition Height="486*"/>
@@ -16,11 +16,12 @@
                 <ColumnDefinition Width="516*"/>
                 <ColumnDefinition Width="7*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.ColumnSpan="2" Content="New Game" HorizontalAlignment="Center" Margin="0,226,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="NewGame"/>
-            <Button Grid.ColumnSpan="2" Content="Load Game" HorizontalAlignment="Center" Margin="0,248,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="LoadGame"/>
+            <Button Grid.ColumnSpan="2" Content="Nouvelle partie" HorizontalAlignment="Center" Margin="0,226,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Click="NewGame"/>
+            <Button Grid.ColumnSpan="2" Content="Charger partie" HorizontalAlignment="Center" Margin="0,248,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Click="LoadGame"/>
+            <Button Grid.ColumnSpan="2" Content="Quitter" HorizontalAlignment="Center" Margin="0,270,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Click="QuitGame"/>
 
         </Grid>
-        <Grid Name="ModeSelection">
+        <Grid Name="ModeSelection" Visibility="Hidden">
             <Grid.RowDefinitions>
                 <RowDefinition Height="190"/>
                 <RowDefinition Height="230"/>
@@ -58,7 +59,7 @@
             <Button Content="Petite" Grid.Column="1" HorizontalAlignment="Center" Margin="0,37,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Click="SmallSelection"/>
             <Button Content="Normale" Grid.Column="1" HorizontalAlignment="Center" Margin="0,64,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Click="NormalSelection"/>
             <TextBlock x:Name="descriptionMap" Grid.Column="1" HorizontalAlignment="Center" Margin="0,134,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Foreground="White" Width="213" TextAlignment="Center"/>
-            <TextBlock x:Name="errorMode" Grid.Column="1" Margin="200,0,200,96" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" TextAlignment="Center" Foreground="White" Background="Black"/>
+            <TextBlock x:Name="errorMode" Grid.Column="1" Margin="0,0,0,96" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" TextAlignment="Center" Foreground="White" Background="Black" Width="300"/>
         </Grid>
         <Grid Name="GameScene" Visibility="Hidden">
             <Grid.RowDefinitions>

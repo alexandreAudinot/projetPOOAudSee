@@ -74,7 +74,12 @@ namespace WpfDisplay
 
         private void LoadGame(object sender, RoutedEventArgs e)
         {
+            SaveGame save = new SaveGame();
+            save.loadOnDisk("save1.txt");
 
+            Menu.Visibility = System.Windows.Visibility.Hidden;
+            
+            initVisualElements();
         }
 
 
@@ -204,6 +209,11 @@ namespace WpfDisplay
             World.Instance.addPlayer(nameP2.Text, typeP2);
             CreateGame.init();
 
+            initVisualElements();
+        }
+
+        private void initVisualElements()
+        {
             mapView.init(this);
             playerInfo1.setPlayer(World.Instance.players.ElementAt(0));
             playerInfo2.setPlayer(World.Instance.players.ElementAt(1));
@@ -236,6 +246,7 @@ namespace WpfDisplay
             unitInfo6.updateInfos();
             unitInfo7.updateInfos();
             unitInfo8.updateInfos();
+            mapView.updateUnitInfos();
             InvalidateVisual();
         }
 
@@ -246,7 +257,9 @@ namespace WpfDisplay
 
         private void ButtonSave(object sender, RoutedEventArgs e)
         {
-
+            SaveGame save = new SaveGame();
+            String resul = save.saveOnDisk();
+            Console.WriteLine("game saved : " + resul);
         }
 
         private void ButtonQuit(object sender, RoutedEventArgs e)
@@ -259,6 +272,37 @@ namespace WpfDisplay
         public void printError(string s)
         {
             error.Text = s;
+        }
+
+        private void QuitGame(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch(e.Key)
+            {
+                case Key.Enter:
+                    if (scene == "Game")
+                    {
+                        mapView.endTurn();
+                    }
+                    break;
+                case Key.NumPad7:
+                case Key.NumPad8:
+                case Key.NumPad4:
+                case Key.NumPad5:
+                case Key.NumPad1:
+                case Key.NumPad2:
+                    if (scene == "Game")
+                    {
+                        mapView.MovementKeyPressed(e.Key);
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

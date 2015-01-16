@@ -250,8 +250,7 @@ namespace ProjetPOO
             String stype;
             while (nbplayerRead < snbPlayers)
             {
-                Regex rlineP = new Regex(@"^\[nom = (.*)\],? \[numero = ([\w]+)\],? \[score = ([\w]+)\],? \[type = ([\w]+)\],?"
-                    + @" \[pDepart = \(([\w]+),([\w]+)\)\]?");
+                Regex rlineP = new Regex(@"^\[nom = (.*)\],? \[numero = ([\w]+)\],? \[score = ([\w]+)\],? \[type = ([\w]+)\],?");
                 Match mlineP = rlineP.Match(lines[tare + nbplayerRead * 4]);
                 if (mlineP.Success)
                 {
@@ -261,7 +260,7 @@ namespace ProjetPOO
                         int snumero = int.Parse(mlineP.Groups[2].Value);
                         int sscore = int.Parse(mlineP.Groups[3].Value);
                         stype = mlineP.Groups[4].Value;
-                        Position pDepart = new Position(int.Parse(mlineP.Groups[5].Value), int.Parse(mlineP.Groups[6].Value));
+                        //Position pDepart = new Position(int.Parse(mlineP.Groups[5].Value), int.Parse(mlineP.Groups[6].Value));
                         World.Instance.addPlayer(snom, stype);
                         World.Instance.players.ElementAt(nbplayerRead).score = sscore;
                         //World.Instance.players.ElementAt(nbplayerRead).pDepart = pDepart;

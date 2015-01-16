@@ -284,20 +284,24 @@ namespace WpfDisplay
             }
         }
 
-        private void updateUnitInfos()
+        public void updateUnitInfos()
         {
-            int nbUnits = World.Instance.unitCount(selectedTile);
-            List<Unit> list = World.Instance.getUnitList(selectedTile);
-            UnitInfo unitInfo;
-
-            for (int i = 0; i < nbUnits; i++)
+            int nbUnits = 0;
+            if (selectedTile != null)
             {
-                unitInfo = mainWindow.getUnitInfo(i);
-                unitInfo.AssociatedUnit = list.ElementAt(i);
-                unitInfo.Visibility = System.Windows.Visibility.Visible;
-                if(i == 0)
+                nbUnits = World.Instance.unitCount(selectedTile);
+                List<Unit> list = World.Instance.getUnitList(selectedTile);
+                UnitInfo unitInfo;
+
+                for (int i = 0; i < nbUnits; i++)
                 {
-                    unitInfo.select();
+                    unitInfo = mainWindow.getUnitInfo(i);
+                    unitInfo.AssociatedUnit = list.ElementAt(i);
+                    unitInfo.Visibility = System.Windows.Visibility.Visible;
+                    if (i == 0)
+                    {
+                        unitInfo.select();
+                    }
                 }
             }
             for (int i = nbUnits; i < NB_MAX_UNITS; i++)
@@ -324,8 +328,6 @@ namespace WpfDisplay
 
             Position pos = toCoords(p);
             moveUnit(pos);
-
-            InvalidateVisual();
         }
 
         private void moveUnit(Position pos)
@@ -338,14 +340,59 @@ namespace WpfDisplay
             {
                 mainWindow.printError(e.Message);
             }
-            updateUnitInfos();
             mainWindow.updateInfos();
+            InvalidateVisual();
         }
 
         public void endTurn()
         {
             world.endTurn();
             mainWindow.updateInfos();
+        }
+
+        public void MovementKeyPressed(Key key)
+        {
+            if (selectedUnit == null)
+                return;
+
+            int x = selectedUnit.position.x;
+            int y = selectedUnit.position.y;
+
+            switch (key)
+            {
+                case Key.NumPad7:
+                    if (y % 2 == 0)
+                        moveUnit(new Position(x,     y - 1));
+                    else
+                        moveUnit(new Position(x - 1, y - 1));
+                    break;
+                case Key.NumPad8:
+                    if (y % 2 == 0)
+                        moveUnit(new Position(x + 1, y - 1));
+                    else
+                        moveUnit(new Position(x,     y - 1));
+                    break;
+                case Key.NumPad4:
+                    moveUnit(new Position(x - 1, y));
+                    break;
+                case Key.NumPad5:
+                    moveUnit(new Position(x + 1, y));
+                    break;
+                case Key.NumPad1:
+                    if (y % 2 == 0)
+                        moveUnit(new Position(x,     y + 1));
+                    else
+                        moveUnit(new Position(x - 1, y + 1));
+                    break;
+                case Key.NumPad2:
+                    if (y % 2 == 0)
+                        moveUnit(new Position(x + 1, y + 1));
+                    else
+                        moveUnit(new Position(x,     y + 1));
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
