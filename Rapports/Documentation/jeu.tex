@@ -65,19 +65,20 @@ En cliquant sur le bouton caractéristiques, il est possible de voir les caract�
 \newline
 L'algorithme de suggestion de mouvement suggère les meilleurs mouvements à faire pour une unité donnée. L'algorithme recherche les cases vides éloignées des unités alliées et des unités ennemies autant ou plus forte que l'unité courante. Il recherche le combat avec les unités plus faibles.
 \newline
+Un exemple d'application est présenté à la Figure 12. L'orque cherche à s'éloigner de ses alliers pour que son équipe marque plus de points.
+\newline
 \newline
 
 \newpage
 \begin{figure}[ht!]
 \centering
-\includegraphics[scale=0.50]{img/exmovimp.jpg}
+\includegraphics[scale=0.35]{img/exmovimp.jpg}
 \caption{Exemple de mouvement impossible}
 \end{figure}
 
-\newpage
 \begin{figure}[ht!]
 \centering
-\includegraphics[scale=0.50]{img/algo.jpg}
+\includegraphics[scale=0.40]{img/algo.jpg}
 \caption{Exemple applicatif de l'algorithme de suggestion}
 \end{figure}
 
@@ -96,8 +97,6 @@ Les unités détiennent alors une probabilité d'attaquer, basé sur leurs attaq
 Si aucune des unités ne meurt quand le nombre de combats maximum est atteint, il y a match nul.
 \newline
 \newline
-Un message est affiché à la fin du combat.
-\newline
  Les différents cas sont les suivants :
 \begin{itemize}
 \item En cas de victoire, l'unité prend la place de l'unité vaincue si la case est vide.
@@ -110,13 +109,13 @@ Une attaque sur une case contenant plusieurs unités ennemies provoque le combat
 \begin{figure}[ht!]
 \centering
 \includegraphics[scale=0.50]{img/fincombat.jpg}
-\caption{Exemple de message de fin de combat}
+\caption{Exemple de combat}
 \end{figure}
 
 \newpage
 \subsection{Fin de partie}
 
-Au bout d'un certain nombre de tours, la partie prend fin. 
+Au bout d'un certain nombre de tours, ou si un des joueurs n'a plus d'unité, la partie prend fin. 
 \newline
 L'enchantement de Saruman fait effet et le joueur contrôlant le plus d'anneaux de contrôle retrouve l'anneau unique. 
 \newline

@@ -549,7 +549,7 @@ namespace ProjetPOO
                         }
                     }
             }
-            throw new Exception("fin" + lres.Count());
+            //throw new Exception("fin" + lres.Count());
             Random rnd = new Random();
             int rn;
             while ( (lres.Count() > 3))
