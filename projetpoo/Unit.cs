@@ -516,6 +516,12 @@ namespace ProjetPOO
                                     l.Add(-1);
                                     //s += "-1 ";
                                 }
+                                else
+                                {
+                                    lp.Add(p);
+                                    l.Add(1);
+                                    l.Add(1);
+                                }
                             }
                             else
                             {// il y a une unité sur la case
@@ -530,7 +536,16 @@ namespace ProjetPOO
                                 else
                                 {//ennemi
                                     this.nbDeplacement = depl;
-                                    if (this.nbDeplacement >= this.calcDeplAtt(p))
+                                    double d;
+                                    try
+                                    {
+                                        d = this.calcDepl(p);
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        d = 5000;
+                                    }
+                                    if (this.nbDeplacement >= d)
                                     {
                                         lp.Add(p);
                                         l.Add(0);
