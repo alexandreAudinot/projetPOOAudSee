@@ -259,10 +259,6 @@ namespace ProjetPOO
                     }
                     else
                     {
-                        if (World.Instance.repliCurrentPlayer != -1)
-                        {
-                            throw new Exception("Il n'est pas possible d'attaquer lors d'un repli");
-                        }
                         this.calcDeplAtt(p);
                         this.fight(p, elem);
                     }   

@@ -168,27 +168,6 @@ namespace TestUnitaire
             o.move(new Position(-5, -5));
         }
 
-        [ExpectedException(typeof(Exception), "C'est au joueur X de jouer")]
-        [TestMethod]
-        public void testMoveRepli()
-        {
-            UnitUnit.InitAll();
-            World.Instance.addPlayer("Azog", "Orc");
-            World.Instance.addPlayer("Jean-Pierre", "Elf");
-            Orc o0 = new Orc(World.Instance.players.First(), new Position(2, 2));
-            Elf e0 = new Elf(World.Instance.players.First(), new Position(1, 1));
-            World.Instance.players.First().listUnit.Add(o0);
-            World.Instance.players.ElementAt(1).listUnit.Add(e0);
-            World.Instance.repliCurrentPlayer = 1;
-            World.Instance.currentPlayer = ((Unit) World.Instance.players.ElementAt(1).listUnit.First()).controler.numero;
-            ((Unit)World.Instance.players.ElementAt(1).listUnit.First()).initDeplacement();
-            World.Instance.players.ElementAt(1).listUnit.First().move(new Position(1, 2));
-            World.Instance.players.ElementAt(1).apresRepli();
-            Assert.AreEqual(1, World.Instance.currentPlayer);
-            Assert.AreEqual(-1, World.Instance.repliCurrentPlayer);
-            World.Instance.players.ElementAt(1).listUnit.First().move(new Position(2, 2));
-        }
-
         [ExpectedException(typeof(Exception), "Le mouvement est impossible")]
         [TestMethod]
         public void testMoveNoNbDeplacement()
@@ -198,7 +177,6 @@ namespace TestUnitaire
             World.Instance.addPlayer("Jean-Pierre", "Elf");
             Orc o0 = new Orc(World.Instance.players.First(), new Position(2, 2));
             World.Instance.players.First().listUnit.Add(o0);
-            World.Instance.repliCurrentPlayer = 0;
             World.Instance.players.First().listUnit.First().move(new Position(1, 2));
         }
 
@@ -234,7 +212,7 @@ namespace TestUnitaire
             World.Instance.players.First().listUnit.First().move(new Position(1, 2));
         }
 
-        [ExpectedException(typeof(Exception), "Il n'est pas possible d'attaquer pendant un repli")]
+        
         [TestMethod]
         public void testMoveAttackRepli()
         {
@@ -246,7 +224,6 @@ namespace TestUnitaire
             World.Instance.players.First().listUnit.Add(o0);
             World.Instance.players.ElementAt(1).listUnit.Add(e0);
             World.Instance.players.First().initDeplacement();
-            World.Instance.repliCurrentPlayer = 0;
             World.Instance.players.First().listUnit.First().move(new Position(1, 2));
         }
 

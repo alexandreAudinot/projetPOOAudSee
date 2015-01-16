@@ -279,19 +279,11 @@ namespace TestUnitaire
         {
             UnitUnit.InitAll();
             World.Instance.currentPlayer = 1;
-            World.Instance.repliCurrentPlayer = 0;
             World.Instance.addPlayer("I", "Elf");
             World.Instance.addPlayer("lost", "Dwarf");
             World.Instance.players.First().listUnit.Add(new Elf(World.Instance.players.First(), new Position(1, 1)));
             World.Instance.players.First().listUnit.Add(new Elf(World.Instance.players.First(), new Position(1, 1)));
             World.Instance.players.First().listUnit.First().loseFight();
-            if (World.Instance.players.First().listUnit.Count() == 2)
-            {
-                Assert.AreEqual(0, World.Instance.currentPlayer);
-                Assert.AreEqual(1, World.Instance.repliCurrentPlayer);
-            }
-            //les autres tests ont été réalisés en débuggage, ils ne sont pas affichés à cause de l'aléatoire
-            //présent dans la méthode loseFight
         }
 
         [TestMethod]

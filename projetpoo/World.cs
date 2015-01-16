@@ -19,7 +19,6 @@ namespace ProjetPOO
         public List<string> listType { get; set; }
         public List<string> listAvailableType { get; private set; }
         public bool stateGame;
-        public int repliCurrentPlayer;
         public static World Instance
         {
             get
@@ -42,18 +41,16 @@ namespace ProjetPOO
             players = new List<Player>();
             listAvailableType = new List<string>();
             InitType();
-            repliCurrentPlayer = -1;
         } 
 
         //fonction qui permet d'initialiser World lors d'un chargement
-        public void loadGameWorld(int smaxnbTours, int snbTours, int snbUnity, int scurrentPlayer, bool sstateGame, int srepliCurrentPlayer)
+        public void loadGameWorld(int smaxnbTours, int snbTours, int snbUnity, int scurrentPlayer, bool sstateGame)
         {
             maxnbTours = smaxnbTours;
             nbTours = snbTours;
             nbUnity = snbUnity;
             currentPlayer = scurrentPlayer;
             stateGame = sstateGame;
-            repliCurrentPlayer = srepliCurrentPlayer;
         }
 
         //ajoute les types possibles des variables pendant l'initialisation
@@ -268,7 +265,14 @@ namespace ProjetPOO
                 }
                 else
                 {
-                    return World.Instance.players.ElementAt(1).nom;
+                    if (World.Instance.players.First().score == World.Instance.players.ElementAt(1).score)
+                    {
+                        return "Match nul";
+                    }
+                    else
+                    {
+                        return World.Instance.players.ElementAt(1).nom;
+                    }
                 }
             }
         }
