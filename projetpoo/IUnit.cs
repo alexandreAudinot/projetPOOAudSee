@@ -20,6 +20,7 @@ namespace ProjetPOO
         void endGame();
         bool checkMove(Position p);
         bool isAlive();
+        String getTypes();
     }
 
 }

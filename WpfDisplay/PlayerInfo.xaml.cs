@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 using ProjetPOO;
 
 namespace WpfDisplay
@@ -31,7 +30,7 @@ namespace WpfDisplay
         public void setPlayer(Player p)
         {
             associatedPlayer = p;
-            name.Content = p.nom;
+            name.Content = p.nom + " : " + p.listUnit.First().getTypes();
         }
 
         public void updateInfos()

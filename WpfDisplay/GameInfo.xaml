@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="60" d:DesignWidth="150" Background="#AA704533">
     <Grid>
-        <Label x:Name="player" Content="C'est au joueur * de jouer" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White"/>
+        <Label x:Name="player" Content="Joueur *" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White"/>
         <Label x:Name="turn" Content="Tour */*" HorizontalAlignment="Center" Margin="0,31,0,0" VerticalAlignment="Top" Foreground="White"/>
 
     </Grid>

@@ -218,19 +218,19 @@ namespace WpfDisplay
         private void DemoSelection(object sender, RoutedEventArgs e)
         {
             mapSize = "Demo";
-            descriptionMap.Text = "Demo :\nTaille : 6x6\nNombre de tours : 5\nNombre d'unités par joueur : 4";
+            descriptionMap.Text = "Comté :\nTaille : 6x6\nNombre de tours : 5\nNombre d'unités par joueur : 4";
         }
 
         private void SmallSelection(object sender, RoutedEventArgs e)
         {
             mapSize = "Small";
-            descriptionMap.Text = "Petite :\nTaille : 10x10\nNombre de tours : 20\nNombre d'unités par joueur : 6";
+            descriptionMap.Text = "Erebor :\nTaille : 10x10\nNombre de tours : 20\nNombre d'unités par joueur : 6";
         }
 
         private void NormalSelection(object sender, RoutedEventArgs e)
         {
             mapSize = "Normal";
-            descriptionMap.Text = "Normale :\nTaille : 14x14\nNombre de tours : 30\nNombre d'unités par joueur : 8";
+            descriptionMap.Text = "Terre du milieu :\nTaille : 14x14\nNombre de tours : 30\nNombre d'unités par joueur : 8";
         }
 
 
@@ -355,6 +355,24 @@ namespace WpfDisplay
                     break;
                 default:
                     break;
+            }
+        }
+
+        public void setActivePlayer(int player)
+        {
+            if (player == 0)
+            {
+                playerInfo1.BorderThickness = new Thickness(5);
+                playerInfo2.BorderThickness = new Thickness(0);
+                playerInfo1.Height += 10;
+                playerInfo2.Height -= 10;
+            }
+            else
+            {
+                playerInfo1.BorderThickness = new Thickness(0);
+                playerInfo2.BorderThickness = new Thickness(5);
+                playerInfo1.Height -= 10;
+                playerInfo2.Height += 10;
             }
         }
 

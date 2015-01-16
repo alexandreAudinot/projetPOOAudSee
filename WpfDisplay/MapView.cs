@@ -373,6 +373,7 @@ namespace WpfDisplay
                 world.endTurn();
                 if (world.stateGame)
                 {
+                    mainWindow.setActivePlayer(world.currentPlayer);
                     mainWindow.updateInfos();
                 }
                 else

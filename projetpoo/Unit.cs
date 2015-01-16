@@ -22,7 +22,7 @@ namespace ProjetPOO
         public abstract bool loseFight();
         public abstract void winFight(Position p);
         public abstract void loadUnit(int uatt, int udef, int uhp, int unbDeplacement, int uinitialLife, int opt);
-
+        public abstract string getTypes();
         //constructeur d'unité, méthode accessible que par les classes filles
         protected Unit(Player p, Position po)
         {
@@ -48,6 +48,7 @@ namespace ProjetPOO
         {
             hp = h;
         }
+
 
         //initialisation du déplacement en début de tour
         public void initDeplacement()
@@ -111,7 +112,7 @@ namespace ProjetPOO
                             this.winFightAtt(p);
                             if (World.Instance.unitBool(p))
                             {
-                                this.fight(p, World.Instance.getUnit(p));
+                                //this.fight(p, World.Instance.getUnit(p));
                             } 
                             else
                             {

@@ -29,7 +29,7 @@ namespace WpfDisplay
 
         public void updateGameInfos()
         {
-            player.Content = "C'est au joueur " + (World.Instance.currentPlayer+1) + " de jouer";
+            player.Content = "Joueur " + (World.Instance.currentPlayer+1);
             turn.Content = "Tour " + (World.Instance.nbTours+1) + "/" + World.Instance.maxnbTours;
         }
     }

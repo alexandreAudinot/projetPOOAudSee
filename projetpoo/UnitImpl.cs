@@ -15,6 +15,13 @@ namespace ProjetPOO
             pvOrc = 0;
         }
 
+        //renvoie le type de l'unité pour l'affichage
+        override
+        public string getTypes()
+        {
+            return "Orque";
+        }
+
         override
         //loadUnit permet de charger une unité selon les valeurs données en paramètre
         public void loadUnit(int uatt, int udef, int uhp, int unbDeplacement, int uinitialLife, int opt)
@@ -122,6 +129,13 @@ namespace ProjetPOO
             initialLife = uinitialLife;
         }
 
+        //renvoie le type de l'unité pour l'affichage
+        override
+        public string getTypes()
+        {
+            return "Nain";
+        }
+
         //calcDeplAtt calcule le déplacement en cas d'attaque du nain
         override
         public double calcDeplAtt(Position p)
@@ -220,6 +234,13 @@ namespace ProjetPOO
             hp = uhp;
             nbDeplacement = unbDeplacement;
             initialLife = uinitialLife;
+        }
+
+        //renvoie le type de l'unité pour l'affichage
+        override
+        public string getTypes()
+        {
+            return "Elfe";
         }
 
         //calcDeplAtt gère le déplacement d'une attaque. Il n'est différent que pour le nain.
