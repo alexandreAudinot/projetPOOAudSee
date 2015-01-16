@@ -429,28 +429,22 @@ namespace TestUnitaire
             e2.setHPForUnitTest(2);
             e1.setHPForUnitTest(20);
             World.Instance.players.First().listUnit.Add(o);
+            //La majorité des tests a été effectuée avec la carte, à cause de l'aléatoire
            /* World.Instance.players.First().listUnit.Add(o0);
             World.Instance.players.First().listUnit.Add(o1);
             World.Instance.players.First().listUnit.Add(o2);
             World.Instance.players.First().listUnit.Add(o3);*/
-
+            /*
             World.Instance.players.ElementAt(1).listUnit.Add(e);
             World.Instance.players.ElementAt(1).listUnit.Add(e0);
             World.Instance.players.ElementAt(1).listUnit.Add(e1);
             World.Instance.players.ElementAt(1).listUnit.Add(e2);
             World.Instance.players.ElementAt(1).listUnit.Add(e3);
-            World.Instance.players.ElementAt(1).listUnit.Add(e4);
-            
-            /*
-            World.Instance.players.ElementAt(1).listUnit.Add(e0);*/
+            World.Instance.players.ElementAt(1).listUnit.Add(e4);*/
             o.initDeplacement();
             List<Position> l = ((Unit)World.Instance.players.First().listUnit.First()).getMoveSuggestions2();
             Assert.AreEqual(3, l.Count());
-            throw new Exception("" + l.First().x + " " + l.First().y);
-            /*Assert.IsTrue((new Position(1, 3).equals(l.First())));
-            Assert.IsTrue((new Position(2, 3).equals(l.ElementAt(1))));
-            Assert.IsTrue((new Position(3, 1).equals(l.ElementAt(2))));*/
-             /*Présence de Random dans les tests : les tests ont été réalisés sous cette forme
+            /*Présence de Random dans les tests : les tests ont été réalisés sous cette forme
              sans l'aléatoire et validés*/
         }
     }
