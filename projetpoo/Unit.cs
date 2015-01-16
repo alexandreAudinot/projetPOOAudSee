@@ -334,6 +334,12 @@ namespace ProjetPOO
         //il ne fera aucune suggestion si rien est intéressant
         public List<Position> getMoveSuggestions()
         {
+            if (this.nbDeplacement == 0)
+            {
+                List<Position> llp = new List<Position>();
+                llp.Add(this.position);
+                return llp;
+            }
             List<Position> l = new List<Position>();
             int i = this.position.x;
             int j = this.position.y;
@@ -461,6 +467,12 @@ namespace ProjetPOO
         //il ne fera aucune suggestion si rien est intéressant
         public List<Position> getMoveSuggestions2()
         {
+            if (this.nbDeplacement == 0)
+            {
+                List<Position> llp = new List<Position>();
+                llp.Add(this.position);
+                return llp;
+            }
             double depl = this.nbDeplacement;
             int i = this.position.x;
             int j = this.position.y;
@@ -470,20 +482,26 @@ namespace ProjetPOO
             Unit u;
             List<Position> lp = new List<Position>();
             l.Add(this.hp);
+            int cpteur = 0;
             for (int x = i - 1; x < i + 2; x++)
             {
                 for (int y = j - 1; y < j + 2; y++)
                 {
+                    Console.WriteLine("aa");
                         p = new Position(x, y);
                         //on vérifie que le mouvement est possible
                         if (this.checkMove(p))
                         {
+                            Console.WriteLine("bb");
                             lp.Add(p);
                             if (!World.Instance.unitBool(p))
                             {//cas où il n'y a pas d'unité sur la case
+                                Console.WriteLine("cc");
                                 this.nbDeplacement = depl;
+                                Console.WriteLine("dd" + depl);
                                 if (this.nbDeplacement >= this.calcDepl(p))
                                 {
+                                    Console.WriteLine("ee");
                                     lp.Add(p);
                                     l.Add(-1);
                                     l.Add(-1);
@@ -517,6 +535,12 @@ namespace ProjetPOO
                                     }
                                 }
                             }
+                        }
+                        else
+                        {
+                            lp.Add(p);
+                            l.Add(1);
+                            l.Add(1);
                         }
                 }
             }
