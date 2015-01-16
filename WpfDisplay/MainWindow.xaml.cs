@@ -36,6 +36,7 @@ namespace WpfDisplay
             Intro.Visibility = System.Windows.Visibility.Hidden;
             ModeSelection.Visibility = System.Windows.Visibility.Hidden;
             GameScene.Visibility = System.Windows.Visibility.Hidden;
+            Epilogue.Visibility = System.Windows.Visibility.Hidden;
             scene = "Menu";
 
             unitInfoList = new List<UnitInfo>();
@@ -60,6 +61,18 @@ namespace WpfDisplay
         public UnitInfo getUnitInfo(int i)
         {
             return unitInfoList.ElementAt(i);
+        }
+
+        private void goToMenu()
+        {
+            Intro.Visibility = System.Windows.Visibility.Hidden;
+            ModeSelection.Visibility = System.Windows.Visibility.Hidden;
+            GameScene.Visibility = System.Windows.Visibility.Hidden;
+            Victoire.Visibility = System.Windows.Visibility.Hidden;
+            Epilogue.Visibility = System.Windows.Visibility.Hidden;
+            World.Clean();
+            scene = "Menu";
+            Menu.Visibility = System.Windows.Visibility.Visible;
         }
 
         private void NewGame(object sender, RoutedEventArgs e)
@@ -285,9 +298,7 @@ namespace WpfDisplay
 
         private void ButtonQuit(object sender, RoutedEventArgs e)
         {
-            GameScene.Visibility = System.Windows.Visibility.Hidden;
-            World.Clean();
-            Menu.Visibility = System.Windows.Visibility.Visible;
+            goToMenu();
         }
 
         public void printError(string s)
@@ -324,6 +335,26 @@ namespace WpfDisplay
                 default:
                     break;
             }
+        }
+
+        public void endGame()
+        {
+            GameScene.Visibility = System.Windows.Visibility.Hidden;
+            scene = "Victoire";
+            victory.Text = World.Instance.gagnant() + " à remporté la victoire !";
+            Victoire.Visibility = System.Windows.Visibility.Visible;
+        }
+
+        private void GoBackToMenu(object sender, RoutedEventArgs e)
+        {
+            goToMenu();
+        }
+
+        private void GoToEpilogue(object sender, RoutedEventArgs e)
+        {
+            Victoire.Visibility = System.Windows.Visibility.Hidden;
+            scene = "Victoire";
+            Epilogue.Visibility = System.Windows.Visibility.Visible;
         }
     }
 }

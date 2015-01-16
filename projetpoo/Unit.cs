@@ -138,12 +138,56 @@ namespace ProjetPOO
             this.controler.killUnit(this);
         }
 
+        public List<Position> getAllPossibleMoves()
+        {
+            List<Position> res = new List<Position>();
+
+            if (position.x + 1 < World.Instance.board.size)
+                res.Add(new Position(position.x + 1, position.y));
+            if (position.x - 1 > 0)
+                res.Add(new Position(position.x - 1, position.y));
+            if (position.y + 1 < World.Instance.board.size)
+                res.Add(new Position(position.x, position.y + 1));
+            if (position.y - 1 > 0)
+                res.Add(new Position(position.x, position.y - 1));
+
+            if (this.position.y % 2 == 0)
+            {
+                if (position.x + 1 < World.Instance.board.size)
+                {
+                    if (position.y - 1 > 0)
+                        res.Add(new Position(position.x + 1, position.y - 1));
+                    if (position.y + 1 < World.Instance.board.size)
+                        res.Add(new Position(position.x + 1, position.y + 1));
+                }
+            }
+            else
+            {
+                if (position.x - 1 > 0)
+                {
+                    if (position.y - 1 > 0)
+                        res.Add(new Position(position.x - 1, position.y - 1));
+                    if (position.y + 1 < World.Instance.board.size)
+                        res.Add(new Position(position.x - 1, position.y + 1));
+                }
+            }
+            return res;
+        }
+
         //checkmove vérifie la cohérence du mouvement avec les règles
         //on décide arbitrairement de ne prendre que des déplacements de une case
         //Les déplacements possibles pour la case 2,2 sont (1,2), (2,1), (2,3), (3,2), (1,3), (3,1).
         public bool checkMove(Position p)
         {
-            if (!((p.x < 0) || (p.y < 0) || (p.x >= World.Instance.board.size) || (p.y >= World.Instance.board.size)))
+            List<Position> list = getAllPossibleMoves();
+            foreach(Position tile in list)
+            {
+                if (tile.equals(p))
+                    return true;
+            }
+            return false;
+            
+            /*if (!((p.x < 0) || (p.y < 0) || (p.x >= World.Instance.board.size) || (p.y >= World.Instance.board.size)))
             {
                 if(this.position.y % 2 == 0)
                 {
@@ -166,19 +210,29 @@ namespace ProjetPOO
                         || ((p.x == this.position.x - 1) && (this.position.y + 1 == p.y)));
                 }
             }
-            return false;
+            return false;*/
         }
 
         //fonction canMove permet de savoir si un déplacement est possible de la case de l'unité
         //on utilisera la fonction lors du repli de l'elfe
         public bool canMove()
         {
-            return ((!World.Instance.unitBool(new Position(this.position.x + 1,this.position.y))
+            return ((!World.Instance.unitBool(new Position(this.position.x + 1, this.position.y))
             || (!World.Instance.unitBool(new Position(this.position.x - 1, this.position.y)))
             || (!World.Instance.unitBool(new Position(this.position.x, this.position.y + 1)))
             || (!World.Instance.unitBool(new Position(this.position.x, this.position.y - 1)))
             || (!World.Instance.unitBool(new Position(this.position.x + 1, this.position.y - 1)))
             || (!World.Instance.unitBool(new Position(this.position.x - 1, this.position.y + 1)))));
+        }
+        public Position randomPosition()
+        {
+            Random rand = new Random();
+            List<Position> possiblePos = new List<Position>();
+
+            //if (new Position(this.position.x + 1, this.position.y))
+
+
+            return null;
         }
 
         //La méthode move détermine si l'évènement est un déplacement ou un combat et fait l'appel le cas échéant

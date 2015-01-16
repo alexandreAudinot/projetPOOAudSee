@@ -278,14 +278,7 @@ namespace ProjetPOO
                     return true;
                 }
                 this.def = 1;
-                //le repli de l'unité est demandé au joueur
-                //le joueur qui jouait avant perd momentanément la main
-                //le joueur elfe choisit une case non occupée pour se replier
-                //call methode controler qui rend une position de repli TODO
-                //message l'unité elfe est sauvée et se replie
-                World.Instance.repliCurrentPlayer = World.Instance.currentPlayer;
-                World.Instance.currentPlayer = this.controler.numero;
-                this.initDeplacement();
+
                 return false;
                 //le joueur fait son repli : seulement un move est possible
             }
@@ -295,10 +288,6 @@ namespace ProjetPOO
                 return true;
             }
         }
-
-        //repli permet à l'elfe de se replier 50% du temps quand un combat est perdu
-        //il dispose alors d'un point de déplacement pour fuir, mais ses points de vie redescendront à 1
-        //dans le cas où il n'y a pas de possibilité de déplacement, l'unité mourra
 
         //endGame fait le traitement de fin de partie pour les elfes (rien)
         override

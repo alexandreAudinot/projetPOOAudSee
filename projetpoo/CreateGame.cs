@@ -31,6 +31,7 @@ namespace ProjetPOO
             //pour décider quel joueur joue en premier
             Random rdm = new Random();
             World.Instance.currentPlayer = rdm.Next(0, World.Instance.players.Count());
+            World.Instance.firstPlayer = World.Instance.currentPlayer;
             //changer les positions initiales, changer avec position Player.pDepart
 
             //La partie va commencer ? Charger alors les unités

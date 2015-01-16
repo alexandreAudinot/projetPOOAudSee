@@ -5,7 +5,7 @@
         xmlns:local="clr-namespace:WpfDisplay"
         Title="SmallWorld" Height="800" Width="1000" Background="#FF51362A" KeyDown="Window_KeyDown">
     <Grid>
-        <Grid Name="Menu">
+        <Grid Name="Menu" Visibility="Hidden">
             <Grid.RowDefinitions>
                 <RowDefinition Height="9*"/>
                 <RowDefinition Height="486*"/>
@@ -102,9 +102,14 @@
             <local:GameInfo x:Name="gameInfo" Grid.Column="1" HorizontalAlignment="Center" Margin="0,35,0,0" Grid.Row="1" VerticalAlignment="Top"/>
 
         </Grid>
-        <Grid Name="Epilogue">
+        <Grid Name="Victoire" Visibility="Hidden">
             <Image Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top" Source="Ressources/flou.jpg" Grid.RowSpan="3" Stretch="Fill"/>
-            <Button Content="Suivant" HorizontalAlignment="Left" Margin="488,657,0,0" VerticalAlignment="Top" Width="75" Click="SkipIntro"/>
+            <Button Content="Suivant" HorizontalAlignment="Left" Margin="488,657,0,0" VerticalAlignment="Top" Width="75" Click="GoToEpilogue"/>
+            <TextBlock x:Name="victory" HorizontalAlignment="Center" Margin="0,300,0,0" VerticalAlignment="Top" Height="86" Width="564" FontSize="48" Foreground="White" TextAlignment="Center"/>
+        </Grid>
+        <Grid Name="Epilogue" Visibility="Hidden">
+            <Image Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top" Source="Ressources/flou.jpg" Grid.RowSpan="3" Stretch="Fill"/>
+            <Button Content="Quitter" HorizontalAlignment="Left" Margin="488,657,0,0" VerticalAlignment="Top" Width="75" Click="GoBackToMenu"/>
         </Grid>
     </Grid>
 </Window>

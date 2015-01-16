@@ -67,7 +67,7 @@ namespace WpfDisplay
             selectedTileImg = BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/selected.png"));
             selectedTile = null;
             selectedUnit = null;
-            selectedTileImg = BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/suggested.png"));
+            suggestedTileImg = BitmapFrame.Create(new Uri(@"pack://application:,,/Ressources/suggested.png"));
             suggestedTiles = new List<Position>();
 
             Width = world.board.size * TILE_DISTANCE_X + 50;
@@ -249,16 +249,16 @@ namespace WpfDisplay
             }
             if(selectedTile != null)
                 drawElement(selectedTileImg, selectedTile, drawingContext);
-            if(selectedUnit != null)//
+            if(selectedUnit != null)
             {
                 List<Position> l = selectedUnit.getMoveSuggestions();
                 foreach(Position p in l)
                 {
                     drawElement(suggestedTileImg, p, drawingContext);
-                    InvalidateVisual();
-                    Console.WriteLine(p.x + " " + p.y + ", ");
+                    Console.WriteLine("sugg - " + p.x + ";" + p.y);
                 }
-            }//
+                InvalidateVisual();
+            }
         }
 
         private void drawUnits(DrawingContext drawingContext)
@@ -358,9 +358,9 @@ namespace WpfDisplay
             }
             else
             {
+                world.endTurn();
                 if (world.stateGame)
                 {
-                    world.endTurn();
                     mainWindow.updateInfos();
                 }
                 else
@@ -373,7 +373,7 @@ namespace WpfDisplay
 
         private void endGame()
         {
-            mainWindow.error.Text = "Victoire du joueur " + world.gagnant();
+            mainWindow.endGame();
         }
 
         public void MovementKeyPressed(Key key)

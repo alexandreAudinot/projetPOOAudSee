@@ -11,6 +11,7 @@ namespace ProjetPOO
         public int nbTours { get; private set; }
         public int maxnbTours { get; private set; }
         public int nbUnity;
+        public int firstPlayer;
         public int currentPlayer { get; set; }
         public List<Player> players { get; set; }
         private static World world;
@@ -238,21 +239,17 @@ namespace ProjetPOO
         //fonction qui termine le tour du joueur
         public void endTurn()
         {
-            World.Instance.updateScore();
+            World.Instance.updateScore(); Console.WriteLine("nbtours : " + currentPlayer + ";" + firstPlayer);
             World.Instance.currentPlayer = (World.Instance.currentPlayer + 1) % World.Instance.players.Count();
-            if (World.Instance.currentPlayer == 0)
+            if (World.Instance.currentPlayer == firstPlayer)
             {
-                World.Instance.players.First().initDeplacement();
                 nbTours++;
                 if (World.Instance.nbTours == World.Instance.maxnbTours)
                 {
                     World.Instance.endGame();
                 }
             }
-            else
-            {
-                World.Instance.players.ElementAt(1).initDeplacement();
-            }
+            World.Instance.players.ElementAt(currentPlayer).initDeplacement();
         }
 
         //gagnant permet de rendre le gagnant de la partie (String)
