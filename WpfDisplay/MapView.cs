@@ -121,7 +121,7 @@ namespace WpfDisplay
             Position pos = new Position(0, 0);
             int x = (int)p.X % TILE_DISTANCE_X;
             int y = (int)p.Y % (TILE_DISTANCE_Y * 2);
-            Console.WriteLine("x;y = " + x + ";" + y);
+            //Console.WriteLine("x;y = " + x + ";" + y);
 
             if (y < TILE_DISTANCE_Y * 2 / 3)
             {
@@ -129,12 +129,14 @@ namespace WpfDisplay
                 {
                     if (x - 2 * y < 0)
                     {
-                        pos.y = (int)(p.Y / TILE_DISTANCE_Y); Console.WriteLine("--1");
+                        pos.y = (int)(p.Y / TILE_DISTANCE_Y); 
+                        //Console.WriteLine("--1");
                         pos.x = (int)(p.X / TILE_DISTANCE_X) - 1;
                     }
                     else
                     {
-                        pos.y = (int)(p.Y / TILE_DISTANCE_Y) - 1; Console.WriteLine("--2");
+                        pos.y = (int)(p.Y / TILE_DISTANCE_Y) - 1; 
+                        //Console.WriteLine("--2");
                         pos.x = (int)(p.X / TILE_DISTANCE_X);
                     }
                 }
@@ -142,12 +144,14 @@ namespace WpfDisplay
                 {
                     if ((x-50) + 2 * y < 50)
                     {
-                        pos.y = (int)(p.Y / TILE_DISTANCE_Y) - 1; Console.WriteLine("--3");
+                        pos.y = (int)(p.Y / TILE_DISTANCE_Y) - 1; 
+                        //Console.WriteLine("--3");
                         pos.x = (int)(p.X / TILE_DISTANCE_X);
                     }
                     else
                     {
-                        pos.y = (int)(p.Y / TILE_DISTANCE_Y); Console.WriteLine("--4");
+                        pos.y = (int)(p.Y / TILE_DISTANCE_Y); 
+                        //Console.WriteLine("--4");
                         pos.x = (int)(p.X / TILE_DISTANCE_X);
                     }
                 }
@@ -157,11 +161,13 @@ namespace WpfDisplay
                 pos.y = (int)(p.Y / TILE_DISTANCE_Y);
                 if (x < TILE_DISTANCE_X / 2)
                 {
-                    pos.x = (int)(p.X / TILE_DISTANCE_X) - 1; Console.WriteLine("--5");
+                    pos.x = (int)(p.X / TILE_DISTANCE_X) - 1; 
+                    //Console.WriteLine("--5");
                 }
                 else
                 {
-                    pos.x = (int)(p.X / TILE_DISTANCE_X); Console.WriteLine("--6");
+                    pos.x = (int)(p.X / TILE_DISTANCE_X); 
+                    //Console.WriteLine("--6");
                 }
             }
             else if (y < TILE_DISTANCE_Y + TILE_DISTANCE_Y * 2 / 3)
@@ -170,12 +176,14 @@ namespace WpfDisplay
                 {
                     if (x + 2 * (y - TILE_DISTANCE_Y) < 50)
                     {
-                        pos.y = (int)(p.Y / TILE_DISTANCE_Y) - 1; Console.WriteLine("--7");
+                        pos.y = (int)(p.Y / TILE_DISTANCE_Y) - 1; 
+                        //Console.WriteLine("--7");
                         pos.x = (int)(p.X / TILE_DISTANCE_X) - 1;
                     }
                     else
                     {
-                        pos.y = (int)(p.Y / TILE_DISTANCE_Y); Console.WriteLine("--8");
+                        pos.y = (int)(p.Y / TILE_DISTANCE_Y); 
+                        //Console.WriteLine("--8");
                         pos.x = (int)(p.X / TILE_DISTANCE_X);
                     }
                 }
@@ -183,19 +191,22 @@ namespace WpfDisplay
                 {
                     if ((x - 50) - 2 * (y - TILE_DISTANCE_Y) < 0)
                     {
-                        pos.y = (int)(p.Y / TILE_DISTANCE_Y); Console.WriteLine("--9");
+                        pos.y = (int)(p.Y / TILE_DISTANCE_Y); 
+                        //Console.WriteLine("--9");
                         pos.x = (int)(p.X / TILE_DISTANCE_X);
                     }
                     else
                     {
-                        pos.y = (int)(p.Y / TILE_DISTANCE_Y) - 1; Console.WriteLine("--10");
+                        pos.y = (int)(p.Y / TILE_DISTANCE_Y) - 1; 
+                        //Console.WriteLine("--10");
                         pos.x = (int)(p.X / TILE_DISTANCE_X);
                     }
                 }
             }
             else
             {
-                pos.y = (int)(p.Y / TILE_DISTANCE_Y); Console.WriteLine("--11/12");
+                pos.y = (int)(p.Y / TILE_DISTANCE_Y); 
+                //Console.WriteLine("--11/12");
                 pos.x = (int)(p.X / TILE_DISTANCE_X);
             }
 
@@ -251,11 +262,12 @@ namespace WpfDisplay
                 drawElement(selectedTileImg, selectedTile, drawingContext);
             if(selectedUnit != null)
             {
+                //Sélection de l'algorithme de l'IA ici
                 List<Position> l = selectedUnit.getMoveSuggestions();
                 foreach(Position p in l)
                 {
                     drawElement(suggestedTileImg, p, drawingContext);
-                    Console.WriteLine("sugg - " + p.x + ";" + p.y);
+                    //Console.WriteLine("sugg - " + p.x + ";" + p.y);
                 }
                 InvalidateVisual();
             }

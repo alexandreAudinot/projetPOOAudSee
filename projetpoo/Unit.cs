@@ -359,23 +359,6 @@ namespace ProjetPOO
             {
                 l.RemoveAt(random.Next(0, l.Count()));
             }
-
-            //on ne prend que les trois premières suggestions de l
-            /*List<Position> lres = new List<Position>();
-            int cpt = 0;
-            foreach (Position p0 in l)
-            {
-                if (cpt > 3)
-                {
-                    return lres;
-                }
-                else
-                {
-                    lres.Add(p0);
-                    cpt++;
-                }
-            }*/
-            //throw new Exception(l.ElementAt(1).x + " " + l.ElementAt(1).y);
             return l;
         }
 
@@ -428,28 +411,18 @@ namespace ProjetPOO
             double depl = this.nbDeplacement;
             int i = this.position.x;
             int j = this.position.y;
-            Position p;
-            String s = "";
             List<int> l = new List<int>();
             Unit u;
-            List<Position> lp = new List<Position>();
+            List<Position> lp = this.getAllPossibleMoves();
             l.Add(this.hp);
-            for (int x = i - 1; x < i + 2; x++)
+            foreach(Position p in lp)
             {
-                for (int y = j - 1; y < j + 2; y++)
-                {
-                    Console.WriteLine("aa");
-                        p = new Position(x, y);
                         //on vérifie que le mouvement est possible
                         if (this.checkMove(p))
                         {
-                            Console.WriteLine("bb");
-                            lp.Add(p);
                             if (!World.Instance.unitBool(p))
                             {//cas où il n'y a pas d'unité sur la case
-                                Console.WriteLine("cc");
                                 this.nbDeplacement = depl;
-                                Console.WriteLine("dd" + depl);
                                 double d;
                                 try
                                 {
@@ -461,15 +434,12 @@ namespace ProjetPOO
                                 }
                                 if (this.nbDeplacement >= d)
                                 {
-                                    Console.WriteLine("ee");
-                                    lp.Add(p);
                                     l.Add(-1);
                                     l.Add(-1);
                                     //s += "-1 ";
                                 }
                                 else
                                 {
-                                    lp.Add(p);
                                     l.Add(1);
                                     l.Add(1);
                                 }
@@ -480,7 +450,6 @@ namespace ProjetPOO
                                 if (u.controler.numero == this.controler.numero)
                                 {//allié
                                     this.nbDeplacement = depl;
-                                        lp.Add(p);
                                         l.Add(1);
                                         l.Add(1);
                                 }
@@ -498,13 +467,11 @@ namespace ProjetPOO
                                     }
                                     if (this.nbDeplacement >= d)
                                     {
-                                        lp.Add(p);
                                         l.Add(0);
                                         l.Add(u.hp);
                                     }
                                     else
                                     {
-                                        lp.Add(p);
                                         l.Add(1);
                                         l.Add(1);
                                     }
@@ -513,39 +480,33 @@ namespace ProjetPOO
                         }
                         else
                         {
-                            lp.Add(p);
                             l.Add(1);
                             l.Add(1);
-                        }
                 }
             }
             //throw new Exception(s);
             Wrapper algo = new Wrapper();
-            List<int> resul = algo.computeSug(l.ElementAt(0), l.ElementAt(1), l.ElementAt(2), l.ElementAt(3),  l.ElementAt(4),
-                l.ElementAt(5), l.ElementAt(6),l.ElementAt(7), l.ElementAt(8), l.ElementAt(9), l.ElementAt(10) , l.ElementAt(11), l.ElementAt(12));
-            //translate
+            List<int> resul;
+            try
+            {
+                resul = algo.computeSug(l.ElementAt(0), l.ElementAt(1), l.ElementAt(2), l.ElementAt(3), l.ElementAt(4),
+                l.ElementAt(5), l.ElementAt(6), l.ElementAt(7), l.ElementAt(8), l.ElementAt(9), l.ElementAt(10), l.ElementAt(11), l.ElementAt(12));
+            }
+            catch(Exception e)
+            {
+                List<Position> llp = new List<Position>();
+                llp.Add(this.position);
+                return llp;
+            }
             List<Position> lres = new List<Position>();
             int rang = 0;
             //throw new Exception("ff" + resul.Count());
-            for (int x = i - 1; x < i + 2; x++)
+            foreach (Position p in lp)
             {
-                for (int y = j - 1; y < j + 2; y++)
+                if (resul[rang] == 1)
                 {
-                        p = new Position(x, y);
-
-                        if (this.checkMove(p))
-                        {
-                            if (resul.ElementAt(rang) == 1)
-                            {
-                                lres.Add(p);
-                                rang++;
-                            }
-                            else
-                            {
-                                rang++;
-                            }
-                        }
-                    }
+                    lres.Add(p);
+                }
             }
             //throw new Exception("fin" + lres.Count());
             Random rnd = new Random();

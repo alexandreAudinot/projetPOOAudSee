@@ -96,7 +96,6 @@ namespace ProjetPOO
                     }
                 }
             }
-
             return cpt;
         }
 
@@ -236,7 +235,8 @@ namespace ProjetPOO
         //fonction qui termine le tour du joueur
         public void endTurn()
         {
-            World.Instance.updateScore(); Console.WriteLine("nbtours : " + currentPlayer + ";" + firstPlayer);
+            World.Instance.updateScore(); 
+            //Console.WriteLine("nbtours : " + currentPlayer + ";" + firstPlayer);
             World.Instance.currentPlayer = (World.Instance.currentPlayer + 1) % World.Instance.players.Count();
             if (World.Instance.currentPlayer == firstPlayer)
             {

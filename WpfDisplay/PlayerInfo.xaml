@@ -7,7 +7,7 @@
              d:DesignHeight="120" d:DesignWidth="200" Background="#AA704533">
     <Grid>
         <Label x:Name="name" Content="Player" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="Points" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Anneaux" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label x:Name="points" Content="*" HorizontalAlignment="Right" Margin="0,41,10,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="Nombre d'unités" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label x:Name="nbUnits" Content="*" HorizontalAlignment="Right" Margin="0,72,10,0" VerticalAlignment="Top" Foreground="White"/>

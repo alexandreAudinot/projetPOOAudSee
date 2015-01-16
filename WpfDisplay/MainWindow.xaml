@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:WpfDisplay"
         xmlns:local="clr-namespace:WpfDisplay"
-        Title="SmallWorld" Height="800" Width="1000" Background="#FF51362A" KeyDown="Window_KeyDown">
+        Title="SmallWorld LOTR" Height="800" Width="1000" Background="#FF51362A" KeyDown="Window_KeyDown">
     <Grid>
         <Grid Name="Menu" Visibility="Hidden">
             <Grid.RowDefinitions>
@@ -89,7 +89,7 @@
             <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1">
                 <local:MapView Grid.Column="1" x:Name="mapView" VerticalAlignment="Center" HorizontalAlignment="Center" MouseLeftButtonDown="mapView_MouseLeftButtonDown" Height="546" Width="713" MouseRightButtonDown="mapView_MouseRightButtonDown" />
             </ScrollViewer>
-            <Button Content="Passer le tour" Margin="10,10,10,0" Grid.Row="1" VerticalAlignment="Top" Click="ButtonEndTurn" Height="22"/>
+            <Button Content="Terminer le tour" Margin="10,10,10,0" Grid.Row="1" VerticalAlignment="Top" Click="ButtonEndTurn" Height="22"/>
             <Button Content="Enregistrer" Margin="10,37,10,0" Grid.Row="1" VerticalAlignment="Top" Click="ButtonSave" Height="22"/>
             <Button Content="Quitter" Margin="10,64,10,0" Grid.Row="1" VerticalAlignment="Top" Click="ButtonQuit" Height="22"/>
             <local:PlayerInfo x:Name="playerInfo1" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" Width="200" Height="105" VerticalAlignment="Top"/>
