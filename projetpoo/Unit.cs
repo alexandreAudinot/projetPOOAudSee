@@ -217,22 +217,23 @@ namespace ProjetPOO
         //on utilisera la fonction lors du repli de l'elfe
         public bool canMove()
         {
-            return ((!World.Instance.unitBool(new Position(this.position.x + 1, this.position.y))
-            || (!World.Instance.unitBool(new Position(this.position.x - 1, this.position.y)))
-            || (!World.Instance.unitBool(new Position(this.position.x, this.position.y + 1)))
-            || (!World.Instance.unitBool(new Position(this.position.x, this.position.y - 1)))
-            || (!World.Instance.unitBool(new Position(this.position.x + 1, this.position.y - 1)))
-            || (!World.Instance.unitBool(new Position(this.position.x - 1, this.position.y + 1)))));
+            List<Position> possiblePos = getAllPossibleMoves();
+            Unit unit;
+
+            foreach (Position pos in possiblePos)
+            {
+                unit = World.Instance.getUnit(pos);
+                if (unit == null || unit.controler == controler)
+                    return true;
+            }
+            return false;
         }
+
         public Position randomPosition()
         {
             Random rand = new Random();
-            List<Position> possiblePos = new List<Position>();
-
-            //if (new Position(this.position.x + 1, this.position.y))
-
-
-            return null;
+            List<Position> possiblePos = getAllPossibleMoves();
+            return possiblePos.ElementAt(rand.Next(possiblePos.Count));
         }
 
         //La méthode move détermine si l'évènement est un déplacement ou un combat et fait l'appel le cas échéant

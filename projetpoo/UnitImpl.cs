@@ -277,8 +277,8 @@ namespace ProjetPOO
                     this.die();
                     return true;
                 }
-                this.def = 1;
-
+                this.hp = 1;
+                this.position = randomPosition();
                 return false;
                 //le joueur fait son repli : seulement un move est possible
             }

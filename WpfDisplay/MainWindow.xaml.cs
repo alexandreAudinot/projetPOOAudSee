@@ -341,7 +341,11 @@ namespace WpfDisplay
         {
             GameScene.Visibility = System.Windows.Visibility.Hidden;
             scene = "Victoire";
-            victory.Text = World.Instance.gagnant() + " à remporté la victoire !";
+            string gagnant = World.Instance.gagnant();
+            if(gagnant == "Match nul")
+                victory.Text = gagnant;
+            else
+                victory.Text = gagnant + " à remporté la victoire !";
             Victoire.Visibility = System.Windows.Visibility.Visible;
         }
 
