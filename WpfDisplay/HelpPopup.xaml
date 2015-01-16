@@ -1,0 +1,11 @@
+﻿<Window x:Class="WpfDisplay.HelpPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Aide" Height="420" Width="600" Background="#FF51362A">
+    <Grid>
+        <TextBlock x:Name="textBloc" HorizontalAlignment="Left" Margin="10,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="301" Width="572" TextAlignment="Center"/>
+        <Button Content="Fermer" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Width="74" Click="Button_Click"/>
+        <Label Content="Aide" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20"/>
+
+    </Grid>
+</Window>

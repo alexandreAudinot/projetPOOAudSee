@@ -4,8 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="120" d:DesignWidth="200" Background="#AA704533">
+             d:DesignHeight="105" d:DesignWidth="200" Background="#AA704533">
     <Grid>
+        <Rectangle x:Name="active" Fill="#00000000" HorizontalAlignment="Left" Height="105" Stroke="Red" VerticalAlignment="Top" Width="200" StrokeThickness="5"/>
         <Label x:Name="name" Content="Player" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label Content="Anneaux" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label x:Name="points" Content="*" HorizontalAlignment="Right" Margin="0,41,10,0" VerticalAlignment="Top" Foreground="White"/>

@@ -37,6 +37,10 @@ namespace WpfDisplay
         {
             points.Content = associatedPlayer.score;
             nbUnits.Content = associatedPlayer.listUnit.Count;
+            if (World.Instance.players.ElementAt(World.Instance.currentPlayer) == associatedPlayer)
+                active.Visibility = System.Windows.Visibility.Visible;
+            else
+                active.Visibility = System.Windows.Visibility.Hidden;
         }
     }
 }

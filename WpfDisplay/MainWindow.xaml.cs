@@ -358,24 +358,6 @@ namespace WpfDisplay
             }
         }
 
-        public void setActivePlayer(int player)
-        {
-            if (player == 0)
-            {
-                playerInfo1.BorderThickness = new Thickness(5);
-                playerInfo2.BorderThickness = new Thickness(0);
-                playerInfo1.Height += 10;
-                playerInfo2.Height -= 10;
-            }
-            else
-            {
-                playerInfo1.BorderThickness = new Thickness(0);
-                playerInfo2.BorderThickness = new Thickness(5);
-                playerInfo1.Height -= 10;
-                playerInfo2.Height += 10;
-            }
-        }
-
         public void endGame()
         {
             GameScene.Visibility = System.Windows.Visibility.Hidden;
@@ -396,6 +378,12 @@ namespace WpfDisplay
         private void GoBackToMenu(object sender, RoutedEventArgs e)
         {
             goToMenu();
+        }
+
+        private void ButtonHelp(object sender, RoutedEventArgs e)
+        {
+            HelpPopup popup = new HelpPopup();
+            popup.ShowDialog();
         }
     }
 }
