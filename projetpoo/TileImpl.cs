@@ -7,7 +7,7 @@ namespace ProjetPOO
 {
     public class Mountain : Tile
     {
-        public Mountain(): base(){}
+        public Mountain(): base(){ }
     }
 
     public class Plain : Tile

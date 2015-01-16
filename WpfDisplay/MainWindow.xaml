@@ -14,7 +14,7 @@
     Les elfes ont 50% de chance de fuir un combat perdu (où ils devaient mourir), il se replient sur une case adjacente accessible.
     Dans le cas inverse, l'unité mourra)
     Il est conseillé d'éparpiller au maximum ses unités, en attaquant l'adversaire dès que possible.
-    L'évaluation du nombre d'anneau est lancé lors de l'activation du sort de Saruman, ou si un des joueurs perd la partie avant.-->
+    L'évaluation du nombre d'anneaux est lancé lors de l'activation du sort de Saruman, ou si un des joueurs perd la partie avant.-->
     
     <Window x:Class="WpfDisplay.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"

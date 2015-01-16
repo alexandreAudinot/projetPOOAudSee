@@ -15,41 +15,41 @@
   <Class Name="ProjetPOO.World">
     <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQCAUCAgIgAAAAACBAAAAEAAAwAQCECAYBAAAAFAQAA=</HashCode>
+      <HashCode>AQCAUCAgIgAAAAICBAAAQAAAAwAQCECAYBABAAEASAA=</HashCode>
       <FileName>World.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Orc">
-    <Position X="2" Y="7.25" Width="1.5" />
+    <Position X="2.25" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAAAAAAAAAACAggAAAAAQABAAAgAAAAA=</HashCode>
+      <HashCode>AAAAgCAAAAAAAAAAAAAAAACAggABAAAQABAAAgAAAAA=</HashCode>
       <FileName>UnitImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Elf">
-    <Position X="3.75" Y="7.25" Width="1.5" />
+    <Position X="4" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAgAAAAAAABAAAgAAAAA=</HashCode>
+      <HashCode>AAAAgCAAAAAAAAAAAAAAAAAAAgABAAAAABAAAgAAAAA=</HashCode>
       <FileName>UnitImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Dwarf">
-    <Position X="5.5" Y="7.25" Width="1.5" />
+    <Position X="5.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAgAAAAAAABAAAgAAAAA=</HashCode>
+      <HashCode>AAAAgCAAAAAAAAAAAAAAAAAAAgABAAAAABAAAgAAAAA=</HashCode>
       <FileName>UnitImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Unit">
     <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAiAgAACEKAoAoAAQAoAAAAAEgBBAAgEAAAA=</HashCode>
+      <HashCode>EAAAgCAAAiAgAUCEKAoAoAAQAoABAAAEoBBAAgEgAAA=</HashCode>
       <FileName>Unit.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ProjetPOO.Position">
-    <Position X="0.5" Y="4.5" Width="1.5" />
+    <Position X="0.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAAAAAAAACAAAAAAAAAABgAAAAAAA=</HashCode>
       <FileName>Position.cs</FileName>
@@ -58,7 +58,7 @@
   <Class Name="ProjetPOO.Player">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAgAMAAgAAAAABIIAAAAAgAECQAAAFAAAAIAAA=</HashCode>
+      <HashCode>AAAAAAAgAMAAgAAAAABIIAAAAAABECQAAAFAAAAIAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -86,13 +86,6 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TileImpl.cs</FileName>
       <NewMemberFileName>Forest.cs</NewMemberFileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ProjetPOO.TileImpl">
-    <Position X="7.75" Y="7.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>TileImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.DemoBoard">
@@ -133,7 +126,7 @@
   <Class Name="ProjetPOO.Monteur">
     <Position X="14.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAAAAAAAAAgAAAAAAACQABAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAABAAAAAAAAAgAAAAAAgCQABBAAAAAAAAAAAA=</HashCode>
       <FileName>AbstractFactoryTiles.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -141,7 +134,7 @@
   <Class Name="ProjetPOO.CreateGame">
     <Position X="15.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAQAAAAIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>CreateGame.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -165,7 +158,7 @@
       <Compartment Name="Properties" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAEAAAAIAAAAAAAAAAAAIAAAAAAAEAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAAYAAAAAAAAAAAAIAAAAAAAEAAAA=</HashCode>
       <FileName>AbstractBoard.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -204,7 +197,7 @@
   <Interface Name="ProjetPOO.IUnit">
     <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAACAAAACECAAAAAAQAoAAAAAAABAAAgEAAAA=</HashCode>
+      <HashCode>AAAAgAAAACAAAACECAAAAAAQAoABAAAAABAAAgEAAAA=</HashCode>
       <FileName>IUnit.cs</FileName>
     </TypeIdentifier>
   </Interface>
