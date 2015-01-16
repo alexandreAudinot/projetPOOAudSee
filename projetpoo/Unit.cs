@@ -478,8 +478,6 @@ namespace ProjetPOO
             {
                 for (int y = j - 1; y < j + 2; y++)
                 {
-                    if (!(x == y))
-                    {
                         p = new Position(x, y);
                         //on vérifie que le mouvement est possible
                         if (this.checkMove(p))
@@ -493,6 +491,7 @@ namespace ProjetPOO
                                     lp.Add(p);
                                     l.Add(-1);
                                     l.Add(-1);
+                                    //s += "-1 ";
                                 }
                             }
                             else
@@ -501,12 +500,9 @@ namespace ProjetPOO
                                 if (u.controler.numero == this.controler.numero)
                                 {//allié
                                     this.nbDeplacement = depl;
-                                    if (this.nbDeplacement >= this.calcDepl(p))
-                                    {
                                         lp.Add(p);
                                         l.Add(1);
                                         l.Add(1);
-                                    }
                                 }
                                 else
                                 {//ennemi
@@ -517,42 +513,53 @@ namespace ProjetPOO
                                         l.Add(0);
                                         l.Add(u.hp);
                                     }
+                                    else
+                                    {
+                                        lp.Add(p);
+                                        l.Add(1);
+                                        l.Add(1);
+                                    }
                                 }
                             }
                         }
-                    }
                 }
             }
+            //throw new Exception(s);
             Wrapper algo = new Wrapper();
             List<int> resul = algo.computeSug(l.ElementAt(0), l.ElementAt(1), l.ElementAt(2), l.ElementAt(3),  l.ElementAt(4),
                 l.ElementAt(5), l.ElementAt(6),l.ElementAt(7), l.ElementAt(8), l.ElementAt(9), l.ElementAt(10) , l.ElementAt(11), l.ElementAt(12));
             //translate
             List<Position> lres = new List<Position>();
             int rang = 0;
+            //throw new Exception("ff" + resul.Count());
             for (int x = i - 1; x < i + 2; x++)
             {
                 for (int y = j - 1; y < j + 2; y++)
                 {
-                    if (!(x == y))
-                    {
                         p = new Position(x, y);
-                        if (resul.ElementAt(rang) == 1)
+
+                        if (this.checkMove(p))
                         {
-                            lres.Add(p);
+                            if (resul.ElementAt(rang) == 1)
+                            {
+                                lres.Add(p);
+                                rang++;
+                            }
+                            else
+                            {
+                                rang++;
+                            }
                         }
                     }
-                }
             }
+            throw new Exception("fin" + lres.Count());
             Random rnd = new Random();
-            int cpt = 0;
             int rn;
-            while ((cpt < 3) && (cpt < lres.Count()))
+            while ( (lres.Count() > 3))
             {
                 rn = rnd.Next(0, 3);
                 lres.RemoveAt(rn);
-                cpt++;
             }
-            throw new Exception("fin" + resul.Count());
             this.nbDeplacement = depl;
             return lres;
         }

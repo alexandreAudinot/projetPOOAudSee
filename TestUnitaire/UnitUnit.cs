@@ -437,22 +437,42 @@ namespace TestUnitaire
             World.Instance.addPlayer("Azog", "Orc");
             World.Instance.addPlayer("Marty Mc Fly", "Dwarf");
             Orc o = new Orc(World.Instance.players.First(), new Position(2, 2));
-            /*Orc o0 = new Orc(World.Instance.players.First(), new Position(1, 2));
+            Orc o0 = new Orc(World.Instance.players.First(), new Position(1, 2));
             Orc o1 = new Orc(World.Instance.players.First(), new Position(3, 2));
+            Orc o2 = new Orc(World.Instance.players.First(), new Position(2, 1));
+            Orc o3 = new Orc(World.Instance.players.First(), new Position(2, 3));
+            
             Dwarf e = new Dwarf(World.Instance.players.ElementAt(1), new Position(2, 1));
-            e.setDefForUnitTest(20);
             Dwarf e0 = new Dwarf(World.Instance.players.ElementAt(1), new Position(1, 3));
-            */World.Instance.players.First().listUnit.Add(o);/*
-            World.Instance.players.First().listUnit.Add(o0);
+            Dwarf e1 = new Dwarf(World.Instance.players.ElementAt(1), new Position(1, 2));
+            Dwarf e2 = new Dwarf(World.Instance.players.ElementAt(1), new Position(1, 3));
+            Dwarf e3 = new Dwarf(World.Instance.players.ElementAt(1), new Position(3, 2));
+            Dwarf e4 = new Dwarf(World.Instance.players.ElementAt(1), new Position(2, 3));
+            e.setHPForUnitTest(20);
+            e2.setHPForUnitTest(2);
+            e1.setHPForUnitTest(20);
+            World.Instance.players.First().listUnit.Add(o);
+           /* World.Instance.players.First().listUnit.Add(o0);
             World.Instance.players.First().listUnit.Add(o1);
+            World.Instance.players.First().listUnit.Add(o2);
+            World.Instance.players.First().listUnit.Add(o3);*/
+
             World.Instance.players.ElementAt(1).listUnit.Add(e);
+            World.Instance.players.ElementAt(1).listUnit.Add(e0);
+            World.Instance.players.ElementAt(1).listUnit.Add(e1);
+            World.Instance.players.ElementAt(1).listUnit.Add(e2);
+            World.Instance.players.ElementAt(1).listUnit.Add(e3);
+            World.Instance.players.ElementAt(1).listUnit.Add(e4);
+            
+            /*
             World.Instance.players.ElementAt(1).listUnit.Add(e0);*/
             o.initDeplacement();
             List<Position> l = ((Unit)World.Instance.players.First().listUnit.First()).getMoveSuggestions2();
             Assert.AreEqual(3, l.Count());
-            Assert.IsTrue((new Position(1, 3).equals(l.First())));
+            throw new Exception("" + l.First().x + " " + l.First().y);
+            /*Assert.IsTrue((new Position(1, 3).equals(l.First())));
             Assert.IsTrue((new Position(2, 3).equals(l.ElementAt(1))));
-            Assert.IsTrue((new Position(3, 1).equals(l.ElementAt(2))));
+            Assert.IsTrue((new Position(3, 1).equals(l.ElementAt(2))));*/
              /*Présence de Random dans les tests : les tests ont été réalisés sous cette forme
              sans l'aléatoire et validés*/
         }
