@@ -32,12 +32,7 @@ namespace WpfDisplay
         {
             InitializeComponent();
 
-            Menu.Visibility = System.Windows.Visibility.Visible;
-            Intro.Visibility = System.Windows.Visibility.Hidden;
-            ModeSelection.Visibility = System.Windows.Visibility.Hidden;
-            GameScene.Visibility = System.Windows.Visibility.Hidden;
-            Epilogue.Visibility = System.Windows.Visibility.Hidden;
-            scene = "Menu";
+            goToMenu();
 
             unitInfoList = new List<UnitInfo>();
             unitInfoList.Add(unitInfo1);
@@ -56,6 +51,22 @@ namespace WpfDisplay
             unitInfo7.mapView = mapView;
             unitInfoList.Add(unitInfo8);
             unitInfo8.mapView = mapView;
+
+            initTexts();
+        }
+
+        private void initTexts()
+        {
+            textIntro1.Text = "Morgoth, un seigneur du mal très puissant, terrorisait la terre du milieu. Un alliance d'un nouveau genre fut forgée entre les elfes, les orques, et les nains pour tenter de l'arrêter. Après une bataille féroce, Morgoth fut défait devant la montagne du destin.\n\n" +
+                "Afin d'empêcher une nouvelle guerre, les peuples choisirent d'équilibrer les forces sur la terre du milieu. Ainsi, avec l'aide bienveillante de Sauron, ils créent un certain nombre d'anneaux de pouvoir, qu'ils distribuent à parts égales aux elfes, orques et nains.\n\n" +
+                "Ainsi, les grands peuples ne se querelleront plus car ils détiennent tous des pouvoirs équivalents.";
+            textIntro2.Text = "Mais ce que les anciens ne savaient pas, c'est que le contrôle de la majorité des anneaux de pouvoir peut bouleverser la vie sur la terre du milieu. En effet, le fourbe Sarumane, sorcier humain et chef du conseil blanc, a dans le secret créé un enchantement magique. Au bout d'un temps imparti, le contrôle de la majorité des anneaux de contrôle vous permettra de retrouver l'anneau unique, capable de contrôler tous les autres anneaux, pour conquérir le monde.";
+
+            textVictory.Text = "Vous avez retrouvé l'anneau magique et vous vous empressez de l'enfiler à votre doigt. Enfin ! Vous êtes devenu invincible et vous vous préparez à envahir le monde.\n\n" +
+                "Alors Sauron apparut et utilisa l'anneau unique pour vous corrompre. Il vous a utilisé comme un serviteur pour collecter tous les anneaux de pouvoirs pour retrouver l'anneau unique. Maintenant, vous lui avez rendu son pouvoir initial. Vous êtes l'être le plus haït de la terre du milieu. Mais au moins, vous n'avez pas perdu !";
+            textMatchNul.Text = "L'enchantement n'a pu départager le vainqueur, mais un serviteur de Saruman vous rapportera bien l'anneau.\n\n" +
+                "Oh mais surprise ! Il a decidé de le séparer en 2 en utilisant la méthode Salomon. Vous perdez tous les deux vos pouvoirs.\n\n" + 
+                "Vous avez gagné une moitié d'anneau, mais c'est toujours mieux que le Gollum qui lui, a tout perdu.";
         }
 
         public UnitInfo getUnitInfo(int i)
@@ -65,11 +76,12 @@ namespace WpfDisplay
 
         private void goToMenu()
         {
-            Intro.Visibility = System.Windows.Visibility.Hidden;
+            Intro1.Visibility = System.Windows.Visibility.Hidden;
+            Intro2.Visibility = System.Windows.Visibility.Hidden;
             ModeSelection.Visibility = System.Windows.Visibility.Hidden;
             GameScene.Visibility = System.Windows.Visibility.Hidden;
             Victoire.Visibility = System.Windows.Visibility.Hidden;
-            Epilogue.Visibility = System.Windows.Visibility.Hidden;
+            Tie.Visibility = System.Windows.Visibility.Hidden;
             World.Clean();
             scene = "Menu";
             Menu.Visibility = System.Windows.Visibility.Visible;
@@ -78,12 +90,12 @@ namespace WpfDisplay
         private void NewGame(object sender, RoutedEventArgs e)
         {
             Menu.Visibility = System.Windows.Visibility.Hidden;
-            Intro.Visibility = System.Windows.Visibility.Visible;
+            Intro1.Visibility = System.Windows.Visibility.Visible;
             typeP1 = "Elf";
             typeP2 = "Orc";
             mapSize = "Normal";
             descriptionMap.Text = "Normale :\nTaille : 14x14\nNombre de tours : 30\nNombre d'unités par joueur : 8";
-            scene = "Intro";
+            scene = "Intro1";
         }
 
         private void LoadGame(object sender, RoutedEventArgs e)
@@ -105,9 +117,16 @@ namespace WpfDisplay
             initVisualElements();
         }
 
+        private void GoToIntro2(object sender, RoutedEventArgs e)
+        {
+            Intro1.Visibility = System.Windows.Visibility.Hidden;
+            scene = "Intro2";
+            Intro2.Visibility = System.Windows.Visibility.Visible;
+        }
+
         private void SkipIntro(object sender, RoutedEventArgs e)
         {
-            Intro.Visibility = System.Windows.Visibility.Hidden;
+            Intro2.Visibility = System.Windows.Visibility.Hidden;
             scene = "ModeSelection";
             ModeSelection.Visibility = System.Windows.Visibility.Visible;
         }
@@ -340,21 +359,23 @@ namespace WpfDisplay
         public void endGame()
         {
             GameScene.Visibility = System.Windows.Visibility.Hidden;
-            scene = "Victoire";
-            victory.Text = World.Instance.gagnant() + " à remporté la victoire !";
-            Victoire.Visibility = System.Windows.Visibility.Visible;
+            string gagnant = World.Instance.gagnant();
+            if(gagnant == "Match nul")
+            {
+                scene = "Match nul";
+                Tie.Visibility = System.Windows.Visibility.Visible;
+            }
+            else
+            {
+                scene = "Victoire";
+                victory.Text = gagnant + " à remporté la victoire !";
+                Victoire.Visibility = System.Windows.Visibility.Visible;
+            }
         }
 
         private void GoBackToMenu(object sender, RoutedEventArgs e)
         {
             goToMenu();
-        }
-
-        private void GoToEpilogue(object sender, RoutedEventArgs e)
-        {
-            Victoire.Visibility = System.Windows.Visibility.Hidden;
-            scene = "Victoire";
-            Epilogue.Visibility = System.Windows.Visibility.Visible;
         }
     }
 }

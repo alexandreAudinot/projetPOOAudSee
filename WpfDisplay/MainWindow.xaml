@@ -24,9 +24,18 @@
             <TextBlock x:Name="errorLoad" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,0,10" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Bottom" Background="Black" Foreground="White" Width="250" TextAlignment="Center"/>
 
         </Grid>
-        <Grid Name="Intro" Visibility="Hidden">
+        <Grid Name="Intro1">
             <Image Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top" Source="Ressources/flou.jpg" Grid.RowSpan="3" Stretch="Fill"/>
-            <Button Content="Suivant" HorizontalAlignment="Left" Margin="488,657,0,0" VerticalAlignment="Top" Width="75" Click="SkipIntro"/>
+            <TextBlock x:Name="textIntro1" HorizontalAlignment="Left" Margin="282,0,0,216" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="600" Foreground="White" Height="256" TextAlignment="Justify" FontSize="16"/>
+            <Image HorizontalAlignment="Left" Height="244" Margin="96,298,0,0" VerticalAlignment="Top" Width="180" Source="Ressources/morgoth.jpg"/>
+            <Image HorizontalAlignment="Left" Height="145" Margin="595,556,0,0" VerticalAlignment="Top" Width="125" Source="Ressources/rings.jpg"/>
+            <Button Content="Suivant" HorizontalAlignment="Center" Margin="0,657,0,0" VerticalAlignment="Top" Width="75" Click="GoToIntro2"/>
+        </Grid>
+        <Grid Name="Intro2" Visibility="Hidden">
+            <Image Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top" Source="Ressources/flou.jpg" Grid.RowSpan="3" Stretch="Fill"/>
+            <TextBlock x:Name="textIntro2" HorizontalAlignment="Center" Margin="196,300,196,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600" Foreground="White" Height="162" TextAlignment="Justify" FontSize="16"/>
+            <Image HorizontalAlignment="Center" Height="174" Margin="0,462,0,0" VerticalAlignment="Top" Width="310" Source="Ressources/saruman.jpg"/>
+            <Button Content="Suivant" HorizontalAlignment="Center" Margin="0,657,0,0" VerticalAlignment="Top" Width="75" Click="SkipIntro"/>
         </Grid>
         <Grid Name="ModeSelection" Visibility="Hidden">
             <Grid.RowDefinitions>
@@ -104,12 +113,17 @@
         </Grid>
         <Grid Name="Victoire" Visibility="Hidden">
             <Image Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top" Source="Ressources/flou.jpg" Grid.RowSpan="3" Stretch="Fill"/>
-            <Button Content="Suivant" HorizontalAlignment="Left" Margin="488,657,0,0" VerticalAlignment="Top" Width="75" Click="GoToEpilogue"/>
-            <TextBlock x:Name="victory" HorizontalAlignment="Center" Margin="0,300,0,0" VerticalAlignment="Top" Height="86" Width="564" FontSize="48" Foreground="White" TextAlignment="Center"/>
+            <TextBlock x:Name="victory" HorizontalAlignment="Center" Margin="0,246,0,0" VerticalAlignment="Top" Height="86" Width="800" FontSize="48" Foreground="White" TextAlignment="Center"/>
+            <TextBlock x:Name="textVictory" HorizontalAlignment="Center" Margin="0,0,0,200" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="600" Foreground="White" Height="256" TextAlignment="Justify" FontSize="16"/>
+            <Image HorizontalAlignment="Center" Height="158" Margin="0,494,0,0" VerticalAlignment="Top" Width="216" Source="Ressources/eye.png"/>
+            <Button Content="Quitter" HorizontalAlignment="Center" Margin="0,657,0,0" VerticalAlignment="Top" Width="75" Click="GoBackToMenu"/>
         </Grid>
-        <Grid Name="Epilogue" Visibility="Hidden">
+        <Grid Name="Tie" Visibility="Hidden">
             <Image Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top" Source="Ressources/flou.jpg" Grid.RowSpan="3" Stretch="Fill"/>
-            <Button Content="Quitter" HorizontalAlignment="Left" Margin="488,657,0,0" VerticalAlignment="Top" Width="75" Click="GoBackToMenu"/>
+            <TextBlock HorizontalAlignment="Center" Margin="0,246,0,0" VerticalAlignment="Top" Height="86" Width="800" FontSize="48" Foreground="White" TextAlignment="Center" Text="Match Nul"/>
+            <TextBlock x:Name="textMatchNul" HorizontalAlignment="Center" Margin="0,0,0,182" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="600" Foreground="White" Height="256" TextAlignment="Justify" FontSize="16"/>
+            <Image HorizontalAlignment="Center" Height="163" Margin="0,494,0,0" VerticalAlignment="Top" Width="246" Source="Ressources/broken.png"/>
+            <Button Content="Quitter" HorizontalAlignment="Center" Margin="0,657,0,0" VerticalAlignment="Top" Width="75" Click="GoBackToMenu"/>
         </Grid>
     </Grid>
 </Window>
