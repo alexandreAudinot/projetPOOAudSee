@@ -483,7 +483,6 @@ namespace ProjetPOO
             Unit u;
             List<Position> lp = new List<Position>();
             l.Add(this.hp);
-            int cpteur = 0;
             for (int x = i - 1; x < i + 2; x++)
             {
                 for (int y = j - 1; y < j + 2; y++)
@@ -500,7 +499,16 @@ namespace ProjetPOO
                                 Console.WriteLine("cc");
                                 this.nbDeplacement = depl;
                                 Console.WriteLine("dd" + depl);
-                                if (this.nbDeplacement >= this.calcDepl(p))
+                                double d;
+                                try
+                                {
+                                    d = this.calcDepl(p);
+                                }
+                                catch (Exception e)
+                                {
+                                    d = 5000;
+                                }
+                                if (this.nbDeplacement >= d)
                                 {
                                     Console.WriteLine("ee");
                                     lp.Add(p);
