@@ -102,7 +102,7 @@
             <local:GameInfo x:Name="gameInfo" Grid.Column="1" HorizontalAlignment="Center" Margin="0,35,0,0" Grid.Row="1" VerticalAlignment="Top"/>
 
         </Grid>
-        <Grid Name="Epilogue" Visibility="Hidden">
+        <Grid Name="Epilogue">
             <Image Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top" Source="Ressources/flou.jpg" Grid.RowSpan="3" Stretch="Fill"/>
             <Button Content="Suivant" HorizontalAlignment="Left" Margin="488,657,0,0" VerticalAlignment="Top" Width="75" Click="SkipIntro"/>
         </Grid>

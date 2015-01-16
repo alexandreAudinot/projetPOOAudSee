@@ -249,14 +249,16 @@ namespace WpfDisplay
             }
             if(selectedTile != null)
                 drawElement(selectedTileImg, selectedTile, drawingContext);
-            /*if(selectedUnit != null)
+            if(selectedUnit != null)//
             {
                 List<Position> l = selectedUnit.getMoveSuggestions();
                 foreach(Position p in l)
                 {
-                    drawElement(suggestedTileImg, selectedUnit.position, drawingContext);
+                    drawElement(suggestedTileImg, p, drawingContext);
+                    InvalidateVisual();
+                    Console.WriteLine(p.x + " " + p.y + ", ");
                 }
-            }*/
+            }//
         }
 
         private void drawUnits(DrawingContext drawingContext)
