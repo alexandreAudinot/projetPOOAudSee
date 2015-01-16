@@ -77,7 +77,6 @@ namespace ProjetPOO
             {
                 probAtt = (100 - 100 * u.def/this.att)*50.0/100 + 50;
             }
-            //String s = "nb Combats : " + nbCombats + " Probatt : " + probAtt;
             //Sélection de l'attaquant et attaque
             while(this.isAlive() && u.isAlive() && nbCombats > 0)
             {
@@ -86,18 +85,16 @@ namespace ProjetPOO
                 {
                     //l'attaque est pondérée par les points de vie de l'attaquant
                     u.hp -= (int) Math.Truncate((this.hp * 1.0 / this.initialLife) * this.att);
-                    //s += ", 75 attaque de " + ((int)Math.Truncate((this.hp * 1.0 / this.initialLife) * this.att)).ToString() + "(" + this.hp + "," + u.hp + ")";
                 }
                 else
                 {
                     this.hp -= (int) Math.Truncate((u.hp * 1.0 / u.initialLife) * u.att);
-                    //s += ", 25 attaque de " + ((int)Math.Truncate((u.hp * 1.0 / u.initialLife) * u.att)).ToString() + "(" + this.hp + "," + u.hp + ")";
                 }
             }
                 //cas de mort d'une unité
                 if (!this.isAlive())
                 {
-                    //s += " Mort de l'attaquant";
+                    //Mort de l'attaquant
                     //message this.getType().toString() gagne le combat
                     if (this.loseFight())
                     {
@@ -108,11 +105,11 @@ namespace ProjetPOO
                 {
                     if (!u.isAlive())
                     {
-                        //s += " Mort du défenseur";
+                        //Mort du défenseur
                         if (u.loseFight())
                         {
                             this.winFightAtt(p);
-                            if (World.Instance.unitBool(p)) //NS
+                            if (World.Instance.unitBool(p))
                             {
                                 this.fight(p, World.Instance.getUnit(p));
                             } 
@@ -122,13 +119,7 @@ namespace ProjetPOO
                             }
                         }
                     }
-                    else
-                    {
-                        //s += " Pas de gagnant";
-                        //message pas de gagnant
-                    }
                }
-            //throw new Exception(s);
         }
 
         //die permet de tuer l'unité courante
@@ -138,6 +129,8 @@ namespace ProjetPOO
             this.controler.killUnit(this);
         }
 
+        //fonction getAllPossibleMoves qui renvoit la liste des différents 
+        //mouvements possibles
         public List<Position> getAllPossibleMoves()
         {
             List<Position> res = new List<Position>();
@@ -186,31 +179,6 @@ namespace ProjetPOO
                     return true;
             }
             return false;
-            
-            /*if (!((p.x < 0) || (p.y < 0) || (p.x >= World.Instance.board.size) || (p.y >= World.Instance.board.size)))
-            {
-                if(this.position.y % 2 == 0)
-                {
-                    return (
-                        ((p.x + 1 == this.position.x) && (this.position.y == p.y))
-                        || ((p.x - 1 == this.position.x) && (this.position.y == p.y))
-                        || ((p.x == this.position.x) && (this.position.y + 1 == p.y))
-                        || ((p.x == this.position.x) && (this.position.y - 1 == p.y))
-                        || ((p.x == this.position.x + 1) && (this.position.y - 1 == p.y))
-                        || ((p.x == this.position.x + 1) && (this.position.y + 1 == p.y)));
-                }
-                else
-                {
-                    return (
-                        ((p.x + 1 == this.position.x) && (this.position.y == p.y))
-                        || ((p.x - 1 == this.position.x) && (this.position.y == p.y))
-                        || ((p.x == this.position.x) && (this.position.y + 1 == p.y))
-                        || ((p.x == this.position.x) && (this.position.y - 1 == p.y))
-                        || ((p.x == this.position.x - 1) && (this.position.y - 1 == p.y))
-                        || ((p.x == this.position.x - 1) && (this.position.y + 1 == p.y)));
-                }
-            }
-            return false;*/
         }
 
         //fonction canMove permet de savoir si un déplacement est possible de la case de l'unité
@@ -341,20 +309,13 @@ namespace ProjetPOO
                 llp.Add(this.position);
                 return llp;
             }
+            List<Position> l0 = this.getAllPossibleMoves();
             List<Position> l = new List<Position>();
             int i = this.position.x;
             int j = this.position.y;
-            Position p;
-            String s = "";
             double depl = this.nbDeplacement;
-            for (int x = i - 1; x < i + 2; x++)
+            foreach (Position p in l0)
             {
-                for (int y = j - 1; y < j + 2; y++)
-                {
-                    this.nbDeplacement = depl;
-                    if (!(x == y))
-                    {
-                        p = new Position(x, y);
                         //on vérifie que le mouvement est possible
                         if (this.checkMove(p))
                         {
@@ -381,33 +342,23 @@ namespace ProjetPOO
                                 //cas où il n'y a pas d'unité
                                 if (this.calcDepl2(p) <= this.nbDeplacement)
                                 {//le déplacement est possible
-                                    s += x + " " + y + " , ";
                                     if (this.strategy(p))
                                     {
-                                        s += x + " " + y + " , ";
                                         l.Add(p);
                                     }
 
                                 }
                             }
                         }
-                    }
-                }
             }
 
             this.nbDeplacement = depl;
             //on prend trois suggestions de l aléatoirement
-            /*List<Position> lres = new List<Position>();
-            int cpt = 3;
             Random random = new Random();
-            int index;
-            while ((cpt > 0)||(l.Any()))
+            while (l.Count() > 3)
             {
-                index = random.Next(0, l.Count());
-                lres.Add(l.ElementAt(index));
-                l.RemoveAt(index);
-                cpt--;
-            }*/
+                l.RemoveAt(random.Next(0, l.Count()));
+            }
 
             //on ne prend que les trois premières suggestions de l
             /*List<Position> lres = new List<Position>();

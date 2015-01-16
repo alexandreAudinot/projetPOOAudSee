@@ -61,7 +61,7 @@ namespace ProjetPOO
             listAvailableType.Add("Elf");
         }
 
-        //méthode qui permet de nettoyer world entre les tests
+        //méthode qui permet de nettoyer world entre les utilisations
         public static void Clean()
         {
             world = null;

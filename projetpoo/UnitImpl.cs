@@ -66,7 +66,7 @@ namespace ProjetPOO
             }
             if (deplacementDuTour > nbDeplacement)
             {
-                throw new Exception("plus assez de mouvements disponibles");
+                throw new Exception("Pas assez de mouvements disponibles");
             }
             return deplacementDuTour;
         }
@@ -147,7 +147,7 @@ namespace ProjetPOO
             }
             if (deplacementDuTour > nbDeplacement)
             {
-                throw new Exception("plus assez de mouvements disponibles");
+                throw new Exception("Pas assez de mouvements disponibles");
             }
             return deplacementDuTour;
         }
@@ -177,7 +177,7 @@ namespace ProjetPOO
             }
             if (deplacementDuTour > nbDeplacement)
             {
-                throw new Exception("plus assez de mouvements disponibles");
+                throw new Exception("Pas assez de mouvements disponibles");
             }
             return deplacementDuTour;
         }
@@ -255,7 +255,7 @@ namespace ProjetPOO
             }
             if (deplacementDuTour > nbDeplacement)
             {
-                throw new Exception("plus assez de mouvements disponibles");
+                throw new Exception("Pas assez de mouvements disponibles");
             }
             return deplacementDuTour;
         }

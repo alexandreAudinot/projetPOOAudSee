@@ -405,6 +405,30 @@ namespace TestUnitaire
             Assert.IsFalse(o.strategy(new Position(1, 2)));
             Assert.IsFalse(o.strategy(new Position(2, 1)));
         }
+        
+        [TestMethod]
+        public void testgetAllPossibleMoves()
+        {
+            World.Clean();
+            Monteur m = new MonteurNormal();
+            Orc o = new Orc(new Player("tea",1,"for two"),new Position(2,2));
+            Dwarf d = new Dwarf(new Player("and two",1,"for tea"),new Position(3,3));
+            List<Position> lp = o.getAllPossibleMoves();
+            List<Position> lp2 = d.getAllPossibleMoves();
+            Assert.IsTrue((new Position(3,2)).equals(lp.ElementAt(0)));
+            Assert.IsTrue((new Position(1,2)).equals(lp.ElementAt(1)));
+            Assert.IsTrue((new Position(2,3)).equals(lp.ElementAt(2)));
+            Assert.IsTrue((new Position(2,1)).equals(lp.ElementAt(3)));
+            Assert.IsTrue((new Position(3, 1)).equals(lp.ElementAt(4)));
+            Assert.IsTrue((new Position(3, 3)).equals(lp.ElementAt(5)));
+            Assert.IsTrue((new Position(4,3)).equals(lp2.ElementAt(0)));
+            Assert.IsTrue((new Position(2,3)).equals(lp2.ElementAt(1)));
+            Assert.IsTrue((new Position(3,4)).equals(lp2.ElementAt(2)));
+            Assert.IsTrue((new Position(3, 2)).equals(lp2.ElementAt(3)));
+            Assert.IsTrue((new Position(2,2)).equals(lp2.ElementAt(4)));
+            Assert.IsTrue((new Position(2,4)).equals(lp2.ElementAt(5)));
+        }
+
 
         [TestMethod]
         public void testGetMoveSuggestions2()

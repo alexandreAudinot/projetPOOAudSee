@@ -45,7 +45,7 @@ namespace TestUnitaire
             Assert.AreEqual(1, o.pvOrc);
         }
 
-        [ExpectedException(typeof(Exception), "Plus assez de mouvements disponibles")]
+        [ExpectedException(typeof(Exception), "Pas assez de mouvements disponibles")]
         [TestMethod]
         //l'autre exception type de terrain non matché a été vérifiée lors des tests   
         public void testcalcDeplAttOrcPlusAssezMouvements()
@@ -249,7 +249,7 @@ namespace TestUnitaire
             Assert.AreEqual(2, o.calcDepl(new Position(3, 3)));
         }
 
-        [ExpectedException(typeof(Exception), "Plus assez de mouvements disponibles")]
+        [ExpectedException(typeof(Exception), "Pas assez de mouvements disponibles")]
         [TestMethod]
         public void testcalcDeplAttElfFailMove()
         {
