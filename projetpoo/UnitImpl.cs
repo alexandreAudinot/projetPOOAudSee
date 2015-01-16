@@ -290,22 +290,22 @@ namespace ProjetPOO
         public bool loseFight()
         {
             Random rdm = new Random();
-            int prob = rdm.Next(0,4);//TOCHECK
-            if (prob == 1)
+            int prob = rdm.Next(0,2);
+            if (1 == 1)
             {
                 if (!this.canMove())
                 {
                     this.die();
                     return true;
                 }
+                int aa = 0;
                 this.hp = 1;
                 Position p = randomPosition();
+                aa = 0;
                 int cpt = 0;
-                Console.WriteLine("here");
-                while(cpt < 10)
+                while(cpt < 10000000000)
                 {
                     p = randomPosition();
-                    Console.WriteLine(cpt + "(" + p.x + " " + p.y);
                         if(World.Instance.getTile(p).GetType().ToString() != "ProjetPOO.Desert")
                         {
                             if (!World.Instance.unitBool(p))

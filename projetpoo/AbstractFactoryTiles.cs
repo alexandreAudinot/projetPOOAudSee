@@ -25,6 +25,7 @@ namespace ProjetPOO
             forestTile = new Forest();
             mountainTile = new Mountain();
             plainTile = new Plain();
+            //World.Instance.board.Tiles = this.createTilesBoard2();
         }
 
         //fonction createTilesBoard() rend un tableau de tiles
@@ -82,7 +83,7 @@ namespace ProjetPOO
                                     throw new Exception("Nombre aléatoire non matché");
                             } 
                     }
-                    while (!accept); 
+                    while (!accept);
                     switch (rn)
                     {
                         case 0:
@@ -113,27 +114,32 @@ namespace ProjetPOO
             Wrapper board = new Wrapper();
             Tile[,] tab = new Tile[size, size];
             List<int> resul =  board.compute(size, size);
-            for (int x = 0; x < size * size; x++)
+            int x = 0;
+            for (int i = 0; i < size; i++)
             {
-                switch (resul.ElementAt(x))
+                for (int j = 0; j < size; j++)
                 {
-                    case 0:
-                        tab[(int) x  / size, x % size] = (Tile)mountainTile;
-                        break;
-                    case 1:
-                        tab[(int)x / size, x % size] = (Tile)desertTile;
-                        break;
-                    case 2:
-                        tab[(int)x / size, x % size] = (Tile)forestTile;
-                        break;
-                    case 3:
-                        tab[(int)x / size, x % size] = (Tile)plainTile;
-                        break;
-                    default:
-                        throw new Exception("Nombre aléatoire non matché");
+                    switch (resul.ElementAt(x))
+                    {
+                        case 0:
+                            tab[i, j] = (Tile)mountainTile;
+                            break;
+                        case 1:
+                            tab[i, j] = (Tile)desertTile;
+                            break;
+                        case 2:
+                            tab[i, j] = (Tile)forestTile;
+                            break;
+                        case 3:
+                            tab[i, j] = (Tile)plainTile;
+                            break;
+                        default:
+                            throw new Exception("Nombre aléatoire non matché");
+                    }
+                    x++;
                 }
             }
-            return tab;
+                return tab;
         }
     }
 }

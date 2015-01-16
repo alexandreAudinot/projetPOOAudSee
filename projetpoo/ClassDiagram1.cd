@@ -1,69 +1,72 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
   <Comment CommentText="On utilise le Design Pattern Poids Mouche dans Tile et Unit pour ne définir qu'une seule fois l'image des cases et des unités. Si le poids mouche existe déjà, on ne le redéfinit pas">
-    <Position X="10.875" Y="4.875" Height="1.197" Width="2.075" />
+    <Position X="8.146" Y="0.5" Height="1.197" Width="2.075" />
   </Comment>
   <Comment CommentText="On utilise le Design Pattern Stategy pour implémenter plusieurs niveaux de difficultés gérés par une interface.">
-    <Position X="13.073" Y="0.5" Height="0.76" Width="1.95" />
+    <Position X="4.604" Y="1.229" Height="1.125" Width="2.075" />
   </Comment>
   <Comment CommentText="On utilise une Fabrique Abstraite qui sera implémentée par une fabrique qui elle-même créera les unités.">
-    <Position X="7.511" Y="0.5" Height="1.011" Width="1.815" />
+    <Position X="8.644" Y="11.271" Height="1.011" Width="1.815" />
   </Comment>
   <Comment CommentText="On utilise le Design Pattern Monteur pour créer le plateau de différentes façons">
-    <Position X="13.107" Y="1.438" Height="0.948" Width="1.7" />
+    <Position X="5.076" Y="7.032" Height="1.177" Width="1.919" />
   </Comment>
-  <Class Name="ProjetPOO.World">
-    <Position X="5.75" Y="0.5" Width="1.5" />
+  <Comment CommentText="Classe Mountain non représentée sur le diagramme mais bien dans le code">
+    <Position X="12.573" Y="0.729" Height="0.582" Width="2.075" />
+  </Comment>
+  <Class Name="ProjetPOO.World" Collapsed="true">
+    <Position X="19" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQCAUCAgIgAAAAICBAAAQAAAAwAQCECAYBABAAEASAA=</HashCode>
       <FileName>World.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Orc">
-    <Position X="2.25" Y="8.5" Width="1.5" />
+    <Position X="8.5" Y="13" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgCAAAAAAAAAAAAAAAACAggABAAAQABAAAgAAAAA=</HashCode>
       <FileName>UnitImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Elf">
-    <Position X="4" Y="8.5" Width="1.5" />
+    <Position X="10.75" Y="13" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgCAAAAAAAAAAAAAAAAAAAgABAAAAABAAAgAAAAA=</HashCode>
       <FileName>UnitImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Dwarf">
-    <Position X="5.75" Y="8.5" Width="1.5" />
+    <Position X="13" Y="13" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgCAAAAAAAAAAAAAAAAAAAgABAAAAABAAAgAAAAA=</HashCode>
       <FileName>UnitImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Unit">
-    <Position X="4" Y="0.5" Width="1.5" />
+    <Position X="10.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAgCAAAiAgAUCEKAoAoAAQAoABAAAEoBBAAgEgAAA=</HashCode>
       <FileName>Unit.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ProjetPOO.Position">
-    <Position X="0.5" Y="5.25" Width="1.5" />
+  <Class Name="ProjetPOO.Position" Collapsed="true">
+    <Position X="15.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAACAAAAAAAAAAAACAAAAAAAAAABgAAAAAAA=</HashCode>
       <FileName>Position.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ProjetPOO.Player">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+  <Class Name="ProjetPOO.Player" Collapsed="true">
+    <Position X="19" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAMAAgAAAAABIIAAAAAABECQAAAFAAAAIAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Tile">
-    <Position X="9.25" Y="5.5" Width="1.5" />
+    <Position X="10.75" Y="0.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Properties" Collapsed="true" />
     </Compartments>
@@ -73,7 +76,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Desert">
-    <Position X="8" Y="9" Width="1.5" />
+    <Position X="8.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TileImpl.cs</FileName>
@@ -81,7 +84,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Forest">
-    <Position X="10.5" Y="9" Width="1.5" />
+    <Position X="10.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TileImpl.cs</FileName>
@@ -89,71 +92,71 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.DemoBoard">
-    <Position X="9.25" Y="3.25" Width="1.5" />
+    <Position X="0.5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BoardImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.SmallBoard">
-    <Position X="11" Y="3.25" Width="1.5" />
+    <Position X="2.75" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BoardImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.NormalBoard">
-    <Position X="12.75" Y="3.25" Width="1.5" />
+    <Position X="5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>BoardImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.MonteurDemo">
-    <Position X="12.75" Y="6.25" Width="1.5" />
+    <Position X="0.5" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Factory.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ProjetPOO.FactoryUnit">
-    <Position X="7.5" Y="4.75" Width="1.5" />
+  <Class Name="ProjetPOO.FactoryUnit" Collapsed="true">
+    <Position X="17.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAACAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>Factory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Monteur">
-    <Position X="14.5" Y="2.75" Width="1.5" />
+    <Position X="2.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAABAAAAAAAAAgAAAAAAgCQABBAAAAAAAAAAAA=</HashCode>
       <FileName>AbstractFactoryTiles.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ProjetPOO.CreateGame">
-    <Position X="15.25" Y="0.5" Width="1.5" />
+  <Class Name="ProjetPOO.CreateGame" Collapsed="true">
+    <Position X="15.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>CreateGame.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.MonteurSmall">
-    <Position X="14.5" Y="6.25" Width="1.5" />
+    <Position X="2.75" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Factory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.MonteurNormal">
-    <Position X="16.25" Y="6.25" Width="1.5" />
+    <Position X="5" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Factory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.AbstractBoard">
-    <Position X="9.5" Y="0.5" Width="1.5" />
+    <Position X="2.75" Y="0.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Properties" Collapsed="true" />
     </Compartments>
@@ -163,8 +166,8 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="ProjetPOO.SaveGame">
-    <Position X="16.25" Y="2.5" Width="1.5" />
+  <Class Name="ProjetPOO.SaveGame" Collapsed="true">
+    <Position X="17.25" Y="1.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -174,35 +177,28 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ProjetPOO.Plain">
-    <Position X="10.5" Y="7.5" Width="1.5" />
-    <InheritanceLine Type="ProjetPOO.Tile" ManuallyRouted="true" FixedToPoint="true">
-      <Path>
-        <Point X="10" Y="6.603" />
-        <Point X="10" Y="8.118" />
-        <Point X="10.5" Y="8.118" />
-      </Path>
-    </InheritanceLine>
+    <Position X="13" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TileImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="ProjetPOO.Board">
-    <Position X="11.25" Y="0.5" Width="1.5" />
+  <Interface Name="ProjetPOO.Board" Collapsed="true">
+    <Position X="15.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Board.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="ProjetPOO.IUnit">
-    <Position X="2.25" Y="0.5" Width="1.5" />
+  <Interface Name="ProjetPOO.IUnit" Collapsed="true">
+    <Position X="19" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAACAAAACECAAAAAAQAoABAAAAABAAAgEAAAA=</HashCode>
       <FileName>IUnit.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="ProjetPOO.IBuilder">
-    <Position X="16.25" Y="4.25" Width="1.5" />
+  <Interface Name="ProjetPOO.IBuilder" Collapsed="true">
+    <Position X="17.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IBuilder.cs</FileName>

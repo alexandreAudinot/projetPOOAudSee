@@ -96,7 +96,6 @@ namespace ProjetPOO
                 if (!this.isAlive())
                 {
                     //Mort de l'attaquant
-                    //message this.getType().toString() gagne le combat
                     if (this.loseFight())
                     {
                         u.winFightDef(p);
@@ -110,11 +109,7 @@ namespace ProjetPOO
                         if (u.loseFight())
                         {
                             this.winFightAtt(p);
-                            if (World.Instance.unitBool(p))
-                            {
-                                //this.fight(p, World.Instance.getUnit(p));
-                            } 
-                            else
+                            if (!World.Instance.unitBool(p))
                             {
                                 this.makeAMove(p, this.calcDeplAtt(p));
                             }

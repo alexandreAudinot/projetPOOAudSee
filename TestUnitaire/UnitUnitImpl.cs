@@ -277,7 +277,8 @@ namespace TestUnitaire
         [TestMethod]
         public void testloseFightElf()
         {
-            UnitUnit.InitAll();
+            MonteurSmall s = new MonteurSmall();
+            s.createTilesBoard2();
             World.Instance.currentPlayer = 1;
             World.Instance.addPlayer("I", "Elf");
             World.Instance.addPlayer("lost", "Dwarf");
