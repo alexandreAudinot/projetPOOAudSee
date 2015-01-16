@@ -34,7 +34,7 @@ namespace ProjetPOO
             }
             else
             {
-                coordDepart = World.Instance.board.size - 1;
+                coordDepart = World.Instance.board.size - 2;
             }
         }
 

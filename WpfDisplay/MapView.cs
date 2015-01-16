@@ -251,7 +251,7 @@ namespace WpfDisplay
                 drawElement(selectedTileImg, selectedTile, drawingContext);
             if(selectedUnit != null)
             {
-                List<Position> l = selectedUnit.getMoveSuggestions2();
+                List<Position> l = selectedUnit.getMoveSuggestions();
                 foreach(Position p in l)
                 {
                     drawElement(suggestedTileImg, p, drawingContext);

@@ -24,16 +24,16 @@
             <TextBlock x:Name="errorLoad" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,0,10" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Bottom" Background="Black" Foreground="White" Width="250" TextAlignment="Center"/>
 
         </Grid>
-        <Grid Name="Intro1">
+        <Grid Name="Intro1" Visibility="Hidden">
             <Image Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top" Source="Ressources/flou.jpg" Grid.RowSpan="3" Stretch="Fill"/>
-            <TextBlock x:Name="textIntro1" HorizontalAlignment="Left" Margin="282,0,0,216" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="600" Foreground="White" Height="256" TextAlignment="Justify" FontSize="16"/>
+            <TextBlock x:Name="textIntro1" HorizontalAlignment="Left" Margin="282,298,0,0" TextWrapping="Wrap" Width="600" Foreground="White" TextAlignment="Justify" FontSize="16" Height="256" VerticalAlignment="Top"/>
             <Image HorizontalAlignment="Left" Height="244" Margin="96,298,0,0" VerticalAlignment="Top" Width="180" Source="Ressources/morgoth.jpg"/>
             <Image HorizontalAlignment="Left" Height="145" Margin="595,556,0,0" VerticalAlignment="Top" Width="125" Source="Ressources/rings.jpg"/>
             <Button Content="Suivant" HorizontalAlignment="Center" Margin="0,657,0,0" VerticalAlignment="Top" Width="75" Click="GoToIntro2"/>
         </Grid>
         <Grid Name="Intro2" Visibility="Hidden">
             <Image Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top" Source="Ressources/flou.jpg" Grid.RowSpan="3" Stretch="Fill"/>
-            <TextBlock x:Name="textIntro2" HorizontalAlignment="Center" Margin="196,300,196,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600" Foreground="White" Height="162" TextAlignment="Justify" FontSize="16"/>
+            <TextBlock x:Name="textIntro2" HorizontalAlignment="Center" Margin="0,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600" Foreground="White" Height="162" TextAlignment="Justify" FontSize="16"/>
             <Image HorizontalAlignment="Center" Height="174" Margin="0,462,0,0" VerticalAlignment="Top" Width="310" Source="Ressources/saruman.jpg"/>
             <Button Content="Suivant" HorizontalAlignment="Center" Margin="0,657,0,0" VerticalAlignment="Top" Width="75" Click="SkipIntro"/>
         </Grid>
