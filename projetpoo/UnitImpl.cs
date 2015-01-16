@@ -269,8 +269,8 @@ namespace ProjetPOO
         public bool loseFight()
         {
             Random rdm = new Random();
-            int prob = rdm.Next(0,2);
-            if (1 == 1)
+            int prob = rdm.Next(0,4);//TOCHECK
+            if (prob == 1)
             {
                 if (!this.canMove())
                 {
@@ -281,19 +281,10 @@ namespace ProjetPOO
                 Position p = randomPosition();
                 int cpt = 0;
                 Console.WriteLine("here");
-                while(cpt < 100)
+                while(cpt < 10)
                 {
                     p = randomPosition();
-                    Console.WriteLine(cpt + " " + p.x + " " + p.y);
-                    try
-                    {
-                        if (World.Instance.getTile(p).GetType().ToString() != "ProjetPOO.Desert")
-                        { }
-                    }
-                    catch (Exception e)
-                    {
-                        throw new Exception(e + " " + p.x + " " + p.y);
-                    }/*
+                    Console.WriteLine(cpt + "(" + p.x + " " + p.y);
                         if(World.Instance.getTile(p).GetType().ToString() != "ProjetPOO.Desert")
                         {
                             if (!World.Instance.unitBool(p))
@@ -309,7 +300,7 @@ namespace ProjetPOO
                                     return false;
                                 }
                             }
-                        }*/
+                        }
                         cpt++;
                 }
                 this.die();

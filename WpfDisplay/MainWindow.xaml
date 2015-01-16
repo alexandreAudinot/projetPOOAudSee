@@ -111,10 +111,10 @@
             <local:GameInfo x:Name="gameInfo" Grid.Column="1" HorizontalAlignment="Center" Margin="0,35,0,0" Grid.Row="1" VerticalAlignment="Top"/>
 
         </Grid>
-        <Grid Name="Victoire" Visibility="Hidden">
+        <Grid Name="Victoire" Visibility="Visible">
             <Image Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top" Source="Ressources/flou.jpg" Grid.RowSpan="3" Stretch="Fill"/>
             <TextBlock x:Name="victory" HorizontalAlignment="Center" Margin="0,246,0,0" VerticalAlignment="Top" Height="86" Width="800" FontSize="48" Foreground="White" TextAlignment="Center"/>
-            <TextBlock x:Name="textVictory" HorizontalAlignment="Center" Margin="0,0,0,200" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="600" Foreground="White" Height="256" TextAlignment="Justify" FontSize="16"/>
+            <TextBlock x:Name="textVictory" HorizontalAlignment="Center" Margin="190,0,202,176" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="600" Foreground="White" Height="256" TextAlignment="Justify" FontSize="16"/>
             <Image HorizontalAlignment="Center" Height="158" Margin="0,494,0,0" VerticalAlignment="Top" Width="216" Source="Ressources/eye.png"/>
             <Button Content="Quitter" HorizontalAlignment="Center" Margin="0,657,0,0" VerticalAlignment="Top" Width="75" Click="GoBackToMenu"/>
         </Grid>
