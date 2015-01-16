@@ -193,33 +193,5 @@ namespace TestUnitaire
             Assert.AreEqual(2, World.Instance.players.First().score);
             Assert.AreEqual(1, World.Instance.players.ElementAt(1).score);
         }
-
-        [TestMethod]
-        public void testApresRepliElf()
-        {
-            UnitUnit.InitAll();
-            World.Instance.currentPlayer = 1;
-            World.Instance.repliCurrentPlayer = 0;
-            World.Instance.addPlayer("I", "Elf");
-            World.Instance.addPlayer("lost", "Dwarf");
-            World.Instance.players.First().listUnit.Add(new Elf(World.Instance.players.First(), new Position(1, 1)));
-            World.Instance.players.First().apresRepli();
-            Assert.AreEqual(0, World.Instance.currentPlayer);
-            Assert.AreEqual(-1, World.Instance.repliCurrentPlayer);
-        }
-
-        [TestMethod]
-        public void testApresRepliElf2()
-        {
-            UnitUnit.InitAll();
-            World.Instance.currentPlayer = 0;
-            World.Instance.repliCurrentPlayer = 1;
-            World.Instance.addPlayer("I", "Elf");
-            World.Instance.addPlayer("lost", "Dwarf");
-            World.Instance.players.First().listUnit.Add(new Elf(World.Instance.players.First(), new Position(1, 1)));
-            World.Instance.players.First().apresRepli();
-            Assert.AreEqual(1, World.Instance.currentPlayer);
-            Assert.AreEqual(-1, World.Instance.repliCurrentPlayer);
-        }
     }
 }

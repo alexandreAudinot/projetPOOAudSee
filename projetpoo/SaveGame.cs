@@ -31,7 +31,6 @@ namespace ProjetPOO
             text += "[nbUnity = " + World.Instance.nbUnity + "], ";
             text += "[currentPlayer = " + World.Instance.currentPlayer + "], ";
             text += "[stateGame = " + World.Instance.stateGame + "], ";
-            text += "[repliCurrentPlayer = " + World.Instance.repliCurrentPlayer + "], ";
             text += "[nbPlayers = " + World.Instance.players.Count() + "]\n";
             //board
             text += "[Board]\n";
@@ -151,7 +150,7 @@ namespace ProjetPOO
             int snbPlayers = 0;
             //on récupère les informations relatives au world
             Regex rline1 = new Regex(@"^\[maxnbTours = ([\w]+)\],? \[nbTours = ([\w]+)\],? \[nbUnity = ([\w]+)\],?"
-                + @" \[currentPlayer = ([\w]+)\],? \[stateGame = ([\w]+)\],? \[repliCurrentPlayer = (-[\w]+|[\w]+)\],? \[nbPlayers = ([\w]+)\]?");
+                + @" \[currentPlayer = ([\w]+)\],? \[stateGame = ([\w]+)\],? \[nbPlayers = ([\w]+)\]?");
             Match mline1 = rline1.Match(lines[2]);
             if (mline1.Success)
             {
@@ -162,9 +161,8 @@ namespace ProjetPOO
                     int snbUnity = int.Parse(mline1.Groups[3].Value);
                     int scurrentPlayer = int.Parse(mline1.Groups[4].Value);
                     Boolean sstateGame = Boolean.Parse(mline1.Groups[5].Value);
-                    int srepliCurrentPlayer = int.Parse(mline1.Groups[6].Value);
-                    snbPlayers = int.Parse(mline1.Groups[7].Value);
-                    World.Instance.loadGameWorld(smaxnbTours, snbTours, snbUnity, scurrentPlayer, sstateGame, srepliCurrentPlayer);
+                    snbPlayers = int.Parse(mline1.Groups[6].Value);
+                    World.Instance.loadGameWorld(smaxnbTours, snbTours, snbUnity, scurrentPlayer, sstateGame);
                 }
                 catch (Exception)
                 {

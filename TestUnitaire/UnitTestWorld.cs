@@ -41,7 +41,6 @@ namespace TestUnitaire
             Assert.IsNotNull(World.Instance.listType);
             Assert.IsNotNull(World.Instance.listAvailableType);
             Assert.IsNotNull(World.Instance.players);
-            Assert.AreEqual(-1, World.Instance.repliCurrentPlayer);
         }
 
         [TestMethod]
@@ -49,13 +48,12 @@ namespace TestUnitaire
         {
             World.Clean();
             MonteurSmall m = new MonteurSmall();
-            World.Instance.loadGameWorld(10, 11, 12, 13, true, 15);
+            World.Instance.loadGameWorld(10, 11, 12, 13, true);
             Assert.AreEqual(10, World.Instance.maxnbTours);
             Assert.AreEqual(11, World.Instance.nbTours);
             Assert.AreEqual(12, World.Instance.nbUnity);
             Assert.AreEqual(13, World.Instance.currentPlayer);
             Assert.IsTrue(World.Instance.stateGame);
-            Assert.AreEqual(15, World.Instance.repliCurrentPlayer);
         }
 
         [TestMethod]

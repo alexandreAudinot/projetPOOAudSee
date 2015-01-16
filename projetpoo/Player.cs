@@ -188,12 +188,5 @@ namespace ProjetPOO
             }
             score = l.Count - 1;
         }
-
-        public void apresRepli()
-        {
-            //traite le repli d'un elfe : on donne la possibililité de bouger une seule fois
-            World.Instance.currentPlayer = World.Instance.repliCurrentPlayer;
-            World.Instance.repliCurrentPlayer = -1;
-        }
     }
 }
