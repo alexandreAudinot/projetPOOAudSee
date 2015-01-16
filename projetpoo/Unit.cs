@@ -144,18 +144,18 @@ namespace ProjetPOO
 
             if (position.x + 1 < World.Instance.board.size)
                 res.Add(new Position(position.x + 1, position.y));
-            if (position.x - 1 > 0)
+            if (position.x - 1 >= 0)
                 res.Add(new Position(position.x - 1, position.y));
             if (position.y + 1 < World.Instance.board.size)
                 res.Add(new Position(position.x, position.y + 1));
-            if (position.y - 1 > 0)
+            if (position.y - 1 >= 0)
                 res.Add(new Position(position.x, position.y - 1));
 
             if (this.position.y % 2 == 0)
             {
                 if (position.x + 1 < World.Instance.board.size)
                 {
-                    if (position.y - 1 > 0)
+                    if (position.y - 1 >= 0)
                         res.Add(new Position(position.x + 1, position.y - 1));
                     if (position.y + 1 < World.Instance.board.size)
                         res.Add(new Position(position.x + 1, position.y + 1));
@@ -163,9 +163,9 @@ namespace ProjetPOO
             }
             else
             {
-                if (position.x - 1 > 0)
+                if (position.x - 1 >= 0)
                 {
-                    if (position.y - 1 > 0)
+                    if (position.y - 1 >= 0)
                         res.Add(new Position(position.x - 1, position.y - 1));
                     if (position.y + 1 < World.Instance.board.size)
                         res.Add(new Position(position.x - 1, position.y + 1));

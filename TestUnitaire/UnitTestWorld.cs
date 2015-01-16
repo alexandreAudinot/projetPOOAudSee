@@ -110,7 +110,7 @@ namespace TestUnitaire
             World.Instance.players.First().listUnit.Add(new Orc(World.Instance.players.First(), new Position(2, 3)));
             World.Instance.players.First().listUnit.Add(new Orc(World.Instance.players.First(), new Position(1, 3)));
             World.Instance.players.First().listUnit.Add(new Orc(World.Instance.players.First(), new Position(3, 1)));
-            Assert.IsFalse(((Unit)World.Instance.players.First().listUnit.First()).canMove());
+            Assert.IsTrue(((Unit)World.Instance.players.First().listUnit.First()).canMove());
         }
 
         [TestMethod]
