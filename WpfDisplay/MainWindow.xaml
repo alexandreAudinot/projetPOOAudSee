@@ -24,7 +24,7 @@
             <TextBlock x:Name="errorLoad" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,0,10" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Bottom" Background="Black" Foreground="White" Width="250" TextAlignment="Center"/>
 
         </Grid>
-        <Grid Name="Intro1" Visibility="Visible">
+        <Grid Name="Intro1" Visibility="Hidden">
             <Image Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top" Source="Ressources/flou.jpg" Grid.RowSpan="3" Stretch="Fill"/>
             <TextBlock x:Name="textIntro1" HorizontalAlignment="Left" Margin="282,298,0,0" TextWrapping="Wrap" Width="600" Foreground="White" TextAlignment="Justify" FontSize="16" Height="256" VerticalAlignment="Top"/>
             <Image HorizontalAlignment="Left" Height="244" Margin="96,298,0,0" VerticalAlignment="Top" Width="180" Source="Ressources/morgoth.jpg"/>
