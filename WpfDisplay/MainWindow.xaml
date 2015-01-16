@@ -12,13 +12,16 @@
                 <RowDefinition Height="7*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0*"/>
-                <ColumnDefinition Width="516*"/>
-                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="500"/>
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Grid.ColumnSpan="2" Content="Nouvelle partie" HorizontalAlignment="Center" Margin="0,226,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Click="NewGame"/>
-            <Button Grid.ColumnSpan="2" Content="Charger partie" HorizontalAlignment="Center" Margin="0,248,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Click="LoadGame"/>
-            <Button Grid.ColumnSpan="2" Content="Quitter" HorizontalAlignment="Center" Margin="0,270,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100" Click="QuitGame"/>
+            <Image Grid.ColumnSpan="3" HorizontalAlignment="Center" Height="770" VerticalAlignment="Top" Width="992" Source="Ressources/flou.jpg" Grid.RowSpan="3" Stretch="Fill"/>
+            <Button Content="Nouvelle partie" HorizontalAlignment="Left" Margin="10,0,0,100" Grid.Row="1" VerticalAlignment="Bottom" Width="150" Click="NewGame" Height="100" FontSize="18" Grid.Column="1"/>
+            <Button Content="Charger partie" HorizontalAlignment="Center" Margin="0,0,0,100" Grid.Row="1" VerticalAlignment="Bottom" Width="150" Click="LoadGame" Height="100" FontSize="18" Grid.Column="1"/>
+            <Button Content="Quitter" HorizontalAlignment="Right" Margin="0,0,10,100" Grid.Row="1" VerticalAlignment="Bottom" Width="150" Click="QuitGame" Height="100" FontSize="18" Grid.Column="1"/>
+            <TextBox x:Name="load" Grid.Column="1" HorizontalAlignment="Center" Height="23" Margin="0,0,0,31" Grid.Row="1" TextWrapping="Wrap" Text="save1" VerticalAlignment="Bottom" Width="120"/>
+            <TextBlock x:Name="errorLoad" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,0,10" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Bottom" Background="Black" Foreground="White" Width="250" TextAlignment="Center"/>
 
         </Grid>
         <Grid Name="ModeSelection" Visibility="Hidden">

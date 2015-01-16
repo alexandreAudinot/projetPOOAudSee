@@ -75,7 +75,16 @@ namespace WpfDisplay
         private void LoadGame(object sender, RoutedEventArgs e)
         {
             SaveGame save = new SaveGame();
-            save.loadOnDisk("save1.txt");
+
+            try
+            {
+                save.loadOnDisk(load.Text + ".txt");
+            }
+            catch(Exception ex)
+            {
+                errorLoad.Text = ex.Message;
+                return;
+            }
 
             Menu.Visibility = System.Windows.Visibility.Hidden;
             
