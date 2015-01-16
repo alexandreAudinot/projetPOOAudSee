@@ -270,7 +270,7 @@ namespace ProjetPOO
         {
             Random rdm = new Random();
             int prob = rdm.Next(0,2);
-            if (prob == 1)
+            if (1 == 1)
             {
                 if (!this.canMove())
                 {
@@ -278,8 +278,42 @@ namespace ProjetPOO
                     return true;
                 }
                 this.hp = 1;
-                this.position = randomPosition();
-                return false;
+                Position p = randomPosition();
+                int cpt = 0;
+                Console.WriteLine("here");
+                while(cpt < 100)
+                {
+                    p = randomPosition();
+                    Console.WriteLine(cpt + " " + p.x + " " + p.y);
+                    try
+                    {
+                        if (World.Instance.getTile(p).GetType().ToString() != "ProjetPOO.Desert")
+                        { }
+                    }
+                    catch (Exception e)
+                    {
+                        throw new Exception(e + " " + p.x + " " + p.y);
+                    }/*
+                        if(World.Instance.getTile(p).GetType().ToString() != "ProjetPOO.Desert")
+                        {
+                            if (!World.Instance.unitBool(p))
+                            {
+                                this.position = p;
+                                return false;
+                            }
+                            else
+                            {
+                                if(World.Instance.getUnit(p).controler.numero == this.controler.numero)
+                                {
+                                    this.position = p;
+                                    return false;
+                                }
+                            }
+                        }*/
+                        cpt++;
+                }
+                this.die();
+                return true;
                 //le joueur fait son repli : seulement un move est possible
             }
             else
