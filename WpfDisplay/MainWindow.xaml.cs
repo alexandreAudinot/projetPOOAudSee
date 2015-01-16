@@ -102,7 +102,7 @@ namespace WpfDisplay
 
         private void LoadGame(object sender, RoutedEventArgs e)
         {
-            SaveGame save = new SaveGame();
+            SaveManager save = new SaveManager();
 
             try
             {
@@ -311,7 +311,7 @@ namespace WpfDisplay
 
         private void ButtonSave(object sender, RoutedEventArgs e)
         {
-            SaveGame save = new SaveGame();
+            SaveManager save = new SaveManager();
             String resul = save.saveOnDisk();
             Console.WriteLine("game saved : " + resul);
             error.Text = "game saved : " + resul;

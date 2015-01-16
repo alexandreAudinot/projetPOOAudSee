@@ -107,7 +107,7 @@ namespace TestUnitaire
             World.Instance.players.ElementAt(1).listUnit.Add(e1);
             World.Instance.players.ElementAt(1).listUnit.Add(e2);
             World.Instance.players.First().initDeplacement();
-            SaveGame save = new SaveGame();
+            SaveManager save = new SaveManager();
             save.saveOnDisk();
             //le test se fait en vérifiant le contenu du fichier save dans 
             //projetPOOAudSee\TestUnitaire\bin\Debug
@@ -117,7 +117,7 @@ namespace TestUnitaire
         [TestMethod]
         public void testLoadGameFail()
         {
-            SaveGame save = new SaveGame();
+            SaveManager save = new SaveManager();
             save.loadOnDisk("Carot.txt");
         }
 
@@ -145,7 +145,7 @@ namespace TestUnitaire
             World.Instance.players.First().score = 5;
             World.Instance.players.ElementAt(1).score = 1;
             String tile = World.Instance.board.Tiles[0, 1].GetType().ToString();
-            SaveGame save = new SaveGame();
+            SaveManager save = new SaveManager();
             String resul = save.saveOnDisk();
             World.Instance.players.First().score = 10;
             World.Clean();
